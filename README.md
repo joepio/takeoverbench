@@ -17,8 +17,11 @@ Specifically, we focus on:
 git clone https://github.com/pauseai/takeoverbench.git
 cd takeoverbench
 
+# Create a .env file from the template, fill in your API keys
+cp template.env .env
+
 # Install dependencies
-pip install inspect-ai
+pip install inspect-ai cua-agent[all]
 # Possibly also model providers like openai, anthropic, etc.
 
 # Run the benchmark using AISI's Inspect cli
