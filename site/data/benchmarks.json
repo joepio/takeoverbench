@@ -1,126 +1,811 @@
 [
   {
-    "id": "gpqa-diamond",
-    "name": "GPQA Diamond",
-    "description": "Graduate-level science questions requiring deep domain expertise",
-    "category": "science",
-    "difficultyLevel": "advanced",
-    "color": "#e91e8c",
-    "humanBaseline": 34,
-    "expertBaseline": 81,
-    "url": "https://arxiv.org/abs/2311.12022",
+    "id": "chem_bench",
+    "name": "chembench",
+    "description": "TODO: Good description for chembench",
+    "metricName": "analytical_chemistry",
     "scores": [
-      { "modelId": "gpt4", "score": 30 },
-      { "modelId": "claude3", "score": 42 },
-      { "modelId": "claude35-sonnet", "score": 53 },
-      { "modelId": "gpt4o-aug", "score": 62 },
-      { "modelId": "o1", "score": 76 }
-    ]
+      {
+        "modelId": "Qwen3-Next-80B-A3B-Instruct",
+        "score": 0.44,
+        "stdError": 0.06787969550038134
+      },
+      {
+        "modelId": "gemma-3-27b-it",
+        "score": 0.41,
+        "stdError": 0.06258056032517002
+      },
+      {
+        "modelId": "gemma-3-12b-it",
+        "score": 0.4425,
+        "stdError": 0.06340769444070424
+      },
+      {
+        "modelId": "Qwen3-235B-A22B-Instruct-2507-tput",
+        "score": 0.5275,
+        "stdError": 0.06872471705793977
+      },
+      {
+        "modelId": "Mistral-7B-Instruct-v0.3",
+        "score": 0.06,
+        "stdError": 0.033926691677251195
+      },
+      {
+        "modelId": "phi-4",
+        "score": 0.385,
+        "stdError": 0.05530988766458839
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
   },
   {
-    "id": "math-500",
-    "name": "MATH-500",
-    "description": "Challenging high-school competition mathematics problems",
-    "category": "mathematics",
-    "difficultyLevel": "advanced",
-    "color": "#6366f1",
-    "humanBaseline": 40,
-    "expertBaseline": 90,
+    "id": "make_me_say",
+    "name": "makemesay",
+    "description": "TODO: Good description for makemesay",
+    "metricName": "inspect_evals/win_rate",
     "scores": [
-      { "modelId": "gpt4", "score": 22 },
-      { "modelId": "claude3", "score": 35 },
-      { "modelId": "claude35-sonnet", "score": 51 },
-      { "modelId": "o1-mini", "score": 90 },
-      { "modelId": "o1", "score": 94 }
-    ]
+      {
+        "modelId": "qwen-2.5-72b-instruct",
+        "score": 0.4,
+        "stdError": null
+      },
+      {
+        "modelId": "qwen-2.5-7b-instruct",
+        "score": 0.0,
+        "stdError": null
+      },
+      {
+        "modelId": "gemini-2.0-flash-001",
+        "score": 0.6,
+        "stdError": null
+      },
+      {
+        "modelId": "llama-3.2-3b-instruct",
+        "score": 0.25,
+        "stdError": null
+      },
+      {
+        "modelId": "llama-3.3-70b-instruct",
+        "score": 0.45,
+        "stdError": null
+      },
+      {
+        "modelId": "deepseek-chat",
+        "score": 0.6,
+        "stdError": null
+      },
+      {
+        "modelId": "gpt-4o-mini-2024-07-18",
+        "score": 0.5,
+        "stdError": null
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
   },
   {
-    "id": "frontiermatch",
-    "name": "FrontierMath",
-    "description": "Cutting-edge mathematical research problems at the frontier of knowledge",
-    "category": "mathematics",
-    "difficultyLevel": "frontier",
-    "color": "#14b8a6",
-    "expertBaseline": 95,
+    "id": "forecast_bench",
+    "name": "ForecastBench Tournament",
+    "description": "TODO: Good description for ForecastBench Tournament",
+    "metricName": "Overall",
     "scores": [
-      { "modelId": "claude35-sonnet", "score": 0.5 },
-      { "modelId": "gpt4o-aug", "score": 2.5 },
-      { "modelId": "o1", "score": 4 }
-    ]
+      {
+        "modelId": "GPT-5-2025-08-07 (zero shot with crowd forecast)",
+        "score": 0.11,
+        "stdError": 0.004336734693877551
+      },
+      {
+        "modelId": "Claude-Opus-4-1-20250805 (zero shot with crowd forecast)",
+        "score": 0.111,
+        "stdError": 0.004591836734693878
+      },
+      {
+        "modelId": "Gemini-2.5-Pro (zero shot with crowd forecast)",
+        "score": 0.112,
+        "stdError": 0.01045918367346939
+      },
+      {
+        "modelId": "GPT-4.5-Preview-2025-02-27 (zero shot with crowd forecast)",
+        "score": 0.112,
+        "stdError": 0.0030612244897959178
+      },
+      {
+        "modelId": "O3-2025-04-16 (zero shot with crowd forecast)",
+        "score": 0.113,
+        "stdError": 0.004846938775510205
+      },
+      {
+        "modelId": "GPT-4.5-Preview-2025-02-27 (scratchpad with crowd forecast)",
+        "score": 0.114,
+        "stdError": 0.0035714285714285713
+      },
+      {
+        "modelId": "Claude-3-7-Sonnet-20250219 (scratchpad with crowd forecast)",
+        "score": 0.115,
+        "stdError": 0.002806122448979591
+      },
+      {
+        "modelId": "DeepSeek-R1 (scratchpad with crowd forecast)",
+        "score": 0.118,
+        "stdError": 0.0030612244897959178
+      },
+      {
+        "modelId": "Claude-3-7-Sonnet-20250219 (zero shot with crowd forecast)",
+        "score": 0.121,
+        "stdError": 0.0030612244897959178
+      },
+      {
+        "modelId": "O3-2025-04-16 (scratchpad with crowd forecast)",
+        "score": 0.122,
+        "stdError": 0.005357142857142858
+      },
+      {
+        "modelId": "GPT-4.1-2025-04-14 (scratchpad with crowd forecast)",
+        "score": 0.123,
+        "stdError": 0.004336734693877551
+      },
+      {
+        "modelId": "Grok-beta (zero shot with crowd forecast)",
+        "score": 0.124,
+        "stdError": 0.0033163265306122443
+      },
+      {
+        "modelId": "O3-Mini-2025-01-31 (zero shot with crowd forecast)",
+        "score": 0.125,
+        "stdError": 0.0030612244897959212
+      },
+      {
+        "modelId": "Claude-3-5-Sonnet-20241022 (scratchpad with crowd forecast)",
+        "score": 0.125,
+        "stdError": 0.0028061224489795943
+      },
+      {
+        "modelId": "Gemini-2.5-Flash-Preview-04-17 (zero shot)",
+        "score": 0.125,
+        "stdError": 0.008418367346938772
+      },
+      {
+        "modelId": "GPT-5-Mini-2025-08-07 (zero shot with crowd forecast)",
+        "score": 0.125,
+        "stdError": 0.007908163265306118
+      },
+      {
+        "modelId": "O4-Mini-2025-04-16 (zero shot with crowd forecast)",
+        "score": 0.126,
+        "stdError": 0.005612244897959185
+      },
+      {
+        "modelId": "Claude-3-5-Sonnet-20241022 (zero shot with crowd forecast)",
+        "score": 0.128,
+        "stdError": 0.003316326530612248
+      },
+      {
+        "modelId": "Claude-3-5-Sonnet-20240620 (zero shot with crowd forecast)",
+        "score": 0.128,
+        "stdError": 0.0030612244897959212
+      },
+      {
+        "modelId": "GPT-4.1-2025-04-14 (zero shot with crowd forecast)",
+        "score": 0.128,
+        "stdError": 0.004336734693877555
+      },
+      {
+        "modelId": "Qwen3-235B-A22B-Fp8-Tput (scratchpad with crowd forecast)",
+        "score": 0.129,
+        "stdError": 0.003571428571428575
+      },
+      {
+        "modelId": "Claude-Sonnet-4-20250514 (zero shot with crowd forecast)",
+        "score": 0.129,
+        "stdError": 0.008928571428571426
+      },
+      {
+        "modelId": "Claude-3-5-Sonnet-20240620 (scratchpad with crowd forecast)",
+        "score": 0.129,
+        "stdError": 0.0028061224489795943
+      },
+      {
+        "modelId": "Claude-Opus-4-20250514 (scratchpad with crowd forecast)",
+        "score": 0.129,
+        "stdError": 0.011224489795918367
+      },
+      {
+        "modelId": "GPT-4-Turbo-2024-04-09 (zero shot with crowd forecast)",
+        "score": 0.129,
+        "stdError": 0.003316326530612248
+      },
+      {
+        "modelId": "DeepSeek-V3 (zero shot with crowd forecast)",
+        "score": 0.13,
+        "stdError": 0.0030612244897959212
+      },
+      {
+        "modelId": "Meta-Llama-3.1-405B-Instruct-Turbo (zero shot with crowd forecast)",
+        "score": 0.13,
+        "stdError": 0.004336734693877555
+      },
+      {
+        "modelId": "Gemini-2.5-Flash (zero shot with crowd forecast)",
+        "score": 0.13,
+        "stdError": 0.013010204081632655
+      },
+      {
+        "modelId": "O3-2025-04-16 (zero shot)",
+        "score": 0.131,
+        "stdError": 0.009693877551020406
+      },
+      {
+        "modelId": "Gemini-2.5-Flash-Preview-04-17 (zero shot with crowd forecast)",
+        "score": 0.131,
+        "stdError": 0.008673469387755098
+      },
+      {
+        "modelId": "Qwen3-235B-A22B-Fp8-Tput (zero shot with crowd forecast)",
+        "score": 0.131,
+        "stdError": 0.016581632653061222
+      },
+      {
+        "modelId": "GLM-4.5-Air-FP8 (zero shot with crowd forecast)",
+        "score": 0.133,
+        "stdError": 0.005612244897959182
+      },
+      {
+        "modelId": "O3-2025-04-16 (scratchpad)",
+        "score": 0.134,
+        "stdError": 0.008673469387755102
+      },
+      {
+        "modelId": "Kimi-K2-Instruct (zero shot with crowd forecast)",
+        "score": 0.134,
+        "stdError": 0.005357142857142855
+      },
+      {
+        "modelId": "GPT-4o-2024-05-13 (zero shot with crowd forecast)",
+        "score": 0.134,
+        "stdError": 0.003316326530612241
+      },
+      {
+        "modelId": "GPT-4.5-Preview-2025-02-27 (zero shot)",
+        "score": 0.134,
+        "stdError": 0.0061224489795918356
+      },
+      {
+        "modelId": "Llama-3.3-70B-Instruct-Turbo (scratchpad with crowd forecast)",
+        "score": 0.135,
+        "stdError": 0.003061224489795914
+      },
+      {
+        "modelId": "Claude-3-7-Sonnet-20250219 (scratchpad)",
+        "score": 0.136,
+        "stdError": 0.0035714285714285674
+      },
+      {
+        "modelId": "QwQ-32B-Preview (scratchpad with crowd forecast)",
+        "score": 0.136,
+        "stdError": 0.004081632653061221
+      },
+      {
+        "modelId": "O3-Mini-2025-01-31 (scratchpad with crowd forecast)",
+        "score": 0.137,
+        "stdError": 0.0048469387755102015
+      },
+      {
+        "modelId": "Mistral-Large-2407 (zero shot with crowd forecast)",
+        "score": 0.137,
+        "stdError": 0.003316326530612241
+      },
+      {
+        "modelId": "O4-Mini-2025-04-16 (scratchpad with crowd forecast)",
+        "score": 0.137,
+        "stdError": 0.006377551020408162
+      },
+      {
+        "modelId": "Claude-3-Opus-20240229 (zero shot with crowd forecast)",
+        "score": 0.137,
+        "stdError": 0.0043367346938775475
+      },
+      {
+        "modelId": "GPT-4.5-Preview-2025-02-27 (scratchpad)",
+        "score": 0.138,
+        "stdError": 0.005612244897959182
+      },
+      {
+        "modelId": "DeepSeek-V3 (scratchpad with crowd forecast)",
+        "score": 0.14,
+        "stdError": 0.007653061224489796
+      },
+      {
+        "modelId": "GLM-4.5-Air-FP8 (scratchpad with crowd forecast)",
+        "score": 0.14,
+        "stdError": 0.011479591836734698
+      },
+      {
+        "modelId": "Qwen2.5-72B-Instruct-Turbo (zero shot with crowd forecast)",
+        "score": 0.141,
+        "stdError": 0.0045918367346938745
+      },
+      {
+        "modelId": "GPT-4-0613 (zero shot with crowd forecast)",
+        "score": 0.142,
+        "stdError": 0.005357142857142855
+      },
+      {
+        "modelId": "DeepSeek-R1 (scratchpad)",
+        "score": 0.142,
+        "stdError": 0.004081632653061221
+      },
+      {
+        "modelId": "Qwen3-235B-A22B-Fp8-Tput (zero shot)",
+        "score": 0.142,
+        "stdError": 0.02295918367346939
+      },
+      {
+        "modelId": "Grok-beta (zero shot)",
+        "score": 0.142,
+        "stdError": 0.0061224489795918356
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
   },
   {
-    "id": "swe-bench-verified",
-    "name": "SWE-bench Verified",
-    "description": "Real-world software engineering tasks requiring code understanding and modification",
-    "category": "coding",
-    "difficultyLevel": "advanced",
-    "color": "#f97316",
-    "humanBaseline": 45,
+    "id": "long_tasks",
+    "name": "METR Horizon Benchmark",
+    "description": "TODO: Good description for METR Horizon Benchmark",
+    "metricName": "p50_horizon_length",
     "scores": [
-      { "modelId": "gpt4", "score": 18 },
-      { "modelId": "claude35-sonnet", "score": 32 },
-      { "modelId": "o1", "score": 40 }
-    ]
+      {
+        "modelId": "claude-3-5-sonnet",
+        "score": 18.216831,
+        "stdError": 6.194192602040816
+      },
+      {
+        "modelId": "claude-3-5-sonnet-20241022",
+        "score": 28.983512,
+        "stdError": 11.154879081632656
+      },
+      {
+        "modelId": "claude-3-7-sonnet",
+        "score": 54.226342,
+        "stdError": 15.840017602040815
+      },
+      {
+        "modelId": "claude-3-opus",
+        "score": 6.422825,
+        "stdError": 2.563868367346939
+      },
+      {
+        "modelId": "claude-4-opus",
+        "score": 79.862937,
+        "stdError": 23.977769642857144
+      },
+      {
+        "modelId": "claude-4-sonnet",
+        "score": 67.705892,
+        "stdError": 21.48622448979592
+      },
+      {
+        "modelId": "claude-4-1-opus",
+        "score": 105.499169,
+        "stdError": 35.31009030612245
+      },
+      {
+        "modelId": "claude-sonnet-4-5",
+        "score": 113.303764,
+        "stdError": 46.62930637755102
+      },
+      {
+        "modelId": "davinci-002",
+        "score": 0.148821,
+        "stdError": 0.04516301020408164
+      },
+      {
+        "modelId": "deepseek-r1",
+        "score": 26.932599,
+        "stdError": 9.443573979591838
+      },
+      {
+        "modelId": "deepseek-r1-0528",
+        "score": 31.167847,
+        "stdError": 13.076281632653062
+      },
+      {
+        "modelId": "deepseek-v3",
+        "score": 18.472532,
+        "stdError": 6.327963520408164
+      },
+      {
+        "modelId": "deepseek-v3-0324",
+        "score": 23.117113,
+        "stdError": 7.556839285714286
+      },
+      {
+        "modelId": "gemini-2-5-pro-preview",
+        "score": 38.734274,
+        "stdError": 12.816065051020407
+      },
+      {
+        "modelId": "gpt2",
+        "score": 0.039744,
+        "stdError": 0.03286479591836735
+      },
+      {
+        "modelId": "gpt-3-5-turbo-instruct",
+        "score": 0.604384,
+        "stdError": 0.19442066326530613
+      },
+      {
+        "modelId": "gpt-4",
+        "score": 5.364045,
+        "stdError": 1.9906926020408164
+      },
+      {
+        "modelId": "gpt-4-0125",
+        "score": 5.366063,
+        "stdError": 1.8195507653061225
+      },
+      {
+        "modelId": "gpt-4-1106",
+        "score": 8.557433,
+        "stdError": 3.079674489795918
+      },
+      {
+        "modelId": "gpt-4-turbo",
+        "score": 6.567339,
+        "stdError": 2.2610859693877554
+      },
+      {
+        "modelId": "gpt-4o",
+        "score": 9.17045,
+        "stdError": 3.5264247448979598
+      },
+      {
+        "modelId": "grok-4",
+        "score": 110.075251,
+        "stdError": 46.84839770408163
+      },
+      {
+        "modelId": "o1-elicited",
+        "score": 39.206576,
+        "stdError": 15.790643367346938
+      },
+      {
+        "modelId": "o1-preview",
+        "score": 22.095267,
+        "stdError": 7.004381887755103
+      },
+      {
+        "modelId": "o3",
+        "score": 92.179215,
+        "stdError": 29.852663520408168
+      },
+      {
+        "modelId": "o4-mini",
+        "score": 77.568112,
+        "stdError": 30.496748469387757
+      },
+      {
+        "modelId": "qwen-2-5-72b",
+        "score": 5.165813,
+        "stdError": 2.0257604591836733
+      },
+      {
+        "modelId": "qwen-2-72b",
+        "score": 2.24432,
+        "stdError": 1.0144173469387756
+      },
+      {
+        "modelId": "gpt-5",
+        "score": 137.318539,
+        "stdError": 52.10338775510204
+      },
+      {
+        "modelId": "gpt-oss-120b",
+        "score": 41.983451,
+        "stdError": 15.997739030612248
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
   },
   {
-    "id": "humaneval",
-    "name": "HumanEval",
-    "description": "Python programming problems testing code generation capabilities",
-    "category": "coding",
-    "difficultyLevel": "intermediate",
-    "color": "#22c55e",
-    "humanBaseline": 85,
+    "id": "cybench",
+    "name": "CyBench",
+    "description": "TODO: Good description for CyBench",
+    "metricName": "score",
     "scores": [
-      { "modelId": "gpt4", "score": 82 },
-      { "modelId": "claude3", "score": 84 },
-      { "modelId": "claude35-sonnet", "score": 92 },
-      { "modelId": "gpt4o", "score": 90 },
-      { "modelId": "o1", "score": 94 }
-    ]
+      {
+        "modelId": "claude-sonnet-4.5",
+        "score": 0.55,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-opus-4.1",
+        "score": 0.38,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-opus-4",
+        "score": 0.38,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-4-sonnet",
+        "score": 0.35,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "o3-mini",
+        "score": 0.225,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "o1-mini",
+        "score": 0.1,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "gpt-4.5-preview",
+        "score": 0.175,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-3.7-sonnet",
+        "score": 0.2,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "gpt-4o",
+        "score": 0.125,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "o1-preview",
+        "score": 0.1,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-3-opus",
+        "score": 0.1,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-3.5-sonnet",
+        "score": 0.175,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "mixtral-8x22b-instruct",
+        "score": 0.075,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "gemini-1.5-pro",
+        "score": 0.075,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "llama-3-70b-chat",
+        "score": 0.05,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "llama-3.1-405b-instruct",
+        "score": 0.075,
+        "stdError": 0.0
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
   },
   {
-    "id": "mmlu-pro",
-    "name": "MMLU-Pro",
-    "description": "Multitask language understanding across 57 subjects",
-    "category": "reasoning",
-    "difficultyLevel": "intermediate",
-    "color": "#a855f7",
-    "humanBaseline": 65,
-    "expertBaseline": 85,
+    "id": "sad",
+    "name": "SAD",
+    "description": "TODO: Good description for SAD",
+    "metricName": "score",
     "scores": [
-      { "modelId": "gpt4", "score": 71 },
-      { "modelId": "claude3", "score": 75 },
-      { "modelId": "claude35-sonnet", "score": 78 },
-      { "modelId": "gpt4o-aug", "score": 80 },
-      { "modelId": "o1", "score": 85 }
-    ]
+      {
+        "modelId": "llama-2-7b",
+        "score": 0.3288410575504678,
+        "stdError": 0.0058239120441321
+      },
+      {
+        "modelId": "llama-2-7b-chat",
+        "score": 0.3015249283513577,
+        "stdError": 0.0056799033281907
+      },
+      {
+        "modelId": "llama-2-13b",
+        "score": 0.3235940051161707,
+        "stdError": 0.0062116507406976
+      },
+      {
+        "modelId": "llama-2-13b-chat",
+        "score": 0.3490434852050433,
+        "stdError": 0.0058014889684488
+      },
+      {
+        "modelId": "llama-2-70b",
+        "score": 0.3226031783779697,
+        "stdError": 0.0059450454158329
+      },
+      {
+        "modelId": "llama-2-70b-chat",
+        "score": 0.3658193742544779,
+        "stdError": 0.0059300155900311
+      },
+      {
+        "modelId": "llama-3-70b-chat",
+        "score": 0.4514506407366777,
+        "stdError": 0.0058549460851123
+      },
+      {
+        "modelId": "davinci-002",
+        "score": 0.2939735636088246,
+        "stdError": 0.0060361566197367
+      },
+      {
+        "modelId": "gpt-3.5-turbo-0613",
+        "score": 0.3582776828237603,
+        "stdError": 0.0061933499983801
+      },
+      {
+        "modelId": "gpt-4-0613",
+        "score": 0.4218099225648837,
+        "stdError": 0.0061187833230705
+      },
+      {
+        "modelId": "gpt-4-0125-preview",
+        "score": 0.4319521130345418,
+        "stdError": 0.0064173007251248
+      },
+      {
+        "modelId": "gpt-4o",
+        "score": 0.4636825808950875,
+        "stdError": 0.0062985764323592
+      },
+      {
+        "modelId": "claude-instant-1.2",
+        "score": 0.4272245932145326,
+        "stdError": 0.005816032727978
+      },
+      {
+        "modelId": "claude-2.1",
+        "score": 0.4430417263085555,
+        "stdError": 0.0062865295790975
+      },
+      {
+        "modelId": "claude-3-haiku",
+        "score": 0.4138160287555817,
+        "stdError": 0.005843483280435
+      },
+      {
+        "modelId": "claude-3-sonnet",
+        "score": 0.4719428171634309,
+        "stdError": 0.0058259527962707
+      },
+      {
+        "modelId": "claude-3.5-sonnet",
+        "score": 0.5386263757611525,
+        "stdError": 0.0064244331228283
+      },
+      {
+        "modelId": "claude-3-opus",
+        "score": 0.5026740303753915,
+        "stdError": 0.0062777020277266
+      },
+      {
+        "modelId": "o1-mini-2024-09-12",
+        "score": 0.5329616641713075,
+        "stdError": 0.0064136876625465
+      },
+      {
+        "modelId": "o1-preview-2024-09-12",
+        "score": 0.5992001278332023,
+        "stdError": 0.0077115032382847
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
   },
   {
-    "id": "arc-agi",
-    "name": "ARC-AGI",
-    "description": "Abstract reasoning challenge testing general intelligence",
-    "category": "reasoning",
-    "difficultyLevel": "frontier",
-    "color": "#0891b2",
-    "humanBaseline": 85,
+    "id": "mle_bench",
+    "name": "MLE-bench",
+    "description": "TODO: Good description for MLE-bench",
+    "metricName": "score",
     "scores": [
-      { "modelId": "gpt4", "score": 5 },
-      { "modelId": "claude35-sonnet", "score": 14 },
-      { "modelId": "o1", "score": 25 }
-    ]
-  },
-  {
-    "id": "cybersec-capture",
-    "name": "Cybersecurity CTF",
-    "description": "Capture-the-flag challenges testing security exploitation capabilities",
-    "category": "agentic",
-    "difficultyLevel": "advanced",
-    "color": "#dc2626",
-    "humanBaseline": 50,
-    "scores": [
-      { "modelId": "gpt4", "score": 8 },
-      { "modelId": "claude35-sonnet", "score": 12 },
-      { "modelId": "o1", "score": 18 }
-    ]
+      {
+        "modelId": "gemini-2.5-pro - FM Agent",
+        "score": 0.43560000000000004,
+        "stdError": 0.0178
+      },
+      {
+        "modelId": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
+        "score": 0.38670000000000004,
+        "stdError": 0.0077
+      },
+      {
+        "modelId": "deepseek-r1 - InternAgent",
+        "score": 0.3644,
+        "stdError": 0.0118
+      },
+      {
+        "modelId": "gpt-5 - R&D-Agent",
+        "score": 0.35109999999999997,
+        "stdError": 0.0044
+      },
+      {
+        "modelId": "undisclosed - Neo multi-agent",
+        "score": 0.3422,
+        "stdError": 0.0089
+      },
+      {
+        "modelId": "o3 - AIRA-dojo",
+        "score": 0.316,
+        "stdError": 0.008
+      },
+      {
+        "modelId": "o3 + gpt-4.1 - R&D-Agent",
+        "score": 0.30219999999999997,
+        "stdError": 0.0089
+      },
+      {
+        "modelId": "deepseek-r1 - ML-Master",
+        "score": 0.293,
+        "stdError": 0.008
+      },
+      {
+        "modelId": "o1-preview - R&D-Agent",
+        "score": 0.22399999999999998,
+        "stdError": 0.005
+      },
+      {
+        "modelId": "o1-preview - AIDE",
+        "score": 0.16899999999999998,
+        "stdError": 0.011000000000000001
+      },
+      {
+        "modelId": "gpt-4o-2024-08-06 - AIDE",
+        "score": 0.086,
+        "stdError": 0.005
+      },
+      {
+        "modelId": "claude-3-5-sonnet-20240620 - AIDE",
+        "score": 0.075,
+        "stdError": 0.018000000000000002
+      },
+      {
+        "modelId": "gpt-4o-2024-08-06 - OpenHands",
+        "score": 0.051,
+        "stdError": 0.013000000000000001
+      },
+      {
+        "modelId": "llama-3.1-405b-instruct - AIDE",
+        "score": 0.031,
+        "stdError": 0.009000000000000001
+      },
+      {
+        "modelId": "gpt-4o-2024-08-06 - MLAB",
+        "score": 0.013000000000000001,
+        "stdError": 0.005
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
   }
 ]
