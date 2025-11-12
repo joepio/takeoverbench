@@ -7,12 +7,13 @@
         PointElement,
         LinearScale,
         Title,
+        TimeScale,
         CategoryScale,
         Tooltip,
         Legend,
     } from "chart.js";
+    // chartjs-adapter-date-fns removed - we will pass numeric timestamps and format ticks manually
     import { benchmarks, models } from "$lib/data";
-    // type Benchmark import removed — not needed in this component
 
     Chart.register(
         LineController,
@@ -20,6 +21,7 @@
         PointElement,
         LinearScale,
         Title,
+        TimeScale,
         CategoryScale,
         Tooltip,
         Legend,
@@ -35,35 +37,27 @@
     let chartEl: HTMLCanvasElement;
     let chart: Chart | null = null;
 
-    // `models` are now imported from the data bridge (canonical source:
-    // site/data/models.json). The symbol `models` is available from the import
-    // above: `import { benchmarks, models } from "$lib/data/benchmarks";`
+    // Build a list of unique model release timestamps (ms since epoch) used by selected benchmarks
+    function getUniqueReleaseTimestamps(): number[] {
+        const arr: number[] = [];
 
-    /**
-     * Collect unique release dates (ISO strings) referenced by the selected benchmarks
-     * and return them sorted lexically. ISO date strings sort lexically in chronological order,
-     * so a simple localeCompare is sufficient.
-     *
-     * Note: avoid using Set to satisfy the Svelte linter; dedupe using array methods
-     * while preserving encounter order.
-     */
-    function getUniqueReleaseDates(): string[] {
-        const datesArr: string[] = [];
-
-        selectedBenchmarks.forEach((benchmarkId) => {
+        for (const benchmarkId of selectedBenchmarks) {
             const benchmark = benchmarks.find((b) => b.id === benchmarkId);
-            if (!benchmark) return;
-            benchmark.scores.forEach((s) => {
+            if (!benchmark) continue;
+            for (const s of benchmark.scores ?? []) {
                 const model = models.find((m) => m.id === s.modelId);
-                if (model && model.releaseDate)
-                    datesArr.push(model.releaseDate);
-            });
-        });
+                if (model && model.releaseDate) {
+                    const ts = Date.parse(model.releaseDate);
+                    if (!Number.isNaN(ts)) arr.push(ts);
+                }
+            }
+        }
 
-        // Dedupe while preserving the first-seen order
-        const unique = datesArr.filter((d, i) => datesArr.indexOf(d) === i);
-
-        return unique.sort((a, b) => a.localeCompare(b));
+        // dedupe preserving order
+        const unique = arr.filter((d, i) => arr.indexOf(d) === i);
+        // sort chronological ascending
+        unique.sort((a, b) => a - b);
+        return unique;
     }
 
     function createChart() {
@@ -71,48 +65,55 @@
         const ctx = chartEl.getContext("2d");
         if (!ctx) return;
 
+        // destroy existing
         if (chart) {
             chart.destroy();
             chart = null;
         }
 
-        const releaseDates = getUniqueReleaseDates();
+        const releaseTs = getUniqueReleaseTimestamps();
+        // Set explicit x-axis bounds to the actual data min/max so Chart.js doesn't extend
+        // the axis into future years. If there are no timestamps, leave bounds undefined.
+        const xMin = releaseTs.length ? releaseTs[0] : undefined;
+        const xMax = releaseTs.length
+            ? releaseTs[releaseTs.length - 1]
+            : undefined;
         const filteredBenchmarks = benchmarks.filter((b) =>
             selectedBenchmarks.includes(b.id),
         );
 
         const datasets = filteredBenchmarks.map((benchmark) => {
-            // Build a date -> modelId map for tooltips and scale fractional scores (0-1) to percent.
-            // Additionally, only include points that are record-breaking (strictly improving)
-            // relative to the previous maximum for that benchmark.
-            const dateToModelId: Record<string, string | null> = {};
+            // build timestamp -> modelId map and dataset.data as {x:ts, y:scaled|null}
+            const dateToModelId: Record<number, string | null> = {};
             let currentMax = -Infinity;
 
-            const data = releaseDates.map((date) => {
-                const scoreObj = benchmark.scores.find((s) => {
+            const data = releaseTs.map((ts) => {
+                // find score for this benchmark where model.releaseDate corresponds to ts
+                const scoreObj = (benchmark.scores ?? []).find((s) => {
                     const model = models.find((m) => m.id === s.modelId);
-                    return model?.releaseDate === date;
+                    if (!model || !model.releaseDate) return false;
+                    const mts = Date.parse(model.releaseDate);
+                    return !Number.isNaN(mts) && mts === ts;
                 });
 
-                if (scoreObj) {
-                    // If score is in [0,1], treat as fractional and scale to 0-100.
-                    const raw = scoreObj.score;
-                    const scaled =
-                        typeof raw === "number" && raw <= 1 ? raw * 100 : raw;
+                if (!scoreObj) {
+                    dateToModelId[ts] = null;
+                    // return a point with null y -> will be a gap
+                    return { x: ts, y: null };
+                }
 
-                    // Only plot the point if it strictly improves on the highest seen so far.
-                    if (typeof scaled === "number" && scaled > currentMax) {
-                        currentMax = scaled;
-                        dateToModelId[date] = scoreObj.modelId ?? null;
-                        return scaled;
-                    } else {
-                        // Not a record improvement -> gap in the series
-                        dateToModelId[date] = null;
-                        return null;
-                    }
+                const raw = scoreObj.score;
+                const scaled =
+                    typeof raw === "number" && raw <= 1 ? raw * 100 : raw;
+
+                // record-breaking filtering: only show if strictly greater than previous max
+                if (typeof scaled === "number" && scaled > currentMax) {
+                    currentMax = scaled;
+                    dateToModelId[ts] = scoreObj.modelId ?? null;
+                    return { x: ts, y: scaled };
                 } else {
-                    dateToModelId[date] = null;
-                    return null;
+                    dateToModelId[ts] = null;
+                    return { x: ts, y: null };
                 }
             });
 
@@ -126,8 +127,6 @@
                 pointHoverRadius: 6,
                 borderWidth: 2,
                 spanGaps: true,
-                // Attach a date->modelId mapping to dataset.meta so tooltip callbacks can
-                // deterministically look up which model corresponds to a given label/date.
                 meta: {
                     dateToModelId,
                 },
@@ -137,7 +136,6 @@
         chart = new Chart(ctx, {
             type: "line",
             data: {
-                labels: releaseDates,
                 datasets,
             },
             options: {
@@ -168,51 +166,82 @@
                         },
                         callbacks: {
                             label: (context) => {
+                                const datasetIndex = context.datasetIndex ?? 0;
                                 const benchmark =
-                                    filteredBenchmarks[context.datasetIndex];
-                                const score = context.parsed.y;
-                                if (score === null) return "";
+                                    filteredBenchmarks[datasetIndex];
+                                const score = context.parsed?.y;
+                                if (score === null || score === undefined)
+                                    return "";
 
-                                // Prefer model id lookup by date mapping stored on the dataset.
+                                const datasetMeta = context.dataset?.meta ?? {};
+                                const parsedX = context.parsed?.x;
+                                const ts =
+                                    typeof parsedX === "number"
+                                        ? parsedX
+                                        : typeof context.label === "string"
+                                          ? Date.parse(context.label)
+                                          : null;
+
                                 const modelIdFromMeta =
-                                    context.dataset?.meta?.dateToModelId?.[
-                                        context.label
-                                    ] ?? null;
-
+                                    ts != null
+                                        ? (datasetMeta.dateToModelId?.[ts] ??
+                                          null)
+                                        : null;
                                 let modelId = modelIdFromMeta;
 
-                                // Fallback: try to match by scaled score (allow small float tolerance).
                                 if (!modelId) {
-                                    const match = benchmark.scores.find((s) => {
-                                        const raw = s.score;
-                                        const scaled =
-                                            typeof raw === "number" && raw <= 1
-                                                ? raw * 100
-                                                : raw;
-                                        return (
-                                            typeof scaled === "number" &&
-                                            Math.abs(scaled - score) < 0.001
-                                        );
-                                    });
+                                    const match = benchmark.scores?.find(
+                                        (s) => {
+                                            const raw = s.score;
+                                            const scaled =
+                                                typeof raw === "number" &&
+                                                raw <= 1
+                                                    ? raw * 100
+                                                    : raw;
+                                            return (
+                                                typeof scaled === "number" &&
+                                                Math.abs(
+                                                    (scaled as number) -
+                                                        (score as number),
+                                                ) < 0.001
+                                            );
+                                        },
+                                    );
                                     modelId = match?.modelId ?? null;
                                 }
 
                                 const model = models.find(
                                     (m) => m.id === modelId,
                                 );
-
-                                return `${benchmark.name}: ${score}% (${model?.name ?? "Unknown"})`;
+                                return `${benchmark.name}: ${Math.round(score as number)}% (${model?.name ?? "Unknown"})`;
                             },
                         },
                     },
                 },
                 scales: {
                     x: {
+                        type: "linear",
+                        // pin the axis to the data range to avoid auto-extending into future years
+                        min: xMin,
+                        max: xMax,
                         title: {
                             display: true,
                             text: "Model release date",
                             color: "#6b7280",
                             font: { size: 12 },
+                        },
+                        ticks: {
+                            // stepSize set to milliseconds per year (approx. 365.25 days)
+                            stepSize: 31557600000,
+                            // Format tick labels as years
+                            callback: function (value) {
+                                if (typeof value === "number") {
+                                    const d = new Date(value);
+                                    // use UTC year to avoid timezone shifts changing year label
+                                    return d.getUTCFullYear();
+                                }
+                                return value;
+                            },
                         },
                     },
                     y: {
@@ -234,15 +263,13 @@
         });
     }
 
-    // Svelte lifecycle - create chart on mount and on relevant prop changes.
+    // create on mount and whenever selectedBenchmarks or chartEl change
+    let mounted = false;
     onMount(() => {
+        mounted = true;
         createChart();
-        // Recreate chart when window resizes to keep canvas crisp
-        const onResize = () => {
-            createChart();
-        };
+        const onResize = () => createChart();
         window.addEventListener("resize", onResize);
-
         return () => {
             window.removeEventListener("resize", onResize);
             if (chart) {
@@ -251,6 +278,11 @@
             }
         };
     });
+
+    // recreate when selectedBenchmarks changes (reactive)
+    $: if (mounted && chartEl) {
+        createChart();
+    }
 
     onDestroy(() => {
         if (chart) {
