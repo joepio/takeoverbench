@@ -1,0 +1,82 @@
+[
+  {
+    "id": "scientific-reasoning",
+    "name": "Scientific Reasoning",
+    "description": "Ability to understand and reason about complex scientific concepts",
+    "category": "cognitive",
+    "benchmarks": ["gpqa-diamond"],
+    "currentLevel": 62,
+    "projectedLevel2025": 85,
+    "projectedLevel2030": 95
+  },
+  {
+    "id": "mathematical-problem-solving",
+    "name": "Mathematical Problem Solving",
+    "description": "Capacity for advanced mathematical reasoning and proof generation",
+    "category": "cognitive",
+    "benchmarks": ["math-500", "frontiermatch"],
+    "currentLevel": 45,
+    "projectedLevel2025": 75,
+    "projectedLevel2030": 90
+  },
+  {
+    "id": "code-generation",
+    "name": "Code Generation & Modification",
+    "description": "Ability to write, understand, and modify complex software",
+    "category": "technical",
+    "benchmarks": ["swe-bench-verified", "humaneval"],
+    "currentLevel": 60,
+    "projectedLevel2025": 80,
+    "projectedLevel2030": 95
+  },
+  {
+    "id": "abstract-reasoning",
+    "name": "Abstract Reasoning",
+    "description": "General intelligence and pattern recognition capabilities",
+    "category": "cognitive",
+    "benchmarks": ["arc-agi"],
+    "currentLevel": 25,
+    "projectedLevel2025": 45,
+    "projectedLevel2030": 70
+  },
+  {
+    "id": "cyber-offense",
+    "name": "Cyber Offensive Capabilities",
+    "description": "Ability to find and exploit security vulnerabilities",
+    "category": "technical",
+    "benchmarks": ["cybersec-capture"],
+    "currentLevel": 18,
+    "projectedLevel2025": 40,
+    "projectedLevel2030": 75
+  },
+  {
+    "id": "long-horizon-planning",
+    "name": "Long-Horizon Planning",
+    "description": "Capability to plan and execute complex multi-step strategies",
+    "category": "cognitive",
+    "benchmarks": ["swe-bench-verified", "arc-agi"],
+    "currentLevel": 30,
+    "projectedLevel2025": 55,
+    "projectedLevel2030": 80
+  },
+  {
+    "id": "deception",
+    "name": "Deceptive Capabilities",
+    "description": "Ability to mislead, hide intentions, or manipulate information",
+    "category": "social",
+    "benchmarks": [],
+    "currentLevel": 15,
+    "projectedLevel2025": 35,
+    "projectedLevel2030": 60
+  },
+  {
+    "id": "self-modification",
+    "name": "Self-Modification",
+    "description": "Capability to improve own code or training",
+    "category": "technical",
+    "benchmarks": ["swe-bench-verified"],
+    "currentLevel": 5,
+    "projectedLevel2025": 20,
+    "projectedLevel2030": 45
+  }
+]

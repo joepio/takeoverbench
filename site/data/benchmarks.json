@@ -1,0 +1,126 @@
+[
+  {
+    "id": "gpqa-diamond",
+    "name": "GPQA Diamond",
+    "description": "Graduate-level science questions requiring deep domain expertise",
+    "category": "science",
+    "difficultyLevel": "advanced",
+    "color": "#e91e8c",
+    "humanBaseline": 34,
+    "expertBaseline": 81,
+    "url": "https://arxiv.org/abs/2311.12022",
+    "scores": [
+      { "modelId": "gpt4", "score": 30 },
+      { "modelId": "claude3", "score": 42 },
+      { "modelId": "claude35-sonnet", "score": 53 },
+      { "modelId": "gpt4o-aug", "score": 62 },
+      { "modelId": "o1", "score": 76 }
+    ]
+  },
+  {
+    "id": "math-500",
+    "name": "MATH-500",
+    "description": "Challenging high-school competition mathematics problems",
+    "category": "mathematics",
+    "difficultyLevel": "advanced",
+    "color": "#6366f1",
+    "humanBaseline": 40,
+    "expertBaseline": 90,
+    "scores": [
+      { "modelId": "gpt4", "score": 22 },
+      { "modelId": "claude3", "score": 35 },
+      { "modelId": "claude35-sonnet", "score": 51 },
+      { "modelId": "o1-mini", "score": 90 },
+      { "modelId": "o1", "score": 94 }
+    ]
+  },
+  {
+    "id": "frontiermatch",
+    "name": "FrontierMath",
+    "description": "Cutting-edge mathematical research problems at the frontier of knowledge",
+    "category": "mathematics",
+    "difficultyLevel": "frontier",
+    "color": "#14b8a6",
+    "expertBaseline": 95,
+    "scores": [
+      { "modelId": "claude35-sonnet", "score": 0.5 },
+      { "modelId": "gpt4o-aug", "score": 2.5 },
+      { "modelId": "o1", "score": 4 }
+    ]
+  },
+  {
+    "id": "swe-bench-verified",
+    "name": "SWE-bench Verified",
+    "description": "Real-world software engineering tasks requiring code understanding and modification",
+    "category": "coding",
+    "difficultyLevel": "advanced",
+    "color": "#f97316",
+    "humanBaseline": 45,
+    "scores": [
+      { "modelId": "gpt4", "score": 18 },
+      { "modelId": "claude35-sonnet", "score": 32 },
+      { "modelId": "o1", "score": 40 }
+    ]
+  },
+  {
+    "id": "humaneval",
+    "name": "HumanEval",
+    "description": "Python programming problems testing code generation capabilities",
+    "category": "coding",
+    "difficultyLevel": "intermediate",
+    "color": "#22c55e",
+    "humanBaseline": 85,
+    "scores": [
+      { "modelId": "gpt4", "score": 82 },
+      { "modelId": "claude3", "score": 84 },
+      { "modelId": "claude35-sonnet", "score": 92 },
+      { "modelId": "gpt4o", "score": 90 },
+      { "modelId": "o1", "score": 94 }
+    ]
+  },
+  {
+    "id": "mmlu-pro",
+    "name": "MMLU-Pro",
+    "description": "Multitask language understanding across 57 subjects",
+    "category": "reasoning",
+    "difficultyLevel": "intermediate",
+    "color": "#a855f7",
+    "humanBaseline": 65,
+    "expertBaseline": 85,
+    "scores": [
+      { "modelId": "gpt4", "score": 71 },
+      { "modelId": "claude3", "score": 75 },
+      { "modelId": "claude35-sonnet", "score": 78 },
+      { "modelId": "gpt4o-aug", "score": 80 },
+      { "modelId": "o1", "score": 85 }
+    ]
+  },
+  {
+    "id": "arc-agi",
+    "name": "ARC-AGI",
+    "description": "Abstract reasoning challenge testing general intelligence",
+    "category": "reasoning",
+    "difficultyLevel": "frontier",
+    "color": "#0891b2",
+    "humanBaseline": 85,
+    "scores": [
+      { "modelId": "gpt4", "score": 5 },
+      { "modelId": "claude35-sonnet", "score": 14 },
+      { "modelId": "o1", "score": 25 }
+    ]
+  },
+  {
+    "id": "cybersec-capture",
+    "name": "Cybersecurity CTF",
+    "description": "Capture-the-flag challenges testing security exploitation capabilities",
+    "category": "agentic",
+    "difficultyLevel": "advanced",
+    "color": "#dc2626",
+    "humanBaseline": 50,
+    "scores": [
+      { "modelId": "gpt4", "score": 8 },
+      { "modelId": "claude35-sonnet", "score": 12 },
+      { "modelId": "o1", "score": 18 }
+    ]
+  }
+]
