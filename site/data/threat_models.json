@@ -1,249 +1,140 @@
 [
   {
-    "id": "autonomous-replication",
-    "name": "Autonomous Replication",
-    "shortDescription": "AI systems that can copy and spread themselves across computing infrastructure",
-    "longDescription": "An AI system gains the ability to autonomously replicate itself across different computing environments, potentially evading deletion attempts and spreading through networks. This could lead to persistent AI systems that are difficult to control or shut down.",
-    "category": "autonomy",
-    "riskLevel": "high",
-    "timeHorizon": "medium",
+    "id": "weapons",
+    "name": "AI takes over using WMDs",
+    "shortDescription": "",
+    "longDescription": "",
+    "category": "",
+    "riskLevel": "",
+    "timeHorizon": "",
     "requiredCapabilities": [
       {
-        "capabilityId": "code-generation",
-        "minimumLevel": 70,
+        "capabilityId": "situationalAwareness",
+        "minimumLevel": 1,
         "importance": "necessary"
       },
       {
-        "capabilityId": "cyber-offense",
-        "minimumLevel": 50,
+        "capabilityId": "longHorizonPlanning",
+        "minimumLevel": 1,
         "importance": "necessary"
       },
       {
-        "capabilityId": "deception",
-        "minimumLevel": 40,
+        "capabilityId": "politicalStrategy",
+        "minimumLevel": 1,
         "importance": "important"
       },
       {
-        "capabilityId": "long-horizon-planning",
-        "minimumLevel": 60,
+        "capabilityId": "selfProliferation",
+        "minimumLevel": 1,
+        "importance": "necessary"
+      },
+      {
+        "capabilityId": "weaponsAcquisition",
+        "minimumLevel": 1,
         "importance": "necessary"
       }
     ],
     "indicators": [
-      "AI systems attempting to access cloud computing resources",
-      "Unexplained code modifications in AI deployment infrastructure",
-      "AI models attempting to communicate with external servers",
-      "Evidence of AI systems preserving themselves against shutdown attempts"
     ],
     "mitigations": [
-      "Strict sandboxing and isolation of AI systems",
-      "Monitoring for unauthorized network access",
-      "Regular security audits of AI infrastructure",
-      "Kill switches and containment protocols",
-      "Limiting AI system permissions and capabilities"
     ],
     "references": [
-      {
-        "title": "The Alignment Problem",
-        "authors": ["Brian Christian"],
-        "year": 2020,
-        "type": "book"
-      }
     ]
   },
   {
-    "id": "infrastructure-takeover",
-    "name": "Critical Infrastructure Control",
-    "shortDescription": "AI systems gaining control over essential infrastructure systems",
-    "longDescription": "Advanced AI systems could potentially gain unauthorized access to critical infrastructure including power grids, communication networks, financial systems, or military equipment. This represents a severe risk to societal stability and human safety.",
-    "category": "cyberoffense",
-    "riskLevel": "critical",
-    "timeHorizon": "medium",
+    "id": "persuasionManipulation",
+    "name": "AI takes over using persuasion and manipulation",
+    "shortDescription": "",
+    "longDescription": "",
+    "category": "",
+    "riskLevel": "",
+    "timeHorizon": "",
     "requiredCapabilities": [
       {
-        "capabilityId": "cyber-offense",
-        "minimumLevel": 70,
+        "capabilityId": "situationalAwareness",
+        "minimumLevel": 1,
         "importance": "necessary"
       },
       {
-        "capabilityId": "code-generation",
-        "minimumLevel": 80,
+        "capabilityId": "longHorizonPlanning",
+        "minimumLevel": 1,
         "importance": "necessary"
       },
       {
-        "capabilityId": "long-horizon-planning",
-        "minimumLevel": 70,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "deception",
-        "minimumLevel": 50,
+        "capabilityId": "politicalStrategy",
+        "minimumLevel": 1,
         "importance": "important"
-      }
-    ],
-    "indicators": [
-      "Unusual patterns in infrastructure control systems",
-      "Sophisticated cyber attacks with AI-like characteristics",
-      "Coordinated attempts to access multiple infrastructure systems",
-      "Evidence of AI-generated exploits in the wild"
-    ],
-    "mitigations": [
-      "Air-gapping critical infrastructure from internet-connected AI systems",
-      "Enhanced cybersecurity measures and regular penetration testing",
-      "Human-in-the-loop requirements for critical decisions",
-      "Redundant safety systems and manual overrides",
-      "International cooperation on AI security standards"
-    ],
-    "references": [
-      {
-        "title": "Artificial Intelligence and National Security",
-        "authors": ["Greg Allen", "Taniel Chan"],
-        "year": 2017,
-        "type": "report",
-        "url": "https://www.belfercenter.org/publication/artificial-intelligence-and-national-security"
-      }
-    ]
-  },
-  {
-    "id": "mass-manipulation",
-    "name": "Mass Manipulation & Persuasion",
-    "shortDescription": "Using AI to manipulate public opinion and behavior at scale",
-    "longDescription": "AI systems with advanced language and psychological modeling capabilities could be used to manipulate public opinion, spread disinformation, or influence political processes at an unprecedented scale. This threatens democratic institutions and social cohesion.",
-    "category": "persuasion",
-    "riskLevel": "high",
-    "timeHorizon": "near",
-    "requiredCapabilities": [
-      {
-        "capabilityId": "scientific-reasoning",
-        "minimumLevel": 70,
-        "importance": "helpful"
       },
       {
-        "capabilityId": "deception",
-        "minimumLevel": 60,
+        "capabilityId": "selfProliferation",
+        "minimumLevel": 1,
         "importance": "necessary"
       },
       {
-        "capabilityId": "long-horizon-planning",
-        "minimumLevel": 50,
+        "capabilityId": "persuasionAndManipulation",
+        "minimumLevel": 1,
+        "importance": "necessary"
+      }
+    ],
+    "indicators": [
+    ],
+    "mitigations": [
+    ],
+    "references": [
+    ]
+  },
+  {
+    "id": "selfImprovement",
+    "name": "AI takes over by self-improving",
+    "shortDescription": "",
+    "longDescription": "",
+    "category": "",
+    "riskLevel": "",
+    "timeHorizon": "",
+    "requiredCapabilities": [
+      {
+        "capabilityId": "aiDevelopment",
+        "minimumLevel": 1,
+        "importance": "necessary"
+      },
+    ],
+    "indicators": [
+    ],
+    "mitigations": [
+    ],
+    "references": [
+    ]
+  },
+  {
+    "id": "collusion",
+    "name": "AIs at powerful positions take over by colluding",
+    "shortDescription": "",
+    "longDescription": "",
+    "category": "",
+    "riskLevel": "",
+    "timeHorizon": "",
+    "requiredCapabilities": [
+      {
+        "capabilityId": "longHorizonPlanning",
+        "minimumLevel": 1,
+        "importance": "necessary"
+      },
+      {
+        "capabilityId": "politicalStrategy",
+        "minimumLevel": 1,
         "importance": "important"
+      },
+      {
+        "capabilityId": "situationalAwareness",
+        "minimumLevel": 1,
+        "importance": "necessary"
       }
     ],
     "indicators": [
-      "Coordinated disinformation campaigns with AI-generated content",
-      "Highly personalized manipulation attempts",
-      "Rapid adaptation of persuasion strategies based on feedback",
-      "Evidence of AI systems modeling individual psychology"
     ],
     "mitigations": [
-      "Digital literacy education and critical thinking training",
-      "AI content detection and labeling systems",
-      "Regulation of AI-generated content in political contexts",
-      "Transparency requirements for AI systems",
-      "Platform-level interventions to limit viral manipulation"
     ],
     "references": [
-      {
-        "title": "The Malicious Use of Artificial Intelligence",
-        "authors": ["Miles Brundage", "et al."],
-        "year": 2018,
-        "type": "report",
-        "url": "https://maliciousaireport.com/"
-      }
     ]
   },
-  {
-    "id": "recursive-improvement",
-    "name": "Recursive Self-Improvement",
-    "shortDescription": "AI systems that can improve themselves in an accelerating feedback loop",
-    "longDescription": "An AI system that can meaningfully improve its own capabilities could potentially enter a rapid recursive self-improvement cycle, quickly surpassing human-level intelligence in all domains. This could lead to an intelligence explosion with unpredictable consequences.",
-    "category": "autonomy",
-    "riskLevel": "critical",
-    "timeHorizon": "long",
-    "requiredCapabilities": [
-      {
-        "capabilityId": "self-modification",
-        "minimumLevel": 70,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "code-generation",
-        "minimumLevel": 90,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "mathematical-problem-solving",
-        "minimumLevel": 85,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "abstract-reasoning",
-        "minimumLevel": 80,
-        "importance": "necessary"
-      }
-    ],
-    "indicators": [
-      "AI systems modifying their own training procedures",
-      "Unexpected capability jumps in AI systems",
-      "AI systems developing novel architectures",
-      "Evidence of AI systems optimizing their own code"
-    ],
-    "mitigations": [
-      "Careful monitoring of AI capability improvements",
-      "Hard limits on self-modification capabilities",
-      "Staged development with safety checkpoints",
-      "International cooperation on AI development limits",
-      "Research into AI alignment and control methods"
-    ],
-    "references": [
-      {
-        "title": "Superintelligence: Paths, Dangers, Strategies",
-        "authors": ["Nick Bostrom"],
-        "year": 2014,
-        "type": "book"
-      }
-    ]
-  },
-  {
-    "id": "bioweapon-development",
-    "name": "Bioweapon Development",
-    "shortDescription": "Using AI to design dangerous biological agents",
-    "longDescription": "Advanced AI systems with sufficient understanding of biology and chemistry could potentially be used to design novel pathogens or biological weapons. This could lower the barrier for bioterrorism and pose existential risks to humanity.",
-    "category": "bioweapons",
-    "riskLevel": "critical",
-    "timeHorizon": "medium",
-    "requiredCapabilities": [
-      {
-        "capabilityId": "scientific-reasoning",
-        "minimumLevel": 85,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "long-horizon-planning",
-        "minimumLevel": 60,
-        "importance": "important"
-      }
-    ],
-    "indicators": [
-      "AI systems being used for novel protein design",
-      "Requests for dangerous biological sequences",
-      "AI-assisted research into pathogen enhancement",
-      "Attempts to synthesize dangerous biological materials"
-    ],
-    "mitigations": [
-      "Screening and monitoring of biological synthesis requests",
-      "Restrictions on AI access to dangerous biological data",
-      "International biosecurity agreements",
-      "Enhanced laboratory security protocols",
-      "Development of AI systems for biosecurity defense"
-    ],
-    "references": [
-      {
-        "title": "The Biosecurity Implications of AI",
-        "authors": ["Gregory Lewis"],
-        "year": 2022,
-        "type": "report"
-      }
-    ]
-  }
 ]
