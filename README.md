@@ -75,6 +75,10 @@ pnpm check
 pnpm lint
 ```
 
+### Publishing
+
+Netlify (PauseAI account) follows this repository and runs `pnpm build` on commit, publishes to https://takeoverbench.netlify.app/
+
 ## 🔗 Links
 
 - [Production Site](https://takeoverbench.com) (when deployed)
