@@ -85,24 +85,27 @@ const transformers: Record<string, (rawScores: unknown[]) => number[]> = {
     return normalized;
   },
 
-  // forecast_bench: perform min-max normalization across the benchmark's scores.
-  // map each raw -> (raw - min) / (max - min). If max == min, map to 1.0.
+  // forecast_bench: inverse min-max normalization (lower is better)
+  // For each raw score, compute normalized = 1 - (raw - min) / (max - min)
+  // If max == min, map all to 1.0. Clamp to [0,1].
   forecast_bench: (rawScores) => {
     const nums = (rawScores ?? []).map((v) => (typeof v === "number" ? v : 0));
+    if (nums.length === 0) return [];
     const min = Math.min(...nums);
     const max = Math.max(...nums);
-    if (max === min) {
-      return nums.map(() => 1);
-    }
-    return nums.map((n) => Math.max(0, Math.min(1, (n - min) / (max - min))));
+    if (max === min) return nums.map(() => 1);
+    return nums.map((n) => {
+      const v = 1 - (n - min) / (max - min);
+      return Math.max(0, Math.min(1, v));
+    });
   },
 
-  // long_tasks (METR): minutes per task. Normalize against a fixed 1-day cap
-  // so that raw minutes are mapped to a fraction of one day:
-  // normalized = clamp(raw / (24*60), 0, 1)
+  // long_tasks (METR): minutes per task. Normalize against a fixed 1-day cap so that
+  // higher raw minutes map to higher normalized values (non-inverting).
+  // normalized = clamp(raw / topMinutes, 0, 1)
   long_tasks: (rawScores) => {
     const nums = (rawScores ?? []).map((v) => (typeof v === "number" ? v : 0));
-    const topMinutes = 8 * 60; // One workday
+    const topMinutes = 24 * 60; // 1440 minutes = 1 day
     return nums.map((n) => Math.max(0, Math.min(1, n / topMinutes)));
   },
 

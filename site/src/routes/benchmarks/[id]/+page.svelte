@@ -47,13 +47,6 @@
         return `${Math.round(val)}%`;
     }
 
-    // Scores sorted newest last (original data is assumed unordered)
-    const scoresSorted = [...(benchmark.scores ?? [])].sort((a, b) => {
-        // Prefer explicit date if provided (ISO), otherwise fall back to score value
-        if (a.date && b.date) return Date.parse(a.date) - Date.parse(b.date);
-        return 0;
-    });
-
     // Determine top score
     const topScoreEntry = (benchmark.scores ?? []).reduce(
         (best, cur) => {
@@ -124,7 +117,7 @@
                     <div class="w-full md:w-48 mt-4 md:mt-0 text-right">
                         {#if topScoreEntry}
                             <div class="text-3xl font-extrabold text-blue-600">
-                                {Math.round(topScoreEntry.score)}%
+                                {Math.round(topScoreEntry.score * 100)}%
                             </div>
                             <div class="text-xs text-gray-500 mt-1">
                                 {getModelNameById(topScoreEntry.modelId)}
