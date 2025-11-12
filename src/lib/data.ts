@@ -86,13 +86,14 @@ const transformers: Record<string, (rawScores: unknown[]) => number[]> = {
   },
 
   // forecast_bench: inverse min-max normalization (lower is better)
-  // For each raw score, compute normalized = 1 - (raw - min) / (max - min)
-  // If max == min, map all to 1.0. Clamp to [0,1].
+  // Use the theoretical best raw score (0) as the minimum baseline.
+  // Normalization: normalized = 1 - (raw - min) / (max - min)
+  // where min = 0 and max = Math.max(...nums, 0)
   forecast_bench: (rawScores) => {
     const nums = (rawScores ?? []).map((v) => (typeof v === "number" ? v : 0));
     if (nums.length === 0) return [];
-    const min = Math.min(...nums);
-    const max = Math.max(...nums);
+    const min = 0;
+    const max = Math.max(...nums, 0);
     if (max === min) return nums.map(() => 1);
     return nums.map((n) => {
       const v = 1 - (n - min) / (max - min);
