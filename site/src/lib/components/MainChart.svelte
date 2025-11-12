@@ -11,8 +11,8 @@
         Tooltip,
         Legend,
     } from "chart.js";
-    import { benchmarks } from "$lib/data/benchmarks";
-    import type { Benchmark } from "$lib/data/models";
+    import { benchmarks, models } from "$lib/data";
+    // type Benchmark import removed — not needed in this component
 
     Chart.register(
         LineController,
@@ -35,91 +35,45 @@
     let chartEl: HTMLCanvasElement;
     let chart: Chart | null = null;
 
-    const models = [
-        {
-            id: "gpt4",
-            name: "GPT-4",
-            releaseDate: "Mar 2023",
-            organization: "OpenAI",
-        },
-        {
-            id: "claude3",
-            name: "Claude 3",
-            releaseDate: "Mar 2024",
-            organization: "Anthropic",
-        },
-        {
-            id: "claude35-sonnet",
-            name: "Claude 3.5 Sonnet",
-            releaseDate: "Jun 2024",
-            organization: "Anthropic",
-        },
-        {
-            id: "gpt4o",
-            name: "GPT-4o",
-            releaseDate: "May 2024",
-            organization: "OpenAI",
-        },
-        {
-            id: "gpt4o-aug",
-            name: "GPT-4o",
-            releaseDate: "Aug 2024",
-            organization: "OpenAI",
-        },
-        {
-            id: "o1-mini",
-            name: "o1-mini",
-            releaseDate: "Sep 2024",
-            organization: "OpenAI",
-        },
-        {
-            id: "o1",
-            name: "o1",
-            releaseDate: "Sep 2024",
-            organization: "OpenAI",
-        },
-    ];
+    // `models` are now imported from the data bridge (canonical source:
+    // site/data/models.json). The symbol `models` is available from the import
+    // above: `import { benchmarks, models } from "$lib/data/benchmarks";`
 
-    const dateOrder = [
-        "Mar 2023",
-        "Jun 2023",
-        "Sep 2023",
-        "Dec 2023",
-        "Mar 2024",
-        "May 2024",
-        "Jun 2024",
-        "Aug 2024",
-        "Sep 2024",
-        "Jan 2025",
-        "Mar 2025",
-        "Jun 2025",
-        "Sep 2025",
-    ];
-
+    /**
+     * Collect unique release dates (ISO strings) referenced by the selected benchmarks
+     * and return them sorted lexically. ISO date strings sort lexically in chronological order,
+     * so a simple localeCompare is sufficient.
+     *
+     * Note: avoid using Set to satisfy the Svelte linter; dedupe using array methods
+     * while preserving encounter order.
+     */
     function getUniqueReleaseDates(): string[] {
-        const dates = new Set<string>();
+        const datesArr: string[] = [];
+
         selectedBenchmarks.forEach((benchmarkId) => {
             const benchmark = benchmarks.find((b) => b.id === benchmarkId);
-            if (benchmark) {
-                benchmark.scores.forEach((s) => {
-                    const model = models.find((m) => m.id === s.modelId);
-                    if (model) dates.add(model.releaseDate);
-                });
-            }
+            if (!benchmark) return;
+            benchmark.scores.forEach((s) => {
+                const model = models.find((m) => m.id === s.modelId);
+                if (model && model.releaseDate)
+                    datesArr.push(model.releaseDate);
+            });
         });
-        return Array.from(dates).sort(
-            (a, b) => dateOrder.indexOf(a) - dateOrder.indexOf(b),
-        );
+
+        // Dedupe while preserving the first-seen order
+        const unique = datesArr.filter((d, i) => datesArr.indexOf(d) === i);
+
+        return unique.sort((a, b) => a.localeCompare(b));
     }
 
     function createChart() {
         if (!chartEl) return;
-
         const ctx = chartEl.getContext("2d");
         if (!ctx) return;
 
         if (chart) {
             chart.destroy();
+            chart = null;
         }
 
         const releaseDates = getUniqueReleaseDates();
@@ -163,7 +117,7 @@
                         display: showLegend,
                         position: "bottom",
                         labels: {
-                            padding: 15,
+                            padding: 12,
                             usePointStyle: true,
                             font: {
                                 size: 12,
@@ -173,7 +127,7 @@
                     },
                     tooltip: {
                         backgroundColor: "rgba(17, 24, 39, 0.95)",
-                        padding: 12,
+                        padding: 10,
                         titleFont: {
                             size: 13,
                             weight: 600,
@@ -187,15 +141,13 @@
                                     filteredBenchmarks[context.datasetIndex];
                                 const score = context.parsed.y;
                                 if (score === null) return "";
-
                                 const modelId = benchmark.scores.find(
                                     (s) => s.score === score,
                                 )?.modelId;
                                 const model = models.find(
                                     (m) => m.id === modelId,
                                 );
-
-                                return `${benchmark.name}: ${score}% (${model?.name || "Unknown"})`;
+                                return `${benchmark.name}: ${score}% (${model?.name ?? "Unknown"})`;
                             },
                         },
                     },
@@ -204,46 +156,23 @@
                     x: {
                         title: {
                             display: true,
-                            text: "Release Date",
-                            font: {
-                                size: 12,
-                                family: "Inter, sans-serif",
-                                weight: 500,
-                            },
-                        },
-                        grid: {
-                            color: "rgba(229, 231, 235, 0.5)",
-                        },
-                        ticks: {
-                            font: {
-                                size: 11,
-                                family: "Inter, sans-serif",
-                            },
-                            padding: 8,
+                            text: "Model release date",
+                            color: "#6b7280",
+                            font: { size: 12 },
                         },
                     },
                     y: {
-                        beginAtZero: true,
+                        min: 0,
                         max: 100,
                         title: {
                             display: true,
-                            text: "Accuracy (%)",
-                            font: {
-                                size: 12,
-                                family: "Inter, sans-serif",
-                                weight: 500,
-                            },
+                            text: "Score (%)",
+                            color: "#6b7280",
+                            font: { size: 12 },
                         },
                         ticks: {
-                            callback: (v) => `${v}%`,
-                            font: {
-                                size: 11,
-                                family: "Inter, sans-serif",
-                            },
-                            padding: 8,
-                        },
-                        grid: {
-                            color: "rgba(229, 231, 235, 0.5)",
+                            stepSize: 10,
+                            callback: (val) => `${val}%`,
                         },
                     },
                 },
@@ -251,62 +180,33 @@
         });
     }
 
+    // Svelte lifecycle - create chart on mount and on relevant prop changes.
     onMount(() => {
         createChart();
+        // Recreate chart when window resizes to keep canvas crisp
+        const onResize = () => {
+            createChart();
+        };
+        window.addEventListener("resize", onResize);
+
+        return () => {
+            window.removeEventListener("resize", onResize);
+            if (chart) {
+                chart.destroy();
+                chart = null;
+            }
+        };
     });
 
     onDestroy(() => {
         if (chart) {
             chart.destroy();
+            chart = null;
         }
     });
-
-    $: if (chartEl && selectedBenchmarks) {
-        createChart();
-    }
 </script>
 
-<div class="chart-container" style="height: {height}; position: relative;">
-    {#if showDangerZone}
-        <div class="danger-zone">
-            <span class="danger-label">Dangerous Capability Threshold</span>
-        </div>
-    {/if}
-    <canvas bind:this={chartEl}></canvas>
+<!-- Chart container -->
+<div class="w-full bg-white rounded-lg p-4" style="height: {height};">
+    <canvas bind:this={chartEl} width="800" height="400"></canvas>
 </div>
-
-<style>
-    .chart-container {
-        width: 100%;
-        background: white;
-        border-radius: 0.5rem;
-        padding: 1rem;
-    }
-
-    .danger-zone {
-        position: absolute;
-        top: 1rem;
-        left: 3.5rem;
-        right: 1rem;
-        height: 20%;
-        background: linear-gradient(
-            to bottom,
-            rgba(239, 68, 68, 0.08),
-            rgba(239, 68, 68, 0)
-        );
-        border-bottom: 2px dashed rgba(239, 68, 68, 0.3);
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .danger-label {
-        position: absolute;
-        top: 0.5rem;
-        right: 1rem;
-        font-size: 0.6875rem;
-        color: rgba(239, 68, 68, 0.8);
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-</style>

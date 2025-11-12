@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import { onMount } from "svelte";
     import type { PageData } from "./$types";
     import MainChart from "$lib/components/MainChart.svelte";
     import {
@@ -12,13 +13,38 @@
 
     export let data: PageData;
 
-    const { threatModel, capabilities, currentRisk } = data;
+    // load() now returns an optional mdPath for a threat-model markdown component
+    const { threatModel, capabilities, currentRisk, mdPath } = data;
+
+    // Lazy-loaded markdown component for threat content (if present)
+    let ThreatComponent: any = null;
+
+    onMount(async () => {
+        if (mdPath) {
+            // Use the same glob pattern to locate the module at runtime.
+            // mdPath is the module key returned by import.meta.glob in the page load.
+            // We only support .svx components for threat model content.
+            const modules = import.meta.glob("../../../../threat_models/*.svx");
+            const loader = modules[mdPath] as () => Promise<any> | undefined;
+            if (loader) {
+                try {
+                    const mod = await loader();
+                    ThreatComponent = mod?.default ?? mod;
+                } catch (e) {
+                    // ignore errors and fall back to the longDescription text
+                    ThreatComponent = null;
+                }
+            }
+        }
+    });
 
     // Get benchmarks relevant to this threat model
     const relevantBenchmarkIds = new Set<string>();
     capabilities.forEach((cap) => {
         if (cap.capability?.benchmarks) {
-            cap.capability.benchmarks.forEach((b) => relevantBenchmarkIds.add(b));
+            cap.capability.benchmarks.forEach((b) =>
+                relevantBenchmarkIds.add(b),
+            );
         }
     });
 </script>
@@ -46,32 +72,46 @@
                     <h1 class="text-3xl font-bold text-gray-900 mb-4">
                         {threatModel.name}
                     </h1>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        {threatModel.longDescription}
-                    </p>
+                    {#if ThreatComponent}
+                        <div class="prose max-w-none mt-4">
+                            <svelte:component this={ThreatComponent} />
+                        </div>
+                    {:else}
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            {threatModel.longDescription}
+                        </p>
+                    {/if}
 
                     <!-- Key Metrics -->
                     <div class="flex flex-wrap gap-4 mt-6">
                         <div class="flex items-center gap-2">
-                            <span class="text-sm text-gray-500">Risk Level:</span>
+                            <span class="text-sm text-gray-500"
+                                >Risk Level:</span
+                            >
                             <span
                                 class="px-3 py-1 rounded-full text-sm font-medium"
                                 style="background-color: {getRiskBackgroundColor(
                                     threatModel.riskLevel,
-                                )}; color: {getRiskColor(threatModel.riskLevel)}"
+                                )}; color: {getRiskColor(
+                                    threatModel.riskLevel,
+                                )}"
                             >
                                 {threatModel.riskLevel.toUpperCase()}
                             </span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-sm text-gray-500">Time Horizon:</span>
+                            <span class="text-sm text-gray-500"
+                                >Time Horizon:</span
+                            >
                             <span class="text-sm font-medium text-gray-900">
                                 {getTimeHorizonLabel(threatModel.timeHorizon)}
                             </span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-sm text-gray-500">Category:</span>
-                            <span class="text-sm font-medium text-gray-900 capitalize">
+                            <span
+                                class="text-sm font-medium text-gray-900 capitalize"
+                            >
                                 {threatModel.category}
                             </span>
                         </div>
@@ -79,8 +119,12 @@
                 </div>
 
                 <!-- Risk Assessment Card -->
-                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6">
-                    <h3 class="font-semibold text-gray-900 mb-4">Current Risk Assessment</h3>
+                <div
+                    class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6"
+                >
+                    <h3 class="font-semibold text-gray-900 mb-4">
+                        Current Risk Assessment
+                    </h3>
                     <div class="text-center mb-4">
                         <div
                             class="text-4xl font-bold"
@@ -94,7 +138,9 @@
                     </div>
                     <div class="space-y-3">
                         <div>
-                            <div class="flex justify-between text-xs text-gray-600 mb-1">
+                            <div
+                                class="flex justify-between text-xs text-gray-600 mb-1"
+                            >
                                 <span>Risk Progress</span>
                                 <span>{Math.round(currentRisk)}%</span>
                             </div>
@@ -116,27 +162,38 @@
     <!-- Required Capabilities Section -->
     <section class="py-12">
         <div class="container mx-auto px-4 max-w-7xl">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Required Capabilities</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                Required Capabilities
+            </h2>
             <p class="text-gray-600 mb-8">
-                This threat model becomes viable when AI systems achieve sufficient levels in the following capabilities:
+                This threat model becomes viable when AI systems achieve
+                sufficient levels in the following capabilities:
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {#each capabilities as { capability, minimumLevel, importance }}
                     {#if capability}
-                        <div class="bg-white rounded-lg border border-gray-200 p-6">
+                        <a
+                            href={"/capability/" + capability.id}
+                            class="block bg-white rounded-lg border border-gray-200 p-6 no-underline hover:shadow-md"
+                        >
                             <div class="flex justify-between items-start mb-3">
                                 <h3 class="font-semibold text-gray-900">
                                     {capability.name}
                                 </h3>
                                 <span
                                     class="text-xs px-2 py-1 rounded-full capitalize"
-                                    class:bg-red-100={importance === "necessary"}
-                                    class:text-red-700={importance === "necessary"}
-                                    class:bg-orange-100={importance === "important"}
-                                    class:text-orange-700={importance === "important"}
+                                    class:bg-red-100={importance ===
+                                        "necessary"}
+                                    class:text-red-700={importance ===
+                                        "necessary"}
+                                    class:bg-orange-100={importance ===
+                                        "important"}
+                                    class:text-orange-700={importance ===
+                                        "important"}
                                     class:bg-blue-100={importance === "helpful"}
-                                    class:text-blue-700={importance === "helpful"}
+                                    class:text-blue-700={importance ===
+                                        "helpful"}
                                 >
                                     {importance}
                                 </span>
@@ -147,7 +204,9 @@
 
                             <div class="space-y-3">
                                 <div>
-                                    <div class="flex justify-between text-xs text-gray-600 mb-1">
+                                    <div
+                                        class="flex justify-between text-xs text-gray-600 mb-1"
+                                    >
                                         <span>Current Level</span>
                                         <span
                                             style="color: {getCapabilityLevelColor(
@@ -159,7 +218,9 @@
                                             )})
                                         </span>
                                     </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-1.5"
+                                    >
                                         <div
                                             class="h-1.5 rounded-full transition-all duration-500"
                                             style="width: {capability.currentLevel}%; background-color: {getCapabilityLevelColor(
@@ -170,11 +231,17 @@
                                 </div>
 
                                 <div>
-                                    <div class="flex justify-between text-xs text-gray-600 mb-1">
+                                    <div
+                                        class="flex justify-between text-xs text-gray-600 mb-1"
+                                    >
                                         <span>Required Threshold</span>
-                                        <span class="font-medium">{minimumLevel}%</span>
+                                        <span class="font-medium"
+                                            >{minimumLevel}%</span
+                                        >
                                     </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-1.5 relative">
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-1.5 relative"
+                                    >
                                         <div
                                             class="absolute h-1.5 bg-red-300 rounded-full"
                                             style="width: {minimumLevel}%"
@@ -186,7 +253,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     {/if}
                 {/each}
             </div>
@@ -201,7 +268,8 @@
                     Relevant Benchmark Progress
                 </h2>
                 <p class="text-gray-600 mb-8">
-                    Tracking progress on benchmarks that measure capabilities required for this threat model.
+                    Tracking progress on benchmarks that measure capabilities
+                    required for this threat model.
                 </p>
                 <div class="bg-gray-50 rounded-lg p-6">
                     <MainChart
@@ -220,15 +288,22 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Warning Indicators -->
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Warning Indicators</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                        Warning Indicators
+                    </h2>
                     <p class="text-gray-600 mb-6">
-                        Early warning signs that this threat may be materializing:
+                        Early warning signs that this threat may be
+                        materializing:
                     </p>
                     <div class="space-y-3">
                         {#each threatModel.indicators as indicator}
                             <div class="flex gap-3">
-                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-orange-100 flex items-center justify-center mt-0.5">
-                                    <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+                                <div
+                                    class="flex-shrink-0 w-5 h-5 rounded-full bg-orange-100 flex items-center justify-center mt-0.5"
+                                >
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-orange-500"
+                                    ></div>
                                 </div>
                                 <p class="text-sm text-gray-700">{indicator}</p>
                             </div>
@@ -238,19 +313,35 @@
 
                 <!-- Mitigation Strategies -->
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Mitigation Strategies</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                        Mitigation Strategies
+                    </h2>
                     <p class="text-gray-600 mb-6">
                         Proposed measures to prevent or reduce this risk:
                     </p>
                     <div class="space-y-3">
                         {#each threatModel.mitigations as mitigation}
                             <div class="flex gap-3">
-                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                                    <svg class="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                <div
+                                    class="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5"
+                                >
+                                    <svg
+                                        class="w-3 h-3 text-green-600"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="3"
+                                            d="M5 13l4 4L19 7"
+                                        ></path>
                                     </svg>
                                 </div>
-                                <p class="text-sm text-gray-700">{mitigation}</p>
+                                <p class="text-sm text-gray-700">
+                                    {mitigation}
+                                </p>
                             </div>
                         {/each}
                     </div>
@@ -263,10 +354,16 @@
     {#if threatModel.references.length > 0}
         <section class="py-12 bg-gray-50 border-t border-gray-200">
             <div class="container mx-auto px-4 max-w-7xl">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">References & Further Reading</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                    References & Further Reading
+                </h2>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                >
                     {#each threatModel.references as reference}
-                        <div class="bg-white rounded-lg border border-gray-200 p-4">
+                        <div
+                            class="bg-white rounded-lg border border-gray-200 p-4"
+                        >
                             <h3 class="font-medium text-gray-900 mb-1">
                                 {reference.title}
                             </h3>
@@ -281,8 +378,18 @@
                                     class="text-sm text-blue-600 hover:text-blue-700 inline-flex items-center gap-1"
                                 >
                                     View {reference.type}
-                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    <svg
+                                        class="w-3 h-3"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                        ></path>
                                     </svg>
                                 </a>
                             {/if}
@@ -296,11 +403,14 @@
     <!-- Call to Action -->
     <section class="py-12">
         <div class="container mx-auto px-4 max-w-4xl">
-            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-8 text-white text-center">
+            <div
+                class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-8 text-white text-center"
+            >
                 <h2 class="text-2xl font-bold mb-4">Stay Informed</h2>
                 <p class="mb-6 text-blue-50">
-                    Understanding and tracking AI risks is crucial for ensuring beneficial outcomes.
-                    Help us improve our assessments and stay updated on the latest developments.
+                    Understanding and tracking AI risks is crucial for ensuring
+                    beneficial outcomes. Help us improve our assessments and
+                    stay updated on the latest developments.
                 </p>
                 <div class="flex gap-4 justify-center">
                     <a

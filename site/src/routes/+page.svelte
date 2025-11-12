@@ -1,18 +1,13 @@
 <script lang="ts">
     import MainChart from "$lib/components/MainChart.svelte";
-    import {
-        benchmarks,
-        threatModels,
-        calculateThreatRisk,
-    } from "$lib/data/benchmarks";
+    import { benchmarks, threatModels, calculateThreatRisk } from "$lib/data";
     import {
         getRiskColor,
         getRiskBackgroundColor,
         getTimeHorizonLabel,
     } from "$lib/styles/theme";
 
-    let selectedBenchmarks = benchmarks.slice(0, 5).map((b) => b.id);
-    let expandedBenchmark: string | null = null;
+    const selectedBenchmarks = benchmarks.slice(0, 5).map((b) => b.id);
 
     // Calculate risk levels for threat models
     const threatModelsWithRisk = threatModels
@@ -22,10 +17,7 @@
         }))
         .sort((a, b) => b.currentRisk - a.currentRisk);
 
-    function toggleBenchmark(benchmarkId: string) {
-        expandedBenchmark =
-            expandedBenchmark === benchmarkId ? null : benchmarkId;
-    }
+    // toggleBenchmark removed — benchmarks are not toggleable on the home page
 </script>
 
 <svelte:head>
@@ -118,104 +110,21 @@
                 </p>
             </div>
 
-            <!-- Benchmark Selector -->
-            <div class="mb-6 flex flex-wrap gap-2">
-                {#each benchmarks as benchmark}
-                    <button
-                        class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-150
-                               {selectedBenchmarks.includes(benchmark.id)
-                            ? 'bg-blue-600 text-white shadow-md'
-                            : 'bg-white text-gray-700 border border-gray-300 hover:border-gray-400'}"
-                        on:click={() => {
-                            if (selectedBenchmarks.includes(benchmark.id)) {
-                                selectedBenchmarks = selectedBenchmarks.filter(
-                                    (id) => id !== benchmark.id,
-                                );
-                            } else {
-                                selectedBenchmarks = [
-                                    ...selectedBenchmarks,
-                                    benchmark.id,
-                                ];
-                            }
-                        }}
-                    >
-                        {benchmark.name}
-                    </button>
-                {/each}
-            </div>
+            <!-- Benchmark selector removed (static chart uses default selected benchmarks) -->
 
             <!-- Chart -->
             <div class="bg-white rounded-lg shadow-sm p-6">
                 <MainChart {selectedBenchmarks} height="500px" />
             </div>
 
-            <!-- Benchmark Details -->
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                {#each benchmarks.filter( (b) => selectedBenchmarks.includes(b.id), ) as benchmark}
-                    <div
-                        class="bg-white rounded-lg border border-gray-200 p-6 transition-all duration-200 hover:shadow-md cursor-pointer"
-                        style="border-left: 4px solid {benchmark.color}"
-                        role="button"
-                        tabindex="0"
-                        on:click={() => toggleBenchmark(benchmark.id)}
-                        on:keydown={(e) => {
-                            if (e.key === "Enter" || e.key === " ") {
-                                e.preventDefault();
-                                toggleBenchmark(benchmark.id);
-                            }
-                        }}
-                    >
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-semibold text-gray-900">
-                                {benchmark.name}
-                            </h3>
-                            <span
-                                class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600"
-                            >
-                                {benchmark.category}
-                            </span>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-3">
-                            {benchmark.description}
-                        </p>
-
-                        {#if benchmark.humanBaseline || benchmark.expertBaseline}
-                            <div class="flex gap-4 text-xs text-gray-500 mb-3">
-                                {#if benchmark.humanBaseline}
-                                    <span
-                                        >Human: {benchmark.humanBaseline}%</span
-                                    >
-                                {/if}
-                                {#if benchmark.expertBaseline}
-                                    <span
-                                        >Expert: {benchmark.expertBaseline}%</span
-                                    >
-                                {/if}
-                            </div>
-                        {/if}
-
-                        {#if expandedBenchmark === benchmark.id}
-                            <div class="mt-4 pt-4 border-t border-gray-100">
-                                <div class="space-y-2">
-                                    {#each benchmark.scores.slice(-5) as score}
-                                        <div
-                                            class="flex justify-between items-center text-sm"
-                                        >
-                                            <span class="text-gray-600"
-                                                >{score.modelId}</span
-                                            >
-                                            <span
-                                                class="font-medium"
-                                                style="color: {benchmark.color}"
-                                                >{score.score}%</span
-                                            >
-                                        </div>
-                                    {/each}
-                                </div>
-                            </div>
-                        {/if}
-                    </div>
-                {/each}
+            <!-- Benchmarks summary -->
+            <div class="mt-8 text-center">
+                <a
+                    href="/benchmarks"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-medium rounded-lg border border-blue-600 hover:bg-blue-50 transition-colors duration-150"
+                >
+                    Show all benchmarks
+                </a>
             </div>
         </div>
     </section>

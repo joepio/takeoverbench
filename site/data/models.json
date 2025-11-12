@@ -1,65 +1,65 @@
 [
   {
-    id: "gpt4",
-    name: "GPT-4",
-    releaseDate: "March 2023",
-    description: "",
-    organization: "OpenAI",
+    "id": "gpt4",
+    "name": "GPT-4",
+    "releaseDate": "2023-03-01",
+    "description": "",
+    "organization": "OpenAI"
   },
   {
-    id: "claude3",
-    name: "Claude 3",
-    releaseDate: "March 2024",
-    description: "",
-    organization: "Anthropic",
+    "id": "claude3",
+    "name": "Claude 3",
+    "releaseDate": "2024-03-01",
+    "description": "",
+    "organization": "Anthropic"
   },
   {
-    id: "claude35-sonnet",
-    name: "Claude 3.5 Sonnet",
-    releaseDate: "June 2024",
-    description: "",
-    organization: "Anthropic",
+    "id": "claude35-sonnet",
+    "name": "Claude 3.5 Sonnet",
+    "releaseDate": "2024-06-01",
+    "description": "",
+    "organization": "Anthropic"
   },
   {
-    id: "gpt4o",
-    name: "GPT-4o",
-    releaseDate: "May 2024",
-    description: "",
-    organization: "OpenAI",
+    "id": "gpt4o",
+    "name": "GPT-4o",
+    "releaseDate": "2024-05-01",
+    "description": "",
+    "organization": "OpenAI"
   },
   {
-    id: "gpt4o-aug",
-    name: "GPT-4o (August)",
-    releaseDate: "August 2024",
-    description: "",
-    organization: "OpenAI",
+    "id": "gpt4o-aug",
+    "name": "GPT-4o (August)",
+    "releaseDate": "2024-08-01",
+    "description": "",
+    "organization": "OpenAI"
   },
   {
-    id: "o1-mini",
-    name: "o1-mini",
-    releaseDate: "September 2024",
-    description: "reasoning model",
-    organization: "OpenAI",
+    "id": "o1-mini",
+    "name": "o1-mini",
+    "releaseDate": "2024-09-01",
+    "description": "reasoning model",
+    "organization": "OpenAI"
   },
   {
-    id: "o1",
-    name: "o1",
-    releaseDate: "September 2024",
-    description: "advanced reasoning",
-    organization: "OpenAI",
+    "id": "o1",
+    "name": "o1",
+    "releaseDate": "2024-09-01",
+    "description": "advanced reasoning",
+    "organization": "OpenAI"
   },
   {
-    id: "gemini-ultra",
-    name: "Gemini Ultra",
-    releaseDate: "December 2023",
-    description: "",
-    organization: "Google",
+    "id": "gemini-ultra",
+    "name": "Gemini Ultra",
+    "releaseDate": "2023-12-01",
+    "description": "",
+    "organization": "Google"
   },
   {
-    id: "gemini-pro-1.5",
-    name: "Gemini Pro 1.5",
-    releaseDate: "February 2024",
-    description: "",
-    organization: "Google",
-  },
-];
+    "id": "gemini-pro-1.5",
+    "name": "Gemini Pro 1.5",
+    "releaseDate": "2024-02-01",
+    "description": "",
+    "organization": "Google"
+  }
+]
