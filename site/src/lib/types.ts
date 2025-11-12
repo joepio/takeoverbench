@@ -23,32 +23,22 @@ export type BenchmarkCategory =
   | "multimodal"
   | "agentic";
 
-export type DifficultyLevel = "foundational" | "intermediate" | "advanced" | "frontier";
-
 export interface Benchmark {
   id: string;
   name: string;
   description: string;
-  category: BenchmarkCategory;
-  difficultyLevel: DifficultyLevel;
-  color: string;
   scores: BenchmarkScore[];
   humanBaseline?: number;
   expertBaseline?: number;
   url?: string;
 }
 
-export type CapabilityCategory = "cognitive" | "technical" | "social" | "physical";
-
 export interface Capability {
   id: string;
   name: string;
   description: string;
-  category: CapabilityCategory;
   benchmarks: string[]; // benchmark IDs that measure this capability
   currentLevel: number; // 0-100 scale
-  projectedLevel2025?: number;
-  projectedLevel2030?: number;
 }
 
 export type ThreatCategory =
