@@ -34,12 +34,9 @@
         "importance": "necessary"
       }
     ],
-    "indicators": [
-    ],
-    "mitigations": [
-    ],
-    "references": [
-    ]
+    "indicators": [],
+    "mitigations": [],
+    "references": []
   },
   {
     "id": "persuasionManipulation",
@@ -76,12 +73,9 @@
         "importance": "necessary"
       }
     ],
-    "indicators": [
-    ],
-    "mitigations": [
-    ],
-    "references": [
-    ]
+    "indicators": [],
+    "mitigations": [],
+    "references": []
   },
   {
     "id": "selfImprovement",
@@ -96,14 +90,11 @@
         "capabilityId": "aiDevelopment",
         "minimumLevel": 1,
         "importance": "necessary"
-      },
+      }
     ],
-    "indicators": [
-    ],
-    "mitigations": [
-    ],
-    "references": [
-    ]
+    "indicators": [],
+    "mitigations": [],
+    "references": []
   },
   {
     "id": "collusion",
@@ -130,11 +121,8 @@
         "importance": "necessary"
       }
     ],
-    "indicators": [
-    ],
-    "mitigations": [
-    ],
-    "references": [
-    ]
-  },
+    "indicators": [],
+    "mitigations": [],
+    "references": []
+  }
 ]
