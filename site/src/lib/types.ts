@@ -6,13 +6,13 @@ export interface Model {
   name: string;
   releaseDate: string;
   description: string;
-  organization?: string;
+  organization: string;
 }
 
 export interface BenchmarkScore {
   modelId: string;
   score: number;
-  date?: string;
+  stdError: number | null;
 }
 
 export type BenchmarkCategory =
@@ -28,9 +28,9 @@ export interface Benchmark {
   name: string;
   description: string;
   scores: BenchmarkScore[];
-  humanBaseline?: number;
-  expertBaseline?: number;
-  url?: string;
+  humanBaseline: number | null;
+  expertBaseline: number | null;
+  url: string | null;
 }
 
 export interface Capability {
