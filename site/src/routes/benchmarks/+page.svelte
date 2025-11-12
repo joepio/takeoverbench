@@ -1,9 +1,14 @@
 <script lang="ts">
     import MainChart from "$lib/components/MainChart.svelte";
-    import { benchmarks } from "$lib/data";
+    import { benchmarks, models } from "$lib/data";
 
     // Use the compact selection (same as homepage)
     const selectedBenchmarks = benchmarks.slice(0, 5).map((b) => b.id);
+
+    // Helper to map model id -> human name
+    function getModelNameById(id: string) {
+        return models.find((m) => m.id === id)?.name ?? id;
+    }
 </script>
 
 <svelte:head>
@@ -71,17 +76,27 @@
 
                         <div class="mt-4 pt-4 border-t border-gray-100">
                             <div class="space-y-2">
-                                {#each benchmark.scores.slice(-5) as score}
+                                {#each (benchmark.scores ?? [])
+                                    .slice()
+                                    .sort((a, b) => b.score - a.score)
+                                    .slice(0, 3) as score}
                                     <div
                                         class="flex justify-between items-center text-sm"
                                     >
                                         <span class="text-gray-600"
-                                            >{score.modelId}</span
+                                            >{getModelNameById(
+                                                score.modelId,
+                                            )}</span
                                         >
                                         <span
                                             class="font-medium"
                                             style="color: {benchmark.color}"
-                                            >{score.score}%</span
+                                            >{Math.round(
+                                                typeof score.score ===
+                                                    "number" && score.score <= 1
+                                                    ? score.score * 100
+                                                    : score.score,
+                                            )}%</span
                                         >
                                     </div>
                                 {/each}

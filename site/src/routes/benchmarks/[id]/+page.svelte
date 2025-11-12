@@ -33,6 +33,20 @@
         return new Date(t).toISOString().slice(0, 10);
     }
 
+    // Format numeric score as percentage string. If value <= 1 treat as fraction and multiply by 100.
+    // Returns "—" when score is missing/invalid.
+    function formatPercent(raw: number | null | undefined): string {
+        if (
+            raw === null ||
+            raw === undefined ||
+            typeof raw !== "number" ||
+            Number.isNaN(raw)
+        )
+            return "—";
+        const val = raw <= 1 ? raw * 100 : raw;
+        return `${Math.round(val)}%`;
+    }
+
     // Scores sorted newest last (original data is assumed unordered)
     const scoresSorted = [...(benchmark.scores ?? [])].sort((a, b) => {
         // Prefer explicit date if provided (ISO), otherwise fall back to score value
@@ -170,7 +184,9 @@
                                             >
                                             <td class="py-3 pr-4"
                                                 ><span class="font-medium"
-                                                    >{s.score}%</span
+                                                    >{formatPercent(
+                                                        s.score,
+                                                    )}</span
                                                 ></td
                                             >
                                             <td class="py-3 pr-4"

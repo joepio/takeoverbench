@@ -1,10 +1,10 @@
 // Core data type definitions for TakeOverBench
-// Extracted from models.ts so they can be shared across the codebase.
+// Shared types used across the site.
 
 export interface Model {
   id: string;
   name: string;
-  releaseDate: string;
+  releaseDate: string; // ISO date (YYYY-MM-DD) preferred
   description: string;
   organization: string;
 }
@@ -13,6 +13,7 @@ export interface BenchmarkScore {
   modelId: string;
   score: number;
   stdError: number | null;
+  date?: string; // optional ISO date when the score was recorded
 }
 
 export type BenchmarkCategory =
@@ -27,6 +28,7 @@ export interface Benchmark {
   id: string;
   name: string;
   description: string;
+  color: string; // hex or CSS color string used for chart/visualization
   scores: BenchmarkScore[];
   humanBaseline: number | null;
   expertBaseline: number | null;
@@ -37,8 +39,12 @@ export interface Capability {
   id: string;
   name: string;
   description: string;
-  benchmarks: string[]; // benchmark IDs that measure this capability
-  currentLevel: number; // 0-100 scale
+  // benchmark IDs that measure this capability
+  benchmarks: string[];
+  // current and projected levels (0-1)
+  currentLevel: number;
+  projectedLevel2025?: number;
+  projectedLevel2030?: number;
 }
 
 export type ThreatCategory =

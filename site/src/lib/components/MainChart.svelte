@@ -82,12 +82,38 @@
         );
 
         const datasets = filteredBenchmarks.map((benchmark) => {
+            // Build a date -> modelId map for tooltips and scale fractional scores (0-1) to percent.
+            // Additionally, only include points that are record-breaking (strictly improving)
+            // relative to the previous maximum for that benchmark.
+            const dateToModelId: Record<string, string | null> = {};
+            let currentMax = -Infinity;
+
             const data = releaseDates.map((date) => {
-                const score = benchmark.scores.find((s) => {
+                const scoreObj = benchmark.scores.find((s) => {
                     const model = models.find((m) => m.id === s.modelId);
                     return model?.releaseDate === date;
                 });
-                return score?.score ?? null;
+
+                if (scoreObj) {
+                    // If score is in [0,1], treat as fractional and scale to 0-100.
+                    const raw = scoreObj.score;
+                    const scaled =
+                        typeof raw === "number" && raw <= 1 ? raw * 100 : raw;
+
+                    // Only plot the point if it strictly improves on the highest seen so far.
+                    if (typeof scaled === "number" && scaled > currentMax) {
+                        currentMax = scaled;
+                        dateToModelId[date] = scoreObj.modelId ?? null;
+                        return scaled;
+                    } else {
+                        // Not a record improvement -> gap in the series
+                        dateToModelId[date] = null;
+                        return null;
+                    }
+                } else {
+                    dateToModelId[date] = null;
+                    return null;
+                }
             });
 
             return {
@@ -100,6 +126,11 @@
                 pointHoverRadius: 6,
                 borderWidth: 2,
                 spanGaps: true,
+                // Attach a date->modelId mapping to dataset.meta so tooltip callbacks can
+                // deterministically look up which model corresponds to a given label/date.
+                meta: {
+                    dateToModelId,
+                },
             };
         });
 
@@ -141,12 +172,35 @@
                                     filteredBenchmarks[context.datasetIndex];
                                 const score = context.parsed.y;
                                 if (score === null) return "";
-                                const modelId = benchmark.scores.find(
-                                    (s) => s.score === score,
-                                )?.modelId;
+
+                                // Prefer model id lookup by date mapping stored on the dataset.
+                                const modelIdFromMeta =
+                                    context.dataset?.meta?.dateToModelId?.[
+                                        context.label
+                                    ] ?? null;
+
+                                let modelId = modelIdFromMeta;
+
+                                // Fallback: try to match by scaled score (allow small float tolerance).
+                                if (!modelId) {
+                                    const match = benchmark.scores.find((s) => {
+                                        const raw = s.score;
+                                        const scaled =
+                                            typeof raw === "number" && raw <= 1
+                                                ? raw * 100
+                                                : raw;
+                                        return (
+                                            typeof scaled === "number" &&
+                                            Math.abs(scaled - score) < 0.001
+                                        );
+                                    });
+                                    modelId = match?.modelId ?? null;
+                                }
+
                                 const model = models.find(
                                     (m) => m.id === modelId,
                                 );
+
                                 return `${benchmark.name}: ${score}% (${model?.name ?? "Unknown"})`;
                             },
                         },
