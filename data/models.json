@@ -1,224 +1,8 @@
 [
   {
-    "id": "DeepSeek-V3 (scratchpad with crowd forecast)",
-    "name": "DeepSeek-V3 (scratchpad with crowd forecast)",
-    "releaseDate": "2024-12-25",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "gpt-4o-2024-08-06 - AIDE",
-    "name": "gpt-4o-2024-08-06 - AIDE",
-    "releaseDate": "2024-08-06",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "llama-2-7b-chat",
-    "name": "llama-2-7b-chat",
-    "releaseDate": "2024-02-24",
-    "organization": "Meta"
-  },
-  {
-    "id": "claude-3-7-sonnet",
-    "name": "claude-3-7-sonnet",
-    "releaseDate": "2025-02-24",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "Qwen3-235B-A22B-Instruct-2507-tput",
-    "name": "Qwen3-235B-A22B-Instruct-2507-tput",
-    "releaseDate": "2025-07-21",
-    "organization": "Alibaba"
-  },
-  {
-    "id": "gemma-3-12b-it",
-    "name": "gemma-3-12b-it",
-    "releaseDate": "2025-03-12",
-    "organization": "Google"
-  },
-  {
-    "id": "QwQ-32B-Preview (scratchpad with crowd forecast)",
-    "name": "QwQ-32B-Preview (scratchpad with crowd forecast)",
-    "releaseDate": "2024-11-28",
-    "organization": "Qwen"
-  },
-  {
-    "id": "gemini-2.5-pro - FM Agent",
-    "name": "gemini-2.5-pro - FM Agent",
-    "releaseDate": "2025-07-17",
-    "organization": "Google"
-  },
-  {
-    "id": "llama-2-70b",
-    "name": "llama-2-70b",
-    "releaseDate": "2024-02-24",
-    "organization": "Meta"
-  },
-  {
-    "id": "gpt-3.5-turbo-0613",
-    "name": "gpt-3.5-turbo-0613",
-    "releaseDate": "2023-06-13",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "Qwen3-235B-A22B-Fp8-Tput (zero shot with crowd forecast)",
-    "name": "Qwen3-235B-A22B-Fp8-Tput (zero shot with crowd forecast)",
-    "releaseDate": "2025-04-29",
-    "organization": "Qwen"
-  },
-  {
-    "id": "o1-preview-2024-09-12",
-    "name": "o1-preview-2024-09-12",
-    "releaseDate": "2024-09-12",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "qwen-2.5-72b-instruct",
-    "name": "qwen-2.5-72b-instruct",
-    "releaseDate": "2024-09-17",
-    "organization": "Alibaba"
-  },
-  {
-    "id": "deepseek-r1",
-    "name": "deepseek-r1",
-    "releaseDate": "2025-01-20",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "gemini-2-5-pro-preview",
-    "name": "gemini-2-5-pro-preview",
-    "releaseDate": "2025-06-05",
-    "organization": "Google"
-  },
-  {
-    "id": "qwen-2-72b",
-    "name": "qwen-2-72b",
-    "releaseDate": "2024-06-07",
-    "organization": "Alibaba"
-  },
-  {
-    "id": "o3 + gpt-4.1 - R&D-Agent",
-    "name": "o3 + gpt-4.1 - R&D-Agent",
-    "releaseDate": "2025-04-16",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "GLM-4.5-Air-FP8 (scratchpad with crowd forecast)",
-    "name": "GLM-4.5-Air-FP8 (scratchpad with crowd forecast)",
-    "releaseDate": "2025-07-28",
-    "organization": "Z.ai"
-  },
-  {
-    "id": "Claude-3-Opus-20240229 (zero shot with crowd forecast)",
-    "name": "Claude-3-Opus-20240229 (zero shot with crowd forecast)",
-    "releaseDate": "2024-02-29",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "gpt-4-turbo",
-    "name": "gpt-4-turbo",
-    "releaseDate": "2024-04-09",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-opus-4",
-    "name": "claude-opus-4",
-    "releaseDate": "2025-05-22",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "llama-2-7b",
-    "name": "llama-2-7b",
-    "releaseDate": "2024-02-24",
-    "organization": "Meta"
-  },
-  {
-    "id": "Claude-Sonnet-4-20250514 (zero shot with crowd forecast)",
-    "name": "Claude-Sonnet-4-20250514 (zero shot with crowd forecast)",
-    "releaseDate": "2025-05-22",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "GPT-4.5-Preview-2025-02-27 (scratchpad)",
-    "name": "GPT-4.5-Preview-2025-02-27 (scratchpad)",
-    "releaseDate": "2025-02-27",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "gpt-4o",
-    "name": "gpt-4o",
-    "releaseDate": "2024-05-13",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "gpt-4-0125",
-    "name": "gpt-4-0125",
-    "releaseDate": "2024-01-25",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "o1-elicited",
-    "name": "o1-elicited",
-    "releaseDate": "2024-12-05",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "gpt-4o-2024-08-06 - MLAB",
-    "name": "gpt-4o-2024-08-06 - MLAB",
-    "releaseDate": "2024-08-06",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "DeepSeek-V3 (zero shot with crowd forecast)",
-    "name": "DeepSeek-V3 (zero shot with crowd forecast)",
-    "releaseDate": "2024-12-25",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "GPT-4.1-2025-04-14 (zero shot with crowd forecast)",
-    "name": "GPT-4.1-2025-04-14 (zero shot with crowd forecast)",
-    "releaseDate": "2025-04-14",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "deepseek-r1 - ML-Master",
-    "name": "deepseek-r1 - ML-Master",
-    "releaseDate": "2025-01-20",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "Claude-3-5-Sonnet-20241022 (zero shot with crowd forecast)",
-    "name": "Claude-3-5-Sonnet-20241022 (zero shot with crowd forecast)",
-    "releaseDate": "2024-10-22",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "llama-3.1-405b-instruct - AIDE",
-    "name": "llama-3.1-405b-instruct - AIDE",
-    "releaseDate": "2024-06-23",
-    "organization": "Meta"
-  },
-  {
-    "id": "O3-2025-04-16 (zero shot with crowd forecast)",
-    "name": "O3-2025-04-16 (zero shot with crowd forecast)",
-    "releaseDate": "2025-04-16",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "DeepSeek-R1 (scratchpad)",
-    "name": "DeepSeek-R1 (scratchpad)",
-    "releaseDate": "2025-01-20",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "gpt2",
-    "name": "gpt2",
-    "releaseDate": "2019-02-14",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "Claude-3-7-Sonnet-20250219 (scratchpad with crowd forecast)",
-    "name": "Claude-3-7-Sonnet-20250219 (scratchpad with crowd forecast)",
-    "releaseDate": "2025-02-24",
+    "id": "Claude-3-5-Sonnet-20240620 (scratchpad with crowd forecast)",
+    "name": "Claude-3-5-Sonnet-20240620 (scratchpad with crowd forecast)",
+    "releaseDate": "2024-06-20",
     "organization": "Anthropic"
   },
   {
@@ -228,232 +12,22 @@
     "organization": "Anthropic"
   },
   {
-    "id": "phi-4",
-    "name": "phi-4",
-    "releaseDate": "2024-12-11",
-    "organization": "Microsoft"
-  },
-  {
-    "id": "Grok-beta (zero shot)",
-    "name": "Grok-beta (zero shot)",
-    "releaseDate": "2024-11-04",
-    "organization": "xAI"
-  },
-  {
-    "id": "GPT-4.5-Preview-2025-02-27 (scratchpad with crowd forecast)",
-    "name": "GPT-4.5-Preview-2025-02-27 (scratchpad with crowd forecast)",
-    "releaseDate": "2025-02-27",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-3-5-sonnet-20240620 - AIDE",
-    "name": "claude-3-5-sonnet-20240620 - AIDE",
-    "releaseDate": "2024-06-20",
+    "id": "Claude-3-5-Sonnet-20241022 (scratchpad with crowd forecast)",
+    "name": "Claude-3-5-Sonnet-20241022 (scratchpad with crowd forecast)",
+    "releaseDate": "2024-10-22",
     "organization": "Anthropic"
   },
   {
-    "id": "claude-3-haiku",
-    "name": "claude-3-haiku",
-    "releaseDate": "2024-03-04",
+    "id": "Claude-3-5-Sonnet-20241022 (zero shot with crowd forecast)",
+    "name": "Claude-3-5-Sonnet-20241022 (zero shot with crowd forecast)",
+    "releaseDate": "2024-10-22",
     "organization": "Anthropic"
   },
   {
-    "id": "Kimi-K2-Instruct (zero shot with crowd forecast)",
-    "name": "Kimi-K2-Instruct (zero shot with crowd forecast)",
-    "releaseDate": "2025-07-12",
-    "organization": "Moonshot"
-  },
-  {
-    "id": "deepseek-chat",
-    "name": "deepseek-chat",
-    "releaseDate": "2024-12-26",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "qwen-2.5-7b-instruct",
-    "name": "qwen-2.5-7b-instruct",
-    "releaseDate": "2024-09-16",
-    "organization": "Alibaba"
-  },
-  {
-    "id": "Gemini-2.5-Flash (zero shot with crowd forecast)",
-    "name": "Gemini-2.5-Flash (zero shot with crowd forecast)",
-    "releaseDate": "2025-06-17",
-    "organization": "Google"
-  },
-  {
-    "id": "claude-3-5-sonnet",
-    "name": "claude-3-5-sonnet",
-    "releaseDate": "2024-06-20",
+    "id": "Claude-3-7-Sonnet-20250219 (scratchpad with crowd forecast)",
+    "name": "Claude-3-7-Sonnet-20250219 (scratchpad with crowd forecast)",
+    "releaseDate": "2025-02-24",
     "organization": "Anthropic"
-  },
-  {
-    "id": "llama-3-70b-chat",
-    "name": "llama-3-70b-chat",
-    "releaseDate": "2024-04-18",
-    "organization": "Meta"
-  },
-  {
-    "id": "davinci-002",
-    "name": "davinci-002",
-    "releaseDate": "2020-05-28",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "gemini-1.5-pro",
-    "name": "gemini-1.5-pro",
-    "releaseDate": "2024-02-15",
-    "organization": "Google"
-  },
-  {
-    "id": "llama-3.3-70b-instruct",
-    "name": "llama-3.3-70b-instruct",
-    "releaseDate": "2024-12-06",
-    "organization": "Meta"
-  },
-  {
-    "id": "O4-Mini-2025-04-16 (zero shot with crowd forecast)",
-    "name": "O4-Mini-2025-04-16 (zero shot with crowd forecast)",
-    "releaseDate": "2025-04-16",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-sonnet-4.5",
-    "name": "claude-sonnet-4.5",
-    "releaseDate": "2025-09-29",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "claude-opus-4.1",
-    "name": "claude-opus-4.1",
-    "releaseDate": "2025-08-05",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "Gemini-2.5-Pro (zero shot with crowd forecast)",
-    "name": "Gemini-2.5-Pro (zero shot with crowd forecast)",
-    "releaseDate": "2025-06-17",
-    "organization": "Google"
-  },
-  {
-    "id": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
-    "name": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
-    "releaseDate": "2025-07-17",
-    "organization": "Google"
-  },
-  {
-    "id": "DeepSeek-R1 (scratchpad with crowd forecast)",
-    "name": "DeepSeek-R1 (scratchpad with crowd forecast)",
-    "releaseDate": "2025-01-20",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "gpt-5 - R&D-Agent",
-    "name": "gpt-5 - R&D-Agent",
-    "releaseDate": "2025-08-07",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "deepseek-r1-0528",
-    "name": "deepseek-r1-0528",
-    "releaseDate": "2025-05-28",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "gpt-4",
-    "name": "gpt-4",
-    "releaseDate": "2023-03-14",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-instant-1.2",
-    "name": "claude-instant-1.2",
-    "releaseDate": "2023-08-09",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "deepseek-v3",
-    "name": "deepseek-v3",
-    "releaseDate": "2024-12-26",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "GPT-5-Mini-2025-08-07 (zero shot with crowd forecast)",
-    "name": "GPT-5-Mini-2025-08-07 (zero shot with crowd forecast)",
-    "releaseDate": "2025-08-07",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "o1-mini-2024-09-12",
-    "name": "o1-mini-2024-09-12",
-    "releaseDate": "2024-09-12",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "llama-2-13b",
-    "name": "llama-2-13b",
-    "releaseDate": "2024-02-24",
-    "organization": "Meta"
-  },
-  {
-    "id": "O3-2025-04-16 (scratchpad)",
-    "name": "O3-2025-04-16 (scratchpad)",
-    "releaseDate": "2025-04-16",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-3-opus",
-    "name": "claude-3-opus",
-    "releaseDate": "2024-03-04",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "claude-3-sonnet",
-    "name": "claude-3-sonnet",
-    "releaseDate": "2024-03-04",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "Claude-3-5-Sonnet-20240620 (scratchpad with crowd forecast)",
-    "name": "Claude-3-5-Sonnet-20240620 (scratchpad with crowd forecast)",
-    "releaseDate": "2024-06-20",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "Mistral-7B-Instruct-v0.3",
-    "name": "Mistral-7B-Instruct-v0.3",
-    "releaseDate": "2024-05-22",
-    "organization": "Mistral"
-  },
-  {
-    "id": "gpt-oss-120b",
-    "name": "gpt-oss-120b",
-    "releaseDate": "2025-08-05",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "Qwen3-Next-80B-A3B-Instruct",
-    "name": "Qwen3-Next-80B-A3B-Instruct",
-    "releaseDate": "2025-09-09",
-    "organization": "Alibaba"
-  },
-  {
-    "id": "Meta-Llama-3.1-405B-Instruct-Turbo (zero shot with crowd forecast)",
-    "name": "Meta-Llama-3.1-405B-Instruct-Turbo (zero shot with crowd forecast)",
-    "releaseDate": "2024-07-23",
-    "organization": "Meta"
-  },
-  {
-    "id": "qwen-2-5-72b",
-    "name": "qwen-2-5-72b",
-    "releaseDate": "2024-09-19",
-    "organization": "Alibaba"
-  },
-  {
-    "id": "GPT-4o-2024-05-13 (zero shot with crowd forecast)",
-    "name": "GPT-4o-2024-05-13 (zero shot with crowd forecast)",
-    "releaseDate": "2024-05-13",
-    "organization": "OpenAI"
   },
   {
     "id": "Claude-3-7-Sonnet-20250219 (scratchpad)",
@@ -462,27 +36,141 @@
     "organization": "Anthropic"
   },
   {
-    "id": "Mistral-Large-2407 (zero shot with crowd forecast)",
-    "name": "Mistral-Large-2407 (zero shot with crowd forecast)",
-    "releaseDate": "2024-07-24",
-    "organization": "Mistral"
+    "id": "Claude-3-7-Sonnet-20250219 (zero shot with crowd forecast)",
+    "name": "Claude-3-7-Sonnet-20250219 (zero shot with crowd forecast)",
+    "releaseDate": "2025-02-24",
+    "organization": "Anthropic"
   },
   {
-    "id": "o1-preview - R&D-Agent",
-    "name": "o1-preview - R&D-Agent",
-    "releaseDate": "2024-09-12",
+    "id": "Claude-3-Opus-20240229 (zero shot with crowd forecast)",
+    "name": "Claude-3-Opus-20240229 (zero shot with crowd forecast)",
+    "releaseDate": "2024-02-29",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "Claude-Opus-4-1-20250805 (zero shot with crowd forecast)",
+    "name": "Claude-Opus-4-1-20250805 (zero shot with crowd forecast)",
+    "releaseDate": "2025-08-05",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "Claude-Opus-4-20250514 (scratchpad with crowd forecast)",
+    "name": "Claude-Opus-4-20250514 (scratchpad with crowd forecast)",
+    "releaseDate": "2025-05-22",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "Claude-Sonnet-4-20250514 (zero shot with crowd forecast)",
+    "name": "Claude-Sonnet-4-20250514 (zero shot with crowd forecast)",
+    "releaseDate": "2025-05-22",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "DeepSeek-R1 (scratchpad with crowd forecast)",
+    "name": "DeepSeek-R1 (scratchpad with crowd forecast)",
+    "releaseDate": "2025-01-20",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "DeepSeek-R1 (scratchpad)",
+    "name": "DeepSeek-R1 (scratchpad)",
+    "releaseDate": "2025-01-20",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "DeepSeek-V3 (scratchpad with crowd forecast)",
+    "name": "DeepSeek-V3 (scratchpad with crowd forecast)",
+    "releaseDate": "2024-12-25",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "DeepSeek-V3 (zero shot with crowd forecast)",
+    "name": "DeepSeek-V3 (zero shot with crowd forecast)",
+    "releaseDate": "2024-12-25",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "GLM-4.5-Air-FP8 (scratchpad with crowd forecast)",
+    "name": "GLM-4.5-Air-FP8 (scratchpad with crowd forecast)",
+    "releaseDate": "2025-07-28",
+    "organization": "Z.ai"
+  },
+  {
+    "id": "GLM-4.5-Air-FP8 (zero shot with crowd forecast)",
+    "name": "GLM-4.5-Air-FP8 (zero shot with crowd forecast)",
+    "releaseDate": "2025-07-28",
+    "organization": "Z.ai"
+  },
+  {
+    "id": "GPT-4-0613 (zero shot with crowd forecast)",
+    "name": "GPT-4-0613 (zero shot with crowd forecast)",
+    "releaseDate": "2023-06-13",
     "organization": "OpenAI"
   },
   {
-    "id": "Grok-beta (zero shot with crowd forecast)",
-    "name": "Grok-beta (zero shot with crowd forecast)",
-    "releaseDate": "2024-11-04",
-    "organization": "xAI"
+    "id": "GPT-4-Turbo-2024-04-09 (zero shot with crowd forecast)",
+    "name": "GPT-4-Turbo-2024-04-09 (zero shot with crowd forecast)",
+    "releaseDate": "2024-04-09",
+    "organization": "OpenAI"
   },
   {
-    "id": "Gemini-2.5-Flash-Preview-04-17 (zero shot)",
-    "name": "Gemini-2.5-Flash-Preview-04-17 (zero shot)",
-    "releaseDate": "2025-04-17",
+    "id": "GPT-4.1-2025-04-14 (scratchpad with crowd forecast)",
+    "name": "GPT-4.1-2025-04-14 (scratchpad with crowd forecast)",
+    "releaseDate": "2025-04-14",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "GPT-4.1-2025-04-14 (zero shot with crowd forecast)",
+    "name": "GPT-4.1-2025-04-14 (zero shot with crowd forecast)",
+    "releaseDate": "2025-04-14",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "GPT-4.5-Preview-2025-02-27 (scratchpad with crowd forecast)",
+    "name": "GPT-4.5-Preview-2025-02-27 (scratchpad with crowd forecast)",
+    "releaseDate": "2025-02-27",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "GPT-4.5-Preview-2025-02-27 (scratchpad)",
+    "name": "GPT-4.5-Preview-2025-02-27 (scratchpad)",
+    "releaseDate": "2025-02-27",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "GPT-4.5-Preview-2025-02-27 (zero shot with crowd forecast)",
+    "name": "GPT-4.5-Preview-2025-02-27 (zero shot with crowd forecast)",
+    "releaseDate": "2025-02-27",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "GPT-4.5-Preview-2025-02-27 (zero shot)",
+    "name": "GPT-4.5-Preview-2025-02-27 (zero shot)",
+    "releaseDate": "2025-02-27",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "GPT-4o-2024-05-13 (zero shot with crowd forecast)",
+    "name": "GPT-4o-2024-05-13 (zero shot with crowd forecast)",
+    "releaseDate": "2024-05-13",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "GPT-5-2025-08-07 (zero shot with crowd forecast)",
+    "name": "GPT-5-2025-08-07 (zero shot with crowd forecast)",
+    "releaseDate": "2025-08-07",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "GPT-5-Mini-2025-08-07 (zero shot with crowd forecast)",
+    "name": "GPT-5-Mini-2025-08-07 (zero shot with crowd forecast)",
+    "releaseDate": "2025-08-07",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "Gemini-2.5-Flash (zero shot with crowd forecast)",
+    "name": "Gemini-2.5-Flash (zero shot with crowd forecast)",
+    "releaseDate": "2025-06-17",
     "organization": "Google"
   },
   {
@@ -492,20 +180,596 @@
     "organization": "Google"
   },
   {
-    "id": "GPT-4-Turbo-2024-04-09 (zero shot with crowd forecast)",
-    "name": "GPT-4-Turbo-2024-04-09 (zero shot with crowd forecast)",
-    "releaseDate": "2024-04-09",
+    "id": "Gemini-2.5-Flash-Preview-04-17 (zero shot)",
+    "name": "Gemini-2.5-Flash-Preview-04-17 (zero shot)",
+    "releaseDate": "2025-04-17",
+    "organization": "Google"
+  },
+  {
+    "id": "Gemini-2.5-Pro (zero shot with crowd forecast)",
+    "name": "Gemini-2.5-Pro (zero shot with crowd forecast)",
+    "releaseDate": "2025-06-17",
+    "organization": "Google"
+  },
+  {
+    "id": "Grok-beta (zero shot with crowd forecast)",
+    "name": "Grok-beta (zero shot with crowd forecast)",
+    "releaseDate": "2024-11-04",
+    "organization": "xAI"
+  },
+  {
+    "id": "Grok-beta (zero shot)",
+    "name": "Grok-beta (zero shot)",
+    "releaseDate": "2024-11-04",
+    "organization": "xAI"
+  },
+  {
+    "id": "Kimi-K2-Instruct (zero shot with crowd forecast)",
+    "name": "Kimi-K2-Instruct (zero shot with crowd forecast)",
+    "releaseDate": "2025-07-12",
+    "organization": "Moonshot"
+  },
+  {
+    "id": "Llama-3.3-70B-Instruct-Turbo (scratchpad with crowd forecast)",
+    "name": "Llama-3.3-70B-Instruct-Turbo (scratchpad with crowd forecast)",
+    "releaseDate": "2024-12-06",
+    "organization": "Meta"
+  },
+  {
+    "id": "Meta-Llama-3.1-405B-Instruct-Turbo (zero shot with crowd forecast)",
+    "name": "Meta-Llama-3.1-405B-Instruct-Turbo (zero shot with crowd forecast)",
+    "releaseDate": "2024-07-23",
+    "organization": "Meta"
+  },
+  {
+    "id": "Mistral-7B-Instruct-v0.3",
+    "name": "Mistral 7B Instruct",
+    "releaseDate": "2024-05-22",
+    "organization": "Mistral"
+  },
+  {
+    "id": "Mistral-Large-2407 (zero shot with crowd forecast)",
+    "name": "Mistral-Large-2407 (zero shot with crowd forecast)",
+    "releaseDate": "2024-07-24",
+    "organization": "Mistral"
+  },
+  {
+    "id": "O3-2025-04-16 (scratchpad with crowd forecast)",
+    "name": "O3-2025-04-16 (scratchpad with crowd forecast)",
+    "releaseDate": "2025-04-16",
     "organization": "OpenAI"
   },
   {
-    "id": "gpt-5",
-    "name": "gpt-5",
-    "releaseDate": "2025-08-07",
+    "id": "O3-2025-04-16 (scratchpad)",
+    "name": "O3-2025-04-16 (scratchpad)",
+    "releaseDate": "2025-04-16",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "O3-2025-04-16 (zero shot with crowd forecast)",
+    "name": "O3-2025-04-16 (zero shot with crowd forecast)",
+    "releaseDate": "2025-04-16",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "O3-2025-04-16 (zero shot)",
+    "name": "O3-2025-04-16 (zero shot)",
+    "releaseDate": "2025-04-16",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "O3-Mini-2025-01-31 (scratchpad with crowd forecast)",
+    "name": "O3-Mini-2025-01-31 (scratchpad with crowd forecast)",
+    "releaseDate": "2025-01-31",
     "organization": "OpenAI"
   },
   {
     "id": "O3-Mini-2025-01-31 (zero shot with crowd forecast)",
     "name": "O3-Mini-2025-01-31 (zero shot with crowd forecast)",
+    "releaseDate": "2025-01-31",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "O4-Mini-2025-04-16 (scratchpad with crowd forecast)",
+    "name": "O4-Mini-2025-04-16 (scratchpad with crowd forecast)",
+    "releaseDate": "2025-04-16",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "O4-Mini-2025-04-16 (zero shot with crowd forecast)",
+    "name": "O4-Mini-2025-04-16 (zero shot with crowd forecast)",
+    "releaseDate": "2025-04-16",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "QwQ-32B-Preview (scratchpad with crowd forecast)",
+    "name": "QwQ-32B-Preview (scratchpad with crowd forecast)",
+    "releaseDate": "2024-11-28",
+    "organization": "Qwen"
+  },
+  {
+    "id": "Qwen2.5-72B-Instruct-Turbo (zero shot with crowd forecast)",
+    "name": "Qwen2.5-72B-Instruct-Turbo (zero shot with crowd forecast)",
+    "releaseDate": "2024-09-19",
+    "organization": "Qwen"
+  },
+  {
+    "id": "Qwen3-235B-A22B-Fp8-Tput (scratchpad with crowd forecast)",
+    "name": "Qwen3-235B-A22B-Fp8-Tput (scratchpad with crowd forecast)",
+    "releaseDate": "2025-04-29",
+    "organization": "Qwen"
+  },
+  {
+    "id": "Qwen3-235B-A22B-Fp8-Tput (zero shot with crowd forecast)",
+    "name": "Qwen3-235B-A22B-Fp8-Tput (zero shot with crowd forecast)",
+    "releaseDate": "2025-04-29",
+    "organization": "Qwen"
+  },
+  {
+    "id": "Qwen3-235B-A22B-Fp8-Tput (zero shot)",
+    "name": "Qwen3-235B-A22B-Fp8-Tput (zero shot)",
+    "releaseDate": "2025-04-29",
+    "organization": "Qwen"
+  },
+  {
+    "id": "Qwen3-235B-A22B-Instruct-2507-tput",
+    "name": "Qwen 3 235B A22B Instruct",
+    "releaseDate": "2025-07-21",
+    "organization": "Alibaba"
+  },
+  {
+    "id": "Qwen3-Next-80B-A3B-Instruct",
+    "name": "Qwen 3 Next 80B A3B Instruct",
+    "releaseDate": "2025-09-09",
+    "organization": "Alibaba"
+  },
+  {
+    "id": "claude-2.1",
+    "name": "Claude 2.1",
+    "releaseDate": "2023-11-21",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3-5-sonnet",
+    "name": "claude-3-5-sonnet",
+    "releaseDate": "2024-06-20",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3-5-sonnet-20240620 - AIDE",
+    "name": "claude-3-5-sonnet-20240620 - AIDE",
+    "releaseDate": "2024-06-20",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3-5-sonnet-20241022",
+    "name": "claude-3-5-sonnet-20241022",
+    "releaseDate": "2024-10-22",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3-7-sonnet",
+    "name": "claude-3-7-sonnet",
+    "releaseDate": "2025-02-24",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3-haiku",
+    "name": "Claude 3 Haiku",
+    "releaseDate": "2024-03-04",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3-opus",
+    "name": "Claude 3 Opus",
+    "releaseDate": "2024-03-04",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3-sonnet",
+    "name": "Claude 3 Sonnet",
+    "releaseDate": "2024-03-04",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3.5-sonnet",
+    "name": "Claude 3.5 Sonnet",
+    "releaseDate": "2024-06-20",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3.7-sonnet",
+    "name": "Claude 3.7 Sonnet",
+    "releaseDate": "2025-02-24",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-4-1-opus",
+    "name": "claude-4-1-opus",
+    "releaseDate": "2025-08-05",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-4-opus",
+    "name": "claude-4-opus",
+    "releaseDate": "2025-05-22",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-4-sonnet",
+    "name": "claude-4-sonnet",
+    "releaseDate": "2025-05-22",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-instant-1.2",
+    "name": "Claude Instant 1.2",
+    "releaseDate": "2023-08-09",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-opus-4",
+    "name": "Claude Opus 4",
+    "releaseDate": "2025-05-22",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-opus-4.1",
+    "name": "Claude Opus 4.1",
+    "releaseDate": "2025-08-05",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-sonnet-4-5",
+    "name": "Claude Sonnet 4.5",
+    "releaseDate": "2025-09-29",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-sonnet-4.5",
+    "name": "Claude Sonnet 4.5",
+    "releaseDate": "2025-09-29",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "davinci-002",
+    "name": "Davinci 002",
+    "releaseDate": "2022-11-01",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "deepseek-chat",
+    "name": "DeepSeek V3",
+    "releaseDate": "2024-12-26",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "deepseek-r1",
+    "name": "DeepSeek R1",
+    "releaseDate": "2025-01-20",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "deepseek-r1 - InternAgent",
+    "name": "deepseek-r1 - InternAgent",
+    "releaseDate": "2025-01-20",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "deepseek-r1 - ML-Master",
+    "name": "deepseek-r1 - ML-Master",
+    "releaseDate": "2025-01-20",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "deepseek-r1-0528",
+    "name": "Deepseek R1 0528",
+    "releaseDate": "2025-05-28",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "deepseek-v3",
+    "name": "DeepSeek V3",
+    "releaseDate": "2024-12-26",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "deepseek-v3-0324",
+    "name": "deepseek-v3-0324",
+    "releaseDate": "2025-03-24",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "gemini-1.5-pro",
+    "name": "Gemini 1.5 Pro",
+    "releaseDate": "2024-02-15",
+    "organization": "Google"
+  },
+  {
+    "id": "gemini-2-5-pro-preview",
+    "name": "gemini-2-5-pro-preview",
+    "releaseDate": "2025-06-05",
+    "organization": "Google"
+  },
+  {
+    "id": "gemini-2.0-flash-001",
+    "name": "Gemini 2.0 Flash",
+    "releaseDate": "2025-02-05",
+    "organization": "Google"
+  },
+  {
+    "id": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
+    "name": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
+    "releaseDate": "2025-07-17",
+    "organization": "Google"
+  },
+  {
+    "id": "gemini-2.5-pro - FM Agent",
+    "name": "gemini-2.5-pro - FM Agent",
+    "releaseDate": "2025-07-17",
+    "organization": "Google"
+  },
+  {
+    "id": "gemma-3-12b-it",
+    "name": "Gemma 3 12B IT",
+    "releaseDate": "2025-03-12",
+    "organization": "Google"
+  },
+  {
+    "id": "gemma-3-27b-it",
+    "name": "Gemma 3 27B IT",
+    "releaseDate": "2025-03-12",
+    "organization": "Google"
+  },
+  {
+    "id": "gpt-3-5-turbo-instruct",
+    "name": "gpt-3-5-turbo-instruct",
+    "releaseDate": "2022-03-15",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-3.5-turbo-0613",
+    "name": "GPT-3.5 Turbo 0613",
+    "releaseDate": "2023-06-13",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4",
+    "name": "GPT 4",
+    "releaseDate": "2023-03-14",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4-0125",
+    "name": "gpt-4-0125",
+    "releaseDate": "2024-01-25",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4-0125-preview",
+    "name": "GPT-4 0125 Preview",
+    "releaseDate": "2024-01-25",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4-0613",
+    "name": "GPT-4 0613",
+    "releaseDate": "2023-06-13",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4-1106",
+    "name": "GPT 4 1106",
+    "releaseDate": "2023-11-06",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4-turbo",
+    "name": "gpt-4-turbo",
+    "releaseDate": "2024-04-09",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4.5-preview",
+    "name": "GPT-4.5 Preview",
+    "releaseDate": "2025-02-27",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4o",
+    "name": "GPT-4o",
+    "releaseDate": "2024-05-13",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4o-2024-08-06 - AIDE",
+    "name": "gpt-4o-2024-08-06 - AIDE",
+    "releaseDate": "2024-08-06",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4o-2024-08-06 - MLAB",
+    "name": "gpt-4o-2024-08-06 - MLAB",
+    "releaseDate": "2024-08-06",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4o-2024-08-06 - OpenHands",
+    "name": "gpt-4o-2024-08-06 - OpenHands",
+    "releaseDate": "2024-08-06",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4o-mini-2024-07-18",
+    "name": "GPT-4o Mini",
+    "releaseDate": "2024-08-06",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-5",
+    "name": "GPT-5",
+    "releaseDate": "2025-08-07",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-5 - R&D-Agent",
+    "name": "gpt-5 - R&D-Agent",
+    "releaseDate": "2025-08-07",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-oss-120b",
+    "name": "GPT OSS 120b",
+    "releaseDate": "2025-08-05",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt2",
+    "name": "gpt2",
+    "releaseDate": "2019-02-14",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "grok-4",
+    "name": "grok-4",
+    "releaseDate": "2025-07-09",
+    "organization": "xAI"
+  },
+  {
+    "id": "llama-2-13b",
+    "name": "Llama 2 13B",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-13b-chat",
+    "name": "Llama 2 13B Chat",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-70b",
+    "name": "Llama 2 70B",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-70b-chat",
+    "name": "Llama 2 70B Chat",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-7b",
+    "name": "Llama 2 7B",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-7b-chat",
+    "name": "Llama 2 7B Chat",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-3-70b-chat",
+    "name": "Llama 3 70B Chat",
+    "releaseDate": "2024-04-18",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-3.1-405b-instruct",
+    "name": "Llama 3.1 405B Instruct",
+    "releaseDate": "2024-06-23",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-3.1-405b-instruct - AIDE",
+    "name": "llama-3.1-405b-instruct - AIDE",
+    "releaseDate": "2024-06-23",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-3.2-3b-instruct",
+    "name": "Llama 3.2 3B Instruct",
+    "releaseDate": "2024-09-25",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-3.3-70b-instruct",
+    "name": "Llama 3.3 70B Instruct",
+    "releaseDate": "2024-12-06",
+    "organization": "Meta"
+  },
+  {
+    "id": "mixtral-8x22b-instruct",
+    "name": "Mixtral 8x22B Instruct",
+    "releaseDate": "2024-04-17",
+    "organization": "Mistral"
+  },
+  {
+    "id": "o1-elicited",
+    "name": "o1-elicited",
+    "releaseDate": "2024-12-05",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o1-mini",
+    "name": "o1 Mini",
+    "releaseDate": "2024-09-12",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o1-mini-2024-09-12",
+    "name": "o1 Mini",
+    "releaseDate": "2024-09-12",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o1-preview",
+    "name": "O1 Preview",
+    "releaseDate": "2024-09-12",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o1-preview - AIDE",
+    "name": "o1-preview - AIDE",
+    "releaseDate": "2024-09-12",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o1-preview - R&D-Agent",
+    "name": "o1-preview - R&D-Agent",
+    "releaseDate": "2024-09-12",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o1-preview-2024-09-12",
+    "name": "O1 Preview",
+    "releaseDate": "2024-09-12",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o3",
+    "name": "o3",
+    "releaseDate": "2025-04-16",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o3 + gpt-4.1 - R&D-Agent",
+    "name": "o3 + gpt-4.1 - R&D-Agent",
+    "releaseDate": "2025-04-16",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o3 - AIRA-dojo",
+    "name": "o3 - AIRA-dojo",
+    "releaseDate": "2025-04-16",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o3-mini",
+    "name": "O3 Mini",
     "releaseDate": "2025-01-31",
     "organization": "OpenAI"
   },
@@ -516,303 +780,39 @@
     "organization": "OpenAI"
   },
   {
-    "id": "GPT-4.5-Preview-2025-02-27 (zero shot with crowd forecast)",
-    "name": "GPT-4.5-Preview-2025-02-27 (zero shot with crowd forecast)",
-    "releaseDate": "2025-02-27",
-    "organization": "OpenAI"
+    "id": "phi-4",
+    "name": "Phi 4",
+    "releaseDate": "2024-12-11",
+    "organization": "Microsoft"
   },
   {
-    "id": "llama-2-13b-chat",
-    "name": "llama-2-13b-chat",
-    "releaseDate": "2024-02-24",
-    "organization": "Meta"
+    "id": "qwen-2-5-72b",
+    "name": "Qwen 2.5 72B",
+    "releaseDate": "2024-09-15",
+    "organization": "Alibaba"
   },
   {
-    "id": "O3-2025-04-16 (scratchpad with crowd forecast)",
-    "name": "O3-2025-04-16 (scratchpad with crowd forecast)",
-    "releaseDate": "2025-04-16",
-    "organization": "OpenAI"
+    "id": "qwen-2-72b",
+    "name": "qwen-2-72b",
+    "releaseDate": "2024-06-07",
+    "organization": "Alibaba"
   },
   {
-    "id": "o3-mini",
-    "name": "o3-mini",
-    "releaseDate": "2025-01-31",
-    "organization": "OpenAI"
+    "id": "qwen-2.5-72b-instruct",
+    "name": "Qwen 2.5 72B Instruct",
+    "releaseDate": "2024-09-16",
+    "organization": "Alibaba"
   },
   {
-    "id": "claude-3.7-sonnet",
-    "name": "claude-3.7-sonnet",
-    "releaseDate": "2025-02-24",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "llama-3.1-405b-instruct",
-    "name": "llama-3.1-405b-instruct",
-    "releaseDate": "2024-06-23",
-    "organization": "Meta"
-  },
-  {
-    "id": "Claude-Opus-4-1-20250805 (zero shot with crowd forecast)",
-    "name": "Claude-Opus-4-1-20250805 (zero shot with crowd forecast)",
-    "releaseDate": "2025-08-05",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "Qwen2.5-72B-Instruct-Turbo (zero shot with crowd forecast)",
-    "name": "Qwen2.5-72B-Instruct-Turbo (zero shot with crowd forecast)",
-    "releaseDate": "2024-09-19",
-    "organization": "Qwen"
-  },
-  {
-    "id": "llama-3.2-3b-instruct",
-    "name": "llama-3.2-3b-instruct",
-    "releaseDate": "2024-09-25",
-    "organization": "Meta"
-  },
-  {
-    "id": "gpt-4-0613",
-    "name": "gpt-4-0613",
-    "releaseDate": "2023-06-13",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "Claude-3-7-Sonnet-20250219 (zero shot with crowd forecast)",
-    "name": "Claude-3-7-Sonnet-20250219 (zero shot with crowd forecast)",
-    "releaseDate": "2025-02-24",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "o3 - AIRA-dojo",
-    "name": "o3 - AIRA-dojo",
-    "releaseDate": "2025-04-16",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "GPT-5-2025-08-07 (zero shot with crowd forecast)",
-    "name": "GPT-5-2025-08-07 (zero shot with crowd forecast)",
-    "releaseDate": "2025-08-07",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "GPT-4.5-Preview-2025-02-27 (zero shot)",
-    "name": "GPT-4.5-Preview-2025-02-27 (zero shot)",
-    "releaseDate": "2025-02-27",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "Llama-3.3-70B-Instruct-Turbo (scratchpad with crowd forecast)",
-    "name": "Llama-3.3-70B-Instruct-Turbo (scratchpad with crowd forecast)",
-    "releaseDate": "2024-12-06",
-    "organization": "Meta"
-  },
-  {
-    "id": "claude-4-sonnet",
-    "name": "claude-4-sonnet",
-    "releaseDate": "2025-05-22",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "o1-mini",
-    "name": "o1-mini",
-    "releaseDate": "2024-09-12",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "gemini-2.0-flash-001",
-    "name": "gemini-2.0-flash-001",
-    "releaseDate": "2025-02-05",
-    "organization": "Google"
-  },
-  {
-    "id": "o1-preview",
-    "name": "o1-preview",
-    "releaseDate": "2024-09-12",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-sonnet-4-5",
-    "name": "claude-sonnet-4-5",
-    "releaseDate": "2025-09-29",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "llama-2-70b-chat",
-    "name": "llama-2-70b-chat",
-    "releaseDate": "2024-02-24",
-    "organization": "Meta"
-  },
-  {
-    "id": "gpt-4o-2024-08-06 - OpenHands",
-    "name": "gpt-4o-2024-08-06 - OpenHands",
-    "releaseDate": "2024-08-06",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-4-1-opus",
-    "name": "claude-4-1-opus",
-    "releaseDate": "2025-08-05",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "gpt-4-1106",
-    "name": "gpt-4-1106",
-    "releaseDate": "2023-11-06",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "deepseek-r1 - InternAgent",
-    "name": "deepseek-r1 - InternAgent",
-    "releaseDate": "2025-01-20",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "claude-3.5-sonnet",
-    "name": "claude-3.5-sonnet",
-    "releaseDate": "2024-06-20",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "Qwen3-235B-A22B-Fp8-Tput (scratchpad with crowd forecast)",
-    "name": "Qwen3-235B-A22B-Fp8-Tput (scratchpad with crowd forecast)",
-    "releaseDate": "2025-04-29",
-    "organization": "Qwen"
-  },
-  {
-    "id": "gpt-3-5-turbo-instruct",
-    "name": "gpt-3-5-turbo-instruct",
-    "releaseDate": "2022-03-15",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "gpt-4o-mini-2024-07-18",
-    "name": "gpt-4o-mini-2024-07-18",
-    "releaseDate": "2024-08-06",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "gpt-4.5-preview",
-    "name": "gpt-4.5-preview",
-    "releaseDate": "2025-02-27",
-    "organization": "OpenAI"
+    "id": "qwen-2.5-7b-instruct",
+    "name": "Qwen 2.5 7B Instruct",
+    "releaseDate": "2024-09-16",
+    "organization": "Alibaba"
   },
   {
     "id": "undisclosed - Neo multi-agent",
     "name": "undisclosed - Neo multi-agent",
     "releaseDate": "",
     "organization": ""
-  },
-  {
-    "id": "O4-Mini-2025-04-16 (scratchpad with crowd forecast)",
-    "name": "O4-Mini-2025-04-16 (scratchpad with crowd forecast)",
-    "releaseDate": "2025-04-16",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "Claude-Opus-4-20250514 (scratchpad with crowd forecast)",
-    "name": "Claude-Opus-4-20250514 (scratchpad with crowd forecast)",
-    "releaseDate": "2025-05-22",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "o1-preview - AIDE",
-    "name": "o1-preview - AIDE",
-    "releaseDate": "2024-09-12",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-2.1",
-    "name": "claude-2.1",
-    "releaseDate": "2023-11-21",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "GLM-4.5-Air-FP8 (zero shot with crowd forecast)",
-    "name": "GLM-4.5-Air-FP8 (zero shot with crowd forecast)",
-    "releaseDate": "2025-07-28",
-    "organization": "Z.ai"
-  },
-  {
-    "id": "gemma-3-27b-it",
-    "name": "gemma-3-27b-it",
-    "releaseDate": "2025-03-12",
-    "organization": "Google"
-  },
-  {
-    "id": "GPT-4.1-2025-04-14 (scratchpad with crowd forecast)",
-    "name": "GPT-4.1-2025-04-14 (scratchpad with crowd forecast)",
-    "releaseDate": "2025-04-14",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "deepseek-v3-0324",
-    "name": "deepseek-v3-0324",
-    "releaseDate": "2025-03-24",
-    "organization": "DeepSeek"
-  },
-  {
-    "id": "GPT-4-0613 (zero shot with crowd forecast)",
-    "name": "GPT-4-0613 (zero shot with crowd forecast)",
-    "releaseDate": "2023-06-13",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-4-opus",
-    "name": "claude-4-opus",
-    "releaseDate": "2025-05-22",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "Claude-3-5-Sonnet-20241022 (scratchpad with crowd forecast)",
-    "name": "Claude-3-5-Sonnet-20241022 (scratchpad with crowd forecast)",
-    "releaseDate": "2024-10-22",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "grok-4",
-    "name": "grok-4",
-    "releaseDate": "2025-07-09",
-    "organization": "xAI"
-  },
-  {
-    "id": "O3-2025-04-16 (zero shot)",
-    "name": "O3-2025-04-16 (zero shot)",
-    "releaseDate": "2025-04-16",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "Qwen3-235B-A22B-Fp8-Tput (zero shot)",
-    "name": "Qwen3-235B-A22B-Fp8-Tput (zero shot)",
-    "releaseDate": "2025-04-29",
-    "organization": "Qwen"
-  },
-  {
-    "id": "o3",
-    "name": "o3",
-    "releaseDate": "2025-04-16",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "claude-3-5-sonnet-20241022",
-    "name": "claude-3-5-sonnet-20241022",
-    "releaseDate": "2024-10-22",
-    "organization": "Anthropic"
-  },
-  {
-    "id": "mixtral-8x22b-instruct",
-    "name": "mixtral-8x22b-instruct",
-    "releaseDate": "2024-04-17",
-    "organization": "Mistral"
-  },
-  {
-    "id": "gpt-4-0125-preview",
-    "name": "gpt-4-0125-preview",
-    "releaseDate": "2024-01-25",
-    "organization": "OpenAI"
-  },
-  {
-    "id": "O3-Mini-2025-01-31 (scratchpad with crowd forecast)",
-    "name": "O3-Mini-2025-01-31 (scratchpad with crowd forecast)",
-    "releaseDate": "2025-01-31",
-    "organization": "OpenAI"
   }
 ]
