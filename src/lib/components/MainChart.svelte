@@ -35,11 +35,13 @@
     export let height: string = "420px";
     export let showLegend: boolean = true;
     export let showProjections: boolean = true;
+    export let showSotaFilter: boolean = true;
 
     let canvasEl: HTMLCanvasElement | null = null;
     let chart: Chart | null = null;
     let mounted = false;
     let projectionsEnabled = showProjections;
+    let sotaFilterEnabled = true;
 
     // Helper: get benchmark object by id
     function getBenchmark(id: string) {
@@ -101,6 +103,7 @@
                     const scaled =
                         typeof raw === "number" && raw <= 1 ? raw * 100 : raw;
 
+                    // Always calculate SOTA for the line
                     if (typeof scaled === "number" && scaled > currentMax) {
                         currentMax = scaled;
                         dateToModelId[ts] = scoreObj.modelId ?? null;
@@ -111,6 +114,7 @@
                     }
                 });
 
+                // Add SOTA line dataset
                 datasets.push({
                     label: bench.capabilityName ?? bench.name,
                     data,
@@ -119,11 +123,60 @@
                     tension: 0.3,
                     pointRadius: 3,
                     borderWidth: 2,
+                    showLine: true,
                     spanGaps: true,
                     meta: { dateToModelId },
                 });
 
-                // Generate projection if enabled
+                // When SOTA filter is off, also add scatter plot with all points
+                if (!sotaFilterEnabled) {
+                    const scatterDateToModelId: Record<number, string | null> =
+                        {};
+                    const allData = releaseTs.map((ts) => {
+                        const scoreObj = (bench.scores ?? []).find((s) => {
+                            const m = models.find((mm) => mm.id === s.modelId);
+                            if (!m?.releaseDate) return false;
+                            const mts = Date.parse(m.releaseDate);
+                            return !Number.isNaN(mts) && mts === ts;
+                        });
+
+                        if (!scoreObj) {
+                            scatterDateToModelId[ts] = null;
+                            return { x: ts, y: null };
+                        }
+
+                        const raw = scoreObj.score;
+                        const scaled =
+                            typeof raw === "number" && raw <= 1
+                                ? raw * 100
+                                : raw;
+
+                        if (typeof scaled === "number") {
+                            scatterDateToModelId[ts] = scoreObj.modelId ?? null;
+                            return { x: ts, y: scaled };
+                        } else {
+                            scatterDateToModelId[ts] = null;
+                            return { x: ts, y: null };
+                        }
+                    });
+
+                    datasets.push({
+                        label: bench.capabilityName ?? bench.name,
+                        data: allData,
+                        borderColor: bench.color,
+                        backgroundColor: bench.color,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        borderWidth: 0,
+                        showLine: false,
+                        meta: {
+                            isScatter: true,
+                            dateToModelId: scatterDateToModelId,
+                        },
+                    });
+                }
+
+                // Generate projection if enabled (always use SOTA data for projections)
                 if (projectionsEnabled && bench.projectionType !== "none") {
                     const validData = data.filter(
                         (d) => d.y !== null && !isNaN(d.y),
@@ -270,10 +323,13 @@
                             usePointStyle: true,
                             font: { size: 12, family: "Inter, sans-serif" },
                             filter: function (legendItem: any, chartData: any) {
-                                // Hide projected datasets from legend
+                                // Hide projected and scatter datasets from legend
                                 const dataset =
                                     chartData.datasets[legendItem.datasetIndex];
-                                return !dataset.meta?.isProjection;
+                                return (
+                                    !dataset.meta?.isProjection &&
+                                    !dataset.meta?.isScatter
+                                );
                             },
                         },
                         // navigate to benchmark page on legend click
@@ -303,16 +359,21 @@
                         bodyFont: { size: 12 },
                         callbacks: {
                             label: (context: any) => {
-                                const idx = context.datasetIndex ?? 0;
-                                const benchId = selectedBenchmarks[idx];
+                                const dataset = context.dataset;
+                                const meta = dataset?.meta ?? {};
+                                const isScatter = meta.isScatter;
+
+                                // For scatter plots, map back to the correct benchmark
+                                let benchIdx = context.datasetIndex ?? 0;
+                                if (isScatter) {
+                                    // Scatter datasets are added after SOTA line, so find the previous non-scatter
+                                    benchIdx = Math.floor(benchIdx / 2);
+                                }
+
+                                const benchId = selectedBenchmarks[benchIdx];
                                 const bench = getBenchmark(benchId);
                                 if (!bench) return "";
-                                const score = context.parsed?.y;
-                                if (score === null || score === undefined)
-                                    return "";
 
-                                const meta =
-                                    (context.dataset as any)?.meta ?? {};
                                 const parsedX = context.parsed?.x;
                                 const ts =
                                     typeof parsedX === "number"
@@ -327,8 +388,21 @@
                                         : null;
                                 let modelId = modelIdFromMeta;
 
-                                if (!modelId) {
+                                if (!modelId && ts != null) {
+                                    // Try to find by timestamp and score
+                                    const score = context.parsed?.y;
                                     const match = bench.scores?.find((s) => {
+                                        const m = models.find(
+                                            (mm) => mm.id === s.modelId,
+                                        );
+                                        if (!m?.releaseDate) return false;
+                                        const mts = Date.parse(m.releaseDate);
+                                        if (
+                                            Number.isNaN(mts) ||
+                                            Math.abs(mts - ts) > 86400000
+                                        )
+                                            return false; // not within 1 day
+
                                         const raw = s.score;
                                         const scaled =
                                             typeof raw === "number" && raw <= 1
@@ -339,7 +413,7 @@
                                             Math.abs(
                                                 (scaled as number) -
                                                     (score as number),
-                                            ) < 0.001
+                                            ) < 0.1
                                         );
                                     });
                                     modelId = match?.modelId ?? null;
@@ -348,7 +422,7 @@
                                 const model = models.find(
                                     (m) => m.id === modelId,
                                 );
-                                return `${bench.capabilityName ?? bench.name}: ${Math.round(score as number)}% (${model?.name ?? "Unknown"})`;
+                                return model?.name ?? "Unknown";
                             },
                         },
                     },
@@ -414,8 +488,9 @@
     }
 
     $: if (mounted && chart) {
-        // Recreate chart when projection toggle changes
+        // Recreate chart when toggles change
         projectionsEnabled;
+        sotaFilterEnabled;
         createChart();
     }
 
@@ -429,18 +504,32 @@
 
 {#if selectedBenchmarks.length > 0}
     <div class="w-full">
-        {#if showProjections}
-            <div class="mb-3 flex items-center justify-end">
-                <label
-                    class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer"
-                >
-                    <input
-                        type="checkbox"
-                        bind:checked={projectionsEnabled}
-                        class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                    />
-                    <span>Show 1-year projections</span>
-                </label>
+        {#if showProjections || showSotaFilter}
+            <div class="mb-3 flex items-center justify-end gap-6">
+                {#if showSotaFilter}
+                    <label
+                        class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer"
+                    >
+                        <input
+                            type="checkbox"
+                            bind:checked={sotaFilterEnabled}
+                            class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <span>Show only SOTA (state-of-the-art)</span>
+                    </label>
+                {/if}
+                {#if showProjections}
+                    <label
+                        class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer"
+                    >
+                        <input
+                            type="checkbox"
+                            bind:checked={projectionsEnabled}
+                            class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <span>Show 1-year projections</span>
+                    </label>
+                {/if}
             </div>
         {/if}
         <div class="w-full bg-white rounded-lg p-4" style="height: {height};">
