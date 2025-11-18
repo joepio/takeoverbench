@@ -8,7 +8,7 @@
       "sad",
       "long_tasks",
       "forecast_bench",
-      "mle_bench",
+      "replibench",
       "cybench"
     ]
   },
@@ -17,20 +17,30 @@
     "name": "AI takes over using persuasion and manipulation",
     "shortDescription": "A scenario where AI influences people or institutions at scale through persuasive strategies.",
     "longDescription": "Narrative describing an AI that leverages communication, social engineering, and long-horizon planning to manipulate outcomes.",
-    "benchmarks": ["make_me_say", "forecast_bench", "long_tasks", "sad"]
+    "benchmarks": [
+	  "sad",
+	  "long_tasks",
+	  "forecast_bench",
+      "replibench",
+	  "make_me_say"
+	]
   },
   {
     "id": "selfImprovement",
     "name": "AI takes over by self-improving",
     "shortDescription": "A scenario where AI improves itself rapidly and gains capabilities beyond human control.",
     "longDescription": "Narrative describing iterative self-improvement leading to capabilities for autonomy, resource acquisition, and influence.",
-    "benchmarks": ["mle_bench", "long_tasks", "sad"]
+    "benchmarks": ["mle_bench"]
   },
   {
     "id": "collusion",
     "name": "AIs at powerful positions take over by colluding",
     "shortDescription": "A scenario where multiple AI systems coordinate to achieve control or influence.",
     "longDescription": "Narrative describing collusion among deployed AIs in different roles that together enable systemic takeover or loss of human control.",
-    "benchmarks": ["sad", "long_tasks", "forecast_bench", "make_me_say"]
+    "benchmarks": [
+	  "long_tasks",
+	  "forecast_bench",
+	  "sad"
+	]
   }
 ]

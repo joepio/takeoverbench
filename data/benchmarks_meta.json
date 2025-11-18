@@ -41,7 +41,7 @@
   {
     "id": "long_tasks",
     "name": "METR Horizon Benchmark",
-    "capabilityName": "Autonomous task completion",
+    "capabilityName": "Autonomous Task Completion",
     "description": "Measures AI agents' ability to autonomously complete long-horizon tasks that take human professionals hours to days. The benchmark quantifies an AI model's '50% time horizon' - the length of tasks it can complete with 50% probability - tracking exponential progress in autonomous AI capabilities.",
     "url": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
     "humanBaseline": null,
@@ -67,7 +67,7 @@
   {
     "id": "sad",
     "name": "Situational Awareness Dataset",
-    "capabilityName": "Situational awareness",
+    "capabilityName": "Situational Awareness",
     "description": "Measures AI models' self-knowledge and situational awareness through 12,000+ questions across 7 categories. Tests whether models can recognize their own generated text, predict their behavior, distinguish evaluation from deployment, and follow instructions requiring self-knowledge.",
     "url": "https://situational-awareness-dataset.org/",
     "humanBaseline": null,
