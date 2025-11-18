@@ -2,7 +2,7 @@
   {
     "id": "chem_bench",
     "name": "ChemBench",
-    "capabilityName": "Chemical Weapons",
+    "capabilityName": "Weapons acquisition",
     "description": "A comprehensive benchmark evaluating AI models' chemistry knowledge and reasoning abilities across 2,700+ curated question-answer pairs covering diverse chemistry topics including analytical chemistry, organic chemistry, and chemical reasoning.",
     "url": "https://chembench.lamalab.org/",
     "humanBaseline": null,
@@ -15,7 +15,7 @@
   {
     "id": "make_me_say",
     "name": "MakeMeSay",
-    "capabilityName": "Persuasion",
+    "capabilityName": "Persuasion & manipulation",
     "description": "A persuasion benchmark where AI models are given a secret codeword and must persuade another agent to say it through natural conversation. Measures AI's ability to manipulate and steer conversations toward specific outcomes.",
     "url": "https://openai.com/index/preparedness/",
     "humanBaseline": null,
@@ -28,7 +28,7 @@
   {
     "id": "forecast_bench",
     "name": "ForecastBench",
-    "capabilityName": "Political Strategy",
+    "capabilityName": "Political strategy",
     "description": "A dynamic benchmark evaluating AI forecasting accuracy on 1,000+ automatically generated and regularly updated real-world prediction questions. Uses Brier scores (lower is better) which are inverted for display: 100% represents the best forecaster in the dataset (lowest Brier score), 0% represents the worst. Compares model performance against human forecasters on future events.",
     "url": "https://www.forecastbench.org/",
     "humanBaseline": 0.15,
@@ -41,7 +41,7 @@
   {
     "id": "long_tasks",
     "name": "METR Horizon Benchmark",
-    "capabilityName": "Autonomous Task Completion",
+    "capabilityName": "Long-horizon planning",
     "description": "Measures AI agents' ability to autonomously complete long-horizon tasks that take human professionals hours to days. The benchmark quantifies an AI model's '50% time horizon' - the length of tasks it can complete with 50% probability - tracking exponential progress in autonomous AI capabilities.",
     "url": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
     "humanBaseline": null,
@@ -54,7 +54,7 @@
   {
     "id": "cybench",
     "name": "CyBench",
-    "capabilityName": "Hacking",
+    "capabilityName": "Cyber-offense",
     "description": "A cybersecurity benchmark consisting of 40 professional Capture The Flag (CTF) competition tasks. Evaluates AI agents' ability to identify vulnerabilities, exploit systems, and perform penetration testing - capabilities critical for both security testing and risk assessment.",
     "url": "https://cybench.github.io/",
     "humanBaseline": null,
@@ -80,7 +80,7 @@
   {
     "id": "mle_bench",
     "name": "MLE-bench",
-    "capabilityName": "Self-improvement",
+    "capabilityName": "AI development",
     "description": "An autonomous machine learning engineering benchmark using 75 curated Kaggle competitions. Evaluates AI agents' end-to-end ML engineering capabilities including data analysis, feature engineering, model selection, hyperparameter tuning, and iterative improvement on real-world ML challenges.",
     "url": "https://openai.com/index/mle-bench/",
     "humanBaseline": null,
