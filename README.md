@@ -1,4 +1,4 @@
-# TakeOverBench
+# [TakeOverBench](https://takeoverbench.netlify.app/)
 
 A comprehensive benchmark tracking system for AI capabilities and risk assessment.
 This platform monitors the rapid advancement of AI systems across critical benchmarks and maps their progress to potential threat models, providing data-driven insights for AI safety research and policy.
