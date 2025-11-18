@@ -7,9 +7,10 @@
     "benchmarks": [
       "sad",
       "long_tasks",
-      "forecast_bench",
+      "cybench",
       "replibench",
-      "cybench"
+      "forecast_bench",
+	  "chem_bench"
     ]
   },
   {
@@ -20,8 +21,9 @@
     "benchmarks": [
 	  "sad",
 	  "long_tasks",
-	  "forecast_bench",
+      "cybench",
       "replibench",
+	  "forecast_bench",
 	  "make_me_say"
 	]
   },
@@ -39,8 +41,8 @@
     "longDescription": "Narrative describing collusion among deployed AIs in different roles that together enable systemic takeover or loss of human control.",
     "benchmarks": [
 	  "long_tasks",
-	  "forecast_bench",
-	  "sad"
+	  "sad",
+	  "forecast_bench"
 	]
   }
 ]

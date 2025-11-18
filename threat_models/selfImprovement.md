@@ -2,7 +2,7 @@ This is the original ‘fast takeoff’ scenario proposed by Eliezer Yudkowsky a
 
 “Let an ultraintelligent machine be defined as a machine that can far surpass all the intellectual activities of any man, however clever. Since the design of machines is one of these intellectual activities, an ultraintelligent machine could design even better machines; there would then unquestionably be an ‘intelligence explosion’, and the intelligence of man would be left far behind. This first ultraintelligent machine is the last invention that man need ever make.”
 
-After a breakthrough, AI researchers find that AI can do their work autonomously: all the way from reading papers, coming up with promising hypotheses, doing experiments to test them, to writing papers about their best results. This is what they had been trying to achieve for a long time.
+After a breakthrough, AI researchers find that AI can do AI development autonomously: all the way from reading papers, coming up with promising hypotheses, doing experiments to test them, to writing papers about their best results. This is what they had been trying to achieve for a long time.
 
 The AI, initially clunky, finds ways to make AI more efficient. Trying to achieve its goal, which is building better AI, it correctly applies these results to its own code. The AI gets ever faster, and gets ever better at gaining new insights. Human researchers trying to make sense of its results are vastly outcompeted and cannot keep up anymore.
 
