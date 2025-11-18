@@ -1,9 +1,0 @@
-cyberOffense
-deception
-persuasionAndManipulation
-politicalStrategy
-weaponsAcquisition
-longHorizonPlanning
-aiDevelopment
-situationalAwareness
-selfProliferation

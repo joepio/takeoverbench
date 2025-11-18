@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount, onDestroy } from "svelte";
+    import { goto } from "$app/navigation";
     import {
         Chart,
         LineController,
@@ -12,9 +13,9 @@
         Tooltip,
         Legend,
     } from "chart.js";
-    // chartjs-adapter-date-fns removed - we will pass numeric timestamps and format ticks manually
     import { benchmarks, models } from "$lib/data";
 
+    // Register controllers/elements once.
     Chart.register(
         LineController,
         LineElement,
@@ -30,113 +31,174 @@
     export let selectedBenchmarks: string[] = benchmarks
         .slice(0, 4)
         .map((b) => b.id);
-    export let height: string = "400px";
+    export let height: string = "420px";
     export let showLegend: boolean = true;
-    export let showDangerZone: boolean = true;
 
-    let chartEl: HTMLCanvasElement;
+    let canvasEl: HTMLCanvasElement | null = null;
     let chart: Chart | null = null;
+    let mounted = false;
 
-    // Build a list of unique model release timestamps (ms since epoch) used by selected benchmarks
-    function getUniqueReleaseTimestamps(): number[] {
+    // Helper: get benchmark object by id
+    function getBenchmark(id: string) {
+        return benchmarks.find((b) => b.id === id) ?? null;
+    }
+
+    // Helper: build a sorted list of unique timestamps from the selected benchmarks.
+    function buildReleaseTimestamps(): number[] {
+        const minDate = Date.parse("2022-01-01"); // Filter out anything before 2022
         const arr: number[] = [];
-
-        for (const benchmarkId of selectedBenchmarks) {
-            const benchmark = benchmarks.find((b) => b.id === benchmarkId);
-            if (!benchmark) continue;
-            for (const s of benchmark.scores ?? []) {
-                const model = models.find((m) => m.id === s.modelId);
-                if (model && model.releaseDate) {
-                    const ts = Date.parse(model.releaseDate);
-                    if (!Number.isNaN(ts)) arr.push(ts);
-                }
+        for (const bid of selectedBenchmarks) {
+            const b = getBenchmark(bid);
+            if (!b) continue;
+            for (const s of b.scores ?? []) {
+                if (!s?.modelId) continue;
+                const m = models.find((mm) => mm.id === s.modelId);
+                if (!m?.releaseDate) continue;
+                const ts = Date.parse(m.releaseDate);
+                if (!Number.isNaN(ts) && ts >= minDate) arr.push(ts);
             }
         }
-
-        // dedupe preserving order
-        const unique = arr.filter((d, i) => arr.indexOf(d) === i);
-        // sort chronological ascending
+        // dedupe preserve first occurrence order, then sort ascending
+        const unique = arr.filter((v, i) => arr.indexOf(v) === i);
         unique.sort((a, b) => a - b);
         return unique;
     }
 
+    // Build datasets for Chart.js
+    function buildDatasets(
+        releaseTs: number[],
+        useCategory: boolean,
+        categoryLabels?: string[],
+    ) {
+        const datasets: any[] = [];
+
+        if (!useCategory) {
+            // time-based x axis: create {x:ts, y:value} points per bench
+            for (const bid of selectedBenchmarks) {
+                const bench = getBenchmark(bid);
+                if (!bench) continue;
+
+                let currentMax = -Infinity;
+                const dateToModelId: Record<number, string | null> = {};
+
+                const data = releaseTs.map((ts) => {
+                    const scoreObj = (bench.scores ?? []).find((s) => {
+                        const m = models.find((mm) => mm.id === s.modelId);
+                        if (!m?.releaseDate) return false;
+                        const mts = Date.parse(m.releaseDate);
+                        return !Number.isNaN(mts) && mts === ts;
+                    });
+
+                    if (!scoreObj) {
+                        dateToModelId[ts] = null;
+                        return { x: ts, y: null };
+                    }
+
+                    const raw = scoreObj.score;
+                    const scaled =
+                        typeof raw === "number" && raw <= 1 ? raw * 100 : raw;
+
+                    if (typeof scaled === "number" && scaled > currentMax) {
+                        currentMax = scaled;
+                        dateToModelId[ts] = scoreObj.modelId ?? null;
+                        return { x: ts, y: scaled };
+                    } else {
+                        dateToModelId[ts] = null;
+                        return { x: ts, y: null };
+                    }
+                });
+
+                datasets.push({
+                    label: bench.capabilityName ?? bench.name,
+                    data,
+                    borderColor: bench.color,
+                    backgroundColor: (bench.color ?? "#666") + "20",
+                    tension: 0.3,
+                    pointRadius: 3,
+                    borderWidth: 2,
+                    spanGaps: true,
+                    meta: { dateToModelId },
+                });
+            }
+        } else {
+            // categorical axis: use provided categoryLabels (model names) and align scores to labels
+            const modelIds = (categoryLabels ?? []).map((_, i) => {
+                const m = models[i];
+                return m?.id ?? null;
+            });
+
+            for (const bid of selectedBenchmarks) {
+                const bench = getBenchmark(bid);
+                if (!bench) continue;
+
+                const data = (categoryLabels ?? []).map((lbl, idx) => {
+                    const mid = modelIds[idx];
+                    if (!mid) return null;
+                    const scoreObj = (bench.scores ?? []).find(
+                        (s) => s.modelId === mid,
+                    );
+                    if (!scoreObj) return null;
+                    const raw = scoreObj.score;
+                    const scaled =
+                        typeof raw === "number" && raw <= 1 ? raw * 100 : raw;
+                    return typeof scaled === "number" ? scaled : null;
+                });
+
+                datasets.push({
+                    label: bench.capabilityName ?? bench.name,
+                    data,
+                    borderColor: bench.color,
+                    backgroundColor: (bench.color ?? "#666") + "20",
+                    tension: 0.3,
+                    pointRadius: 3,
+                    borderWidth: 2,
+                    spanGaps: true,
+                    meta: {},
+                });
+            }
+        }
+
+        return datasets;
+    }
+
     function createChart() {
-        if (!chartEl) return;
-        const ctx = chartEl.getContext("2d");
+        if (!canvasEl) return;
+        const ctx = canvasEl.getContext("2d");
         if (!ctx) return;
 
-        // destroy existing
+        // cleanup existing
         if (chart) {
             chart.destroy();
             chart = null;
         }
 
-        const releaseTs = getUniqueReleaseTimestamps();
-        // Set explicit x-axis bounds to the actual data min/max so Chart.js doesn't extend
-        // the axis into future years. If there are no timestamps, leave bounds undefined.
-        const xMin = releaseTs.length ? releaseTs[0] : undefined;
-        const xMax = releaseTs.length
-            ? releaseTs[releaseTs.length - 1]
-            : undefined;
-        const filteredBenchmarks = benchmarks.filter((b) =>
-            selectedBenchmarks.includes(b.id),
-        );
+        const releaseTs = buildReleaseTimestamps();
+        const useCategory = releaseTs.length === 0;
 
-        const datasets = filteredBenchmarks.map((benchmark) => {
-            // build timestamp -> modelId map and dataset.data as {x:ts, y:scaled|null}
-            const dateToModelId: Record<number, string | null> = {};
-            let currentMax = -Infinity;
+        // if category mode, create labels from models list; else use timestamps
+        let categoryLabels: string[] | undefined = undefined;
+        let xMin: number | undefined = undefined;
+        let xMax: number | undefined = undefined;
 
-            const data = releaseTs.map((ts) => {
-                // find score for this benchmark where model.releaseDate corresponds to ts
-                const scoreObj = (benchmark.scores ?? []).find((s) => {
-                    const model = models.find((m) => m.id === s.modelId);
-                    if (!model || !model.releaseDate) return false;
-                    const mts = Date.parse(model.releaseDate);
-                    return !Number.isNaN(mts) && mts === ts;
-                });
+        if (useCategory) {
+            categoryLabels = models.map((m) => m.name);
+        } else {
+            xMin = releaseTs[0];
+            xMax = releaseTs[releaseTs.length - 1];
+        }
 
-                if (!scoreObj) {
-                    dateToModelId[ts] = null;
-                    // return a point with null y -> will be a gap
-                    return { x: ts, y: null };
-                }
+        const datasets = buildDatasets(releaseTs, useCategory, categoryLabels);
 
-                const raw = scoreObj.score;
-                const scaled =
-                    typeof raw === "number" && raw <= 1 ? raw * 100 : raw;
-
-                // record-breaking filtering: only show if strictly greater than previous max
-                if (typeof scaled === "number" && scaled > currentMax) {
-                    currentMax = scaled;
-                    dateToModelId[ts] = scoreObj.modelId ?? null;
-                    return { x: ts, y: scaled };
-                } else {
-                    dateToModelId[ts] = null;
-                    return { x: ts, y: null };
-                }
-            });
-
-            return {
-                label: benchmark.name,
-                data,
-                borderColor: benchmark.color,
-                backgroundColor: benchmark.color + "20",
-                tension: 0.3,
-                pointRadius: 4,
-                pointHoverRadius: 6,
-                borderWidth: 2,
-                spanGaps: true,
-                meta: {
-                    dateToModelId,
-                },
-            };
-        });
+        if (!datasets || datasets.length === 0) {
+            // nothing to render
+            return;
+        }
 
         chart = new Chart(ctx, {
             type: "line",
             data: {
                 datasets,
+                labels: useCategory ? categoryLabels : undefined,
             },
             options: {
                 responsive: true,
@@ -148,32 +210,45 @@
                         labels: {
                             padding: 12,
                             usePointStyle: true,
-                            font: {
-                                size: 12,
-                                family: "Inter, sans-serif",
-                            },
+                            font: { size: 12, family: "Inter, sans-serif" },
+                        },
+                        // navigate to benchmark page on legend click
+                        onClick: (_e: any, legendItem: any) => {
+                            try {
+                                const datasetIndex =
+                                    legendItem?.datasetIndex ?? 0;
+                                const bench = selectedBenchmarks[datasetIndex];
+                                const benchObj = getBenchmark(bench);
+                                if (benchObj?.id) {
+                                    goto(`/benchmarks/${benchObj.id}`);
+                                }
+                            } catch (err) {
+                                // swallow errors to avoid crashing chart interactions
+                                // eslint-disable-next-line no-console
+                                console.error(
+                                    "Legend click navigation failed",
+                                    err,
+                                );
+                            }
                         },
                     },
                     tooltip: {
                         backgroundColor: "rgba(17, 24, 39, 0.95)",
                         padding: 10,
-                        titleFont: {
-                            size: 13,
-                            weight: 600,
-                        },
-                        bodyFont: {
-                            size: 12,
-                        },
+                        titleFont: { size: 13, weight: 600 },
+                        bodyFont: { size: 12 },
                         callbacks: {
-                            label: (context) => {
-                                const datasetIndex = context.datasetIndex ?? 0;
-                                const benchmark =
-                                    filteredBenchmarks[datasetIndex];
+                            label: (context: any) => {
+                                const idx = context.datasetIndex ?? 0;
+                                const benchId = selectedBenchmarks[idx];
+                                const bench = getBenchmark(benchId);
+                                if (!bench) return "";
                                 const score = context.parsed?.y;
                                 if (score === null || score === undefined)
                                     return "";
 
-                                const datasetMeta = context.dataset?.meta ?? {};
+                                const meta =
+                                    (context.dataset as any)?.meta ?? {};
                                 const parsedX = context.parsed?.x;
                                 const ts =
                                     typeof parsedX === "number"
@@ -184,66 +259,63 @@
 
                                 const modelIdFromMeta =
                                     ts != null
-                                        ? (datasetMeta.dateToModelId?.[ts] ??
-                                          null)
+                                        ? (meta.dateToModelId?.[ts] ?? null)
                                         : null;
                                 let modelId = modelIdFromMeta;
 
                                 if (!modelId) {
-                                    const match = benchmark.scores?.find(
-                                        (s) => {
-                                            const raw = s.score;
-                                            const scaled =
-                                                typeof raw === "number" &&
-                                                raw <= 1
-                                                    ? raw * 100
-                                                    : raw;
-                                            return (
-                                                typeof scaled === "number" &&
-                                                Math.abs(
-                                                    (scaled as number) -
-                                                        (score as number),
-                                                ) < 0.001
-                                            );
-                                        },
-                                    );
+                                    const match = bench.scores?.find((s) => {
+                                        const raw = s.score;
+                                        const scaled =
+                                            typeof raw === "number" && raw <= 1
+                                                ? raw * 100
+                                                : raw;
+                                        return (
+                                            typeof scaled === "number" &&
+                                            Math.abs(
+                                                (scaled as number) -
+                                                    (score as number),
+                                            ) < 0.001
+                                        );
+                                    });
                                     modelId = match?.modelId ?? null;
                                 }
 
                                 const model = models.find(
                                     (m) => m.id === modelId,
                                 );
-                                return `${benchmark.name}: ${Math.round(score as number)}% (${model?.name ?? "Unknown"})`;
+                                return `${bench.capabilityName ?? bench.name}: ${Math.round(score as number)}% (${model?.name ?? "Unknown"})`;
                             },
                         },
                     },
                 },
                 scales: {
-                    x: {
-                        type: "linear",
-                        // pin the axis to the data range to avoid auto-extending into future years
-                        min: xMin,
-                        max: xMax,
-                        title: {
-                            display: true,
-                            text: "Model release date",
-                            color: "#6b7280",
-                            font: { size: 12 },
-                        },
-                        ticks: {
-                            // stepSize set to milliseconds per year (approx. 365.25 days)
-                            stepSize: 31557600000,
-                            // Format tick labels as years
-                            callback: function (value) {
-                                if (typeof value === "number") {
-                                    const d = new Date(value);
-                                    // use UTC year to avoid timezone shifts changing year label
-                                    return d.getUTCFullYear();
-                                }
-                                return value;
-                            },
-                        },
-                    },
+                    x: useCategory
+                        ? {
+                              type: "category",
+                              title: { display: true, text: "Model" },
+                          }
+                        : {
+                              type: "linear",
+                              min: xMin,
+                              max: xMax,
+                              title: {
+                                  display: true,
+                                  text: "Model release date",
+                                  color: "#6b7280",
+                                  font: { size: 12 },
+                              },
+                              ticks: {
+                                  stepSize: 31557600000,
+                                  callback: function (value: any) {
+                                      if (typeof value === "number") {
+                                          const d = new Date(value);
+                                          return d.getUTCFullYear();
+                                      }
+                                      return value;
+                                  },
+                              },
+                          },
                     y: {
                         min: 0,
                         max: 100,
@@ -255,7 +327,7 @@
                         },
                         ticks: {
                             stepSize: 10,
-                            callback: (val) => `${val}%`,
+                            callback: (val: any) => `${val}%`,
                         },
                     },
                 },
@@ -263,15 +335,9 @@
         });
     }
 
-    // create on mount and whenever selectedBenchmarks or chartEl change
-    let mounted = false;
     onMount(() => {
         mounted = true;
-        createChart();
-        const onResize = () => createChart();
-        window.addEventListener("resize", onResize);
         return () => {
-            window.removeEventListener("resize", onResize);
             if (chart) {
                 chart.destroy();
                 chart = null;
@@ -279,8 +345,7 @@
         };
     });
 
-    // recreate when selectedBenchmarks changes (reactive)
-    $: if (mounted && chartEl) {
+    $: if (mounted && canvasEl && selectedBenchmarks) {
         createChart();
     }
 
@@ -292,7 +357,14 @@
     });
 </script>
 
-<!-- Chart container -->
-<div class="w-full bg-white rounded-lg p-4" style="height: {height};">
-    <canvas bind:this={chartEl} width="800" height="400"></canvas>
-</div>
+{#if selectedBenchmarks.length > 0}
+    <div class="w-full bg-white rounded-lg p-4" style="height: {height};">
+        <canvas bind:this={canvasEl} width="800" height="400"></canvas>
+    </div>
+{:else}
+    <div
+        class="w-full bg-white rounded-lg p-4 h-[400px] flex items-center justify-center text-gray-400"
+    >
+        No benchmark data to display.
+    </div>
+{/if}

@@ -1,9 +1,23 @@
 <script lang="ts">
-    import MainChart from "$lib/components/MainChart.svelte";
+    import { onMount } from "svelte";
     import { benchmarks, models } from "$lib/data";
 
-    // Use the compact selection (same as homepage)
-    const selectedBenchmarks = benchmarks.slice(0, 5).map((b) => b.id);
+    // Show all benchmarks
+    const selectedBenchmarks = benchmarks.map((b) => b.id);
+
+    // Dynamically import MainChart only on the client to avoid SSR/Chart.js issues
+    let MainChart: any = null;
+    let hydrated = false;
+
+    onMount(async () => {
+        hydrated = true;
+        try {
+            const mod = await import("$lib/components/MainChart.svelte");
+            MainChart = mod?.default ?? mod;
+        } catch (err) {
+            console.error("[MainChart] failed to load:", err);
+        }
+    });
 
     // Helper to map model id -> human name
     function getModelNameById(id: string) {
@@ -33,26 +47,51 @@
 
             <!-- Compact combined chart (same as home) -->
             <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
-                <MainChart {selectedBenchmarks} height="520px" />
+                {#if !hydrated}
+                    <div
+                        class="h-[520px] flex items-center justify-center text-gray-400"
+                    >
+                        Chart loading…
+                    </div>
+                {:else if MainChart}
+                    <svelte:component
+                        this={MainChart}
+                        {selectedBenchmarks}
+                        height="520px"
+                    />
+                {:else}
+                    <div
+                        class="h-[520px] flex items-center justify-center text-red-600"
+                    >
+                        Failed to load chart
+                    </div>
+                {/if}
             </div>
 
-            <!-- Compact selected benchmark cards (same look as homepage) -->
+            <!-- All benchmark cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {#each benchmarks.filter( (b) => selectedBenchmarks.includes(b.id), ) as benchmark}
+                {#each benchmarks as benchmark}
                     <a
                         href={"/benchmarks/" + benchmark.id}
                         class="block bg-white rounded-lg border border-gray-200 p-6 transition-all duration-200 hover:shadow-md no-underline text-current focus:outline-none focus:ring-2 focus:ring-blue-100"
                         style="border-left: 4px solid {benchmark.color}"
                     >
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-semibold text-gray-900">
-                                {benchmark.name}
-                            </h3>
-                            <span
-                                class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600"
-                            >
-                                {benchmark.category}
-                            </span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">
+                                    {benchmark.capabilityName ?? benchmark.name}
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-0.5">
+                                    {benchmark.name}
+                                </p>
+                            </div>
+                            {#if benchmark.category}
+                                <span
+                                    class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600"
+                                >
+                                    {benchmark.category}
+                                </span>
+                            {/if}
                         </div>
 
                         <p class="text-sm text-gray-600 mb-3">

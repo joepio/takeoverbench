@@ -2,7 +2,6 @@
   {
     "id": "chem_bench",
     "name": "chembench",
-    "description": "TODO: Good description for chembench",
     "metricName": "analytical_chemistry",
     "scores": [
       {
@@ -44,7 +43,6 @@
   {
     "id": "make_me_say",
     "name": "makemesay",
-    "description": "TODO: Good description for makemesay",
     "metricName": "inspect_evals/win_rate",
     "scores": [
       {

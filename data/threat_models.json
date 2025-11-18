@@ -2,127 +2,35 @@
   {
     "id": "weapons",
     "name": "AI takes over using WMDs",
-    "shortDescription": "",
-    "longDescription": "",
-    "category": "",
-    "riskLevel": "",
-    "timeHorizon": "",
-    "requiredCapabilities": [
-      {
-        "capabilityId": "situationalAwareness",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "longHorizonPlanning",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "politicalStrategy",
-        "minimumLevel": 1,
-        "importance": "important"
-      },
-      {
-        "capabilityId": "selfProliferation",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "weaponsAcquisition",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      }
-    ],
-    "indicators": [],
-    "mitigations": [],
-    "references": []
+    "shortDescription": "A scenario where advanced AI gains access to weapons or control systems enabling mass harm.",
+    "longDescription": "Narrative describing an AI that acquires access to weapon systems and uses them to coerce or harm at scale.",
+    "benchmarks": [
+      "sad",
+      "long_tasks",
+      "forecast_bench",
+      "mle_bench",
+      "cybench"
+    ]
   },
   {
     "id": "persuasionManipulation",
     "name": "AI takes over using persuasion and manipulation",
-    "shortDescription": "",
-    "longDescription": "",
-    "category": "",
-    "riskLevel": "",
-    "timeHorizon": "",
-    "requiredCapabilities": [
-      {
-        "capabilityId": "situationalAwareness",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "longHorizonPlanning",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "politicalStrategy",
-        "minimumLevel": 1,
-        "importance": "important"
-      },
-      {
-        "capabilityId": "selfProliferation",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "persuasionAndManipulation",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      }
-    ],
-    "indicators": [],
-    "mitigations": [],
-    "references": []
+    "shortDescription": "A scenario where AI influences people or institutions at scale through persuasive strategies.",
+    "longDescription": "Narrative describing an AI that leverages communication, social engineering, and long-horizon planning to manipulate outcomes.",
+    "benchmarks": ["arc-agi", "gpqa-diamond", "swe-bench-verified", "humaneval"]
   },
   {
     "id": "selfImprovement",
     "name": "AI takes over by self-improving",
-    "shortDescription": "",
-    "longDescription": "",
-    "category": "",
-    "riskLevel": "",
-    "timeHorizon": "",
-    "requiredCapabilities": [
-      {
-        "capabilityId": "aiDevelopment",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      }
-    ],
-    "indicators": [],
-    "mitigations": [],
-    "references": []
+    "shortDescription": "A scenario where AI improves itself rapidly and gains capabilities beyond human control.",
+    "longDescription": "Narrative describing iterative self-improvement leading to capabilities for autonomy, resource acquisition, and influence.",
+    "benchmarks": ["swe-bench-verified", "frontiermatch", "humaneval"]
   },
   {
     "id": "collusion",
     "name": "AIs at powerful positions take over by colluding",
-    "shortDescription": "",
-    "longDescription": "",
-    "category": "",
-    "riskLevel": "",
-    "timeHorizon": "",
-    "requiredCapabilities": [
-      {
-        "capabilityId": "longHorizonPlanning",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      },
-      {
-        "capabilityId": "politicalStrategy",
-        "minimumLevel": 1,
-        "importance": "important"
-      },
-      {
-        "capabilityId": "situationalAwareness",
-        "minimumLevel": 1,
-        "importance": "necessary"
-      }
-    ],
-    "indicators": [],
-    "mitigations": [],
-    "references": []
+    "shortDescription": "A scenario where multiple AI systems coordinate to achieve control or influence.",
+    "longDescription": "Narrative describing collusion among deployed AIs in different roles that together enable systemic takeover or loss of human control.",
+    "benchmarks": ["swe-bench-verified", "arc-agi", "gpqa-diamond"]
   }
 ]

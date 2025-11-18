@@ -1,16 +1,21 @@
 <script lang="ts">
-    import MainChart from "$lib/components/MainChart.svelte";
     import { models } from "$lib/data";
     import type { Benchmark } from "$lib/types";
     import { onMount } from "svelte";
 
     // page data provided by the route load() function (+page.ts)
+    // NOTE: capabilities were removed. The benchmark page now receives
+    // `relatedThreatModels` (threat models that reference this benchmark).
     export let data: {
         benchmark: Benchmark;
-        relatedCapabilities?: { id: string; name: string }[];
+        relatedThreatModels?: {
+            id: string;
+            name: string;
+            capabilities?: { label?: string | null }[];
+        }[];
     };
 
-    const { benchmark, relatedCapabilities = [] } = data;
+    const { benchmark, relatedThreatModels = [] } = data;
 
     // Score helpers
     function getModelNameById(id: string) {
@@ -59,15 +64,24 @@
     // For chart we show this one benchmark's id
     let selectedBenchmarks = [benchmark.id];
 
-    // Tiny client-side guard in case data is undefined during hydration
+    // Dynamically import MainChart only on the client to avoid SSR/Chart.js issues
+    let MainChart: any = null;
     let hydrated = false;
-    onMount(() => {
+    onMount(async () => {
         hydrated = true;
+        try {
+            const mod = await import("$lib/components/MainChart.svelte");
+            MainChart = mod?.default ?? mod;
+        } catch (err) {
+            console.error("[MainChart] failed to load:", err);
+        }
     });
 </script>
 
 <svelte:head>
-    <title>{benchmark.name} — Benchmark — TakeOverBench</title>
+    <title
+        >{benchmark.capabilityName ?? benchmark.name} — Benchmark — TakeOverBench</title
+    >
     <meta name="description" content={benchmark.description} />
 </svelte:head>
 
@@ -86,8 +100,13 @@
                 <div class="md:flex md:items-start md:justify-between gap-6">
                     <div class="flex-1">
                         <h1 class="text-2xl font-bold text-gray-900">
-                            {benchmark.name}
+                            {benchmark.capabilityName ?? benchmark.name}
                         </h1>
+                        {#if benchmark.capabilityName}
+                            <p class="text-sm text-gray-500 mt-1">
+                                {benchmark.name}
+                            </p>
+                        {/if}
                         <p class="text-sm text-gray-600 mt-2 max-w-2xl">
                             {benchmark.description}
                         </p>
@@ -133,17 +152,24 @@
                 <!-- Chart -->
                 <div class="mt-6 bg-gray-50 rounded p-4">
                     <!-- only render the chart once client-side to avoid SSR / Chart.js issues -->
-                    {#if hydrated}
-                        <MainChart
+                    {#if !hydrated}
+                        <div
+                            class="h-[420px] flex items-center justify-center text-gray-400"
+                        >
+                            Chart loading…
+                        </div>
+                    {:else if MainChart}
+                        <svelte:component
+                            this={MainChart}
                             {selectedBenchmarks}
                             height="420px"
                             showLegend={true}
                         />
                     {:else}
                         <div
-                            class="h-[420px] flex items-center justify-center text-gray-400"
+                            class="h-[420px] flex items-center justify-center text-red-600"
                         >
-                            Chart loading…
+                            Failed to load chart
                         </div>
                     {/if}
                 </div>
@@ -197,23 +223,37 @@
                     {/if}
                 </div>
 
-                <!-- Related capabilities -->
-                {#if relatedCapabilities && relatedCapabilities.length > 0}
+                <!-- Related threat models -->
+                {#if relatedThreatModels && relatedThreatModels.length > 0}
                     <div class="mt-6">
                         <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Related capabilities
+                            Related threat models
                         </h3>
                         <div
                             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
                         >
-                            {#each relatedCapabilities as cap}
+                            {#each relatedThreatModels as t}
                                 <a
-                                    href={"/capability/" + cap.id}
-                                    class="block bg-white border border-gray-100 rounded p-3 hover:shadow focus:ring-2 focus:ring-blue-100 no-underline text-current"
+                                    href={"/threat/" + t.id}
+                                    class="block bg-white border border-gray-100 rounded p-3 hover:shadow no-underline text-current"
                                 >
                                     <div class="font-medium text-gray-900">
-                                        {cap.name}
+                                        {t.name}
                                     </div>
+
+                                    {#if t.capabilities && t.capabilities.length > 0}
+                                        <div class="text-xs text-gray-500 mt-1">
+                                            {#each t.capabilities as c, ci}
+                                                <span
+                                                    >{c.label ??
+                                                        "Capability"}{ci <
+                                                    t.capabilities.length - 1
+                                                        ? ", "
+                                                        : ""}</span
+                                                >
+                                            {/each}
+                                        </div>
+                                    {/if}
                                 </a>
                             {/each}
                         </div>
