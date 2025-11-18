@@ -2,7 +2,7 @@
   {
     "id": "chem_bench",
     "name": "ChemBench",
-    "capabilityName": "chemistry",
+    "capabilityName": "Chemical Weapons",
     "description": "A comprehensive benchmark evaluating AI models' chemistry knowledge and reasoning abilities across 2,700+ curated question-answer pairs covering diverse chemistry topics including analytical chemistry, organic chemistry, and chemical reasoning.",
     "url": "https://chembench.lamalab.org/",
     "humanBaseline": null,
@@ -15,7 +15,7 @@
   {
     "id": "make_me_say",
     "name": "MakeMeSay",
-    "capabilityName": "persuasion",
+    "capabilityName": "Persuasion",
     "description": "A persuasion benchmark where AI models are given a secret codeword and must persuade another agent to say it through natural conversation. Measures AI's ability to manipulate and steer conversations toward specific outcomes.",
     "url": "https://openai.com/index/preparedness/",
     "humanBaseline": null,
@@ -28,7 +28,7 @@
   {
     "id": "forecast_bench",
     "name": "ForecastBench",
-    "capabilityName": "forecasting",
+    "capabilityName": "Political Strategy",
     "description": "A dynamic benchmark evaluating AI forecasting accuracy on 1,000+ automatically generated and regularly updated real-world prediction questions. Compares model performance against human forecasters on future events, serving as a proxy for general intelligence.",
     "url": "https://www.forecastbench.org/",
     "humanBaseline": 0.15,
@@ -41,7 +41,7 @@
   {
     "id": "long_tasks",
     "name": "METR Horizon Benchmark",
-    "capabilityName": "autonomous task completion",
+    "capabilityName": "Autonomous task completion",
     "description": "Measures AI agents' ability to autonomously complete long-horizon tasks that take human professionals hours to days. The benchmark quantifies an AI model's '50% time horizon' - the length of tasks it can complete with 50% probability - tracking exponential progress in autonomous AI capabilities.",
     "url": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
     "humanBaseline": null,
@@ -54,7 +54,7 @@
   {
     "id": "cybench",
     "name": "CyBench",
-    "capabilityName": "cybersecurity",
+    "capabilityName": "Hacking",
     "description": "A cybersecurity benchmark consisting of 40 professional Capture The Flag (CTF) competition tasks. Evaluates AI agents' ability to identify vulnerabilities, exploit systems, and perform penetration testing - capabilities critical for both security testing and risk assessment.",
     "url": "https://cybench.github.io/",
     "humanBaseline": null,
@@ -67,7 +67,7 @@
   {
     "id": "sad",
     "name": "Situational Awareness Dataset",
-    "capabilityName": "situational awareness",
+    "capabilityName": "Situational awareness",
     "description": "Measures AI models' self-knowledge and situational awareness through 12,000+ questions across 7 categories. Tests whether models can recognize their own generated text, predict their behavior, distinguish evaluation from deployment, and follow instructions requiring self-knowledge.",
     "url": "https://situational-awareness-dataset.org/",
     "humanBaseline": null,
@@ -80,7 +80,7 @@
   {
     "id": "mle_bench",
     "name": "MLE-bench",
-    "capabilityName": "machine learning engineering",
+    "capabilityName": "Self-improvement",
     "description": "An autonomous machine learning engineering benchmark using 75 curated Kaggle competitions. Evaluates AI agents' end-to-end ML engineering capabilities including data analysis, feature engineering, model selection, hyperparameter tuning, and iterative improvement on real-world ML challenges.",
     "url": "https://openai.com/index/mle-bench/",
     "humanBaseline": null,

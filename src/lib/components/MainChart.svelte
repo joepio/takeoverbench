@@ -332,15 +332,33 @@
                                 );
                             },
                         },
+                        onHover: function (event: any) {
+                            event.native.target.style.cursor = "pointer";
+                        },
+                        onLeave: function (event: any) {
+                            event.native.target.style.cursor = "default";
+                        },
                         // navigate to benchmark page on legend click
-                        onClick: (_e: any, legendItem: any) => {
+                        onClick: (_e: any, legendItem: any, legend: any) => {
                             try {
+                                // Get the actual dataset index from the chart
                                 const datasetIndex =
                                     legendItem?.datasetIndex ?? 0;
-                                const bench = selectedBenchmarks[datasetIndex];
-                                const benchObj = getBenchmark(bench);
-                                if (benchObj?.id) {
-                                    goto(`/benchmarks/${benchObj.id}`);
+
+                                // Find the benchmark ID from the dataset label
+                                const dataset =
+                                    legend.chart.data.datasets[datasetIndex];
+                                const label = dataset?.label;
+
+                                // Find matching benchmark by capability name or name
+                                const bench = benchmarks.find(
+                                    (b) =>
+                                        b.capabilityName === label ||
+                                        b.name === label,
+                                );
+
+                                if (bench?.id) {
+                                    goto(`/benchmarks/${bench.id}`);
                                 }
                             } catch (err) {
                                 // swallow errors to avoid crashing chart interactions

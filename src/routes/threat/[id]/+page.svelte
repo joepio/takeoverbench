@@ -18,11 +18,21 @@
     let mdLoadError: string | null = null;
 
     // Determine which benchmark ids to show (prefer load-provided ids else the threat model's list)
-    const selectedBenchmarks: string[] = (
+    const allRequestedBenchmarks: string[] = (
         Array.isArray(benchmarkIds) && benchmarkIds.length > 0
             ? benchmarkIds
             : (threatModel?.benchmarks ?? [])
     ).filter(Boolean);
+
+    // Filter to only include valid benchmark IDs that exist in our data
+    const selectedBenchmarks: string[] = allRequestedBenchmarks.filter(
+        (id) => getBenchmarkById(id) !== undefined,
+    );
+
+    // Track missing benchmarks for display
+    const missingBenchmarks: string[] = allRequestedBenchmarks.filter(
+        (id) => getBenchmarkById(id) === undefined,
+    );
 
     function benchmarkName(id: string) {
         const b = getBenchmarkById(id);
@@ -138,8 +148,15 @@
                         Chart unavailable
                     </div>
                 {:else if selectedBenchmarks.length === 0}
-                    <div class="text-sm text-gray-500">
-                        No benchmarks listed for this threat.
+                    <div class="text-sm text-gray-500 mb-4">
+                        No benchmarks available.
+                        {#if missingBenchmarks.length > 0}
+                            <div class="mt-2 text-xs text-gray-400">
+                                Referenced benchmarks not yet in database: {missingBenchmarks.join(
+                                    ", ",
+                                )}
+                            </div>
+                        {/if}
                     </div>
                 {:else}
                     <div class="bg-white rounded-lg p-4">
@@ -149,6 +166,18 @@
                             height="420px"
                         />
                     </div>
+
+                    {#if missingBenchmarks.length > 0}
+                        <div
+                            class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm text-yellow-800"
+                        >
+                            <strong>Note:</strong> Some referenced benchmarks
+                            are not yet available:
+                            <span class="font-mono text-xs"
+                                >{missingBenchmarks.join(", ")}</span
+                            >
+                        </div>
+                    {/if}
                 {/if}
             </section>
 
@@ -157,7 +186,7 @@
                 <h3 class="text-lg font-medium text-gray-900 mb-2">
                     Benchmarks
                 </h3>
-                {#if selectedBenchmarks.length === 0}
+                {#if selectedBenchmarks.length === 0 && missingBenchmarks.length === 0}
                     <div class="text-sm text-gray-500">
                         No benchmarks listed.
                     </div>

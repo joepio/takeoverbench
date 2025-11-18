@@ -2,8 +2,8 @@
     import { onMount } from "svelte";
     import { benchmarks, threatModels, models } from "$lib/data";
 
-    // Show first 5 benchmarks on the main chart
-    const selectedBenchmarks = benchmarks.slice(0, 5).map((b) => b.id);
+    // Show all benchmarks on the main chart
+    const selectedBenchmarks = benchmarks.map((b) => b.id);
 
     // Dynamically import MainChart only on the client to avoid SSR/Chart.js issues.
     let MainChart: any = null;
