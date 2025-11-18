@@ -32,6 +32,8 @@ export type BenchmarkCategory =
   | "multimodal"
   | "agentic";
 
+export type ProjectionType = "s-curve" | "exponential" | "none";
+
 export interface Benchmark {
   id: string;
   name: string;
@@ -42,9 +44,9 @@ export interface Benchmark {
   humanBaseline: number | null;
   expertBaseline: number | null;
   url: string | null;
-  // category/difficulty/etc. may be present in data but are optional in types
+  // category/etc. may be present in data but are optional in types
   category?: BenchmarkCategory | string;
-  difficultyLevel?: string;
+  projectionType?: ProjectionType; // how to project future trends: s-curve for saturation, exponential for unbounded growth
 }
 
 /* ---- Simplified threat model ----

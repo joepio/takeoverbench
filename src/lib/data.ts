@@ -85,11 +85,11 @@ const transformers: Record<string, (rawScores: unknown[]) => number[]> = {
     });
   },
 
-  // long_tasks (METR): minutes per task. Normalize against a fixed 1-day cap so that
-  // higher raw minutes map to higher normalized values (non-inverting).
+  // long_tasks (METR): minutes per task. Normalize against 8-hour workday (480 minutes)
+  // to make early progress more visible while still showing room for growth.
   long_tasks: (rawScores) => {
     const nums = (rawScores ?? []).map((v) => (typeof v === "number" ? v : 0));
-    const topMinutes = 24 * 60; // 1440 minutes = 1 day
+    const topMinutes = 8 * 60; // 480 minutes = 8-hour workday
     return nums.map((n) => Math.max(0, Math.min(1, n / topMinutes)));
   },
 };
@@ -125,7 +125,7 @@ export const benchmarks: Benchmark[] = rawBenchmarks
       expertBaseline: meta?.expertBaseline ?? b.expertBaseline ?? null,
       url: meta?.url ?? b.url ?? null,
       category: meta?.category ?? b.category ?? null,
-      difficultyLevel: meta?.difficultyLevel ?? b.difficultyLevel ?? null,
+      projectionType: meta?.projectionType ?? b.projectionType ?? "s-curve",
     } as Benchmark;
   })
   .filter(Boolean) as Benchmark[];

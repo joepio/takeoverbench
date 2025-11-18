@@ -114,12 +114,6 @@
                         <div
                             class="mt-4 flex flex-wrap gap-3 text-xs text-gray-500"
                         >
-                            <div class="px-2 py-1 bg-gray-50 rounded">
-                                {benchmark.category}
-                            </div>
-                            <div class="px-2 py-1 bg-gray-50 rounded">
-                                {benchmark.difficultyLevel}
-                            </div>
                             {#if benchmark.humanBaseline}
                                 <div class="px-2 py-1 bg-gray-50 rounded">
                                     Human: {benchmark.humanBaseline}%

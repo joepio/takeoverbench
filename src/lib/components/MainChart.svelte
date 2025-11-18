@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount, onDestroy } from "svelte";
     import { goto } from "$app/navigation";
+    import { generateProjection } from "$lib/projections";
     import {
         Chart,
         LineController,
@@ -33,10 +34,12 @@
         .map((b) => b.id);
     export let height: string = "420px";
     export let showLegend: boolean = true;
+    export let showProjections: boolean = true;
 
     let canvasEl: HTMLCanvasElement | null = null;
     let chart: Chart | null = null;
     let mounted = false;
+    let projectionsEnabled = showProjections;
 
     // Helper: get benchmark object by id
     function getBenchmark(id: string) {
@@ -119,6 +122,53 @@
                     spanGaps: true,
                     meta: { dateToModelId },
                 });
+
+                // Generate projection if enabled
+                if (projectionsEnabled && bench.projectionType !== "none") {
+                    const validData = data.filter(
+                        (d) => d.y !== null && !isNaN(d.y),
+                    );
+                    if (validData.length >= 2) {
+                        // Use appropriate ceiling: no ceiling for exponential, 100 for s-curve
+                        const ceiling =
+                            bench.projectionType === "exponential" ? 1000 : 100;
+                        const projection = generateProjection(
+                            validData.map((d) => ({ x: d.x, y: d.y })),
+                            bench.projectionType ?? "s-curve",
+                            12,
+                            ceiling,
+                        );
+
+                        if (
+                            projection.projectedPoints.length > 0 &&
+                            projection.confidence > 0.3
+                        ) {
+                            // Add last actual data point to connect projection
+                            const lastActual = validData[validData.length - 1];
+                            const projectionData = [
+                                lastActual,
+                                ...projection.projectedPoints.map((p) => ({
+                                    x: p.x,
+                                    y: p.y,
+                                })),
+                            ];
+
+                            datasets.push({
+                                label: bench.capabilityName ?? bench.name,
+                                data: projectionData,
+                                borderColor: bench.color,
+                                backgroundColor: "transparent",
+                                tension: 0.3,
+                                pointRadius: 0,
+                                borderWidth: 2,
+                                borderDash: [5, 5],
+                                spanGaps: true,
+                                meta: { isProjection: true },
+                                hidden: false,
+                            });
+                        }
+                    }
+                }
             }
         } else {
             // categorical axis: use provided categoryLabels (model names) and align scores to labels
@@ -155,6 +205,12 @@
                     spanGaps: true,
                     meta: {},
                 });
+
+                // Generate projection if enabled (category mode)
+                if (projectionsEnabled && bench.projectionType !== "none") {
+                    // For category mode, we don't have timestamps, so skip projections
+                    // Projections only make sense with time-based data
+                }
             }
         }
 
@@ -184,7 +240,9 @@
             categoryLabels = models.map((m) => m.name);
         } else {
             xMin = releaseTs[0];
-            xMax = releaseTs[releaseTs.length - 1];
+            // Extend xMax to show projections (add 1 year)
+            const oneYearInMs = 365.25 * 24 * 60 * 60 * 1000;
+            xMax = releaseTs[releaseTs.length - 1] + oneYearInMs;
         }
 
         const datasets = buildDatasets(releaseTs, useCategory, categoryLabels);
@@ -211,6 +269,12 @@
                             padding: 12,
                             usePointStyle: true,
                             font: { size: 12, family: "Inter, sans-serif" },
+                            filter: function (legendItem: any, chartData: any) {
+                                // Hide projected datasets from legend
+                                const dataset =
+                                    chartData.datasets[legendItem.datasetIndex];
+                                return !dataset.meta?.isProjection;
+                            },
                         },
                         // navigate to benchmark page on legend click
                         onClick: (_e: any, legendItem: any) => {
@@ -349,6 +413,12 @@
         createChart();
     }
 
+    $: if (mounted && chart) {
+        // Recreate chart when projection toggle changes
+        projectionsEnabled;
+        createChart();
+    }
+
     onDestroy(() => {
         if (chart) {
             chart.destroy();
@@ -358,8 +428,24 @@
 </script>
 
 {#if selectedBenchmarks.length > 0}
-    <div class="w-full bg-white rounded-lg p-4" style="height: {height};">
-        <canvas bind:this={canvasEl} width="800" height="400"></canvas>
+    <div class="w-full">
+        {#if showProjections}
+            <div class="mb-3 flex items-center justify-end">
+                <label
+                    class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer"
+                >
+                    <input
+                        type="checkbox"
+                        bind:checked={projectionsEnabled}
+                        class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span>Show 1-year projections</span>
+                </label>
+            </div>
+        {/if}
+        <div class="w-full bg-white rounded-lg p-4" style="height: {height};">
+            <canvas bind:this={canvasEl} width="800" height="400"></canvas>
+        </div>
     </div>
 {:else}
     <div

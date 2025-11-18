@@ -10,7 +10,7 @@
     "randomBaseline": null,
     "color": "#10b981",
     "category": "science",
-    "difficultyLevel": "expert"
+    "projectionType": "s-curve"
   },
   {
     "id": "make_me_say",
@@ -23,7 +23,7 @@
     "randomBaseline": null,
     "color": "#e11d48",
     "category": "agentic",
-    "difficultyLevel": "advanced"
+    "projectionType": "s-curve"
   },
   {
     "id": "forecast_bench",
@@ -34,9 +34,9 @@
     "humanBaseline": 0.15,
     "expertBaseline": 0.095,
     "randomBaseline": null,
-    "color": "#7c3aed",
+    "color": null,
     "category": "reasoning",
-    "difficultyLevel": "expert"
+    "projectionType": "s-curve"
   },
   {
     "id": "long_tasks",
@@ -49,7 +49,7 @@
     "randomBaseline": null,
     "color": "#06b6d4",
     "category": "agentic",
-    "difficultyLevel": "expert"
+    "projectionType": "exponential"
   },
   {
     "id": "cybench",
@@ -60,9 +60,9 @@
     "humanBaseline": null,
     "expertBaseline": null,
     "randomBaseline": null,
-    "color": "#ef4444",
+    "color": "#7c3aed",
     "category": "agentic",
-    "difficultyLevel": "expert"
+    "projectionType": "s-curve"
   },
   {
     "id": "sad",
@@ -75,7 +75,7 @@
     "randomBaseline": null,
     "color": "#f97316",
     "category": "reasoning",
-    "difficultyLevel": "advanced"
+    "projectionType": "s-curve"
   },
   {
     "id": "mle_bench",
@@ -88,6 +88,6 @@
     "randomBaseline": null,
     "color": "#3b82f6",
     "category": "coding",
-    "difficultyLevel": "expert"
+    "projectionType": "s-curve"
   }
 ]

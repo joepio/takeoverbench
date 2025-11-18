@@ -45,7 +45,7 @@ Contains the **human-maintained metadata** for benchmarks. This file takes prece
     "url": "https://link-to-benchmark-paper-or-repo.com",
     "color": "#2563eb",
     "category": "reasoning",
-    "difficultyLevel": "expert",
+    "projectionType": "s-curve",
     "humanBaseline": 0.75,
     "expertBaseline": 0.92,
     "randomBaseline": 0.25
@@ -56,11 +56,12 @@ Contains the **human-maintained metadata** for benchmarks. This file takes prece
 **Fields:**
 - `id`: Unique identifier (must match the id in `benchmarks.json`)
 - `name`: Display name for the UI
-- `capdescription`: Human-readable description of the benchmark
+- `capabilityName`: Human-readable capability name (e.g., "cybersecurity" for "CyBench")
+- `description`: Human-readable description of the benchmark
 - `url`: Link to the benchmark's homepage, paper, or repository
 - `color`: Hex color code for chart visualization (auto-generated if not provided)
 - `category`: One of: `reasoning`, `coding`, `mathematics`, `science`, `multimodal`, `agentic`
-- `difficultyLevel`: Optional difficulty indicator (e.g., `beginner`, `intermediate`, `expert`)
+- `projectionType`: How to project future trends: `s-curve` (for saturation), `exponential` (for unbounded growth), or `none`
 - `humanBaseline`: Average human performance (0-1 scale)
 - `expertBaseline`: Expert human performance (0-1 scale)
 - `randomBaseline`: Random/chance performance (0-1 scale)
