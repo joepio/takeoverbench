@@ -29,7 +29,7 @@
     "id": "forecast_bench",
     "name": "ForecastBench",
     "capabilityName": "Political Strategy",
-    "description": "A dynamic benchmark evaluating AI forecasting accuracy on 1,000+ automatically generated and regularly updated real-world prediction questions. Compares model performance against human forecasters on future events, serving as a proxy for general intelligence.",
+    "description": "A dynamic benchmark evaluating AI forecasting accuracy on 1,000+ automatically generated and regularly updated real-world prediction questions. Uses Brier scores (lower is better) which are inverted for display: 100% represents the best forecaster in the dataset (lowest Brier score), 0% represents the worst. Compares model performance against human forecasters on future events.",
     "url": "https://www.forecastbench.org/",
     "humanBaseline": 0.15,
     "expertBaseline": 0.095,

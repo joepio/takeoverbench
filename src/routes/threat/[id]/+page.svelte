@@ -34,9 +34,9 @@
         (id) => getBenchmarkById(id) === undefined,
     );
 
-    function benchmarkName(id: string) {
+    function capabilityName(id: string) {
         const b = getBenchmarkById(id);
-        return b ? b.name : id;
+        return b ? b.capabilityName : id;
     }
 
     onMount(async () => {
@@ -125,12 +125,35 @@
                 {/if}
             </div>
 
+            <!-- Benchmark list -->
+            <section>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">
+                    Dangerous capabilities required
+                </h3>
+                {#if selectedBenchmarks.length === 0 && missingBenchmarks.length === 0}
+                    <div class="text-sm text-gray-500">
+                        No benchmarks listed.
+                    </div>
+                {:else}
+                    <ul
+                        class="list-disc list-inside space-y-1 text-sm text-gray-700"
+                    >
+                        {#each selectedBenchmarks as bid (bid)}
+                            <li>
+                                <a
+                                    href={"/benchmarks/" + bid}
+                                    class="text-blue-600 hover:underline"
+                                >
+                                    {capabilityName(bid)}
+                                </a>
+                            </li>
+                        {/each}
+                    </ul>
+                {/if}
+            </section>
+
             <!-- Benchmarks chart (client-only). Hidden/disabled on SSR. -->
             <section class="mb-8">
-                <h2 class="text-xl font-semibold text-gray-900 mb-3">
-                    Relevant Benchmarks
-                </h2>
-
                 {#if !hydrated}
                     <div
                         class="h-64 flex items-center justify-center text-gray-400"
@@ -178,33 +201,6 @@
                             >
                         </div>
                     {/if}
-                {/if}
-            </section>
-
-            <!-- Benchmark list -->
-            <section>
-                <h3 class="text-lg font-medium text-gray-900 mb-2">
-                    Benchmarks
-                </h3>
-                {#if selectedBenchmarks.length === 0 && missingBenchmarks.length === 0}
-                    <div class="text-sm text-gray-500">
-                        No benchmarks listed.
-                    </div>
-                {:else}
-                    <ul
-                        class="list-disc list-inside space-y-1 text-sm text-gray-700"
-                    >
-                        {#each selectedBenchmarks as bid (bid)}
-                            <li>
-                                <a
-                                    href={"/benchmarks/" + bid}
-                                    class="text-blue-600 hover:underline"
-                                >
-                                    {benchmarkName(bid)}
-                                </a>
-                            </li>
-                        {/each}
-                    </ul>
                 {/if}
             </section>
         </div>

@@ -99,13 +99,39 @@
             <div class="bg-white rounded-lg p-6 shadow-sm">
                 <div class="md:flex md:items-start md:justify-between gap-6">
                     <div class="flex-1">
-                        <h1 class="text-2xl font-bold text-gray-900">
-                            {benchmark.capabilityName ?? benchmark.name}
-                        </h1>
+                        {#if benchmark.url}
+                            <a
+                                href={benchmark.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+                            >
+                                <h1>
+                                    {benchmark.capabilityName ?? benchmark.name}
+                                </h1>
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    />
+                                </svg>
+                            </a>
+                        {:else}
+                            <h1 class="text-2xl font-bold text-gray-900">
+                                {benchmark.capabilityName ?? benchmark.name}
+                            </h1>
+                        {/if}
                         {#if benchmark.capabilityName}
-                            <p class="text-sm text-gray-500 mt-1">
+                            <h2 class="text-sm text-gray-500 mt-1">
                                 {benchmark.name}
-                            </p>
+                            </h2>
                         {/if}
                         <p class="text-sm text-gray-600 mt-2 max-w-2xl">
                             {benchmark.description}

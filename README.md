@@ -5,10 +5,9 @@ This platform monitors the rapid advancement of AI systems across critical bench
 
 ## Concepts
 
-1. **Models**: AI / LLM models, like Claude Sonnet 4.5.
-1. **Benchmarks**: A benchmark with scores from 0 - 100 per model.
-1. **Capabilities**: A set of benchmarks should measure a dangerous capability.
+1. **Benchmarks**: A set of benchmarks, charted with normalized scores from 0 - 100 per model.
 1. **Threat Models**: A narrative of how a combination of capabilities could lead to a certain threat model.
+1. **Models**: AI / LLM models, like Claude Sonnet 4.5.
 
 ### Key Features
 
