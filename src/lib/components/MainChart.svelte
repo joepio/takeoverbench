@@ -14,6 +14,7 @@
     } from "chart.js";
     // chartjs-adapter-date-fns removed - we will pass numeric timestamps and format ticks manually
     import { benchmarks, models } from "$lib/data";
+    import { fitCurve, type FitType } from "$lib/utils/curveFitting";
 
     Chart.register(
         LineController,
@@ -33,6 +34,8 @@
     export let height: string = "400px";
     export let showLegend: boolean = true;
     export let showDangerZone: boolean = true;
+    export let showFit: boolean = true;
+    export let fitType: FitType = "exponential";
 
     let chartEl: HTMLCanvasElement;
     let chart: Chart | null = null;
@@ -117,7 +120,7 @@
                 }
             });
 
-            return {
+            const mainDataset = {
                 label: benchmark.name,
                 data,
                 borderColor: benchmark.color,
@@ -131,7 +134,30 @@
                     dateToModelId,
                 },
             };
-        });
+
+            // Add fitted line dataset if enabled
+            const datasets_arr = [mainDataset];
+            if (showFit) {
+                // Filter valid points for fitting
+                const validPoints = data.filter((p) => p.y !== null);
+                if (validPoints.length >= 2) {
+                    const fittedData = fitCurve(validPoints, fitType, 100);
+                    datasets_arr.push({
+                        label: `${benchmark.name} (${fitType} fit)`,
+                        data: fittedData,
+                        borderColor: benchmark.color,
+                        borderDash: [5, 5],
+                        fill: false,
+                        pointRadius: 0,
+                        pointHoverRadius: 0,
+                        borderWidth: 2,
+                        spanGaps: true,
+                    });
+                }
+            }
+
+            return datasets_arr;
+        }).flat();
 
         chart = new Chart(ctx, {
             type: "line",
@@ -279,8 +305,12 @@
         };
     });
 
-    // recreate when selectedBenchmarks changes (reactive)
+    // recreate when selectedBenchmarks, showFit, or fitType changes (reactive)
     $: if (mounted && chartEl) {
+        // ensure reactivity by referencing all variables that trigger updates
+        void selectedBenchmarks;
+        void showFit;
+        void fitType;
         createChart();
     }
 

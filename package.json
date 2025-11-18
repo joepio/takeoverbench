@@ -32,6 +32,11 @@
 		"vite": "^7.1.7"
 	},
 	"dependencies": {
-		"chart.js": "^4.5.1"
+		"chart.js": "^4.5.1",
+		"ml": "^8.0.0",
+		"ml-levenberg-marquardt": "^5.0.0",
+		"ml-regression": "^6.3.0",
+		"ml-regression-exponential": "^3.0.2",
+		"ml-regression-simple-linear": "^3.0.1"
 	}
 }
