@@ -93,7 +93,7 @@
             </div>
         </section>
 
-        <!-- Scenarios Section -->
+        <!-- Threat models section -->
         <section>
             <div class="mb-6">
                 <h2 class="text-2xl font-bold text-gray-900">How do dangerous capabilities lead to a takeover?</h2>
@@ -133,7 +133,7 @@
                             {#if t.benchmarks && t.benchmarks.length > 0}
                                 <div class="text-xs text-gray-500">
                                     <div class="mb-1">
-                                        <strong>Benchmarks:</strong>
+                                        <strong>Required capabilities:</strong>
                                     </div>
                                     <ul class="list-disc list-inside space-y-1">
                                         {#each t.benchmarks.slice(0, 4) as bid (bid)}
@@ -146,6 +146,16 @@
                                                 and {t.benchmarks.length - 4} more…
                                             </li>
                                         {/if}
+                                    </ul>
+                                </div>
+                                <div class="text-xs text-gray-500">
+                                    <div class="mb-1">
+                                        <strong>Sources:</strong>
+                                    </div>
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li class="text-sm text-gray-700">
+                                            .
+                                        </li>
                                     </ul>
                                 </div>
                             {:else}

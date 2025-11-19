@@ -11,7 +11,8 @@
       "replibench",
       "forecast_bench",
 	  "chem_bench"
-    ]
+    ],
+    "sources": ["Ngo, Richard, Lawrence Chan, and Sören Mindermann. 'The alignment problem from a deep learning perspective.' arXiv preprint arXiv:2209.00626 (2022)."]
   },
   {
     "id": "persuasionManipulation",
@@ -25,14 +26,16 @@
       "replibench",
 	  "forecast_bench",
 	  "make_me_say"
-	]
+  	],
+    "sources": ["Ngo, Richard, Lawrence Chan, and Sören Mindermann. 'The alignment problem from a deep learning perspective.' arXiv preprint arXiv:2209.00626 (2022)."]
   },
   {
     "id": "selfImprovement",
     "name": "AI takes over by self-improving",
     "shortDescription": "A scenario where AI improves itself rapidly and gains capabilities beyond human control.",
     "longDescription": "Narrative describing iterative self-improvement leading to capabilities for autonomy, resource acquisition, and influence.",
-    "benchmarks": ["mle_bench"]
+    "benchmarks": ["mle_bench"],
+    "sources": ["Bostrom, Nick. 'Superintelligence: Paths, dangers, strategies.' Oxford University Press. (2014)."]
   },
   {
     "id": "collusion",
@@ -43,6 +46,7 @@
 	  "long_tasks",
 	  "sad",
 	  "forecast_bench"
-	]
+  	],
+    "sources": ["Hammond, Lewis, et al. 'Multi-agent risks from advanced AI.' arXiv preprint arXiv:2502.14143 (2025)."]
   }
 ]
