@@ -17,7 +17,7 @@
                     </div>
                     <div>
                         <div class="font-semibold text-gray-900">TakeOverBench</div>
-                        <div class="text-xs text-gray-500">AI Capability Tracking</div>
+                        <div class="text-xs text-gray-500">Progress towards takeover</div>
                     </div>
                 </a>
 

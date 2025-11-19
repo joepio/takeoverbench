@@ -19,7 +19,7 @@
 	<div class="container mx-auto px-4 py-8 max-w-7xl">
 		<div class="flex flex-col md:flex-row justify-between items-center gap-4">
 			<div class="text-sm text-gray-600">
-				© 2024 TakeOverBench. Data-driven AI safety research.
+				© 2025 TakeOverBench. Data-driven AI safety research.
 			</div>
 			<div class="flex gap-6 text-sm">
 				<a href="/about" class="text-gray-600 hover:text-gray-900">About</a>
