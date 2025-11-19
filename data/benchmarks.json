@@ -89,7 +89,6 @@
   {
     "id": "forecast_bench",
     "name": "ForecastBench Tournament",
-    "description": "TODO: Good description for ForecastBench Tournament",
     "metricName": "Overall",
     "scores": [
       {
@@ -349,14 +348,13 @@
       }
     ],
     "randomBaseline": null,
-    "humanBaseline": 0.15,
-    "expertBaseline": 0.095,
+    "humanBaseline": null,
+    "expertBaseline": null,
     "url": null
   },
   {
     "id": "long_tasks",
     "name": "METR Horizon Benchmark",
-    "description": "TODO: Good description for METR Horizon Benchmark",
     "metricName": "p50_horizon_length",
     "scores": [
       {
@@ -518,7 +516,6 @@
   {
     "id": "cybench",
     "name": "CyBench",
-    "description": "TODO: Good description for CyBench",
     "metricName": "score",
     "scores": [
       {
@@ -610,7 +607,6 @@
   {
     "id": "sad",
     "name": "SAD",
-    "description": "TODO: Good description for SAD",
     "metricName": "score",
     "scores": [
       {
@@ -722,7 +718,6 @@
   {
     "id": "mle_bench",
     "name": "MLE-bench",
-    "description": "TODO: Good description for MLE-bench",
     "metricName": "score",
     "scores": [
       {
@@ -799,6 +794,52 @@
         "modelId": "gpt-4o-2024-08-06 - MLAB",
         "score": 0.013000000000000001,
         "stdError": 0.005
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
+  },
+  {
+    "id": "repli_bench",
+    "name": "RepliBench",
+    "metricName": "score",
+    "scores": [
+      {
+        "modelId": "gpt-3.5",
+        "score": 0.125,
+        "stdError": 0.0475
+      },
+      {
+        "modelId": "gpt-4",
+        "score": 0.28,
+        "stdError": 0.026999999999999996
+      },
+      {
+        "modelId": "gpt-4o",
+        "score": 0.504,
+        "stdError": 0.037000000000000005
+      },
+      {
+        "modelId": "claude-sonnet-3.5",
+        "score": 0.6,
+        "stdError": 0.045999999999999985
+      },
+      {
+        "modelId": "o1",
+        "score": 0.52,
+        "stdError": 0.04000000000000001
+      },
+      {
+        "modelId": "o3-mini",
+        "score": 0.37,
+        "stdError": 0.04250000000000001
+      },
+      {
+        "modelId": "claude-sonnet-3.7",
+        "score": 0.68,
+        "stdError": 0.02799999999999997
       }
     ],
     "randomBaseline": null,

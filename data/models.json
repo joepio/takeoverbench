@@ -420,6 +420,18 @@
     "organization": "Anthropic"
   },
   {
+    "id": "claude-sonnet-3.5",
+    "name": "Claude 3.5 Sonnet",
+    "releaseDate": "2024-06-20",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-sonnet-3.7",
+    "name": "Claude 3.7 Sonnet",
+    "releaseDate": "2025-02-24",
+    "organization": "Anthropic"
+  },
+  {
     "id": "claude-sonnet-4-5",
     "name": "Claude Sonnet 4.5",
     "releaseDate": "2025-09-29",
@@ -525,6 +537,12 @@
     "id": "gpt-3-5-turbo-instruct",
     "name": "gpt-3-5-turbo-instruct",
     "releaseDate": "2022-03-15",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-3.5",
+    "name": "GPT-3.5",
+    "releaseDate": "2022-11-28",
     "organization": "OpenAI"
   },
   {
@@ -706,6 +724,12 @@
     "name": "Mixtral 8x22B Instruct",
     "releaseDate": "2024-04-17",
     "organization": "Mistral"
+  },
+  {
+    "id": "o1",
+    "name": "o1",
+    "releaseDate": "2024-12-05",
+    "organization": "OpenAI"
   },
   {
     "id": "o1-elicited",

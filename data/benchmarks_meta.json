@@ -89,5 +89,18 @@
     "color": "#3b82f6",
     "category": "coding",
     "projectionType": "s-curve"
-  }
+  },
+  {
+  "id": "repli_bench",
+  "name": "RepliBench",
+  "capabilityName": "Self-proliferation",
+  "description": "Evaluates AI agents' capabilities for autonomous replication and persistence through 20 task families comprising 86 different tasks. Tests whether LLM agents can perform critical self-replication skills including passing identity verification, acquiring compute resources, evading detection systems, and deploying successor agents.",
+  "url": "https://arxiv.org/abs/2504.18565/",
+  "humanBaseline": null,
+  "expertBaseline": null,
+  "randomBaseline": null,
+  "color": "#6c6b67ff", 
+  "category": "agentic",
+  "projectionType": "s-curve"
+}
 ]
