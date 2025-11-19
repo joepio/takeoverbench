@@ -36,7 +36,7 @@
     <title>TakeOverBench — AI Safety Benchmarks & Threat Models</title>
     <meta
         name="description"
-        content="Track AI capabilities through benchmarks and explore threat models relevant to AI safety."
+        content="AI is rapidly getting better at using weapons, manipulating, hacking, and carrying out long-term plots against us. We track progress towards an AI takeover scenario."
     />
 </svelte:head>
 
@@ -45,8 +45,7 @@
         <header class="text-center mb-10">
             <h1 class="text-4xl font-bold text-gray-900">TakeOverBench</h1>
             <p class="text-gray-600 mt-2 max-w-2xl mx-auto">
-                Track AI capabilities through representative benchmarks and
-                explore threat models relevant to AI safety.
+                AI is rapidly getting more dangerous. We track progress towards an AI takeover scenario.
             </p>
         </header>
 
@@ -54,11 +53,10 @@
         <section class="mb-12">
             <div class="mb-6">
                 <h2 class="text-2xl font-bold text-gray-900">
-                    Benchmarks Overview
+                    Dangerous capabilities timeline
                 </h2>
-                <p class="text-gray-600 mt-2">
-                    Track progress across key AI capability benchmarks over
-                    time.
+                <p class="text-gray-600">
+                    According to "Model evaluation for extreme risks" (Shevlane, 2023), the most dangerous AI capabilities include Cyber-offense, Persuasion & manipulation, Political strategy, Weapons acquisition, Long-horizon planning, AI development, Situational awareness, and Self-proliferation. Progress on these capabilities is shown below.
                 </p>
             </div>
 
