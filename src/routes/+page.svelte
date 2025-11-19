@@ -83,100 +83,22 @@
                 {/if}
             </div>
 
-            <!-- Benchmark Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                {#each benchmarks.filter( (b) => selectedBenchmarks.includes(b.id), ) as benchmark}
-                    <a
-                        href={"/benchmarks/" + benchmark.id}
-                        class="block bg-white rounded-lg border border-gray-200 p-6 transition-all duration-200 hover:shadow-md no-underline text-current focus:outline-none focus:ring-2 focus:ring-blue-100"
-                        style="border-left: 4px solid {benchmark.color}"
-                    >
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <h3 class="font-semibold text-gray-900">
-                                    {benchmark.capabilityName ?? benchmark.name}
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-0.5">
-                                    {benchmark.name}
-                                </p>
-                            </div>
-                            {#if benchmark.category}
-                                <span
-                                    class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600"
-                                >
-                                    {benchmark.category}
-                                </span>
-                            {/if}
-                        </div>
-
-                        <p class="text-sm text-gray-600 mb-3">
-                            {benchmark.description}
-                        </p>
-
-                        {#if benchmark.humanBaseline || benchmark.expertBaseline}
-                            <div class="flex gap-4 text-xs text-gray-500 mb-3">
-                                {#if benchmark.humanBaseline}
-                                    <span
-                                        >Human: {benchmark.humanBaseline}%</span
-                                    >
-                                {/if}
-                                {#if benchmark.expertBaseline}
-                                    <span
-                                        >Expert: {benchmark.expertBaseline}%</span
-                                    >
-                                {/if}
-                            </div>
-                        {/if}
-
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <div class="space-y-2">
-                                {#each (benchmark.scores ?? [])
-                                    .slice()
-                                    .sort((a, b) => b.score - a.score)
-                                    .slice(0, 3) as score}
-                                    <div
-                                        class="flex justify-between items-center text-sm"
-                                    >
-                                        <span class="text-gray-600"
-                                            >{getModelNameById(
-                                                score.modelId,
-                                            )}</span
-                                        >
-                                        <span
-                                            class="font-medium"
-                                            style="color: {benchmark.color}"
-                                            >{Math.round(
-                                                typeof score.score ===
-                                                    "number" && score.score <= 1
-                                                    ? score.score * 100
-                                                    : score.score,
-                                            )}%</span
-                                        >
-                                    </div>
-                                {/each}
-                            </div>
-                        </div>
-                    </a>
-                {/each}
-            </div>
-
             <div class="text-center">
                 <a
                     href="/benchmarks"
                     class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-medium rounded-lg border border-blue-600 hover:bg-blue-50 transition-colors duration-150"
                 >
-                    View All Benchmarks
+                    View benchmarks
                 </a>
             </div>
         </section>
 
-        <!-- Threat Models Section -->
+        <!-- Scenarios Section -->
         <section>
             <div class="mb-6">
-                <h2 class="text-2xl font-bold text-gray-900">Threat Models</h2>
+                <h2 class="text-2xl font-bold text-gray-900">How do dangerous capabilities lead to a takeover?</h2>
                 <p class="text-gray-600 mt-2">
-                    Explore AI safety threat scenarios and their relevant
-                    benchmarks.
+                    Based on the literature, these are four plausible threat models.
                 </p>
             </div>
 

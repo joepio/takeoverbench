@@ -28,7 +28,7 @@
                         class="text-sm font-medium transition-colors duration-150
                                {$page.url.pathname === '/' ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'}"
                     >
-                        Dashboard
+                        Home
                     </a>
                     <a
                         href="/threats"
@@ -56,12 +56,6 @@
 
             <!-- Right side actions -->
             <div class="flex items-center gap-4">
-                <!-- Risk Status Indicator -->
-                <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-orange-50 rounded-full">
-                    <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-                    <span class="text-xs font-medium text-orange-700">Monitoring Active</span>
-                </div>
-
                 <!-- GitHub Link -->
                 <a
                     href="https://github.com/pauseai/takeoverbench"
