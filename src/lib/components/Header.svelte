@@ -2,66 +2,85 @@
     import { page } from "$app/stores";
 </script>
 
-<header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+<header class="bg-gray-100 border-b border-gray-300 sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
     <nav class="container mx-auto px-4 max-w-7xl">
         <div class="flex items-center justify-between h-16">
+
             <!-- Logo and Brand -->
             <div class="flex items-center gap-8">
-                <a href="/" class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
+                <a href="/" class="flex items-center gap-3 group">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center
+                                bg-red-700 border border-red-600 transition-all duration-200
+                                group-hover:shadow-red-500/40 group-hover:shadow-lg group-hover:scale-105">
+
+                        <!-- Stark white icon -->
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
                             </path>
                         </svg>
                     </div>
+
                     <div>
                         <div class="font-semibold text-gray-900">TakeOverBench</div>
-                        <div class="text-xs text-gray-500">Progress towards takeover</div>
+                        <div class="text-xs text-gray-600">Progress towards takeover</div>
                     </div>
                 </a>
 
                 <!-- Main Navigation -->
                 <div class="hidden md:flex items-center gap-6">
+
                     <a
                         href="/"
                         class="text-sm font-medium transition-colors duration-150
-                               {$page.url.pathname === '/' ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'}"
+                            {$page.url.pathname === '/' 
+                                ? 'text-red-500' 
+                                : 'text-gray-700 hover:text-gray-900'}"
                     >
                         Home
                     </a>
+
                     <a
                         href="/threats"
                         class="text-sm font-medium transition-colors duration-150
-                               {$page.url.pathname.startsWith('/threat') ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'}"
+                            {$page.url.pathname.startsWith('/threat') 
+                                ? 'text-red-500' 
+                                : 'text-gray-700 hover:text-gray-900'}"
                     >
                         Threat Models
                     </a>
+
                     <a
                         href="/benchmarks"
                         class="text-sm font-medium transition-colors duration-150
-                               {$page.url.pathname.startsWith('/benchmark') ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'}"
+                            {$page.url.pathname.startsWith('/benchmark') 
+                                ? 'text-red-500' 
+                                : 'text-gray-700 hover:text-gray-900'}"
                     >
                         Benchmarks
                     </a>
+
                     <a
                         href="/about"
                         class="text-sm font-medium transition-colors duration-150
-                               {$page.url.pathname === '/about' ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'}"
+                            {$page.url.pathname === '/about' 
+                                ? 'text-red-500' 
+                                : 'text-gray-700 hover:text-gray-900'}"
                     >
                         About
                     </a>
+
                 </div>
             </div>
 
             <!-- Right side actions -->
             <div class="flex items-center gap-4">
-                <!-- GitHub Link -->
+                <!-- GitHub -->
                 <a
                     href="https://github.com/pauseai/takeoverbench"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="p-2 text-gray-600 hover:text-gray-900 transition-colors duration-150"
+                    class="p-2 text-gray-700 hover:text-gray-900 transition-colors duration-150"
                     aria-label="View on GitHub"
                 >
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -69,34 +88,28 @@
                     </svg>
                 </a>
 
-                <!-- Mobile menu button -->
-                <button
-                    class="md:hidden p-2 text-gray-600 hover:text-gray-900"
-                    aria-label="Open menu"
-                >
+                <!-- Mobile menu -->
+                <button class="md:hidden p-2 text-gray-700 hover:text-gray-900" aria-label="Open menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
+
         </div>
     </nav>
 </header>
 
 <style>
-    /* Subtle shadow for sticky header */
     header {
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        /* Darker, more ominous header shadow */
+        box-shadow: 0 2px 6px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3);
     }
 
-    /* Pulse animation for status indicator */
     @keyframes pulse {
-        0%, 100% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0.5;
-        }
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
     }
 
     .animate-pulse {
