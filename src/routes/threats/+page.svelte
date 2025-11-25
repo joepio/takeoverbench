@@ -48,7 +48,7 @@
 </svelte:head>
 
 <main class="min-h-screen bg-gray-50">
-    <section class="bg-white border-b border-gray-200">
+    <section class="border-b border-gray-200">
         <div class="container mx-auto px-4 py-10 max-w-7xl">
             <div class="flex items-center justify-between mb-6">
                 <div>
@@ -72,7 +72,7 @@
                 {#each threatModels as threat (threat.id)}
                     <a
                         href={"/threat/" + threat.id}
-                        class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-200 no-underline text-current"
+                        class="block bg-surface-primary border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-200 no-underline text-current"
                         aria-labelledby={"threat-" + threat.id + "-title"}
                     >
                         <div class="flex justify-between items-start mb-3">
@@ -107,7 +107,7 @@
             <div class="text-center mt-10">
                 <a
                     href="/"
-                    class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-medium rounded-lg border border-blue-600 hover:bg-blue-50 transition-colors duration-150"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary text-gray-400 font-medium rounded-lg border border-gray-200 hover:bg-gray-300 transition-colors duration-150"
                 >
                     Back to Home
                 </a>
@@ -129,7 +129,7 @@
         }
     }
 
-    .bg-white {
+    .bg-surface-primary {
         /* keep existing styling, ensure cards animate */
     }
 

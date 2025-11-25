@@ -14,6 +14,7 @@
         Tooltip,
         Legend,
     } from "chart.js";
+    import "chartjs-adapter-date-fns";
     import { benchmarks, models } from "$lib/data";
 
     // Register controllers/elements once.
@@ -452,24 +453,23 @@
                               title: { display: true, text: "Model" },
                           }
                         : {
-                              type: "linear",
+                              type: "time",
                               min: xMin,
                               max: xMax,
+                              time: {
+                                  unit: "year",
+                                  displayFormats: { year: "yyyy" },
+                                  tooltipFormat: "yyyy-MM",
+                              },
                               title: {
                                   display: true,
                                   text: "Model release date",
-                                  color: "#6b7280",
+                                  color: "#9ca3af",
                                   font: { size: 12 },
                               },
                               ticks: {
-                                  stepSize: 31557600000,
-                                  callback: function (value: any) {
-                                      if (typeof value === "number") {
-                                          const d = new Date(value);
-                                          return d.getUTCFullYear();
-                                      }
-                                      return value;
-                                  },
+                                  maxRotation: 0,
+                                  autoSkip: true,
                               },
                           },
                     y: {
@@ -478,8 +478,11 @@
                         title: {
                             display: true,
                             text: "Score (%)",
-                            color: "#6b7280",
+                            color: "#9ca3af",
                             font: { size: 12 },
+                        },
+                        grid: {
+                            color: "rgba(255, 255, 255, 0.1)",
                         },
                         ticks: {
                             stepSize: 10,
@@ -531,9 +534,11 @@
                         <input
                             type="checkbox"
                             bind:checked={sotaFilterEnabled}
-                            class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                            class="rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
                         />
-                        <span>Show only SOTA (state-of-the-art)</span>
+                        <span class="text-gray-400"
+                            >Show only SOTA (state-of-the-art)</span
+                        >
                     </label>
                 {/if}
                 {#if showProjections}
@@ -543,20 +548,25 @@
                         <input
                             type="checkbox"
                             bind:checked={projectionsEnabled}
-                            class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                            class="rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
                         />
-                        <span>Show 1-year projections</span>
+                        <span class="text-gray-400"
+                            >Show 1-year projections</span
+                        >
                     </label>
                 {/if}
             </div>
         {/if}
-        <div class="w-full bg-white rounded-lg p-4" style="height: {height};">
+        <div
+            class="w-full bg-surface-primary rounded-lg p-4"
+            style="height: {height};"
+        >
             <canvas bind:this={canvasEl} width="800" height="400"></canvas>
         </div>
     </div>
 {:else}
     <div
-        class="w-full bg-white rounded-lg p-4 h-[400px] flex items-center justify-center text-gray-400"
+        class="w-full bg-surface-primary rounded-lg p-4 h-[400px] flex items-center justify-center text-gray-400"
     >
         No benchmark data to display.
     </div>

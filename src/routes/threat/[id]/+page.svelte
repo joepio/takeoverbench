@@ -99,7 +99,7 @@
 </svelte:head>
 
 <main class="min-h-screen bg-gray-50">
-    <section class="bg-white border-b border-gray-200">
+    <section class="bg-surface-primary border-b border-gray-200">
         <div class="container mx-auto px-4 py-8 max-w-5xl">
             <nav class="flex items-center gap-2 text-sm text-gray-600 mb-6">
                 <a href="/" class="hover:text-gray-900">Home</a>
@@ -109,48 +109,51 @@
                 <span class="text-gray-900">{threatModel?.name}</span>
             </nav>
 
-            <h1 class="text-3xl font-bold text-gray-900 mb-4">
-                {threatModel?.name}
-            </h1>
+            <!-- Content wrapper for text and list alignment -->
+            <div class="mx-auto mb-6" style="max-width: 80ch;">
+                <h1 class="text-3xl font-bold text-gray-900 mb-4 text-center">
+                    {threatModel?.name}
+                </h1>
 
-            <div class="prose text-gray-700 mb-6">
-                {#if hydrated && ThreatComponent}
-                    <svelte:component this={ThreatComponent} />
-                {:else}
-                    <p>
-                        {threatModel?.longDescription ??
-                            threatModel?.shortDescription ??
-                            "No description available."}
-                    </p>
-                {/if}
+                <div class="text-gray-700 mb-6">
+                    {#if hydrated && ThreatComponent}
+                        <svelte:component this={ThreatComponent} />
+                    {:else}
+                        <p>
+                            {threatModel?.longDescription ??
+                                threatModel?.shortDescription ??
+                                "No description available."}
+                        </p>
+                    {/if}
+                </div>
+
+                <!-- Benchmark list -->
+                <section>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">
+                        Dangerous capabilities required
+                    </h3>
+                    {#if selectedBenchmarks.length === 0 && missingBenchmarks.length === 0}
+                        <div class="text-sm text-gray-500">
+                            No benchmarks listed.
+                        </div>
+                    {:else}
+                        <ul
+                            class="list-disc list-inside space-y-1 text-sm text-gray-700"
+                        >
+                            {#each selectedBenchmarks as bid (bid)}
+                                <li>
+                                    <a
+                                        href={"/benchmarks/" + bid}
+                                        class="text-blue-600 hover:underline"
+                                    >
+                                        {capabilityName(bid)}
+                                    </a>
+                                </li>
+                            {/each}
+                        </ul>
+                    {/if}
+                </section>
             </div>
-
-            <!-- Benchmark list -->
-            <section>
-                <h3 class="text-lg font-medium text-gray-900 mb-2">
-                    Dangerous capabilities required
-                </h3>
-                {#if selectedBenchmarks.length === 0 && missingBenchmarks.length === 0}
-                    <div class="text-sm text-gray-500">
-                        No benchmarks listed.
-                    </div>
-                {:else}
-                    <ul
-                        class="list-disc list-inside space-y-1 text-sm text-gray-700"
-                    >
-                        {#each selectedBenchmarks as bid (bid)}
-                            <li>
-                                <a
-                                    href={"/benchmarks/" + bid}
-                                    class="text-blue-600 hover:underline"
-                                >
-                                    {capabilityName(bid)}
-                                </a>
-                            </li>
-                        {/each}
-                    </ul>
-                {/if}
-            </section>
 
             <!-- Benchmarks chart (client-only). Hidden/disabled on SSR. -->
             <section class="mb-8">
@@ -182,7 +185,7 @@
                         {/if}
                     </div>
                 {:else}
-                    <div class="bg-white rounded-lg p-4">
+                    <div class="bg-surface-primary rounded-lg p-4">
                         <svelte:component
                             this={MainChart}
                             {selectedBenchmarks}
@@ -192,7 +195,7 @@
 
                     {#if missingBenchmarks.length > 0}
                         <div
-                            class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm text-yellow-800"
+                            class="mt-4 p-3 bg-yellow-900/20 border border-yellow-900/30 rounded text-sm text-yellow-500"
                         >
                             <strong>Note:</strong> Some referenced benchmarks
                             are not yet available:
@@ -209,7 +212,7 @@
     <div class="container mx-auto px-4 py-8 max-w-5xl">
         <a
             href="/threats"
-            class="inline-block mt-6 px-4 py-2 bg-white border border-gray-200 rounded text-sm text-gray-700 hover:bg-gray-50"
+            class="inline-block mt-6 px-4 py-2 bg-surface-primary border border-gray-200 rounded text-sm text-gray-700 hover:bg-gray-300"
             >Back to Threats</a
         >
     </div>
@@ -218,8 +221,5 @@
 <style>
     .container {
         max-width: 72rem;
-    }
-    .prose p {
-        margin: 0 0 0.75rem 0;
     }
 </style>

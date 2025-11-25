@@ -45,7 +45,8 @@
         <header class="text-center mb-10">
             <h1 class="text-4xl font-bold text-gray-900">TakeOverBench</h1>
             <p class="text-gray-600 mt-2 max-w-2xl mx-auto">
-                AI is rapidly getting more dangerous. We track progress towards an AI takeover scenario.
+                AI is rapidly getting more dangerous. We track progress towards
+                an AI takeover scenario.
             </p>
         </header>
 
@@ -56,12 +57,17 @@
                     Dangerous capabilities timeline
                 </h2>
                 <p class="text-gray-600">
-                    According to "Model evaluation for extreme risks" (Shevlane, 2023), the most dangerous AI capabilities include Cyber-offense, Persuasion & manipulation, Political strategy, Weapons acquisition, Long-horizon planning, AI development, Situational awareness, and Self-proliferation. Progress on these capabilities is shown below.
+                    According to "Model evaluation for extreme risks" (Shevlane,
+                    2023), the most dangerous AI capabilities include
+                    Cyber-offense, Persuasion & manipulation, Political
+                    strategy, Weapons acquisition, Long-horizon planning, AI
+                    development, Situational awareness, and Self-proliferation.
+                    Progress on these capabilities is shown below.
                 </p>
             </div>
 
             <!-- Chart -->
-            <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <div class="bg-surface-primary rounded-lg shadow-sm p-6 mb-8">
                 {#if !hydrated}
                     <div
                         class="h-[520px] flex items-center justify-center text-gray-400"
@@ -86,7 +92,7 @@
             <div class="text-center">
                 <a
                     href="/benchmarks"
-                    class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-medium rounded-lg border border-blue-600 hover:bg-blue-50 transition-colors duration-150"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary text-gray-200 font-medium rounded-lg border border-gray-200 hover:bg-gray-300 transition-colors duration-150"
                 >
                     View benchmarks
                 </a>
@@ -96,9 +102,12 @@
         <!-- Threat models section -->
         <section>
             <div class="mb-6">
-                <h2 class="text-2xl font-bold text-gray-900">How do dangerous capabilities lead to a takeover?</h2>
+                <h2 class="text-2xl font-bold text-gray-900">
+                    How do dangerous capabilities lead to a takeover?
+                </h2>
                 <p class="text-gray-600 mt-2">
-                    Based on the literature, these are four plausible threat models.
+                    Based on the literature, these are four plausible threat
+                    models.
                 </p>
             </div>
 
@@ -109,7 +118,7 @@
                     {#each threatModels as t (t.id)}
                         <a
                             href={"/threat/" + t.id}
-                            class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-200 no-underline text-current"
+                            class="block bg-surface-primary border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-200 no-underline text-current hover:bg-surface-primary/50"
                             aria-labelledby={"threat-" + t.id + "-title"}
                         >
                             <div class="flex items-start justify-between mb-3">
@@ -119,7 +128,9 @@
                                 >
                                     {t.name}
                                 </h2>
-                                <div class="text-xs text-gray-500">
+                                <div
+                                    class="text-xs text-gray-500 whitespace-nowrap mt-1.5"
+                                >
                                     {t.benchmarks?.length ?? 0} benchmarks
                                 </div>
                             </div>
@@ -153,9 +164,7 @@
                                         <strong>Sources:</strong>
                                     </div>
                                     <ul class="list-disc list-inside space-y-1">
-                                        <li class="text-sm text-gray-700">
-                                            .
-                                        </li>
+                                        <li class="text-sm text-gray-700">.</li>
                                     </ul>
                                 </div>
                             {:else}
@@ -167,7 +176,9 @@
                     {/each}
                 </div>
             {:else}
-                <div class="bg-white rounded-lg p-8 text-center shadow-sm">
+                <div
+                    class="bg-surface-primary rounded-lg p-8 text-center shadow-sm"
+                >
                     <p class="text-gray-600">No threat models found.</p>
                 </div>
             {/if}

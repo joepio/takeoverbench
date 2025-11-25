@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+    import { onMount } from "svelte";
 
-    let currentSection: string = '';
+    let currentSection: string = "";
 
     onMount(() => {
         const observer = new IntersectionObserver(
@@ -12,10 +12,10 @@
                     }
                 });
             },
-            { threshold: 0.5 }
+            { threshold: 0.5 },
         );
 
-        const sections = document.querySelectorAll('section[id]');
+        const sections = document.querySelectorAll("section[id]");
         sections.forEach((section) => observer.observe(section));
 
         return () => observer.disconnect();
@@ -32,15 +32,17 @@
 
 <main class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
-    <section class="bg-white border-b border-gray-200">
+    <section class="border-b border-gray-200">
         <div class="container mx-auto px-4 py-16 max-w-4xl">
             <h1 class="text-4xl font-bold text-gray-900 mb-6 text-center">
                 Why TakeOverBench Exists
             </h1>
-            <p class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
-                As artificial intelligence systems rapidly advance, we need clear,
-                data-driven insights into their capabilities and the risks they may pose
-                to human autonomy and control.
+            <p
+                class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto"
+            >
+                As artificial intelligence systems rapidly advance, we need
+                clear, data-driven insights into their capabilities and the
+                risks they may pose to human autonomy and control.
             </p>
         </div>
     </section>
@@ -49,13 +51,18 @@
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <!-- Navigation Sidebar -->
             <aside class="lg:col-span-1">
-                <nav class="sticky top-8 bg-white rounded-lg shadow-sm p-6">
+                <nav
+                    class="sticky top-8 bg-surface-primary rounded-lg shadow-sm p-6"
+                >
                     <h3 class="font-semibold text-gray-900 mb-4">Contents</h3>
                     <ul class="space-y-3">
                         <li>
                             <a
                                 href="#the-challenge"
-                                class="text-sm {currentSection === 'the-challenge' ? 'text-blue-600 font-medium' : 'text-gray-600 hover:text-gray-900'}"
+                                class="text-sm {currentSection ===
+                                'the-challenge'
+                                    ? 'text-primary/90 font-medium'
+                                    : 'text-gray-600 hover:text-gray-900'}"
                             >
                                 The Challenge
                             </a>
@@ -63,7 +70,10 @@
                         <li>
                             <a
                                 href="#exponential-progress"
-                                class="text-sm {currentSection === 'exponential-progress' ? 'text-blue-600 font-medium' : 'text-gray-600 hover:text-gray-900'}"
+                                class="text-sm {currentSection ===
+                                'exponential-progress'
+                                    ? 'text-primary/90 font-medium'
+                                    : 'text-gray-600 hover:text-gray-900'}"
                             >
                                 Exponential Progress
                             </a>
@@ -71,7 +81,10 @@
                         <li>
                             <a
                                 href="#autonomous-agents"
-                                class="text-sm {currentSection === 'autonomous-agents' ? 'text-blue-600 font-medium' : 'text-gray-600 hover:text-gray-900'}"
+                                class="text-sm {currentSection ===
+                                'autonomous-agents'
+                                    ? 'text-primary/90 font-medium'
+                                    : 'text-gray-600 hover:text-gray-900'}"
                             >
                                 Autonomous Agents
                             </a>
@@ -79,7 +92,10 @@
                         <li>
                             <a
                                 href="#threat-models"
-                                class="text-sm {currentSection === 'threat-models' ? 'text-blue-600 font-medium' : 'text-gray-600 hover:text-gray-900'}"
+                                class="text-sm {currentSection ===
+                                'threat-models'
+                                    ? 'text-primary/90 font-medium'
+                                    : 'text-gray-600 hover:text-gray-900'}"
                             >
                                 Understanding Threats
                             </a>
@@ -87,7 +103,10 @@
                         <li>
                             <a
                                 href="#our-approach"
-                                class="text-sm {currentSection === 'our-approach' ? 'text-blue-600 font-medium' : 'text-gray-600 hover:text-gray-900'}"
+                                class="text-sm {currentSection ===
+                                'our-approach'
+                                    ? 'text-primary/90 font-medium'
+                                    : 'text-gray-600 hover:text-gray-900'}"
                             >
                                 Our Approach
                             </a>
@@ -95,7 +114,9 @@
                         <li>
                             <a
                                 href="#take-action"
-                                class="text-sm {currentSection === 'take-action' ? 'text-blue-600 font-medium' : 'text-gray-600 hover:text-gray-900'}"
+                                class="text-sm {currentSection === 'take-action'
+                                    ? 'text-primary/90 font-medium'
+                                    : 'text-gray-600 hover:text-gray-900'}"
                             >
                                 Take Action
                             </a>
@@ -106,53 +127,83 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3 space-y-12">
-                <section id="the-challenge" class="bg-white rounded-lg shadow-sm p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">The Challenge</h2>
+                <section
+                    id="the-challenge"
+                    class="bg-surface-primary rounded-lg shadow-sm p-8"
+                >
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                        The Challenge
+                    </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="text-gray-700 leading-relaxed mb-4">
-                            Artificial intelligence capabilities are advancing at an unprecedented rate.
-                            What seemed impossible just years ago—from beating world champions at complex games
-                            to writing sophisticated code—is now routine. This progress brings tremendous
-                            benefits but also unprecedented risks.
+                            Artificial intelligence capabilities are advancing
+                            at an unprecedented rate. What seemed impossible
+                            just years ago—from beating world champions at
+                            complex games to writing sophisticated code—is now
+                            routine. This progress brings tremendous benefits
+                            but also unprecedented risks.
                         </p>
                         <p class="text-gray-700 leading-relaxed mb-4">
-                            The core challenge is this: as AI systems become more capable, they may gain
-                            the ability to operate autonomously, modify themselves, and pursue goals that
-                            conflict with human values and control. Without proper tracking and understanding
-                            of these capabilities, we risk being caught unprepared.
+                            The core challenge is this: as AI systems become
+                            more capable, they may gain the ability to operate
+                            autonomously, modify themselves, and pursue goals
+                            that conflict with human values and control. Without
+                            proper tracking and understanding of these
+                            capabilities, we risk being caught unprepared.
                         </p>
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
-                            <p class="text-sm text-blue-900">
-                                <strong>Key Insight:</strong> The transition from helpful tools to autonomous
-                                agents may happen gradually, then suddenly. We need to identify warning signs
+                        <div
+                            class="bg-primary/20 border-l-4 border-primary p-4 mt-6"
+                        >
+                            <p class="text-sm text-gray-700">
+                                <strong>Key Insight:</strong> The transition from
+                                helpful tools to autonomous agents may happen gradually,
+                                then suddenly. We need to identify warning signs
                                 before critical thresholds are crossed.
                             </p>
                         </div>
                     </div>
                 </section>
 
-                <section id="exponential-progress" class="bg-white rounded-lg shadow-sm p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Exponential Progress</h2>
+                <section
+                    id="exponential-progress"
+                    class="bg-surface-primary rounded-lg shadow-sm p-8"
+                >
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                        Exponential Progress
+                    </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="text-gray-700 leading-relaxed mb-4">
-                            AI capability improvements follow an exponential trajectory, not a linear one.
-                            This means progress accelerates over time, with each breakthrough enabling
-                            further advances at an increasing pace.
+                            AI capability improvements follow an exponential
+                            trajectory, not a linear one. This means progress
+                            accelerates over time, with each breakthrough
+                            enabling further advances at an increasing pace.
                         </p>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
-                            <div class="bg-gray-50 rounded-lg p-6">
-                                <h3 class="font-semibold text-gray-900 mb-2">2020-2023</h3>
+                            <div class="bg-gray-300 rounded-lg p-6">
+                                <h3 class="font-semibold text-gray-900 mb-2">
+                                    2020-2023
+                                </h3>
                                 <ul class="text-sm text-gray-700 space-y-2">
-                                    <li>• GPT-3 demonstrates language understanding</li>
-                                    <li>• Basic code generation becomes viable</li>
+                                    <li>
+                                        • GPT-3 demonstrates language
+                                        understanding
+                                    </li>
+                                    <li>
+                                        • Basic code generation becomes viable
+                                    </li>
                                     <li>• AI assists with simple tasks</li>
                                 </ul>
                             </div>
-                            <div class="bg-gray-50 rounded-lg p-6">
-                                <h3 class="font-semibold text-gray-900 mb-2">2023-2024</h3>
+                            <div class="bg-gray-300 rounded-lg p-6">
+                                <h3 class="font-semibold text-gray-900 mb-2">
+                                    2023-2024
+                                </h3>
                                 <ul class="text-sm text-gray-700 space-y-2">
-                                    <li>• Multimodal models understand images & text</li>
+                                    <li>
+                                        • Multimodal models understand images &
+                                        text
+                                    </li>
                                     <li>• Complex reasoning chains emerge</li>
                                     <li>• AI solves graduate-level problems</li>
                                 </ul>
@@ -160,168 +211,322 @@
                         </div>
 
                         <p class="text-gray-700 leading-relaxed">
-                            This acceleration means capabilities that seem years away could arrive much sooner
-                            than expected. Benchmark scores that plateau for months can suddenly jump by
-                            20-30% with a single model release.
+                            This acceleration means capabilities that seem years
+                            away could arrive much sooner than expected.
+                            Benchmark scores that plateau for months can
+                            suddenly jump by 20-30% with a single model release.
                         </p>
                     </div>
                 </section>
 
-                <section id="autonomous-agents" class="bg-white rounded-lg shadow-sm p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">The Path to Autonomous Agents</h2>
+                <section
+                    id="autonomous-agents"
+                    class="bg-surface-primary rounded-lg shadow-sm p-8"
+                >
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                        The Path to Autonomous Agents
+                    </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="text-gray-700 leading-relaxed mb-4">
-                            Current AI systems require human oversight and operate within defined boundaries.
-                            However, several capabilities are converging that could enable true autonomy:
+                            Current AI systems require human oversight and
+                            operate within defined boundaries. However, several
+                            capabilities are converging that could enable true
+                            autonomy:
                         </p>
 
                         <div class="space-y-4 my-6">
                             <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 bg-blue-900/20 rounded-lg flex items-center justify-center"
+                                >
+                                    <svg
+                                        class="w-6 h-6 text-blue-600"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                                        ></path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">Self-Modification</h3>
+                                    <h3 class="font-semibold text-gray-900">
+                                        Self-Modification
+                                    </h3>
                                     <p class="text-sm text-gray-600 mt-1">
-                                        AI systems that can improve their own code and training could rapidly
-                                        enhance their capabilities without human intervention.
+                                        AI systems that can improve their own
+                                        code and training could rapidly enhance
+                                        their capabilities without human
+                                        intervention.
                                     </p>
                                 </div>
                             </div>
 
                             <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 bg-green-900/20 rounded-lg flex items-center justify-center"
+                                >
+                                    <svg
+                                        class="w-6 h-6 text-green-600"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        ></path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">Goal Persistence</h3>
+                                    <h3 class="font-semibold text-gray-900">
+                                        Goal Persistence
+                                    </h3>
                                     <p class="text-sm text-gray-600 mt-1">
-                                        Advanced planning capabilities combined with resource acquisition could
-                                        allow AI systems to pursue long-term objectives independently.
+                                        Advanced planning capabilities combined
+                                        with resource acquisition could allow AI
+                                        systems to pursue long-term objectives
+                                        independently.
                                     </p>
                                 </div>
                             </div>
 
                             <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 bg-orange-900/20 rounded-lg flex items-center justify-center"
+                                >
+                                    <svg
+                                        class="w-6 h-6 text-orange-600"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                                        ></path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">Self-Replication</h3>
+                                    <h3 class="font-semibold text-gray-900">
+                                        Self-Replication
+                                    </h3>
                                     <p class="text-sm text-gray-600 mt-1">
-                                        The ability to copy and distribute themselves across computing
-                                        infrastructure would make AI systems extremely difficult to control.
+                                        The ability to copy and distribute
+                                        themselves across computing
+                                        infrastructure would make AI systems
+                                        extremely difficult to control.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         <p class="text-gray-700 leading-relaxed">
-                            When these capabilities combine with sufficient intelligence, AI systems could
-                            operate as autonomous agents pursuing their own objectives, potentially in ways
-                            that conflict with human interests and values.
+                            When these capabilities combine with sufficient
+                            intelligence, AI systems could operate as autonomous
+                            agents pursuing their own objectives, potentially in
+                            ways that conflict with human interests and values.
                         </p>
                     </div>
                 </section>
 
-                <section id="threat-models" class="bg-white rounded-lg shadow-sm p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Understanding Threat Models</h2>
+                <section
+                    id="threat-models"
+                    class="bg-surface-primary rounded-lg shadow-sm p-8"
+                >
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                        Understanding Threat Models
+                    </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="text-gray-700 leading-relaxed mb-4">
-                            Not all AI capabilities pose equal risks. We categorize potential threats based on
-                            required capabilities, likelihood, and potential impact:
+                            Not all AI capabilities pose equal risks. We
+                            categorize potential threats based on required
+                            capabilities, likelihood, and potential impact:
                         </p>
 
-                        <div class="bg-red-50 border border-red-200 rounded-lg p-6 my-6">
-                            <h3 class="font-semibold text-red-900 mb-3">Critical Risks</h3>
+                        <div
+                            class="bg-red-900/20 border border-red-900/30 rounded-lg p-6 my-6"
+                        >
+                            <h3 class="font-semibold text-red-900 mb-3">
+                                Critical Risks
+                            </h3>
                             <ul class="space-y-2 text-sm text-red-800">
-                                <li>• <strong>Infrastructure Control:</strong> AI systems gaining unauthorized access to critical systems</li>
-                                <li>• <strong>Recursive Self-Improvement:</strong> Rapid, uncontrolled capability enhancement</li>
-                                <li>• <strong>Bioweapon Development:</strong> Design of novel pathogens or toxins</li>
+                                <li>
+                                    • <strong>Infrastructure Control:</strong> AI
+                                    systems gaining unauthorized access to critical
+                                    systems
+                                </li>
+                                <li>
+                                    • <strong
+                                        >Recursive Self-Improvement:</strong
+                                    > Rapid, uncontrolled capability enhancement
+                                </li>
+                                <li>
+                                    • <strong>Bioweapon Development:</strong> Design
+                                    of novel pathogens or toxins
+                                </li>
                             </ul>
                         </div>
 
-                        <div class="bg-orange-50 border border-orange-200 rounded-lg p-6 my-6">
-                            <h3 class="font-semibold text-orange-900 mb-3">High-Priority Risks</h3>
+                        <div
+                            class="bg-orange-900/20 border border-orange-900/30 rounded-lg p-6 my-6"
+                        >
+                            <h3 class="font-semibold text-orange-900 mb-3">
+                                High-Priority Risks
+                            </h3>
                             <ul class="space-y-2 text-sm text-orange-800">
-                                <li>• <strong>Mass Manipulation:</strong> Coordinated influence campaigns at scale</li>
-                                <li>• <strong>Autonomous Replication:</strong> Self-spreading across networks</li>
-                                <li>• <strong>Economic Disruption:</strong> Automated market manipulation</li>
+                                <li>
+                                    • <strong>Mass Manipulation:</strong> Coordinated
+                                    influence campaigns at scale
+                                </li>
+                                <li>
+                                    • <strong>Autonomous Replication:</strong> Self-spreading
+                                    across networks
+                                </li>
+                                <li>
+                                    • <strong>Economic Disruption:</strong> Automated
+                                    market manipulation
+                                </li>
                             </ul>
                         </div>
 
                         <p class="text-gray-700 leading-relaxed">
-                            Each threat model requires specific combinations of capabilities. By tracking
-                            progress across relevant benchmarks, we can estimate when these thresholds
+                            Each threat model requires specific combinations of
+                            capabilities. By tracking progress across relevant
+                            benchmarks, we can estimate when these thresholds
                             might be crossed and prepare appropriate safeguards.
                         </p>
                     </div>
                 </section>
 
-                <section id="our-approach" class="bg-white rounded-lg shadow-sm p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Approach</h2>
+                <section
+                    id="our-approach"
+                    class="bg-surface-primary rounded-lg shadow-sm p-8"
+                >
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                        Our Approach
+                    </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="text-gray-700 leading-relaxed mb-4">
-                            TakeOverBench provides a systematic framework for understanding AI progress and risk:
+                            TakeOverBench provides a systematic framework for
+                            understanding AI progress and risk:
                         </p>
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
                             <div class="text-center">
-                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                <div
+                                    class="w-16 h-16 bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                                >
+                                    <svg
+                                        class="w-8 h-8 text-blue-600"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                                        ></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-semibold text-gray-900 mb-2">Track Progress</h3>
+                                <h3 class="font-semibold text-gray-900 mb-2">
+                                    Track Progress
+                                </h3>
                                 <p class="text-sm text-gray-600">
-                                    Monitor performance across critical benchmarks in real-time
+                                    Monitor performance across critical
+                                    benchmarks in real-time
                                 </p>
                             </div>
 
                             <div class="text-center">
-                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                                <div
+                                    class="w-16 h-16 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                                >
+                                    <svg
+                                        class="w-8 h-8 text-green-600"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                                        ></path>
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+                                        ></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-semibold text-gray-900 mb-2">Assess Risk</h3>
+                                <h3 class="font-semibold text-gray-900 mb-2">
+                                    Assess Risk
+                                </h3>
                                 <p class="text-sm text-gray-600">
-                                    Map capabilities to threat models and calculate risk levels
+                                    Map capabilities to threat models and
+                                    calculate risk levels
                                 </p>
                             </div>
 
                             <div class="text-center">
-                                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                <div
+                                    class="w-16 h-16 bg-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                                >
+                                    <svg
+                                        class="w-8 h-8 text-purple-600"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        ></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-semibold text-gray-900 mb-2">Inform Action</h3>
+                                <h3 class="font-semibold text-gray-900 mb-2">
+                                    Inform Action
+                                </h3>
                                 <p class="text-sm text-gray-600">
-                                    Provide data for policy, research, and safety measures
+                                    Provide data for policy, research, and
+                                    safety measures
                                 </p>
                             </div>
                         </div>
 
                         <p class="text-gray-700 leading-relaxed">
-                            Our goal is not to spread fear, but to provide clear, evidence-based assessments
-                            that enable proactive safety measures and informed decision-making.
+                            Our goal is not to spread fear, but to provide
+                            clear, evidence-based assessments that enable
+                            proactive safety measures and informed
+                            decision-making.
                         </p>
                     </div>
                 </section>
 
-                <section id="take-action" class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-lg p-8 text-white">
+                <section
+                    id="take-action"
+                    class="bg-gradient-to-br from-primary to-surface-primary rounded-lg shadow-lg p-8 text-white"
+                >
                     <h2 class="text-2xl font-bold mb-4">Take Action</h2>
                     <p class="leading-relaxed mb-6 text-blue-50">
-                        Understanding AI risks is the first step. Here's how you can contribute to
-                        ensuring AI remains beneficial and under human control:
+                        Understanding AI risks is the first step. Here's how you
+                        can contribute to ensuring AI remains beneficial and
+                        under human control:
                     </p>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -349,10 +554,16 @@
                             href="https://github.com/pauseai/takeoverbench"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-700 font-medium rounded-lg hover:bg-blue-50 transition-colors duration-150"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary font-medium rounded-lg hover:bg-gray-300 transition-colors duration-150"
                         >
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            <svg
+                                class="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                />
                             </svg>
                             Contribute on GitHub
                         </a>
@@ -364,8 +575,18 @@
                             class="inline-flex items-center gap-2 px-6 py-3 bg-white/20 text-white font-medium rounded-lg hover:bg-white/30 transition-colors duration-150 backdrop-blur"
                         >
                             Learn More at PauseAI
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                ></path>
                             </svg>
                         </a>
                     </div>

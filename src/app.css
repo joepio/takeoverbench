@@ -1,18 +1,28 @@
 @import "tailwindcss";
 
+/* Define custom theme colors for Tailwind v4 */
+@theme {
+    /* Core palette (deep, high-contrast, urgent) */
+    --color-primary: rgba(220, 38, 38, 1);
+    --color-surface-primary: rgba(30, 30, 30, 1);
+    /* red-600 — infrared alert */
+    --color-primary-hover: rgba(185, 28, 28, 1);
+    /* red-700 */
+    --color-accent: rgba(56, 189, 248, 1);
+}
+
 /* Existential Tech / Urgent Doom Theme */
 @layer base {
     :root {
-        /* Core palette (deep, high-contrast, urgent) */
-        --color-primary: 220 38 38; /* red-600 — infrared alert */
-        --color-primary-hover: 185 28 28; /* red-700 */
-        --color-accent: 56 189 248; /* sky-400 — cyber blue highlight */
 
         /* Background grays — darker overall aesthetic */
+        /* --color-surface-primary: 46 43 43; */
+        /* --color-surface-primary: 250 127 80; */
+        /* #151414 */
         --color-gray-50: 12 13 15;
-        --color-gray-100: 17 17 20;
-        --color-gray-200: 28 29 33;
-        --color-gray-300: 39 40 46;
+        --color-gray-100: 23 24 28;
+        --color-gray-200: 35 36 42;
+        --color-gray-300: 55 56 62;
         --color-gray-400: 87 89 98;
         --color-gray-500: 113 115 125;
         --color-gray-600: 139 141 150;
@@ -47,13 +57,13 @@
         --radius-xl: 0.5rem;
 
         /* Shadows — darker, more dramatic */
-        --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
         --shadow-md:
-            0 4px 10px rgba(0,0,0,0.55),
-            0 2px 6px rgba(0,0,0,0.4);
+            0 4px 10px rgba(0, 0, 0, 0.55),
+            0 2px 6px rgba(0, 0, 0, 0.4);
         --shadow-lg:
-            0 15px 35px rgba(0,0,0,0.6),
-            0 5px 15px rgba(0,0,0,0.45);
+            0 15px 35px rgba(0, 0, 0, 0.6),
+            0 5px 15px rgba(0, 0, 0, 0.45);
 
         /* Fonts: keep Inter + JetBrains but lean heavier */
         --font-sans: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
@@ -82,7 +92,12 @@
 
     /* --- Typography --- */
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-weight: 700;
         line-height: 1.2;
         color: rgb(var(--color-gray-900));
@@ -92,7 +107,7 @@
     h1 {
         font-size: 2.5rem;
         margin-bottom: 1rem;
-        text-shadow: 0 0 20px rgba(220,38,38,0.15);
+        text-shadow: 0 0 20px rgba(220, 38, 38, 0.15);
     }
 
     h2 {
@@ -120,7 +135,7 @@
 
     a:hover {
         color: rgb(var(--color-primary-hover));
-        text-shadow: 0 0 6px rgba(220,38,38,0.6);
+        text-shadow: 0 0 6px rgba(220, 38, 38, 0.6);
     }
 
     /* Buttons */
@@ -186,7 +201,8 @@
     .prose {
         max-width: 68ch;
     }
-    .prose > * {
+
+    .prose>* {
         margin-bottom: 1.3rem;
     }
 
@@ -194,7 +210,7 @@
     :focus-visible {
         outline: 2px solid rgb(var(--color-primary));
         outline-offset: 3px;
-        box-shadow: 0 0 8px rgba(220,38,38,0.4);
+        box-shadow: 0 0 8px rgba(220, 38, 38, 0.4);
     }
 
     /* Selection — red alert tone */
@@ -207,47 +223,70 @@
     ::-webkit-scrollbar {
         width: 8px;
     }
+
     ::-webkit-scrollbar-track {
         background: rgb(var(--color-gray-100));
     }
+
     ::-webkit-scrollbar-thumb {
         background: rgb(var(--color-gray-400));
     }
+
     ::-webkit-scrollbar-thumb:hover {
         background: rgb(var(--color-gray-500));
     }
 
     /* Animations — slower, ominous */
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(12px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
+
     @keyframes slideIn {
-        from { opacity: 0; transform: translateX(-12px); }
-        to { opacity: 1; transform: translateX(0); }
+        from {
+            opacity: 0;
+            transform: translateX(-12px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
+
     .animate-fade-in {
         animation: fadeIn 450ms ease-out;
     }
+
     .animate-slide-in {
         animation: slideIn 450ms ease-out;
     }
 
     /* Skeletons — more “system failure scanline” */
     .skeleton {
-        background: linear-gradient(
-            90deg,
-            rgb(var(--color-gray-300) / 0.25) 25%,
-            rgb(var(--color-gray-400) / 0.45) 50%,
-            rgb(var(--color-gray-300) / 0.25) 75%
-        );
+        background: linear-gradient(90deg,
+                rgb(var(--color-gray-300) / 0.25) 25%,
+                rgb(var(--color-gray-400) / 0.45) 50%,
+                rgb(var(--color-gray-300) / 0.25) 75%);
         background-size: 200% 100%;
         animation: loading 1.4s infinite linear;
     }
 
     @keyframes loading {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
+        0% {
+            background-position: 200% 0;
+        }
+
+        100% {
+            background-position: -200% 0;
+        }
     }
 
     /* Card — darker, risk-dashboard vibe */
@@ -293,6 +332,6 @@
     .badge-critical {
         background-color: rgba(var(--color-risk-critical), 0.25);
         color: rgb(var(--color-risk-critical));
-        text-shadow: 0 0 6px rgba(153,27,27,0.45);
+        text-shadow: 0 0 6px rgba(153, 27, 27, 0.45);
     }
 }

@@ -46,7 +46,7 @@
             </div>
 
             <!-- Compact combined chart (same as home) -->
-            <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <div class="bg-surface-primary rounded-lg shadow-sm p-6 mb-8">
                 {#if !hydrated}
                     <div
                         class="h-[520px] flex items-center justify-center text-gray-400"
@@ -73,7 +73,7 @@
                 {#each benchmarks as benchmark}
                     <a
                         href={"/benchmarks/" + benchmark.id}
-                        class="block bg-white rounded-lg border border-gray-200 p-6 transition-all duration-200 hover:shadow-md no-underline text-current focus:outline-none focus:ring-2 focus:ring-blue-100"
+                        class="block bg-surface-primary rounded-lg border border-gray-200 p-6 transition-all duration-200 hover:shadow-md no-underline text-current focus:outline-none focus:ring-2 focus:ring-blue-100"
                         style="border-left: 4px solid {benchmark.color}"
                     >
                         <div class="flex justify-between items-start mb-2">
@@ -87,7 +87,7 @@
                             </div>
                             {#if benchmark.category}
                                 <span
-                                    class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600"
+                                    class="text-xs px-2 py-1 rounded-full bg-gray-300 text-gray-600"
                                 >
                                     {benchmark.category}
                                 </span>

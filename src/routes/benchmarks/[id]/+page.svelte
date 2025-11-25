@@ -96,7 +96,7 @@
                 <span class="text-gray-900">{benchmark.name}</span>
             </nav>
 
-            <div class="bg-white rounded-lg p-6 shadow-sm">
+            <div class="bg-surface-primary rounded-lg p-6 shadow-sm">
                 <div class="md:flex md:items-start md:justify-between gap-6">
                     <div class="flex-1">
                         {#if benchmark.url}
@@ -141,12 +141,12 @@
                             class="mt-4 flex flex-wrap gap-3 text-xs text-gray-500"
                         >
                             {#if benchmark.humanBaseline}
-                                <div class="px-2 py-1 bg-gray-50 rounded">
+                                <div class="px-2 py-1 bg-gray-300 rounded">
                                     Human: {benchmark.humanBaseline}%
                                 </div>
                             {/if}
                             {#if benchmark.expertBaseline}
-                                <div class="px-2 py-1 bg-gray-50 rounded">
+                                <div class="px-2 py-1 bg-gray-300 rounded">
                                     Expert: {benchmark.expertBaseline}%
                                 </div>
                             {/if}
@@ -155,7 +155,7 @@
 
                     <div class="w-full md:w-48 mt-4 md:mt-0 text-right">
                         {#if topScoreEntry}
-                            <div class="text-3xl font-extrabold text-blue-600">
+                            <div class="text-3xl font-extrabold text-blue-400">
                                 {Math.round(topScoreEntry.score * 100)}%
                             </div>
                             <div class="text-xs text-gray-500 mt-1">
@@ -170,7 +170,7 @@
                 </div>
 
                 <!-- Chart -->
-                <div class="mt-6 bg-gray-50 rounded p-4">
+                <div class="mt-6 bg-surface-primary rounded p-4">
                     <!-- only render the chart once client-side to avoid SSR / Chart.js issues -->
                     {#if !hydrated}
                         <div
@@ -255,7 +255,7 @@
                             {#each relatedThreatModels as t}
                                 <a
                                     href={"/threat/" + t.id}
-                                    class="block bg-white border border-gray-100 rounded p-3 hover:shadow no-underline text-current"
+                                    class="block bg-surface-primary border border-gray-200 rounded p-3 hover:shadow no-underline text-current"
                                 >
                                     <div class="font-medium text-gray-900">
                                         {t.name}
