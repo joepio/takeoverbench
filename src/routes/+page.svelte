@@ -41,7 +41,7 @@
     <title>TakeOverBench — AI Safety Benchmarks & Takeover Scenarios</title>
     <meta
         name="description"
-        content="AI is rapidly getting better at using weapons, manipulating, hacking, and carrying out long-term plots against us. We track progress towards an AI takeover scenario."
+        content="AI is rapidly getting better at using weapons, manipulating, hacking, and carrying out long-term plots against us. We track progress towards AI takeover scenarios."
     />
 </svelte:head>
 
