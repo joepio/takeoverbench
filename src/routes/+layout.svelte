@@ -24,7 +24,6 @@
 			<div class="flex gap-6 text-sm">
 				<a href="/about" class="text-gray-600 hover:text-gray-900">About</a>
 				<a href="https://github.com/pauseai/takeoverbench" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900">GitHub</a>
-				<a href="https://pauseai.info" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900">PauseAI</a>
 			</div>
 		</div>
 	</div>
