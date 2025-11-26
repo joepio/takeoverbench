@@ -1,9 +1,14 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { benchmarks, threatModels, models } from "$lib/data";
+    import { benchmarks, threatModels, models, getBenchmarkById } from "$lib/data";
 
     // Show all benchmarks on the main chart
     const selectedBenchmarks = benchmarks.map((b) => b.id);
+
+    // Helper to get capability name from benchmark id
+    function capabilityName(id: string) {
+        return getBenchmarkById(id)?.capabilityName ?? id;
+    }
 
     // Dynamically import MainChart only on the client to avoid SSR/Chart.js issues.
     let MainChart: any = null;
@@ -33,7 +38,7 @@
 </script>
 
 <svelte:head>
-    <title>TakeOverBench — AI Safety Benchmarks & Threat Models</title>
+    <title>TakeOverBench — AI Safety Benchmarks & Takeover Scenarios</title>
     <meta
         name="description"
         content="AI is rapidly getting better at using weapons, manipulating, hacking, and carrying out long-term plots against us. We track progress towards an AI takeover scenario."
@@ -99,7 +104,7 @@
             </div>
         </section>
 
-        <!-- Threat models section -->
+        <!-- Takeover scenarios section -->
         <section>
             <div class="mb-6">
                 <h2 class="text-2xl font-bold text-gray-900">
@@ -149,24 +154,30 @@
                                     <ul class="list-disc list-inside space-y-1">
                                         {#each t.benchmarks.slice(0, 4) as bid (bid)}
                                             <li class="text-sm text-gray-700">
-                                                {bid}
+                                                {capabilityName(bid)}
                                             </li>
                                         {/each}
                                         {#if t.benchmarks.length > 4}
-                                            <li class="text-gray-400">
+                                            <li class="text-sm text-gray-400">
                                                 and {t.benchmarks.length - 4} more…
                                             </li>
                                         {/if}
                                     </ul>
                                 </div>
-                                <div class="text-xs text-gray-500">
-                                    <div class="mb-1">
-                                        <strong>Sources:</strong>
+                                {#if t.sources_short && t.sources_short.length > 0}
+                                    <div class="text-xs text-gray-500 mt-3">
+                                        <div class="mb-1">
+                                            <strong>Sources:</strong>
+                                        </div>
+                                        <ul class="list-disc list-inside space-y-1">
+                                            {#each t.sources_short as source (source)}
+                                                <li class="text-sm text-gray-700">
+                                                    {source}
+                                                </li>
+                                            {/each}
+                                        </ul>
                                     </div>
-                                    <ul class="list-disc list-inside space-y-1">
-                                        <li class="text-sm text-gray-700">.</li>
-                                    </ul>
-                                </div>
+                                {/if}
                             {:else}
                                 <div class="text-xs text-gray-400">
                                     No benchmarks listed for this threat.
@@ -179,7 +190,7 @@
                 <div
                     class="bg-surface-primary rounded-lg p-8 text-center shadow-sm"
                 >
-                    <p class="text-gray-600">No threat models found.</p>
+                    <p class="text-gray-600">No takeover scenarios found.</p>
                 </div>
             {/if}
         </section>

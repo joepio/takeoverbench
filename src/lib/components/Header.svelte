@@ -47,7 +47,7 @@
                                 ? 'text-red-500' 
                                 : 'text-gray-700 hover:text-gray-900'}"
                     >
-                        Threat Models
+                        Takeover Scenarios
                     </a>
 
                     <a

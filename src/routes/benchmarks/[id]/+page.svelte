@@ -243,11 +243,11 @@
                     {/if}
                 </div>
 
-                <!-- Related threat models -->
+                <!-- Related takeover scenarios -->
                 {#if relatedThreatModels && relatedThreatModels.length > 0}
                     <div class="mt-6">
                         <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Related threat models
+                            Related takeover scenarios
                         </h3>
                         <div
                             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"

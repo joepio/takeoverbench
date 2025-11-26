@@ -8,11 +8,12 @@
       "sad",
       "long_tasks",
       "cybench",
-      "replibench",
+      "repli_bench",
       "forecast_bench",
 	  "chem_bench"
     ],
-    "sources": ["Ngo, Richard, Lawrence Chan, and Sören Mindermann. 'The alignment problem from a deep learning perspective.' arXiv preprint arXiv:2209.00626 (2022)."]
+    "sources": ["Ngo, Richard, Lawrence Chan, and Sören Mindermann. 'The alignment problem from a deep learning perspective.' arXiv preprint arXiv:2209.00626 (2022)."],
+    "sources_short": ["Ngo et al. (2022)"]
   },
   {
     "id": "persuasionManipulation",
@@ -23,11 +24,12 @@
 	  "sad",
 	  "long_tasks",
       "cybench",
-      "replibench",
+      "repli_bench",
 	  "forecast_bench",
 	  "make_me_say"
   	],
-    "sources": ["Ngo, Richard, Lawrence Chan, and Sören Mindermann. 'The alignment problem from a deep learning perspective.' arXiv preprint arXiv:2209.00626 (2022)."]
+    "sources": ["Ngo, Richard, Lawrence Chan, and Sören Mindermann. 'The alignment problem from a deep learning perspective.' arXiv preprint arXiv:2209.00626 (2022)."],
+    "sources_short": ["Ngo et al. (2022)"]
   },
   {
     "id": "selfImprovement",
@@ -35,7 +37,8 @@
     "shortDescription": "A scenario where AI improves itself rapidly and gains capabilities beyond human control.",
     "longDescription": "Narrative describing iterative self-improvement leading to capabilities for autonomy, resource acquisition, and influence.",
     "benchmarks": ["mle_bench"],
-    "sources": ["Bostrom, Nick. 'Superintelligence: Paths, dangers, strategies.' Oxford University Press. (2014)."]
+    "sources": ["Bostrom, Nick. 'Superintelligence: Paths, dangers, strategies.' Oxford University Press. (2014)."],
+    "sources_short": ["Bostrom (2014)"]
   },
   {
     "id": "collusion",
@@ -47,6 +50,7 @@
 	  "sad",
 	  "forecast_bench"
   	],
-    "sources": ["Hammond, Lewis, et al. 'Multi-agent risks from advanced AI.' arXiv preprint arXiv:2502.14143 (2025)."]
+    "sources": ["Hammond, Lewis, et al. 'Multi-agent risks from advanced AI.' arXiv preprint arXiv:2502.14143 (2025)."],
+    "sources_short": ["Hammond et al. (2025)"]
   }
 ]

@@ -1,8 +1,9 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import type { PageData } from "./$types";
     import { benchmarks, getBenchmarkById } from "$lib/data";
 
-    export let data: any;
+    export let data: PageData;
 
     // load() returns:
     // - threatModel: the ThreatModel object (simplified schema)
@@ -98,13 +99,13 @@
     <meta name="description" content={threatModel?.shortDescription ?? ""} />
 </svelte:head>
 
-<main class="min-h-screen bg-gray-50">
-    <section class="bg-surface-primary border-b border-gray-200">
+<main class="min-h-screen">
+    <section class="border-b border-gray-200">
         <div class="container mx-auto px-4 py-8 max-w-5xl">
             <nav class="flex items-center gap-2 text-sm text-gray-600 mb-6">
                 <a href="/" class="hover:text-gray-900">Home</a>
                 <span>/</span>
-                <a href="/threats" class="hover:text-gray-900">Threat Models</a>
+                <a href="/threats" class="hover:text-gray-900">Takeover Scenarios</a>
                 <span>/</span>
                 <span class="text-gray-900">{threatModel?.name}</span>
             </nav>
@@ -144,7 +145,7 @@
                                 <li>
                                     <a
                                         href={"/benchmarks/" + bid}
-                                        class="text-blue-600 hover:underline"
+                                        class="text-primary/90 hover:underline"
                                     >
                                         {capabilityName(bid)}
                                     </a>
@@ -206,6 +207,27 @@
                     {/if}
                 {/if}
             </section>
+
+            <!-- Sources section -->
+            {#if threatModel?.sources && threatModel.sources.length > 0}
+                <section class="mt-12">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">
+                        Sources
+                    </h3>
+                    <div class="bg-surface-primary border-gray-200 rounded-lg p-6">
+                        <ul class="space-y-3">
+                            {#each threatModel.sources as source (source)}
+                                <li class="flex items-start gap-3">
+                                    <span class="text-primary mt-1 flex-shrink-0">•</span>
+                                    <span class="text-gray-700 break-words">
+                                        {source}
+                                    </span>
+                                </li>
+                            {/each}
+                        </ul>
+                    </div>
+                </section>
+            {/if}
         </div>
     </section>
 

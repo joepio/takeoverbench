@@ -49,7 +49,7 @@ export interface Benchmark {
   projectionType?: ProjectionType; // how to project future trends: s-curve for saturation, exponential for unbounded growth
 }
 
-/* ---- Simplified threat model ----
+/* ---- Threat model ----
  *
  * A ThreatModel is now a small document describing the threat and listing the
  * benchmark ids that are relevant to assessing that threat. All other
@@ -65,6 +65,8 @@ export interface ThreatModel {
   // Clients should treat this array as the authoritative list of benchmarks to
   // show for the threat (e.g., charts, lists).
   benchmarks: string[];
+  sources?: string[];
+  sources_short?: string[];
 }
 
 /* ---- Risk / assessment (optional helper type) ----

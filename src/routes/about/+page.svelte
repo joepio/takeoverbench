@@ -343,7 +343,7 @@
                     class="bg-surface-primary rounded-lg shadow-sm p-8"
                 >
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">
-                        Understanding Threat Models
+                        Understanding Takeover Scenarios
                     </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="text-gray-700 leading-relaxed mb-4">
@@ -399,7 +399,7 @@
                         </div>
 
                         <p class="text-gray-700 leading-relaxed">
-                            Each threat model requires specific combinations of
+                            Each takeover scenario requires specific combinations of
                             capabilities. By tracking progress across relevant
                             benchmarks, we can estimate when these thresholds
                             might be crossed and prepare appropriate safeguards.
@@ -476,7 +476,7 @@
                                     Assess Risk
                                 </h3>
                                 <p class="text-sm text-gray-600">
-                                    Map capabilities to threat models and
+                                    Map capabilities to takeover scenarios and
                                     calculate risk levels
                                 </p>
                             </div>
