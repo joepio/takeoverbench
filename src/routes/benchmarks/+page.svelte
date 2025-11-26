@@ -113,7 +113,7 @@
                             </div>
                         {/if}
 
-                        <div class="mt-4 pt-4 border-t border-gray-100">
+                        <div class="mt-4 pt-4 border-t">
                             <div class="space-y-2">
                                 {#each (benchmark.scores ?? [])
                                     .slice()

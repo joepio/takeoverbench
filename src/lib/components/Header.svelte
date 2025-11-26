@@ -2,7 +2,7 @@
     import { page } from "$app/stores";
 </script>
 
-<header class="bg-gray-100 border-b border-gray-300 sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
+<header class="border-b sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
     <nav class="container mx-auto px-4 max-w-7xl">
         <div class="flex items-center justify-between h-16">
 
@@ -23,7 +23,7 @@
 
                     <div>
                         <div class="font-semibold text-gray-900">TakeOverBench</div>
-                        <div class="text-xs text-gray-600">Progress towards takeover</div>
+                        <div class="text-xs text-gray-800">Progress towards takeover</div>
                     </div>
                 </a>
 

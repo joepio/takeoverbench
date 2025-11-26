@@ -9,38 +9,39 @@
     --color-primary-hover: rgba(185, 28, 28, 1);
     /* red-700 */
     --color-accent: rgba(56, 189, 248, 1);
+
+    /* Background grays — darker overall aesthetic */
+    /* --color-surface-primary: 46 43 43; */
+    /* --color-surface-primary: 250 127 80; */
+    /* #151414 */
+    --color-gray-50: rgb(12 13 15);
+    --color-gray-100: rgb(23, 24, 28);
+    --color-gray-200: rgb(35, 36, 42);
+    --color-gray-300: rgb(55, 56, 62);
+    --color-gray-400: rgb(87, 89, 98);
+    --color-gray-500: rgb(113, 115, 125);
+    --color-gray-600: rgb(139, 141, 150);
+    --color-gray-700: rgb(161, 162, 170);
+    --color-gray-800: rgb(186, 187, 193);
+    --color-gray-900: rgb(232, 233, 238);
+
+    /* Semantic colors (more severe tone) */
+    --color-success: rgb(34, 197, 94);
+    --color-warning: rgb(234, 179, 8);
+    --color-error: rgb(239, 68, 68);
+    --color-info: rgb(56, 189, 248);
+
+    /* Risk levels (sharper) */
+    --color-risk-low: rgb(34, 197, 94);
+    --color-risk-medium: rgb(250, 204, 21);
+    --color-risk-high: rgb(239, 68, 68);
+    --color-risk-critical: rgb(153, 27, 27);
+
 }
 
 /* Existential Tech / Urgent Doom Theme */
 @layer base {
     :root {
-
-        /* Background grays — darker overall aesthetic */
-        /* --color-surface-primary: 46 43 43; */
-        /* --color-surface-primary: 250 127 80; */
-        /* #151414 */
-        --color-gray-50: 12 13 15;
-        --color-gray-100: 23 24 28;
-        --color-gray-200: 35 36 42;
-        --color-gray-300: 55 56 62;
-        --color-gray-400: 87 89 98;
-        --color-gray-500: 113 115 125;
-        --color-gray-600: 139 141 150;
-        --color-gray-700: 161 162 170;
-        --color-gray-800: 186 187 193;
-        --color-gray-900: 232 233 238;
-
-        /* Semantic colors (more severe tone) */
-        --color-success: 34 197 94;
-        --color-warning: 234 179 8;
-        --color-error: 239 68 68;
-        --color-info: 56 189 248;
-
-        /* Risk levels (sharper) */
-        --color-risk-low: 34 197 94;
-        --color-risk-medium: 250 204 21;
-        --color-risk-high: 239 68 68;
-        --color-risk-critical: 153 27 27;
 
         /* Spacing */
         --spacing-xs: 0.5rem;
@@ -84,8 +85,8 @@
 
     body {
         font-family: var(--font-sans);
-        color: rgb(var(--color-gray-900));
-        background-color: rgb(var(--color-gray-50));
+        color: var(--color-gray-900);
+        background-color: var(--color-gray-50);
         line-height: 1.55;
         font-size: 16px;
     }
@@ -100,7 +101,7 @@
     h6 {
         font-weight: 700;
         line-height: 1.2;
-        color: rgb(var(--color-gray-900));
+        color: var(--color-gray-900);
         letter-spacing: -0.015em;
     }
 
@@ -123,18 +124,18 @@
     p {
         margin-bottom: 1.1rem;
         line-height: 1.7;
-        color: rgb(var(--color-gray-700));
+        color: var(--color-gray-900);
     }
 
     /* Links — more urgent, glowing on hover */
     a {
-        color: rgb(var(--color-primary));
+        color: var(--color-primary);
         text-decoration: none;
         transition: color 150ms ease, text-shadow 200ms;
     }
 
     a:hover {
-        color: rgb(var(--color-primary-hover));
+        color: var(--color-primary-hover);
         text-shadow: 0 0 6px rgba(220, 38, 38, 0.6);
     }
 
@@ -149,20 +150,20 @@
     code {
         font-family: var(--font-mono);
         font-size: 0.88em;
-        background-color: rgb(var(--color-gray-200));
+        background-color: var(--color-gray-200);
         padding: 0.15rem 0.3rem;
         border-radius: var(--radius-sm);
-        color: rgb(var(--color-accent));
+        color: var(--color-accent);
     }
 
     pre {
         font-family: var(--font-mono);
         font-size: 0.9rem;
-        background-color: rgb(var(--color-gray-900) / 0.07);
-        color: rgb(var(--color-gray-900));
+        background-color: var(--color-gray-900 / 0.07);
+        color: var(--color-gray-900);
         padding: 1.25rem;
         border-radius: var(--radius-lg);
-        border: 1px solid rgb(var(--color-gray-300));
+        border: 1px solid var(--color-gray-300);
         overflow-x: auto;
         margin-bottom: 1.2rem;
     }
@@ -175,20 +176,20 @@
     table {
         width: 100%;
         border-collapse: collapse;
-        border: 1px solid rgb(var(--color-gray-300));
+        border: 1px solid var(--color-gray-300);
     }
 
     th {
-        background-color: rgb(var(--color-gray-100));
-        border-bottom: 1px solid rgb(var(--color-gray-300));
-        color: rgb(var(--color-gray-800));
+        background-color: var(--color-gray-100);
+        border-bottom: 1px solid var(--color-gray-300);
+        color: var(--color-gray-800);
         padding: 0.9rem;
     }
 
     td {
         padding: 0.9rem;
-        border-bottom: 1px solid rgb(var(--color-gray-200));
-        color: rgb(var(--color-gray-700));
+        border-bottom: 1px solid var(--color-gray-200);
+        color: var(--color-gray-700);
     }
 
     /* Containers */
@@ -208,14 +209,15 @@
 
     /* Focus — more alert-like */
     :focus-visible {
-        outline: 2px solid rgb(var(--color-primary));
+        outline: 2px solid var(--color-primary);
         outline-offset: 3px;
         box-shadow: 0 0 8px rgba(220, 38, 38, 0.4);
     }
 
     /* Selection — red alert tone */
     ::selection {
-        background-color: rgba(var(--color-primary), 0.35);
+        /* background-color: rgba(var(--color-primary), 0.35); */
+        background: var(--color-primary/0.35);
         color: white;
     }
 
@@ -225,15 +227,15 @@
     }
 
     ::-webkit-scrollbar-track {
-        background: rgb(var(--color-gray-100));
+        background: var(--color-gray-100);
     }
 
     ::-webkit-scrollbar-thumb {
-        background: rgb(var(--color-gray-400));
+        background: var(--color-gray-400);
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: rgb(var(--color-gray-500));
+        background: var(--color-gray-500);
     }
 
     /* Animations — slower, ominous */
@@ -272,9 +274,9 @@
     /* Skeletons — more “system failure scanline” */
     .skeleton {
         background: linear-gradient(90deg,
-                rgb(var(--color-gray-300) / 0.25) 25%,
-                rgb(var(--color-gray-400) / 0.45) 50%,
-                rgb(var(--color-gray-300) / 0.25) 75%);
+                var(--color-gray-300 / 0.25) 25%,
+                var(--color-gray-400) / 0.45 50%,
+                var(--color-gray-300) / 0.25) 75%;
         background-size: 200% 100%;
         animation: loading 1.4s infinite linear;
     }
@@ -291,8 +293,8 @@
 
     /* Card — darker, risk-dashboard vibe */
     .card {
-        background: rgb(var(--color-gray-100));
-        border: 1px solid rgb(var(--color-gray-300));
+        background: var(--color-gray-100);
+        border: 1px solid var(--color-gray-300);
         border-radius: var(--radius-lg);
         padding: 1.6rem;
         box-shadow: var(--shadow-sm);
@@ -301,7 +303,7 @@
 
     .card:hover {
         box-shadow: var(--shadow-md);
-        border-color: rgb(var(--color-primary));
+        border-color: var(--color-primary);
     }
 
     /* Badges — more severe saturation */
@@ -315,23 +317,23 @@
     }
 
     .badge-low {
-        background-color: rgba(var(--color-risk-low), 0.15);
-        color: rgb(var(--color-risk-low));
+        background-color: var(--color-risk-low)/0.15;
+        color: var(--color-risk-low);
     }
 
     .badge-medium {
-        background-color: rgba(var(--color-risk-medium), 0.18);
-        color: rgb(var(--color-risk-medium));
+        background-color: var(--color-risk-medium/0.18);
+        color: var(--color-risk-medium);
     }
 
     .badge-high {
-        background-color: rgba(var(--color-risk-high), 0.2);
-        color: rgb(var(--color-risk-high));
+        background-color: var(--color-risk-high)/0.2;
+        color: var(--color-risk-high);
     }
 
     .badge-critical {
-        background-color: rgba(var(--color-risk-critical), 0.25);
-        color: rgb(var(--color-risk-critical));
+        background-color: var(--color-risk-critical)/ 0.25;
+        color: var(--color-risk-critical);
         text-shadow: 0 0 6px rgba(153, 27, 27, 0.45);
     }
 }
