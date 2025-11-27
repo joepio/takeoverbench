@@ -42,7 +42,7 @@
     "id": "long_tasks",
     "name": "METR Horizon Benchmark",
     "capabilityName": "Long-horizon planning",
-    "description": "Measures AI agents' ability to autonomously complete long-horizon tasks that take human professionals hours to days. The benchmark quantifies an AI model's '50% time horizon' - the length of tasks it can complete with 50% probability - tracking exponential progress in autonomous AI capabilities.",
+    "description": "Measures AI agents' ability to autonomously complete long-horizon tasks that take human professionals hours to days. The benchmark quantifies an AI model's '50% time horizon' - the length of tasks it can complete with 50% probability - tracking exponential progress in autonomous AI capabilities. Scores are normalized such that 100% represents a 50% success rate on tasks requiring 8 human-expert hours.",
     "url": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
     "humanBaseline": null,
     "expertBaseline": null,

@@ -90,6 +90,7 @@ const transformers: Record<string, (rawScores: unknown[]) => number[]> = {
   long_tasks: (rawScores) => {
     const nums = (rawScores ?? []).map((v) => (typeof v === "number" ? v : 0));
     const topMinutes = 8 * 60; // 480 minutes = 8-hour workday
+    // const topMinutes = 24 * 60; // 480 minutes = 8-hour workday
     return nums.map((n) => Math.max(0, Math.min(1, n / topMinutes)));
   },
 };
