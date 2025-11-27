@@ -223,6 +223,41 @@
                         }
                     }
                 }
+
+                // Add expert baseline horizontal line if single benchmark with valid baseline
+                if (
+                    selectedBenchmarks.length === 1 &&
+                    bench.expertBaseline !== null &&
+                    typeof bench.expertBaseline === "number"
+                ) {
+                    const baselineValue = bench.expertBaseline <= 1 ? bench.expertBaseline * 100 : bench.expertBaseline;
+                    // Extend baseline to 1 year past last data point to match projection extension
+                    const oneYearInMs = 365.25 * 24 * 60 * 60 * 1000;
+                    const endTime = releaseTs[releaseTs.length - 1] + oneYearInMs;
+                    // Add interpolated points along the baseline for better hover detection
+                    const baselineData = [];
+                    const startTime = releaseTs[0];
+                    const timeRange = endTime - startTime;
+                    const numPoints = 1000; // Add many points for smooth hover detection
+                    for (let i = 0; i <= numPoints; i++) {
+                        const x = startTime + (timeRange / numPoints) * i;
+                        baselineData.push({ x, y: baselineValue });
+                    }
+
+                    datasets.push({
+                        label: "Expert Baseline",
+                        data: baselineData,
+                        borderColor: "#9ca3af",
+                        backgroundColor: "transparent",
+                        tension: 0,
+                        pointRadius: 0,
+                        borderWidth: 1.5,
+                        borderDash: [5, 5],
+                        showLine: true,
+                        spanGaps: true,
+                        meta: { isBaseline: true },
+                    });
+                }
             }
         } else {
             // categorical axis: use provided categoryLabels (model names) and align scores to labels
@@ -324,7 +359,7 @@
                             usePointStyle: true,
                             font: { size: 12, family: "Inter, sans-serif" },
                             filter: function (legendItem: any, chartData: any) {
-                                // Hide projected and scatter datasets from legend
+                                // Hide projected and scatter datasets from legend (but show baseline)
                                 const dataset =
                                     chartData.datasets[legendItem.datasetIndex];
                                 return (
@@ -372,15 +407,31 @@
                         },
                     },
                     tooltip: {
+                        mode: "nearest",
+                        intersect: true,
                         backgroundColor: "rgba(17, 24, 39, 0.95)",
                         padding: 10,
                         titleFont: { size: 13, weight: 600 },
                         bodyFont: { size: 12 },
                         callbacks: {
+                            title: (context: any) => {
+                                // Hide title for baseline tooltips
+                                if (context.length > 0 && context[0].dataset?.meta?.isBaseline) {
+                                    return "";
+                                }
+                                return context.length > 0 ? context[0].label : "";
+                            },
                             label: (context: any) => {
                                 const dataset = context.dataset;
                                 const meta = dataset?.meta ?? {};
+                                const isBaseline = meta.isBaseline;
                                 const isScatter = meta.isScatter;
+
+                                // Handle baseline dataset
+                                if (isBaseline) {
+                                    const value = context.parsed?.y ?? "Unknown";
+                                    return `Expert Baseline: ${typeof value === "number" ? value.toFixed(1) : value}%`;
+                                }
 
                                 // For scatter plots, map back to the correct benchmark
                                 let benchIdx = context.datasetIndex ?? 0;

@@ -137,7 +137,7 @@
                             {benchmark.description}
                         </p>
 
-                        <div
+                        <!-- <div
                             class="mt-4 flex flex-wrap gap-3 text-xs text-gray-500"
                         >
                             {#if benchmark.humanBaseline}
@@ -150,7 +150,7 @@
                                     Expert: {benchmark.expertBaseline}%
                                 </div>
                             {/if}
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="w-full md:w-48 mt-4 md:mt-0 text-right">
