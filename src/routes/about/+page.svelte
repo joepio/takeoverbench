@@ -121,6 +121,16 @@
                                 Take Action
                             </a>
                         </li>
+                        <li>
+                            <a
+                                href="#who-we-are"
+                                class="text-sm {currentSection === 'who-we-are'
+                                    ? 'text-primary/90 font-medium'
+                                    : 'text-gray-800 hover:text-gray-900'}"
+                            >
+                                Who We Are
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </aside>
@@ -567,6 +577,71 @@
                             </svg>
                             Contribute on GitHub
                         </a>
+                    </div>
+                </section>
+
+                <section
+                    id="who-we-are"
+                    class="bg-surface-primary rounded-lg shadow-sm p-8"
+                >
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                        Who We Are
+                    </h2>
+                    <div class="prose prose-gray max-w-none">
+                        <p class="leading-relaxed mb-8">
+                            TakeOverBench is an initiative of two organizations dedicated to
+                            reducing existential risks from artificial intelligence and ensuring
+                            that advanced AI development remains under
+                            meaningful human control.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Existential Risk Observatory -->
+                            <div class="flex flex-col items-center text-center">
+                                <a
+                                    href="https://www.existentialriskobservatory.org"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="mb-4 hover:opacity-80 transition-opacity"
+                                >
+                                <img 
+                                    src="/logos/ero_logo.png" 
+                                    alt="Existential Risk Observatory" 
+                                    class="w-32 h-32 rounded-lg"
+                                />
+                                </a>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Existential Risk Observatory
+                                </h3>
+                                <p class="text-sm text-gray-700">
+                                    Reduces existential risk by informing public debate, believing
+                                    awareness is the first step toward decreasing risk.
+                                </p>
+                            </div>
+
+                            <!-- Pause AI -->
+                            <div class="flex flex-col items-center text-center">
+                                <a
+                                    href="https://www.pauseai.info"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="mb-4 hover:opacity-80 transition-opacity"
+                                >
+                                <img 
+                                    src="/logos/pause_ai_logo.png" 
+                                    alt="Existential Risk Observatory" 
+                                    class="w-32 h-32 rounded-lg"
+                                />
+                                </a>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Pause AI
+                                </h3>
+                                <p class="text-sm text-gray-700">
+                                    Advocates for a temporary pause on training the most powerful AI
+                                    systems until they can be built safely and kept under democratic control.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
