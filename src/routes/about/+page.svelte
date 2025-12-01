@@ -32,13 +32,13 @@
 
 <main class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
-    <section class="border-b border-gray-200">
+    <section class="border-b border-gray-900">
         <div class="container mx-auto px-4 py-16 max-w-4xl">
             <h1 class="text-4xl font-bold text-gray-900 mb-6 text-center">
                 Why TakeOverBench Exists
             </h1>
             <p
-                class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto"
+                class="text-lg leading-relaxed text-center max-w-3xl mx-auto"
             >
                 As artificial intelligence systems rapidly advance, we need
                 clear, data-driven insights into their capabilities and the
@@ -62,7 +62,7 @@
                                 class="text-sm {currentSection ===
                                 'the-challenge'
                                     ? 'text-primary/90 font-medium'
-                                    : 'text-gray-600 hover:text-gray-900'}"
+                                    : 'text-gray-800 hover:text-gray-900'}"
                             >
                                 The Challenge
                             </a>
@@ -73,7 +73,7 @@
                                 class="text-sm {currentSection ===
                                 'exponential-progress'
                                     ? 'text-primary/90 font-medium'
-                                    : 'text-gray-600 hover:text-gray-900'}"
+                                    : 'text-gray-800 hover:text-gray-900'}"
                             >
                                 Exponential Progress
                             </a>
@@ -84,7 +84,7 @@
                                 class="text-sm {currentSection ===
                                 'autonomous-agents'
                                     ? 'text-primary/90 font-medium'
-                                    : 'text-gray-600 hover:text-gray-900'}"
+                                    : 'text-gray-800 hover:text-gray-900'}"
                             >
                                 Autonomous Agents
                             </a>
@@ -95,7 +95,7 @@
                                 class="text-sm {currentSection ===
                                 'threat-models'
                                     ? 'text-primary/90 font-medium'
-                                    : 'text-gray-600 hover:text-gray-900'}"
+                                    : 'text-gray-800 hover:text-gray-900'}"
                             >
                                 Understanding Threats
                             </a>
@@ -106,7 +106,7 @@
                                 class="text-sm {currentSection ===
                                 'our-approach'
                                     ? 'text-primary/90 font-medium'
-                                    : 'text-gray-600 hover:text-gray-900'}"
+                                    : 'text-gray-800 hover:text-gray-900'}"
                             >
                                 Our Approach
                             </a>
@@ -116,7 +116,7 @@
                                 href="#take-action"
                                 class="text-sm {currentSection === 'take-action'
                                     ? 'text-primary/90 font-medium'
-                                    : 'text-gray-600 hover:text-gray-900'}"
+                                    : 'text-gray-800 hover:text-gray-900'}"
                             >
                                 Take Action
                             </a>
@@ -135,7 +135,7 @@
                         The Challenge
                     </h2>
                     <div class="prose prose-gray max-w-none">
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                        <p class="leading-relaxed mb-4">
                             Artificial intelligence capabilities are advancing
                             at an unprecedented rate. What seemed impossible
                             just years ago—from beating world champions at
@@ -143,7 +143,7 @@
                             routine. This progress brings tremendous benefits
                             but also unprecedented risks.
                         </p>
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                        <p class="leading-relaxed mb-4">
                             The core challenge is this: as AI systems become
                             more capable, they may gain the ability to operate
                             autonomously, modify themselves, and pursue goals
@@ -154,7 +154,7 @@
                         <div
                             class="bg-primary/20 border-l-4 border-primary p-4 mt-6"
                         >
-                            <p class="text-sm text-gray-700">
+                            <p class="text-sm">
                                 <strong>Key Insight:</strong> The transition from
                                 helpful tools to autonomous agents may happen gradually,
                                 then suddenly. We need to identify warning signs
@@ -172,7 +172,7 @@
                         Exponential Progress
                     </h2>
                     <div class="prose prose-gray max-w-none">
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                        <p class="leading-relaxed mb-4">
                             AI capability improvements follow an exponential
                             trajectory, not a linear one. This means progress
                             accelerates over time, with each breakthrough
@@ -184,7 +184,7 @@
                                 <h3 class="font-semibold text-gray-900 mb-2">
                                     2020-2023
                                 </h3>
-                                <ul class="text-sm text-gray-700 space-y-2">
+                                <ul class="text-sm space-y-2">
                                     <li>
                                         • GPT-3 demonstrates language
                                         understanding
@@ -199,7 +199,7 @@
                                 <h3 class="font-semibold text-gray-900 mb-2">
                                     2023-2024
                                 </h3>
-                                <ul class="text-sm text-gray-700 space-y-2">
+                                <ul class="text-sm space-y-2">
                                     <li>
                                         • Multimodal models understand images &
                                         text
@@ -210,7 +210,7 @@
                             </div>
                         </div>
 
-                        <p class="text-gray-700 leading-relaxed">
+                        <p class="leading-relaxed">
                             This acceleration means capabilities that seem years
                             away could arrive much sooner than expected.
                             Benchmark scores that plateau for months can
@@ -227,7 +227,7 @@
                         The Path to Autonomous Agents
                     </h2>
                     <div class="prose prose-gray max-w-none">
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                        <p class="leading-relaxed mb-4">
                             Current AI systems require human oversight and
                             operate within defined boundaries. However, several
                             capabilities are converging that could enable true
@@ -254,10 +254,10 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">
+                                    <h3 class="font-semibold">
                                         Self-Modification
                                     </h3>
-                                    <p class="text-sm text-gray-600 mt-1">
+                                    <p class="text-sm mt-1">
                                         AI systems that can improve their own
                                         code and training could rapidly enhance
                                         their capabilities without human
@@ -285,10 +285,10 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">
+                                    <h3 class="font-semibold">
                                         Goal Persistence
                                     </h3>
-                                    <p class="text-sm text-gray-600 mt-1">
+                                    <p class="text-sm mt-1">
                                         Advanced planning capabilities combined
                                         with resource acquisition could allow AI
                                         systems to pursue long-term objectives
@@ -316,10 +316,10 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">
+                                    <h3 class="font-semibold">
                                         Self-Replication
                                     </h3>
-                                    <p class="text-sm text-gray-600 mt-1">
+                                    <p class="text-sm mt-1">
                                         The ability to copy and distribute
                                         themselves across computing
                                         infrastructure would make AI systems
@@ -329,7 +329,7 @@
                             </div>
                         </div>
 
-                        <p class="text-gray-700 leading-relaxed">
+                        <p class="leading-relaxed">
                             When these capabilities combine with sufficient
                             intelligence, AI systems could operate as autonomous
                             agents pursuing their own objectives, potentially in
@@ -342,11 +342,11 @@
                     id="threat-models"
                     class="bg-surface-primary rounded-lg shadow-sm p-8"
                 >
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    <h2 class="text-2xl font-bold mb-4">
                         Understanding Takeover Scenarios
                     </h2>
                     <div class="prose prose-gray max-w-none">
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                        <p class="leading-relaxed mb-4">
                             Not all AI capabilities pose equal risks. We
                             categorize potential threats based on required
                             capabilities, likelihood, and potential impact:
@@ -398,7 +398,7 @@
                             </ul>
                         </div>
 
-                        <p class="text-gray-700 leading-relaxed">
+                        <p class="leading-relaxed">
                             Each takeover scenario requires specific combinations of
                             capabilities. By tracking progress across relevant
                             benchmarks, we can estimate when these thresholds
@@ -415,7 +415,7 @@
                         Our Approach
                     </h2>
                     <div class="prose prose-gray max-w-none">
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                        <p class="text-gray-800 leading-relaxed mb-4">
                             TakeOverBench provides a systematic framework for
                             understanding AI progress and risk:
                         </p>
@@ -439,10 +439,10 @@
                                         ></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-semibold text-gray-900 mb-2">
+                                <h3 class="font-semibold mb-2">
                                     Track Progress
                                 </h3>
-                                <p class="text-sm text-gray-600">
+                                <p class="text-sm">
                                     Monitor performance across critical
                                     benchmarks in real-time
                                 </p>
@@ -475,7 +475,7 @@
                                 <h3 class="font-semibold text-gray-900 mb-2">
                                     Assess Risk
                                 </h3>
-                                <p class="text-sm text-gray-600">
+                                <p class="text-sm">
                                     Map capabilities to takeover scenarios and
                                     calculate risk levels
                                 </p>
@@ -502,14 +502,14 @@
                                 <h3 class="font-semibold text-gray-900 mb-2">
                                     Inform Action
                                 </h3>
-                                <p class="text-sm text-gray-600">
+                                <p class="text-sm">
                                     Provide data for policy, research, and
                                     safety measures
                                 </p>
                             </div>
                         </div>
 
-                        <p class="text-gray-700 leading-relaxed">
+                        <p class="leading-relaxed">
                             Our goal is not to spread fear, but to provide
                             clear, evidence-based assessments that enable
                             proactive safety measures and informed

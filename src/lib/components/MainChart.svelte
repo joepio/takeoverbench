@@ -580,28 +580,28 @@
             <div class="mb-3 flex items-center justify-end gap-6">
                 {#if showSotaFilter}
                     <label
-                        class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer"
+                        class="flex items-center gap-2 text-sm cursor-pointer"
                     >
                         <input
                             type="checkbox"
                             bind:checked={sotaFilterEnabled}
-                            class="rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
+                            class="rounded bg-gray-700 text-blue-600 focus:ring-blue-500"
                         />
-                        <span class="text-gray-400"
+                        <span class="text-gray-700"
                             >Show only SOTA (state-of-the-art)</span
                         >
                     </label>
                 {/if}
                 {#if showProjections}
                     <label
-                        class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer"
+                        class="flex items-center gap-2 text-sm cursor-pointer"
                     >
                         <input
                             type="checkbox"
                             bind:checked={projectionsEnabled}
-                            class="rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
+                            class="rounded bg-gray-700 text-blue-600 focus:ring-blue-500"
                         />
-                        <span class="text-gray-400"
+                        <span class="text-gray-700"
                             >Show 1-year projections</span
                         >
                     </label>
@@ -617,7 +617,7 @@
     </div>
 {:else}
     <div
-        class="w-full bg-surface-primary rounded-lg p-4 h-[400px] flex items-center justify-center text-gray-400"
+        class="w-full bg-surface-primary rounded-lg p-4 h-[400px] flex items-center justify-center text-gray-700"
     >
         No benchmark data to display.
     </div>

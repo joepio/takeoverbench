@@ -3,7 +3,7 @@
 </script>
 
 <header class="border-b sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
-    <nav class="container mx-auto px-4 max-w-7xl">
+    <nav class="container mx-auto px-4 max-w-6xl">
         <div class="flex items-center justify-between h-16">
 
             <!-- Logo and Brand -->
@@ -35,7 +35,7 @@
                         class="text-sm font-medium transition-colors duration-150
                             {$page.url.pathname === '/' 
                                 ? 'text-red-500' 
-                                : 'text-gray-700 hover:text-gray-900'}"
+                                : ' hover:text-gray-900'}"
                     >
                         Home
                     </a>
@@ -45,7 +45,7 @@
                         class="text-sm font-medium transition-colors duration-150
                             {$page.url.pathname.startsWith('/threat') 
                                 ? 'text-red-500' 
-                                : 'text-gray-700 hover:text-gray-900'}"
+                                : ' hover:text-gray-900'}"
                     >
                         Takeover Scenarios
                     </a>
@@ -55,7 +55,7 @@
                         class="text-sm font-medium transition-colors duration-150
                             {$page.url.pathname.startsWith('/benchmark') 
                                 ? 'text-red-500' 
-                                : 'text-gray-700 hover:text-gray-900'}"
+                                : ' hover:text-gray-900'}"
                     >
                         Benchmarks
                     </a>
@@ -65,7 +65,7 @@
                         class="text-sm font-medium transition-colors duration-150
                             {$page.url.pathname === '/about' 
                                 ? 'text-red-500' 
-                                : 'text-gray-700 hover:text-gray-900'}"
+                                : ' hover:text-gray-900'}"
                     >
                         About
                     </a>
@@ -80,7 +80,7 @@
                     href="https://github.com/pauseai/takeoverbench"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="p-2 text-gray-700 hover:text-gray-900 transition-colors duration-150"
+                    class="p-2 hover:text-gray-900 transition-colors duration-150"
                     aria-label="View on GitHub"
                 >
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@
                 </a>
 
                 <!-- Mobile menu -->
-                <button class="md:hidden p-2 text-gray-700 hover:text-gray-900" aria-label="Open menu">
+                <button class="md:hidden p-2  hover:text-gray-900" aria-label="Open menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M4 6h16M4 12h16M4 18h16"></path>

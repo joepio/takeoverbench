@@ -37,19 +37,20 @@
     --color-risk-high: rgb(239, 68, 68);
     --color-risk-critical: rgb(153, 27, 27);
 
+    --container-6xl: 73rem;
+    /* Spacing */
+    /* --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-2xl: 3rem;
+
+    /* --spacing-xl: 2rem;  */
 }
 
 /* Existential Tech / Urgent Doom Theme */
 @layer base {
     :root {
-
-        /* Spacing */
-        --spacing-xs: 0.5rem;
-        --spacing-sm: 0.75rem;
-        --spacing-md: 1rem;
-        --spacing-lg: 1.5rem;
-        --spacing-xl: 2rem;
-        --spacing-2xl: 3rem;
 
         /* Border radius (slightly sharper for tech feel) */
         --radius-sm: 0.125rem;
@@ -129,14 +130,14 @@
 
     /* Links — more urgent, glowing on hover */
     a {
-        color: var(--color-primary);
+        color: var(--color-gray-800);
         text-decoration: none;
         transition: color 150ms ease, text-shadow 200ms;
     }
 
     a:hover {
-        color: var(--color-primary-hover);
-        text-shadow: 0 0 6px rgba(220, 38, 38, 0.6);
+        color: var(--color-gray-900);
+        /* text-shadow: 0 0 6px rgba(220, 38, 38, 0.6); */
     }
 
     /* Buttons */
@@ -194,7 +195,7 @@
 
     /* Containers */
     .container {
-        max-width: 1280px;
+        max-width: 72rem;
         margin: 0 auto;
         padding: 0 1rem;
     }
@@ -217,8 +218,8 @@
     /* Selection — red alert tone */
     ::selection {
         /* background-color: rgba(var(--color-primary), 0.35); */
-        background: var(--color-primary/0.35);
-        color: white;
+        background: rgb(184, 17, 17);
+        color: rgb(255, 255, 255);
     }
 
     /* Scrollbar — sleek dark */

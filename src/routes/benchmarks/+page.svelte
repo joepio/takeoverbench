@@ -35,10 +35,10 @@
 
 <main class="min-h-screen bg-gray-50">
     <section class="py-12">
-        <div class="container mx-auto px-4 max-w-7xl">
+        <div class="container mx-auto px-4 max-w-6xl">
             <div class="mb-6">
                 <h1 class="text-3xl font-bold text-gray-900">Benchmarks</h1>
-                <p class="text-gray-600 mt-2">
+                <p class="mt-2">
                     Overview of representative benchmarks. Use the chart to
                     compare progress across selected benchmarks and inspect
                     recent scores.
@@ -49,7 +49,7 @@
             <div class="bg-surface-primary rounded-lg shadow-sm p-6 mb-8">
                 {#if !hydrated}
                     <div
-                        class="h-[520px] flex items-center justify-center text-gray-400"
+                        class="h-[520px] flex items-center justify-center text-gray-700"
                     >
                         Chart loading…
                     </div>
@@ -73,7 +73,7 @@
                 {#each benchmarks as benchmark}
                     <a
                         href={"/benchmarks/" + benchmark.id}
-                        class="block bg-surface-primary rounded-lg border border-gray-200 p-6 transition-all duration-200 hover:shadow-md no-underline text-current focus:outline-none focus:ring-2 focus:ring-blue-100"
+                        class="block bg-surface-primary rounded-lg border border-gray-900 p-6 transition-all duration-200 hover:shadow-md no-underline text-current focus:outline-none focus:ring-2 focus:ring-blue-100"
                         style="border-left: 4px solid {benchmark.color}"
                     >
                         <div class="flex justify-between items-start mb-2">
@@ -81,25 +81,25 @@
                                 <h3 class="font-semibold text-gray-900">
                                     {benchmark.capabilityName ?? benchmark.name}
                                 </h3>
-                                <p class="text-xs text-gray-500 mt-0.5">
+                                <p class="text-xs  mt-0.5">
                                     {benchmark.name}
                                 </p>
                             </div>
                             {#if benchmark.category}
                                 <span
-                                    class="text-xs px-2 py-1 rounded-full bg-gray-300 text-gray-600"
+                                    class="text-xs px-2 py-1 rounded-full bg-gray-300"
                                 >
                                     {benchmark.category}
                                 </span>
                             {/if}
                         </div>
 
-                        <p class="text-sm text-gray-600 mb-3">
+                        <p class="text-sm mb-3">
                             {benchmark.description}
                         </p>
 
                         {#if benchmark.humanBaseline || benchmark.expertBaseline}
-                            <div class="flex gap-4 text-xs text-gray-500 mb-3">
+                            <div class="flex gap-4 text-xs  mb-3">
                                 {#if benchmark.humanBaseline}
                                     <span
                                         >Human: {benchmark.humanBaseline}%</span
@@ -122,7 +122,7 @@
                                     <div
                                         class="flex justify-between items-center text-sm"
                                     >
-                                        <span class="text-gray-600"
+                                        <span
                                             >{getModelNameById(
                                                 score.modelId,
                                             )}</span

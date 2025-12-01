@@ -48,20 +48,20 @@
 </svelte:head>
 
 <main class="min-h-screen bg-gray-50">
-    <section class="border-b border-gray-200">
-        <div class="container mx-auto px-4 py-10 max-w-7xl">
+    <section class="border-b border-gray-900">
+        <div class="container mx-auto px-4 py-10 max-w-6xl">
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <h1 class="text-3xl font-bold text-gray-900">
                         Takeover Scenarios
                     </h1>
-                    <p class="text-gray-600 mt-1">
+                    <p class="mt-1">
                         Catalog of modeled threats. Click a card to view the
                         threat text and the benchmarks chart.
                     </p>
                 </div>
                 <div class="text-right">
-                    <div class="text-sm text-gray-500">Total</div>
+                    <div class="text-sm ">Total</div>
                     <div class="text-2xl font-semibold text-gray-900">
                         {threatModels.length}
                     </div>
@@ -72,14 +72,14 @@
                 {#each threatModels as threat (threat.id)}
                     <a
                         href={"/threat/" + threat.id}
-                        class="block bg-surface-primary border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-200 no-underline text-current"
+                        class="block bg-surface-primary border border-gray-900 rounded-lg p-6 hover:shadow-lg transition-all duration-200 no-underline text-current"
                         aria-labelledby={"threat-" + threat.id + "-title"}
                     >
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-semibold text-gray-900">
+                            <h3 class="font-semibold mr-1 text-gray-900">
                                 {threat.name}
                             </h3>
-                            <div class="text-xs text-gray-500 whitespace-nowrap">
+                            <div class="text-xs mt-1 whitespace-nowrap">
                                 {threat.benchmarks?.length ?? 0} benchmarks
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                                 />
                             </div>
                         {:else}
-                            <p class="text-sm text-gray-600 mb-4">
+                            <p class="text-sm mb-4">
                                 {threat.shortDescription ??
                                     threat.longDescription ??
                                     "No description available."}
@@ -107,7 +107,7 @@
             <div class="text-center mt-10">
                 <a
                     href="/"
-                    class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary text-gray-400 font-medium rounded-lg border border-gray-200 hover:bg-gray-300 transition-colors duration-150"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary font-medium rounded-lg border border-gray-900 hover:bg-gray-300 transition-colors duration-150"
                 >
                     Back to Home
                 </a>

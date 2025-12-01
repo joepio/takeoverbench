@@ -100,9 +100,9 @@
 </svelte:head>
 
 <main class="min-h-screen">
-    <section class="border-b border-gray-200">
+    <section class="border-b border-gray-900">
         <div class="container mx-auto px-4 py-8 max-w-5xl">
-            <nav class="flex items-center gap-2 text-sm text-gray-600 mb-6">
+            <nav class="flex items-center gap-2 text-sm mb-6">
                 <a href="/" class="hover:text-gray-900">Home</a>
                 <span>/</span>
                 <a href="/threats" class="hover:text-gray-900">Takeover Scenarios</a>
@@ -116,7 +116,7 @@
                     {threatModel?.name}
                 </h1>
 
-                <div class="text-gray-700 mb-6">
+                <div class=" mb-6">
                     {#if hydrated && ThreatComponent}
                         <svelte:component this={ThreatComponent} />
                     {:else}
@@ -134,12 +134,12 @@
                         Dangerous capabilities required
                     </h3>
                     {#if selectedBenchmarks.length === 0 && missingBenchmarks.length === 0}
-                        <div class="text-sm text-gray-500">
+                        <div class="text-sm ">
                             No benchmarks listed.
                         </div>
                     {:else}
                         <ul
-                            class="list-disc list-inside space-y-1 text-sm text-gray-700"
+                            class="list-disc list-inside space-y-1 text-sm "
                         >
                             {#each selectedBenchmarks as bid (bid)}
                                 <li>
@@ -160,7 +160,7 @@
             <section class="mb-8">
                 {#if !hydrated}
                     <div
-                        class="h-64 flex items-center justify-center text-gray-400"
+                        class="h-64 flex items-center justify-center text-gray-700"
                     >
                         Chart loading…
                     </div>
@@ -170,15 +170,15 @@
                     </div>
                 {:else if !MainChart}
                     <div
-                        class="h-64 flex items-center justify-center text-gray-400"
+                        class="h-64 flex items-center justify-center text-gray-700"
                     >
                         Chart unavailable
                     </div>
                 {:else if selectedBenchmarks.length === 0}
-                    <div class="text-sm text-gray-500 mb-4">
+                    <div class="text-sm  mb-4">
                         No benchmarks available.
                         {#if missingBenchmarks.length > 0}
-                            <div class="mt-2 text-xs text-gray-400">
+                            <div class="mt-2 text-xs text-gray-700">
                                 Referenced benchmarks not yet in database: {missingBenchmarks.join(
                                     ", ",
                                 )}
@@ -214,12 +214,12 @@
                     <h3 class="text-lg font-semibold text-gray-900 mb-4">
                         Sources
                     </h3>
-                    <div class="bg-surface-primary border-gray-200 rounded-lg p-6">
+                    <div class="bg-surface-primary border-gray-900 rounded-lg p-6">
                         <ul class="space-y-3">
                             {#each threatModel.sources as source (source)}
                                 <li class="flex items-start gap-3">
                                     <span class="text-primary mt-1 flex-shrink-0">•</span>
-                                    <span class="text-gray-700 break-words">
+                                    <span class=" break-words">
                                         {source}
                                     </span>
                                 </li>
@@ -234,7 +234,7 @@
     <div class="container mx-auto px-4 py-8 max-w-5xl">
         <a
             href="/threats"
-            class="inline-block mt-6 px-4 py-2 bg-surface-primary border border-gray-200 rounded text-sm text-gray-700 hover:bg-gray-300"
+            class="inline-block mt-6 px-4 py-2 bg-surface-primary border border-gray-900 rounded text-sm  hover:bg-gray-300"
             >Back to Threats</a
         >
     </div>

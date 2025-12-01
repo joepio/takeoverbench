@@ -46,10 +46,10 @@
 </svelte:head>
 
 <main class="min-h-screen bg-gray-50 py-12">
-    <div class="container mx-auto px-4 max-w-7xl">
+    <div class="container mx-auto px-4 max-w-6xl">
         <header class="text-center mb-10">
             <h1 class="text-4xl font-bold text-gray-900">TakeOverBench</h1>
-            <p class="text-gray-600 mt-2 max-w-2xl mx-auto">
+            <p class="mt-2 mx-auto">
                 AI is rapidly getting more dangerous. We track progress towards
                 an AI takeover scenario.
             </p>
@@ -61,7 +61,7 @@
                 <h2 class="text-2xl font-bold text-gray-900">
                     Dangerous capabilities timeline
                 </h2>
-                <p class="text-gray-600">
+                <p>
                     According to "Model evaluation for extreme risks" (Shevlane,
                     2023), the most dangerous AI capabilities include
                     Cyber-offense, Persuasion & manipulation, Political
@@ -75,7 +75,7 @@
             <div class="bg-surface-primary rounded-lg shadow-sm p-6 mb-8">
                 {#if !hydrated}
                     <div
-                        class="h-[520px] flex items-center justify-center text-gray-400"
+                        class="h-[520px] flex items-center justify-center text-gray-700"
                     >
                         Chart loading…
                     </div>
@@ -97,7 +97,7 @@
             <div class="text-center">
                 <a
                     href="/benchmarks"
-                    class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary text-gray-200 font-medium rounded-lg border border-gray-200 hover:bg-gray-300 transition-colors duration-150"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary text-gray-900 font-medium rounded-lg border border-gray-900 hover:bg-black transition-colors duration-150"
                 >
                     View benchmarks
                 </a>
@@ -110,7 +110,7 @@
                 <h2 class="text-2xl font-bold text-gray-900">
                     How do dangerous capabilities lead to a takeover?
                 </h2>
-                <p class="text-gray-600 mt-2">
+                <p class="mt-2">
                     Based on the literature, these are four plausible threat
                     models.
                 </p>
@@ -123,7 +123,7 @@
                     {#each threatModels as t (t.id)}
                         <a
                             href={"/threat/" + t.id}
-                            class="block bg-surface-primary border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-200 no-underline text-current hover:bg-surface-primary/50"
+                            class="block bg-surface-primary border border-gray-900 rounded-lg p-6 hover:shadow-lg transition-all duration-200 no-underline text-current hover:bg-surface-primary/50"
                             aria-labelledby={"threat-" + t.id + "-title"}
                         >
                             <div class="flex items-start justify-between mb-3">
@@ -134,44 +134,44 @@
                                     {t.name}
                                 </h2>
                                 <div
-                                    class="text-xs text-gray-500 whitespace-nowrap mt-1.5"
+                                    class="text-xs  whitespace-nowrap mt-1.5"
                                 >
                                     {t.benchmarks?.length ?? 0} benchmarks
                                 </div>
                             </div>
 
-                            <p class="text-sm text-gray-600 mb-4">
+                            <p class="text-sm mb-4">
                                 {t.shortDescription ??
                                     t.longDescription ??
                                     "No description available."}
                             </p>
 
                             {#if t.benchmarks && t.benchmarks.length > 0}
-                                <div class="text-xs text-gray-500">
+                                <div class="text-xs ">
                                     <div class="mb-1">
                                         <strong>Required capabilities:</strong>
                                     </div>
                                     <ul class="list-disc list-inside space-y-1">
                                         {#each t.benchmarks.slice(0, 4) as bid (bid)}
-                                            <li class="text-sm text-gray-700">
+                                            <li class="text-sm ">
                                                 {capabilityName(bid)}
                                             </li>
                                         {/each}
                                         {#if t.benchmarks.length > 4}
-                                            <li class="text-sm text-gray-400">
+                                            <li class="text-sm text-gray-700">
                                                 and {t.benchmarks.length - 4} more…
                                             </li>
                                         {/if}
                                     </ul>
                                 </div>
                                 {#if t.sources_short && t.sources_short.length > 0}
-                                    <div class="text-xs text-gray-500 mt-3">
+                                    <div class="text-xs mt-3">
                                         <div class="mb-1">
                                             <strong>Sources:</strong>
                                         </div>
                                         <ul class="list-disc list-inside space-y-1">
                                             {#each t.sources_short as source (source)}
-                                                <li class="text-sm text-gray-700">
+                                                <li class="text-sm">
                                                     {source}
                                                 </li>
                                             {/each}
@@ -179,7 +179,7 @@
                                     </div>
                                 {/if}
                             {:else}
-                                <div class="text-xs text-gray-400">
+                                <div class="text-xs text-gray-700">
                                     No benchmarks listed for this threat.
                                 </div>
                             {/if}
@@ -190,7 +190,7 @@
                 <div
                     class="bg-surface-primary rounded-lg p-8 text-center shadow-sm"
                 >
-                    <p class="text-gray-600">No takeover scenarios found.</p>
+                    <p>No takeover scenarios found.</p>
                 </div>
             {/if}
         </section>

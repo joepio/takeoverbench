@@ -87,8 +87,8 @@
 
 <main class="min-h-screen bg-gray-50">
     <section class="py-8">
-        <div class="container mx-auto px-4 max-w-7xl">
-            <nav class="text-sm text-gray-600 mb-4">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <nav class="text-sm mb-4">
                 <a href="/" class="hover:underline">Home</a>
                 <span class="mx-2">/</span>
                 <a href="/benchmarks" class="hover:underline">Benchmarks</a>
@@ -129,16 +129,16 @@
                             </h1>
                         {/if}
                         {#if benchmark.capabilityName}
-                            <h2 class="text-sm text-gray-500 mt-1">
+                            <h2 class="text-sm  mt-1">
                                 {benchmark.name}
                             </h2>
                         {/if}
-                        <p class="text-sm text-gray-600 mt-2 max-w-2xl">
+                        <p class="text-sm mt-2">
                             {benchmark.description}
                         </p>
 
                         <!-- <div
-                            class="mt-4 flex flex-wrap gap-3 text-xs text-gray-500"
+                            class="mt-4 flex flex-wrap gap-3 text-xs"
                         >
                             {#if benchmark.humanBaseline}
                                 <div class="px-2 py-1 bg-gray-300 rounded">
@@ -158,11 +158,11 @@
                             <div class="text-3xl font-extrabold text-blue-400">
                                 {Math.round(topScoreEntry.score * 100)}%
                             </div>
-                            <div class="text-xs text-gray-500 mt-1">
+                            <div class="text-xs  mt-1">
                                 {getModelNameById(topScoreEntry.modelId)}
                             </div>
                         {:else}
-                            <div class="text-sm text-gray-500">
+                            <div class="text-sm ">
                                 No scores available
                             </div>
                         {/if}
@@ -174,7 +174,7 @@
                     <!-- only render the chart once client-side to avoid SSR / Chart.js issues -->
                     {#if !hydrated}
                         <div
-                            class="h-[420px] flex items-center justify-center text-gray-400"
+                            class="h-[420px] flex items-center justify-center text-gray-700"
                         >
                             Chart loading…
                         </div>
@@ -200,13 +200,13 @@
                         Model scores
                     </h2>
                     {#if (benchmark.scores ?? []).length === 0}
-                        <div class="text-sm text-gray-500">
+                        <div class="text-sm ">
                             No scores recorded for this benchmark.
                         </div>
                     {:else}
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-sm">
-                                <thead class="text-xs text-gray-500 uppercase">
+                                <thead class="text-xs  uppercase">
                                     <tr>
                                         <th class="py-2 pr-4">Model</th>
                                         <th class="py-2 pr-4">Score</th>
@@ -255,14 +255,14 @@
                             {#each relatedThreatModels as t}
                                 <a
                                     href={"/threat/" + t.id}
-                                    class="block bg-surface-primary border border-gray-200 rounded p-3 hover:shadow no-underline text-current"
+                                    class="block bg-surface-primary border border-gray-900 rounded p-3 hover:shadow no-underline text-current"
                                 >
                                     <div class="font-medium text-gray-900">
                                         {t.name}
                                     </div>
 
                                     {#if t.capabilities && t.capabilities.length > 0}
-                                        <div class="text-xs text-gray-500 mt-1">
+                                        <div class="text-xs  mt-1">
                                             {#each t.capabilities as c, ci}
                                                 <span
                                                     >{c.label ??
@@ -281,7 +281,7 @@
                 {/if}
 
                 {#if benchmark.url}
-                    <div class="mt-6 text-sm text-gray-500">
+                    <div class="mt-6 text-sm ">
                         Source: <a
                             href={benchmark.url}
                             target="_blank"
