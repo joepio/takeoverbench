@@ -48,8 +48,8 @@
 </svelte:head>
 
 <main class="min-h-screen bg-gray-50">
-    <section class="border-b border-gray-900">
-        <div class="container mx-auto px-4 py-10 max-w-6xl">
+    <section>
+        <div class="container mx-auto px-4 md:px-6 lg:px-10 py-10 max-w-7xl">
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <h1 class="text-3xl font-bold text-gray-900">

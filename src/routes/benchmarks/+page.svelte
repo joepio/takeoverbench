@@ -35,7 +35,7 @@
 
 <main class="min-h-screen bg-gray-50">
     <section class="py-12">
-        <div class="container mx-auto px-4 max-w-6xl">
+        <div class="container mx-auto px-4 md:px-6 lg:px-10 max-w-7xl">
             <div class="mb-6">
                 <h1 class="text-3xl font-bold text-gray-900">Benchmarks</h1>
                 <p class="mt-2">
@@ -95,7 +95,7 @@
                         </div>
 
                         <p class="text-sm mb-3">
-                            {benchmark.description}
+                            {benchmark.capabilityDefinition}
                         </p>
 
                         {#if benchmark.humanBaseline || benchmark.expertBaseline}

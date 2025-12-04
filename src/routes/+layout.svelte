@@ -16,7 +16,7 @@
 </div>
 
 <footer class="bg-gray-50 border-t border-gray-900 mt-20">
-	<div class="container mx-auto px-4 py-8 max-w-6xl">
+	<div class="container mx-auto px-5 md:px-6 lg:px-8 py-8 max-w-7xl">
 		<div class="flex flex-col md:flex-row justify-between items-center gap-4">
 			<div class="text-sm ">
 				© 2025 TakeOverBench. Data-driven AI safety research.

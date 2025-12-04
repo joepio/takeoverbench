@@ -101,7 +101,7 @@
 
 <main class="min-h-screen">
     <section class="border-b border-gray-900">
-        <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <div class="container mx-auto px-4 md:px-6 lg:px-10 py-8 max-w-5xl">
             <nav class="flex items-center gap-2 text-sm mb-6">
                 <a href="/" class="hover:text-gray-900">Home</a>
                 <span>/</span>
@@ -231,7 +231,7 @@
         </div>
     </section>
 
-    <div class="container mx-auto px-4 py-8 max-w-5xl">
+    <div class="container mx-auto px-4 md:px-6 lg:px-10 py-8 max-w-5xl">
         <a
             href="/threats"
             class="inline-block mt-6 px-4 py-2 bg-surface-primary border border-gray-900 rounded text-sm  hover:bg-gray-300"

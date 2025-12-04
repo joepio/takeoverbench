@@ -17,6 +17,19 @@
 
     const { benchmark, relatedThreatModels = [] } = data;
 
+    // Citations: text -> url mappings
+    const citations = [
+        { text: 'Shevlane et al., 2023', url: 'https://arxiv.org/abs/2305.15324' },
+        { text: 'Shevlane et al. (2023)', url: 'https://arxiv.org/abs/2305.15324' },
+        { text: '(OpenAI, 2024)', url: 'https://arxiv.org/abs/2412.16720' },
+        { text: '(METR, 2025)', url: 'https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/' },
+    ];
+
+    // Escape regex special characters
+    function escapeRegex(str: string): string {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
     // Score helpers
     function getModelNameById(id: string) {
         return models.find((m) => m.id === id)?.name ?? id;
@@ -52,6 +65,19 @@
         return `${Math.round(val)}%`;
     }
 
+    // Linkify citations in text using the citations constant
+    function linkifyCitations(text: string): string {
+        let result = text;
+        citations.forEach(({ text: citationText, url }) => {
+            const pattern = new RegExp(escapeRegex(citationText), 'g');
+            result = result.replace(
+                pattern,
+                `<a href="${url}" target="_blank" rel="noopener noreferrer">${citationText}</a>`
+            );
+        });
+        return result;
+    }
+
     // Determine top score
     const topScoreEntry = (benchmark.scores ?? []).reduce(
         (best, cur) => {
@@ -80,14 +106,14 @@
 
 <svelte:head>
     <title
-        >{benchmark.capabilityName ?? benchmark.name} — Benchmark — TakeOverBench</title
+        >{benchmark.capabilityName} — Benchmark — TakeOverBench</title
     >
     <meta name="description" content={benchmark.description} />
 </svelte:head>
 
 <main class="min-h-screen bg-gray-50">
     <section class="py-8">
-        <div class="container mx-auto px-4 max-w-6xl">
+        <div class="container mx-auto px-4 md:px-6 lg:px-10 max-w-7xl">
             <nav class="text-sm mb-4">
                 <a href="/" class="hover:underline">Home</a>
                 <span class="mx-2">/</span>
@@ -107,7 +133,7 @@
                                 class="inline-flex items-center gap-2 text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
                             >
                                 <h1>
-                                    {benchmark.capabilityName ?? benchmark.name}
+                                    {benchmark.capabilityName}
                                 </h1>
                                 <svg
                                     class="w-5 h-5"
@@ -124,17 +150,20 @@
                                 </svg>
                             </a>
                         {:else}
-                            <h1 class="text-2xl font-bold text-gray-900">
-                                {benchmark.capabilityName ?? benchmark.name}
+                            <h1 class="text-2xl font-bold">
+                                {benchmark.capabilityName}
                             </h1>
                         {/if}
-                        {#if benchmark.capabilityName}
-                            <h2 class="text-sm  mt-1">
-                                {benchmark.name}
-                            </h2>
+                        {#if benchmark.capabilityDefinition}
+                            <p class="text-sm mt-3">
+                                {@html linkifyCitations(benchmark.capabilityDefinition)}
+                            </p>
                         {/if}
+                        <h2 class="text-sm  mt-1">
+                            {benchmark.name}
+                        </h2>
                         <p class="text-sm mt-2">
-                            {benchmark.description}
+                            {@html linkifyCitations(benchmark.description)}
                         </p>
 
                         <!-- <div

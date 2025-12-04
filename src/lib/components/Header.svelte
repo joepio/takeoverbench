@@ -3,7 +3,7 @@
 </script>
 
 <header class="border-b sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
-    <nav class="container mx-auto px-4 max-w-6xl">
+    <nav class="container mx-auto px-4 md:px-6 lg:px-10 max-w-7xl">
         <div class="flex items-center justify-between h-16">
 
             <!-- Logo and Brand -->

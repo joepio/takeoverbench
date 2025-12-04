@@ -120,6 +120,7 @@ export const benchmarks: Benchmark[] = rawBenchmarks
       name: meta?.name ?? b.name,
       description: meta?.description ?? b.description,
       capabilityName: meta?.capabilityName ?? b.capabilityName ?? b.name,
+      capabilityDefinition: meta?.capabilityDefinition,
       color: meta?.color ?? b.color ?? pickColorForId(b.id),
       scores: normalizedScores,
       humanBaseline: meta?.humanBaseline ?? b.humanBaseline ?? null,

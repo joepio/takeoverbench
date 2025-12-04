@@ -46,7 +46,7 @@
 </svelte:head>
 
 <main class="min-h-screen bg-gray-50 py-12">
-    <div class="container mx-auto px-4 max-w-6xl">
+    <div class="container mx-auto px-4 md:px-6 lg:px-10 max-w-7xl">
         <header class="text-center mb-10">
             <h1 class="text-4xl font-bold text-gray-900">TakeOverBench</h1>
             <p class="mt-2 mx-auto">

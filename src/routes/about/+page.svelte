@@ -33,7 +33,7 @@
 <main class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
     <section class="border-b border-gray-900">
-        <div class="container mx-auto px-4 py-16 max-w-4xl">
+        <div class="container mx-auto px-4 md:px-6 lg:px-10 py-16 max-w-4xl">
             <h1 class="text-4xl font-bold text-gray-900 mb-6 text-center">
                 Why TakeOverBench Exists
             </h1>
@@ -47,7 +47,7 @@
         </div>
     </section>
 
-    <div class="container mx-auto px-4 max-w-6xl py-12">
+    <div class="container mx-auto px-4 md:px-6 lg:px-10 max-w-7xl py-12">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <!-- Navigation Sidebar -->
             <aside class="lg:col-span-1">
