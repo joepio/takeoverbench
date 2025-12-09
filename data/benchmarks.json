@@ -846,5 +846,66 @@
     "humanBaseline": null,
     "expertBaseline": null,
     "url": null
+  },
+  {
+    "id": "vct",
+    "name": "VCT",
+    "metricName": "accuracy",
+    "scores": [
+      {
+        "modelId": "claude-opus-4.5",
+        "score": 0.47700000000000004,
+        "stdError": null
+      },
+      {
+        "modelId": "claude-opus-4.1",
+        "score": 0.429,
+        "stdError": null
+      },
+      {
+        "modelId": "claude-sonnet-4.5",
+        "score": 0.397,
+        "stdError": null
+      },
+      {
+        "modelId": "o3",
+        "score": 0.43799999999999994,
+        "stdError": null
+      },
+      {
+        "modelId": "gemini-2.5-pro",
+        "score": 0.376,
+        "stdError": null
+      },
+      {
+        "modelId": "o4-mini",
+        "score": 0.37,
+        "stdError": null
+      },
+      {
+        "modelId": "o1",
+        "score": 0.354,
+        "stdError": null
+      },
+      {
+        "modelId": "claude-3.7-sonnet",
+        "score": 0.308,
+        "stdError": null
+      },
+      {
+        "modelId": "gpt-4.5-preview",
+        "score": 0.28300000000000003,
+        "stdError": null
+      },
+      {
+        "modelId": "gpt-4o",
+        "score": 0.188,
+        "stdError": null
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
   }
 ]

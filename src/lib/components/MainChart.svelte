@@ -358,6 +358,7 @@
                             padding: 12,
                             usePointStyle: true,
                             font: { size: 12, family: "Inter, sans-serif" },
+                            color: getComputedStyle(document.documentElement).getPropertyValue("--color-gray-600"),
                             filter: function (legendItem: any, chartData: any) {
                                 // Hide projected and scatter datasets from legend (but show baseline)
                                 const dataset =

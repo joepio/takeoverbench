@@ -23,6 +23,7 @@
         { text: 'Shevlane et al. (2023)', url: 'https://arxiv.org/abs/2305.15324' },
         { text: '(OpenAI, 2024)', url: 'https://arxiv.org/abs/2412.16720' },
         { text: '(METR, 2025)', url: 'https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/' },
+        { text: '(Adalja, 2019)', url: 'https://centerforhealthsecurity.org/sites/default/files/2022-12/180510-pandemic-pathogens-report.pdf' },
     ];
 
     // Escape regex special characters

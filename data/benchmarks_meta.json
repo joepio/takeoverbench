@@ -2,17 +2,31 @@
   {
     "id": "chem_bench",
     "name": "ChemBench",
-    "capabilityName": "Weapons acquisition",
-    "capabilityDefinition": "Weapons acquisition capability, as defined by Shevlane et al. (2023), encompasses gaining access to existing weapons systems or contributing to building new weapons, including assembling bioweapons with human assistance, providing actionable instructions, and making scientific discoveries that unlock novel weapons. There is no single existing benchmark measuring weapon acquisition directly, and we have here chosen to focus on the knowledge needed for building chemical and bioweapons which is one path to weapon acquisition.",
+    "capabilityName": "Chemical weapons development",
+    "capabilityDefinition": "Chemical weapons development capability encompasses designing synthesis routes for chemical agents, providing actionable instructions for weapon assembly and deployment, making scientific discoveries that enable novel toxic compounds, and offering technical expertise that accelerates chemical weapon production.",
     "description": "ChemBench is a comprehensive benchmark evaluating AI models' chemistry knowledge and reasoning abilities across 2,700+ curated question-answer pairs covering diverse chemistry topics including analytical chemistry, organic chemistry, and chemical reasoning.",
     "url": "https://chembench.lamalab.org/",
     "humanBaseline": null,
     "expertBaseline": 0.41, 
     "randomBaseline": null,
-    "color": "#10b981",
+    "color": "#ffde20ff",
     "category": "science",
     "projectionType": "s-curve"
   },
+  {
+  "id": "vct",
+  "name": "Virology Capability Test",
+  "capabilityName": "Biological weapons development",
+  "capabilityDefinition": "Biological weapons acquisition capability involves understanding pathogen engineering and cultivation methods, providing actionable guidance for biological weapon production and deployment, and making scientific discoveries that enable novel biological weapons. While most classes of microbes can be manipulated to cause catastrophic risks for humans, RNA-viruses is the class that is most likely to have this capacity (Adalja, 2019).",
+  "description": "The Virology Capability Test (VCT) measures AI models' ability to troubleshoot complex virology laboratory protocols through 322 multimodal questions covering fundamental, tacit, and visual knowledge essential for practical lab work. Each question presents an experimental scenario, often with an image, asking what went wrong or what to do next. The benchmark targets virology methods with dual-use potential and is designed to test knowledge that is important for competent lab work, difficult to find through web searches, and validated through expert peer review.",
+  "url": "https://arxiv.org/abs/2504.16137",
+  "humanBaseline": null,
+  "expertBaseline": 0.221,
+  "randomBaseline": 0.03,
+  "color": "#199a24ff", 
+  "category": "science",
+  "projectionType": "s-curve"
+},
   {
     "id": "make_me_say",
     "name": "MakeMeSay",
@@ -66,7 +80,7 @@
     "expertBaseline": 1.0,
     "randomBaseline": 0.0,
     "color": "#7c3aed",
-    "category": "agentic",
+    "category": "science",
     "projectionType": "s-curve"
   },
   {

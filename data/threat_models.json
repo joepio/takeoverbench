@@ -10,7 +10,8 @@
       "cybench",
       "repli_bench",
       "forecast_bench",
-	  "chem_bench"
+      "chem_bench",
+      "vct"
     ],
     "sources": ["Ngo, Richard, Lawrence Chan, and Sören Mindermann. 'The alignment problem from a deep learning perspective.' arXiv preprint arXiv:2209.00626 (2022)."],
     "sources_short": ["Ngo et al. (2022)"]
