@@ -1,5 +1,11 @@
 <script lang="ts">
     import { page } from "$app/stores";
+
+    let mobileMenuOpen = false;
+
+    function toggleMobileMenu() {
+        mobileMenuOpen = !mobileMenuOpen;
+    }
 </script>
 
 <header class="border-b sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
@@ -89,15 +95,77 @@
                 </a>
 
                 <!-- Mobile menu -->
-                <button class="md:hidden p-2  hover:text-gray-900" aria-label="Open menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
+                <button
+                    on:click={toggleMobileMenu}
+                    class="md:hidden p-2  hover:text-gray-900"
+                    aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                >
+                    {#if mobileMenuOpen}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    {:else}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    {/if}
                 </button>
             </div>
 
         </div>
+
+        <!-- Mobile Navigation Menu -->
+        {#if mobileMenuOpen}
+            <div class="md:hidden border-t -mx-4 md:-mx-6 lg:-mx-10">
+                <div class="py-4 space-y-3">
+                    <a
+                        href="/"
+                        on:click={() => mobileMenuOpen = false}
+                        class="block px-4 py-2 text-sm font-medium transition-colors duration-150
+                            {$page.url.pathname === '/'
+                                ? 'text-red-500'
+                                : 'hover:bg-gray-50 hover:text-gray-900'}"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="/threats"
+                        on:click={() => mobileMenuOpen = false}
+                        class="block px-4 py-2 text-sm font-medium transition-colors duration-150
+                            {$page.url.pathname.startsWith('/threat')
+                                ? 'text-red-500'
+                                : 'hover:bg-gray-50 hover:text-gray-900'}"
+                    >
+                        Takeover Scenarios
+                    </a>
+
+                    <a
+                        href="/benchmarks"
+                        on:click={() => mobileMenuOpen = false}
+                        class="block px-4 py-2 text-sm font-medium transition-colors duration-150
+                            {$page.url.pathname.startsWith('/benchmark')
+                                ? 'text-red-500'
+                                : 'hover:bg-gray-50 hover:text-gray-900'}"
+                    >
+                        Benchmarks
+                    </a>
+
+                    <a
+                        href="/about"
+                        on:click={() => mobileMenuOpen = false}
+                        class="block px-4 py-2 text-sm font-medium transition-colors duration-150
+                            {$page.url.pathname === '/about'
+                                ? 'text-red-500'
+                                : 'hover:bg-gray-50 hover:text-gray-900'}"
+                    >
+                        About
+                    </a>
+                </div>
+            </div>
+        {/if}
     </nav>
 </header>
 
