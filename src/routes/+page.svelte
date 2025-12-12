@@ -111,8 +111,7 @@
                     How do dangerous capabilities lead to a takeover?
                 </h2>
                 <p class="mt-2">
-                    Based on the literature, these are four plausible threat
-                    models.
+                    Based on the literature, these are four plausible AI takeover scenarios.
                 </p>
             </div>
 
@@ -186,6 +185,13 @@
                         </a>
                     {/each}
                 </div>
+
+                <div class="mb-6">
+                    <p class="mt-2">
+                        We aim to use the best available benchmarks and the most plausible AI takeover scenarios, but the field of AI safety is rapidly developing. Some benchmark scores may therefore not perfectly reflect the actual associated dangerous capability, and some experts may disagree on the likeliness of specific threat models.
+                    </p>
+                </div>
+
             {:else}
                 <div
                     class="bg-surface-primary rounded-lg p-8 text-center shadow-sm"

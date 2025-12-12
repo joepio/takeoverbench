@@ -40,7 +40,7 @@
 </script>
 
 <svelte:head>
-    <title>Takeover Scenarios — TakeOverBench</title>
+    <title>Takeover scenarios — TakeOverBench</title>
     <meta
         name="description"
         content="Catalog of modeled threats and the benchmarks referenced by each."
@@ -53,7 +53,7 @@
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <h1 class="text-3xl font-bold text-gray-900">
-                        Takeover Scenarios
+                        Takeover scenarios
                     </h1>
                     <p class="mt-1">
                         Catalog of modeled threats. Click a card to view the

@@ -35,7 +35,7 @@
     <section class="border-b border-gray-900">
         <div class="container mx-auto px-4 md:px-6 lg:px-10 py-16 max-w-4xl">
             <h1 class="text-4xl font-bold text-gray-900 mb-6 text-center">
-                Why TakeOverBench Exists
+                Why TakeOverBench exists
             </h1>
             <p
                 class="text-lg leading-relaxed text-center max-w-3xl mx-auto"
@@ -64,7 +64,7 @@
                                     ? 'text-primary/90 font-medium'
                                     : 'text-gray-800 hover:text-gray-900'}"
                             >
-                                The Challenge
+                                We may lose control
                             </a>
                         </li>
                         <li>
@@ -75,7 +75,7 @@
                                     ? 'text-primary/90 font-medium'
                                     : 'text-gray-800 hover:text-gray-900'}"
                             >
-                                Exponential Progress
+                                Exponential progress
                             </a>
                         </li>
                         <li>
@@ -86,7 +86,7 @@
                                     ? 'text-primary/90 font-medium'
                                     : 'text-gray-800 hover:text-gray-900'}"
                             >
-                                Autonomous Agents
+                                Autonomous agents
                             </a>
                         </li>
                         <li>
@@ -97,7 +97,7 @@
                                     ? 'text-primary/90 font-medium'
                                     : 'text-gray-800 hover:text-gray-900'}"
                             >
-                                Understanding Threats
+                                Understanding threats
                             </a>
                         </li>
                         <li>
@@ -108,7 +108,7 @@
                                     ? 'text-primary/90 font-medium'
                                     : 'text-gray-800 hover:text-gray-900'}"
                             >
-                                Our Approach
+                                Our approach
                             </a>
                         </li>
                         <li>
@@ -118,7 +118,7 @@
                                     ? 'text-primary/90 font-medium'
                                     : 'text-gray-800 hover:text-gray-900'}"
                             >
-                                Take Action
+                                Take action
                             </a>
                         </li>
                         <li>
@@ -128,7 +128,7 @@
                                     ? 'text-primary/90 font-medium'
                                     : 'text-gray-800 hover:text-gray-900'}"
                             >
-                                Who We Are
+                                Who we are
                             </a>
                         </li>
                     </ul>
@@ -142,7 +142,7 @@
                     class="bg-surface-primary rounded-lg shadow-sm p-8"
                 >
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">
-                        The Challenge
+                        We may lose control
                     </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="leading-relaxed mb-4">
@@ -154,7 +154,7 @@
                             but also unprecedented risks.
                         </p>
                         <p class="leading-relaxed mb-4">
-                            The core challenge is this: as AI systems become
+                            The core issue is this: as AI systems become
                             more capable, they may gain the ability to operate
                             autonomously, modify themselves, and pursue goals
                             that conflict with human values and control. Without
@@ -165,7 +165,7 @@
                             class="bg-primary/20 border-l-4 border-primary p-4 mt-6"
                         >
                             <p class="text-sm">
-                                <strong>Key Insight:</strong> The transition from
+                                <strong>Key insight:</strong> The transition from
                                 helpful tools to autonomous agents may happen gradually,
                                 then suddenly. We need to identify warning signs
                                 before critical thresholds are crossed.
@@ -179,7 +179,7 @@
                     class="bg-surface-primary rounded-lg shadow-sm p-8"
                 >
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">
-                        Exponential Progress
+                        Exponential progress
                     </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="leading-relaxed mb-4">
@@ -234,7 +234,7 @@
                     class="bg-surface-primary rounded-lg shadow-sm p-8"
                 >
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">
-                        The Path to Autonomous Agents
+                        The path to autonomous agents
                     </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="leading-relaxed mb-4">
@@ -265,7 +265,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold">
-                                        Self-Modification
+                                        Self-modification
                                     </h3>
                                     <p class="text-sm mt-1">
                                         AI systems that can improve their own
@@ -296,7 +296,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold">
-                                        Goal Persistence
+                                        Goal persistence
                                     </h3>
                                     <p class="text-sm mt-1">
                                         Advanced planning capabilities combined
@@ -327,7 +327,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold">
-                                        Self-Replication
+                                        Self-replication
                                     </h3>
                                     <p class="text-sm mt-1">
                                         The ability to copy and distribute
@@ -353,61 +353,9 @@
                     class="bg-surface-primary rounded-lg shadow-sm p-8"
                 >
                     <h2 class="text-2xl font-bold mb-4">
-                        Understanding Takeover Scenarios
+                        Understanding takeover scenarios
                     </h2>
                     <div class="prose prose-gray max-w-none">
-                        <p class="leading-relaxed mb-4">
-                            Not all AI capabilities pose equal risks. We
-                            categorize potential threats based on required
-                            capabilities, likelihood, and potential impact:
-                        </p>
-
-                        <div
-                            class="bg-red-900/20 border border-red-900/30 rounded-lg p-6 my-6"
-                        >
-                            <h3 class="font-semibold text-red-900 mb-3">
-                                Critical Risks
-                            </h3>
-                            <ul class="space-y-2 text-sm text-red-800">
-                                <li>
-                                    • <strong>Infrastructure Control:</strong> AI
-                                    systems gaining unauthorized access to critical
-                                    systems
-                                </li>
-                                <li>
-                                    • <strong
-                                        >Recursive Self-Improvement:</strong
-                                    > Rapid, uncontrolled capability enhancement
-                                </li>
-                                <li>
-                                    • <strong>Bioweapon Development:</strong> Design
-                                    of novel pathogens or toxins
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div
-                            class="bg-orange-900/20 border border-orange-900/30 rounded-lg p-6 my-6"
-                        >
-                            <h3 class="font-semibold text-orange-900 mb-3">
-                                High-Priority Risks
-                            </h3>
-                            <ul class="space-y-2 text-sm text-orange-800">
-                                <li>
-                                    • <strong>Mass Manipulation:</strong> Coordinated
-                                    influence campaigns at scale
-                                </li>
-                                <li>
-                                    • <strong>Autonomous Replication:</strong> Self-spreading
-                                    across networks
-                                </li>
-                                <li>
-                                    • <strong>Economic Disruption:</strong> Automated
-                                    market manipulation
-                                </li>
-                            </ul>
-                        </div>
-
                         <p class="leading-relaxed">
                             Each takeover scenario requires specific combinations of
                             capabilities. By tracking progress across relevant
@@ -422,7 +370,7 @@
                     class="bg-surface-primary rounded-lg shadow-sm p-8"
                 >
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">
-                        Our Approach
+                        Our approach
                     </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="text-gray-800 leading-relaxed mb-4">
@@ -450,7 +398,7 @@
                                     </svg>
                                 </div>
                                 <h3 class="font-semibold mb-2">
-                                    Track Progress
+                                    Track progress
                                 </h3>
                                 <p class="text-sm">
                                     Monitor performance across critical
@@ -483,7 +431,7 @@
                                     </svg>
                                 </div>
                                 <h3 class="font-semibold text-gray-900 mb-2">
-                                    Assess Risk
+                                    Assess risk
                                 </h3>
                                 <p class="text-sm">
                                     Map capabilities to takeover scenarios and
@@ -510,7 +458,7 @@
                                     </svg>
                                 </div>
                                 <h3 class="font-semibold text-gray-900 mb-2">
-                                    Inform Action
+                                    Inform action
                                 </h3>
                                 <p class="text-sm">
                                     Provide data for policy, research, and
@@ -532,7 +480,7 @@
                     id="take-action"
                     class="bg-gradient-to-br from-primary to-surface-primary rounded-lg shadow-lg p-8 text-white"
                 >
-                    <h2 class="text-2xl font-bold mb-4">Take Action</h2>
+                    <h2 class="text-2xl font-bold mb-4">Take action</h2>
                     <p class="leading-relaxed mb-6 text-blue-50">
                         Understanding AI risks is the first step. Here's how you
                         can contribute to ensuring AI remains beneficial and
@@ -541,7 +489,7 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                         <div class="bg-white/10 backdrop-blur rounded-lg p-4">
-                            <h3 class="font-semibold mb-2">For Researchers</h3>
+                            <h3 class="font-semibold mb-2">For researchers</h3>
                             <ul class="text-sm space-y-1 text-blue-100">
                                 <li>• Contribute benchmark results</li>
                                 <li>• Develop safety measures</li>
@@ -550,7 +498,7 @@
                         </div>
 
                         <div class="bg-white/10 backdrop-blur rounded-lg p-4">
-                            <h3 class="font-semibold mb-2">For Policymakers</h3>
+                            <h3 class="font-semibold mb-2">For policymakers</h3>
                             <ul class="text-sm space-y-1 text-blue-100">
                                 <li>• Use data for regulations</li>
                                 <li>• Support safety research</li>
@@ -585,7 +533,7 @@
                     class="bg-surface-primary rounded-lg shadow-sm p-8"
                 >
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">
-                        Who We Are
+                        Who we are
                     </h2>
                     <div class="prose prose-gray max-w-none">
                         <p class="leading-relaxed mb-8">

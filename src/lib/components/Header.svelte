@@ -53,7 +53,7 @@
                                 ? 'text-red-500' 
                                 : ' hover:text-gray-900'}"
                     >
-                        Takeover Scenarios
+                        Takeover scenarios
                     </a>
 
                     <a
@@ -139,7 +139,7 @@
                                 ? 'text-red-500'
                                 : 'hover:bg-gray-50 hover:text-gray-900'}"
                     >
-                        Takeover Scenarios
+                        Takeover scenarios
                     </a>
 
                     <a
