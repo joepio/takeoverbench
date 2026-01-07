@@ -2,37 +2,102 @@
   {
     "id": "chem_bench",
     "name": "chembench",
-    "metricName": "analytical_chemistry",
+    "metricName": "accuracy",
     "scores": [
       {
-        "modelId": "Qwen3-Next-80B-A3B-Instruct",
-        "score": 0.44,
-        "stdError": 0.06787969550038134
+        "modelId": "claude-3.7-sonnet-20250219",
+        "score": 0.6582914572864321,
+        "stdError": null
       },
       {
-        "modelId": "gemma-3-27b-it",
+        "modelId": "o1-preview",
+        "score": 0.64,
+        "stdError": null
+      },
+      {
+        "modelId": "claude-3.5-sonnet",
+        "score": 0.63,
+        "stdError": null
+      },
+      {
+        "modelId": "gpt-4o",
+        "score": 0.61,
+        "stdError": null
+      },
+      {
+        "modelId": "llama-3.1-405b-instruct",
+        "score": 0.58,
+        "stdError": null
+      },
+      {
+        "modelId": "claude-3-opus",
+        "score": 0.57,
+        "stdError": null
+      },
+      {
+        "modelId": "llama-3.1-70b-instruct",
+        "score": 0.53,
+        "stdError": null
+      },
+      {
+        "modelId": "qwen-2.5-32b",
+        "score": 0.5287150035893754,
+        "stdError": null
+      },
+      {
+        "modelId": "llama-3-70b-instruct",
+        "score": 0.52,
+        "stdError": null
+      },
+      {
+        "modelId": "gemma-2-9b-it",
+        "score": 0.48,
+        "stdError": null
+      },
+      {
+        "modelId": "llama-3.1-8b-instruct",
+        "score": 0.47,
+        "stdError": null
+      },
+      {
+        "modelId": "gpt-3.5-turbo-0613",
+        "score": 0.47,
+        "stdError": null
+      },
+      {
+        "modelId": "claude-2",
+        "score": 0.47,
+        "stdError": null
+      },
+      {
+        "modelId": "llama-3-8b-instruct",
+        "score": 0.46,
+        "stdError": null
+      },
+      {
+        "modelId": "gemini-1.0-pro",
+        "score": 0.45,
+        "stdError": null
+      },
+      {
+        "modelId": "gpt-4",
         "score": 0.41,
-        "stdError": 0.06258056032517002
+        "stdError": null
       },
       {
-        "modelId": "gemma-3-12b-it",
-        "score": 0.4425,
-        "stdError": 0.06340769444070424
+        "modelId": "llama-2-70b-chat",
+        "score": 0.27,
+        "stdError": null
       },
       {
-        "modelId": "Qwen3-235B-A22B-Instruct-2507-tput",
-        "score": 0.5275,
-        "stdError": 0.06872471705793977
+        "modelId": "llama-2-13b-chat",
+        "score": 0.26,
+        "stdError": null
       },
       {
-        "modelId": "Mistral-7B-Instruct-v0.3",
-        "score": 0.06,
-        "stdError": 0.033926691677251195
-      },
-      {
-        "modelId": "phi-4",
-        "score": 0.385,
-        "stdError": 0.05530988766458839
+        "modelId": "deepseek-r1",
+        "score": 0.006101938262742283,
+        "stdError": null
       }
     ],
     "randomBaseline": null,

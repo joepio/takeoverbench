@@ -222,12 +222,6 @@
     "organization": "Meta"
   },
   {
-    "id": "Mistral-7B-Instruct-v0.3",
-    "name": "Mistral 7B Instruct",
-    "releaseDate": "2024-05-22",
-    "organization": "Mistral"
-  },
-  {
     "id": "Mistral-Large-2407 (zero shot with crowd forecast)",
     "name": "Mistral-Large-2407 (zero shot with crowd forecast)",
     "releaseDate": "2024-07-24",
@@ -312,16 +306,10 @@
     "organization": "Qwen"
   },
   {
-    "id": "Qwen3-235B-A22B-Instruct-2507-tput",
-    "name": "Qwen 3 235B A22B Instruct",
-    "releaseDate": "2025-07-21",
-    "organization": "Alibaba"
-  },
-  {
-    "id": "Qwen3-Next-80B-A3B-Instruct",
-    "name": "Qwen 3 Next 80B A3B Instruct",
-    "releaseDate": "2025-09-09",
-    "organization": "Alibaba"
+    "id": "claude-2",
+    "name": "Claude 2",
+    "releaseDate": "2023-07-11",
+    "organization": "Anthropic"
   },
   {
     "id": "claude-2.1",
@@ -379,6 +367,12 @@
   },
   {
     "id": "claude-3.7-sonnet",
+    "name": "Claude 3.7 Sonnet",
+    "releaseDate": "2025-02-24",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3.7-sonnet-20250219",
     "name": "Claude 3.7 Sonnet",
     "releaseDate": "2025-02-24",
     "organization": "Anthropic"
@@ -498,6 +492,12 @@
     "organization": "DeepSeek"
   },
   {
+    "id": "gemini-1.0-pro",
+    "name": "Gemini 1.0 Pro",
+    "releaseDate": "2023-12-06",
+    "organization": "Google"
+  },
+  {
     "id": "gemini-1.5-pro",
     "name": "Gemini 1.5 Pro",
     "releaseDate": "2024-02-15",
@@ -534,15 +534,9 @@
     "organization": "Google"
   },
   {
-    "id": "gemma-3-12b-it",
-    "name": "Gemma 3 12B IT",
-    "releaseDate": "2025-03-12",
-    "organization": "Google"
-  },
-  {
-    "id": "gemma-3-27b-it",
-    "name": "Gemma 3 27B IT",
-    "releaseDate": "2025-03-12",
+    "id": "gemma-2-9b-it",
+    "name": "Gemma 2 9B",
+    "releaseDate": "2024-06-27",
     "organization": "Google"
   },
   {
@@ -708,6 +702,18 @@
     "organization": "Meta"
   },
   {
+    "id": "llama-3-70b-instruct",
+    "name": "Llama 3 70B Instruct",
+    "releaseDate": "2024-04-18",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-3-8b-instruct",
+    "name": "Llama 3 8B Instruct",
+    "releaseDate": "2024-04-18",
+    "organization": "Meta"
+  },
+  {
     "id": "llama-3.1-405b-instruct",
     "name": "Llama 3.1 405B Instruct",
     "releaseDate": "2024-06-23",
@@ -716,6 +722,18 @@
   {
     "id": "llama-3.1-405b-instruct - AIDE",
     "name": "llama-3.1-405b-instruct - AIDE",
+    "releaseDate": "2024-06-23",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-3.1-70b-instruct",
+    "name": "Llama 3.1 70B Instruct",
+    "releaseDate": "2024-06-23",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-3.1-8b-instruct",
+    "name": "Llama 3.1 8B Instruct",
     "releaseDate": "2024-06-23",
     "organization": "Meta"
   },
@@ -816,12 +834,6 @@
     "organization": "OpenAI"
   },
   {
-    "id": "phi-4",
-    "name": "Phi 4",
-    "releaseDate": "2024-12-11",
-    "organization": "Microsoft"
-  },
-  {
     "id": "qwen-2-5-72b",
     "name": "Qwen 2.5 72B",
     "releaseDate": "2024-09-15",
@@ -831,6 +843,12 @@
     "id": "qwen-2-72b",
     "name": "qwen-2-72b",
     "releaseDate": "2024-06-07",
+    "organization": "Alibaba"
+  },
+  {
+    "id": "qwen-2.5-32b",
+    "name": "Qwen 2.5 32B Instruct",
+    "releaseDate": "2024-09-17",
     "organization": "Alibaba"
   },
   {
