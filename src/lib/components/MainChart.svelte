@@ -43,6 +43,9 @@
     let mounted = false;
     let projectionsEnabled = showProjections;
     let sotaFilterEnabled = true;
+    let previousProjectionsEnabled = showProjections;
+    let previousSotaFilterEnabled = true;
+    let previousSelectedBenchmarks: string[] = [];
 
     // Helper: get benchmark object by id
     function getBenchmark(id: string) {
@@ -546,6 +549,20 @@
         });
     }
 
+    function updateChartDatasets() {
+        if (!chart) return;
+
+        const releaseTs = buildReleaseTimestamps();
+        const useCategory = releaseTs.length === 0;
+        const categoryLabels = useCategory ? models.map((m) => m.name) : undefined;
+        const datasets = buildDatasets(releaseTs, useCategory, categoryLabels);
+
+        if (datasets && datasets.length > 0) {
+            chart.data.datasets = datasets;
+            chart.update('none'); // Update without animation
+        }
+    }
+
     onMount(() => {
         mounted = true;
         return () => {
@@ -556,15 +573,27 @@
         };
     });
 
-    $: if (mounted && canvasEl && selectedBenchmarks) {
-        createChart();
-    }
+    $: {
+        // Check if selectedBenchmarks changed
+        const benchmarksChanged = JSON.stringify(selectedBenchmarks) !== JSON.stringify(previousSelectedBenchmarks);
 
-    $: if (mounted && chart) {
-        // Recreate chart when toggles change
-        projectionsEnabled;
-        sotaFilterEnabled;
-        createChart();
+        // Check if only toggles changed
+        const togglesChanged =
+            projectionsEnabled !== previousProjectionsEnabled ||
+            sotaFilterEnabled !== previousSotaFilterEnabled;
+
+        if (mounted && canvasEl && selectedBenchmarks && benchmarksChanged) {
+            // Full recreate with animation when benchmarks change
+            createChart();
+            previousProjectionsEnabled = projectionsEnabled;
+            previousSotaFilterEnabled = sotaFilterEnabled;
+            previousSelectedBenchmarks = [...selectedBenchmarks];
+        } else if (mounted && chart && togglesChanged && !benchmarksChanged) {
+            // Update without animation when only toggles change
+            previousProjectionsEnabled = projectionsEnabled;
+            previousSotaFilterEnabled = sotaFilterEnabled;
+            updateChartDatasets();
+        }
     }
 
     onDestroy(() => {
