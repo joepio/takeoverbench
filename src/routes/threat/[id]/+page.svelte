@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import type { PageData } from "./$types";
     import { benchmarks, getBenchmarkById } from "$lib/data";
+    import { linkifyCitations } from "$lib/utils";
 
     export let data: PageData;
 
@@ -121,9 +122,11 @@
                         <svelte:component this={ThreatComponent} />
                     {:else}
                         <p>
-                            {threatModel?.longDescription ??
-                                threatModel?.shortDescription ??
-                                "No description available."}
+                            {@html linkifyCitations(
+                                threatModel?.longDescription ??
+                                    threatModel?.shortDescription ??
+                                    "No description available."
+                            )}
                         </p>
                     {/if}
 

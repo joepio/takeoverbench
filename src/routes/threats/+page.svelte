@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { threatModels } from "$lib/data";
+    import { linkifyCitations } from "$lib/utils";
 
     // hydrated flag for client-only rendering
     let hydrated = false;
@@ -93,9 +94,11 @@
                             </div>
                         {:else}
                             <p class="text-sm mb-4">
-                                {threat.shortDescription ??
-                                    threat.longDescription ??
-                                    "No description available."}
+                                {@html linkifyCitations(
+                                    threat.shortDescription ??
+                                        threat.longDescription ??
+                                        "No description available."
+                                )}
                             </p>
                         {/if}
 

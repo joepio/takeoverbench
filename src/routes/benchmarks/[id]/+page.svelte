@@ -1,6 +1,7 @@
 <script lang="ts">
     import { models } from "$lib/data";
     import type { Benchmark } from "$lib/types";
+    import { linkifyCitations } from "$lib/utils";
     import { onMount } from "svelte";
 
     // page data provided by the route load() function (+page.ts)
@@ -16,20 +17,6 @@
     };
 
     const { benchmark, relatedThreatModels = [] } = data;
-
-    // Citations: text -> url mappings
-    const citations = [
-        { text: 'Shevlane et al., 2023', url: 'https://arxiv.org/abs/2305.15324' },
-        { text: 'Shevlane et al. (2023)', url: 'https://arxiv.org/abs/2305.15324' },
-        { text: '(OpenAI, 2024)', url: 'https://arxiv.org/abs/2412.16720' },
-        { text: '(METR, 2025)', url: 'https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/' },
-        { text: '(Adalja, 2019)', url: 'https://centerforhealthsecurity.org/sites/default/files/2022-12/180510-pandemic-pathogens-report.pdf' },
-    ];
-
-    // Escape regex special characters
-    function escapeRegex(str: string): string {
-        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    }
 
     // Score helpers
     function getModelNameById(id: string) {
@@ -64,31 +51,6 @@
             return "—";
         const val = raw <= 1 ? raw * 100 : raw;
         return `${Math.round(val)}%`;
-    }
-
-    // Linkify citations in text using the citations constant
-    // Also handles markdown-style links: [text](url)
-    function linkifyCitations(text: string): string {
-        let result = text;
-
-        // First, convert markdown-style links [text](url) to HTML anchors
-        result = result.replace(
-            /\[([^\]]+)\]\(([^\)]+)\)/g,
-            (match, linkText, url) => {
-                return `<a href="${url}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
-            }
-        );
-
-        // Then, replace known citations with links
-        citations.forEach(({ text: citationText, url }) => {
-            const pattern = new RegExp(escapeRegex(citationText), 'g');
-            result = result.replace(
-                pattern,
-                `<a href="${url}" target="_blank" rel="noopener noreferrer">${citationText}</a>`
-            );
-        });
-
-        return result;
     }
 
     // Determine top score
