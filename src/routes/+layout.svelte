@@ -7,9 +7,24 @@
 
 <svelte:head>
 	<link rel="icon" href="/favicon.png" />
+	<script src="https://swetrix.org/swetrix.js" defer></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			swetrix.init('RKmR2SurP6sn')
+			swetrix.trackViews()
+		})
+	</script>
 </svelte:head>
 
 <Header />
+
+<noscript>
+	<img
+		src="https://api.swetrix.com/log/noscript?pid=RKmR2SurP6sn"
+		alt=""
+		referrerpolicy="no-referrer-when-downgrade"
+	/>
+</noscript>
 
 <div class="min-h-screen">
 	{@render children?.()}
