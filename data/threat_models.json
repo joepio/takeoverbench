@@ -13,8 +13,8 @@
       "chem_bench",
       "vct"
     ],
-    "sources": ["Ngo, Richard, Lawrence Chan, and Sören Mindermann. “The alignment problem from a deep learning perspective.” arXiv preprint arXiv:2209.00626 (2022).", "“Putin: Leader in Artificial Intelligence Will Rule World.” AP News, Associated Press, 1 Sept. 2017, apnews.com/article/bb5628f2a7424a10b3e38b07f4eb90d4."],
-    "sources_short": ["Ngo et al. (2022)"]
+    "sources": ["“Disrupting the first reported AI-orchestrated cyber espionage campaign.” Anthropic News, Anthropic, 13 Nov. 2025, https://anthropic.com/news/disrupting-AI-espionage.", "Farwell, James P., and Rafal Rohozinski. “Stuxnet and the future of cyber war.” Survival 53.1 (2011): 23-40.", "Ngo, Richard, Lawrence Chan, and Sören Mindermann. “The alignment problem from a deep learning perspective.” arXiv preprint arXiv:2209.00626 (2022)."],
+    "sources_short": ["Anthropic (2025)", "Farwell et al. (2011)", "Ngo et al. (2022)"]
   },
   {
     "id": "persuasionManipulation",
@@ -29,8 +29,8 @@
 	  "forecast_bench",
 	  "make_me_say"
   	],
-    "sources": ["Ienca, Marcello. “On artificial intelligence and manipulation.” Topoi 42.3 (2023): 833-842.", "Ngo, Richard, Lawrence Chan, and Sören Mindermann. “The alignment problem from a deep learning perspective.” arXiv preprint arXiv:2209.00626 (2022).", "“Disrupting the first reported AI-orchestrated cyber espionage campaign.” Anthropic News, Anthropic, 13 Nov. 2025, https://anthropic.com/news/disrupting-AI-espionage.", "“Putin: Leader in Artificial Intelligence Will Rule World.” AP News, Associated Press, 1 Sept. 2017, apnews.com/article/bb5628f2a7424a10b3e38b07f4eb90d4."],
-    "sources_short": ["Anthropic (2025), Ienca (2023), Ngo et al. (2022)"]
+    "sources": ["“Disrupting the first reported AI-orchestrated cyber espionage campaign.” Anthropic News, Anthropic, 13 Nov. 2025, https://anthropic.com/news/disrupting-AI-espionage.", "“Putin: Leader in Artificial Intelligence Will Rule World.” AP News, Associated Press, 1 Sept. 2017, apnews.com/article/bb5628f2a7424a10b3e38b07f4eb90d4.", "Ienca, Marcello. “On artificial intelligence and manipulation.” Topoi 42.3 (2023): 833-842.", "Ngo, Richard, Lawrence Chan, and Sören Mindermann. “The alignment problem from a deep learning perspective.” arXiv preprint arXiv:2209.00626 (2022)."],
+    "sources_short": ["Anthropic (2025), AP (2017), Ienca (2023), Ngo et al. (2022)"]
   },
   {
     "id": "selfImprovement",
