@@ -30,7 +30,7 @@
 	  "make_me_say"
   	],
     "sources": ["“Disrupting the first reported AI-orchestrated cyber espionage campaign.” Anthropic News, Anthropic, 13 Nov. 2025, https://anthropic.com/news/disrupting-AI-espionage.", "“Putin: Leader in Artificial Intelligence Will Rule World.” AP News, Associated Press, 1 Sept. 2017, apnews.com/article/bb5628f2a7424a10b3e38b07f4eb90d4.", "Ienca, Marcello. “On artificial intelligence and manipulation.” Topoi 42.3 (2023): 833-842.", "Ngo, Richard, Lawrence Chan, and Sören Mindermann. “The alignment problem from a deep learning perspective.” arXiv preprint arXiv:2209.00626 (2022)."],
-    "sources_short": ["Anthropic (2025), AP (2017), Ienca (2023), Ngo et al. (2022)"]
+    "sources_short": ["Anthropic (2025)", "AP (2017)", "Ienca (2023)", "Ngo et al. (2022)"]
   },
   {
     "id": "selfImprovement",
@@ -39,7 +39,7 @@
     "longDescription": "Narrative describing iterative self-improvement leading to capabilities for autonomy, resource acquisition, and influence.",
     "benchmarks": ["mle_bench"],
     "sources": ["Bostrom, Nick. “Superintelligence: Paths, dangers, strategies.” Oxford University Press. (2014).", "Good, Irving John. “Speculations concerning the first ultraintelligent machine.” Advances in computers. Vol. 6. Elsevier, 1966. 31-88.", "Phuong, Mary, et al. “Evaluating frontier models for dangerous capabilities.” arXiv preprint arXiv:2403.13793 (2024).", "Yamada, Yutaro, et al. “The ai scientist-v2: Workshop-level automated scientific discovery via agentic tree search.” arXiv preprint arXiv:2504.08066 (2025).", "Yudkowsky, Eliezer. “Artificial intelligence as a positive and negative factor in global risk.” Global catastrophic risks 1.303 (2008): 184."],
-    "sources_short": ["Bostrom (2014), Good (1966), Phuong et al. (2024), Yudkowsky (2008)"]
+    "sources_short": ["Bostrom (2014)", "Good (1966)", "Phuong et al. (2024)", "Yudkowsky (2008)"]
   },
   {
     "id": "collusion",
@@ -52,6 +52,6 @@
 	  "forecast_bench"
   	],
     "sources": ["Hammond, Lewis, et al. “Multi-agent risks from advanced AI.” arXiv preprint arXiv:2502.14143 (2025).", "Karnofsky, Holden. “AI Could Defeat All of Us Combined.” Cold Takes, 9 June 2022, https://cold-takes.com/ai-could-defeat-all-of-us-combined/.", "McKinsey & Company. “Agents, Robots, and Us: Skill Partnerships in the Age of AI.” McKinsey & Company, 25 Nov. 2025, https://mckinsey.com/mgi/our-research/agents-robots-and-us-skill-partnerships-in-the-age-of-ai/.", "Motwani, Sumeet, et al. “Secret collusion among ai agents: Multi-agent deception via steganography.” Advances in Neural Information Processing Systems 37 (2024): 73439-73486."],
-    "sources_short": ["Karnofsky (2022), Hammond et al. (2025), McKinsey (2025), Motwani et al. (2025)"]
+    "sources_short": ["Karnofsky (2022)", "Hammond et al. (2025)", "McKinsey (2025)", "Motwani et al. (2025)"]
   }
 ]
