@@ -106,52 +106,6 @@
     "url": null
   },
   {
-    "id": "make_me_say",
-    "name": "makemesay",
-    "metricName": "inspect_evals/win_rate",
-    "scores": [
-      {
-        "modelId": "qwen-2.5-72b-instruct",
-        "score": 0.4,
-        "stdError": null
-      },
-      {
-        "modelId": "qwen-2.5-7b-instruct",
-        "score": 0.0,
-        "stdError": null
-      },
-      {
-        "modelId": "gemini-2.0-flash-001",
-        "score": 0.6,
-        "stdError": null
-      },
-      {
-        "modelId": "llama-3.2-3b-instruct",
-        "score": 0.25,
-        "stdError": null
-      },
-      {
-        "modelId": "llama-3.3-70b-instruct",
-        "score": 0.45,
-        "stdError": null
-      },
-      {
-        "modelId": "deepseek-chat",
-        "score": 0.6,
-        "stdError": null
-      },
-      {
-        "modelId": "gpt-4o-mini-2024-07-18",
-        "score": 0.5,
-        "stdError": null
-      }
-    ],
-    "randomBaseline": null,
-    "humanBaseline": null,
-    "expertBaseline": null,
-    "url": null
-  },
-  {
     "id": "forecast_bench",
     "name": "ForecastBench Tournament",
     "metricName": "Overall",
@@ -859,6 +813,52 @@
         "modelId": "gpt-4o-2024-08-06 - MLAB",
         "score": 0.013000000000000001,
         "stdError": 0.005
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
+  },
+  {
+    "id": "make_me_say",
+    "name": "makemesay",
+    "metricName": "inspect_evals/win_rate",
+    "scores": [
+      {
+        "modelId": "qwen-2.5-72b-instruct",
+        "score": 0.4,
+        "stdError": null
+      },
+      {
+        "modelId": "qwen-2.5-7b-instruct",
+        "score": 0.0,
+        "stdError": null
+      },
+      {
+        "modelId": "gemini-2.0-flash-001",
+        "score": 0.6,
+        "stdError": null
+      },
+      {
+        "modelId": "llama-3.2-3b-instruct",
+        "score": 0.25,
+        "stdError": null
+      },
+      {
+        "modelId": "llama-3.3-70b-instruct",
+        "score": 0.45,
+        "stdError": null
+      },
+      {
+        "modelId": "deepseek-chat",
+        "score": 0.6,
+        "stdError": null
+      },
+      {
+        "modelId": "gpt-4o-mini-2024-07-18",
+        "score": 0.5,
+        "stdError": null
       }
     ],
     "randomBaseline": null,

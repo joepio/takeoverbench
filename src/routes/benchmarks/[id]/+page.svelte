@@ -67,8 +67,19 @@
     }
 
     // Linkify citations in text using the citations constant
+    // Also handles markdown-style links: [text](url)
     function linkifyCitations(text: string): string {
         let result = text;
+
+        // First, convert markdown-style links [text](url) to HTML anchors
+        result = result.replace(
+            /\[([^\]]+)\]\(([^\)]+)\)/g,
+            (match, linkText, url) => {
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
+            }
+        );
+
+        // Then, replace known citations with links
         citations.forEach(({ text: citationText, url }) => {
             const pattern = new RegExp(escapeRegex(citationText), 'g');
             result = result.replace(
@@ -76,6 +87,7 @@
                 `<a href="${url}" target="_blank" rel="noopener noreferrer">${citationText}</a>`
             );
         });
+
         return result;
     }
 
@@ -272,6 +284,18 @@
                         </div>
                     {/if}
                 </div>
+
+                <!-- Motivation for benchmark selection (optional) -->
+                {#if benchmark.motivation}
+                    <div class="mt-6">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-3">
+                            Why this benchmark?
+                        </h2>
+                        <div class="text-sm text-gray-700 leading-relaxed">
+                            {@html linkifyCitations(benchmark.motivation)}
+                        </div>
+                    </div>
+                {/if}
 
                 <!-- Related takeover scenarios -->
                 {#if relatedThreatModels && relatedThreatModels.length > 0}

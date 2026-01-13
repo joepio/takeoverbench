@@ -40,6 +40,7 @@ export interface Benchmark {
   description: string;
   capabilityName: string; // human-readable capability name (e.g., "cybersecurity" for "CyBench")
   capabilityDefinition?: string; // how the benchmark relates to the capability
+  motivation?: string; // explains why this benchmark was chosen for measuring the capability
   color: string; // hex or CSS color string used for chart/visualization
   scores: BenchmarkScore[];
   humanBaseline: number | null;
