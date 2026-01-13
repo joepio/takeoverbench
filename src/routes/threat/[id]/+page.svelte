@@ -126,6 +126,10 @@
                                 "No description available."}
                         </p>
                     {/if}
+
+                    <p class="mt-2" style="font-style: italic;">
+                        This narrative presents one of the many possible ways in which an actual takeover may happen. We cannot predict how such a takeover will unfold exactly. We do however claim that once AIs have the dangerous capabilities listed on this page, takeover scenarios like this one become possible.
+                    </p>
                 </div>
 
                 <!-- Benchmark list -->

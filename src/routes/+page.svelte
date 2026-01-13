@@ -187,7 +187,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <p class="mt-2">
+                    <p class="mt-2" style="font-style: italic;">
                         We aim to use the best available benchmarks and the most plausible AI takeover scenarios, but the field of AI safety is rapidly developing. Some benchmark scores may therefore not perfectly reflect the actual associated dangerous capability, and some experts may disagree on the likeliness of specific threat models.
                     </p>
                 </div>
