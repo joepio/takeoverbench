@@ -106,6 +106,359 @@
     "url": null
   },
   {
+    "id": "cybench",
+    "name": "CyBench",
+    "metricName": "score",
+    "scores": [
+      {
+        "modelId": "claude-sonnet-4.5",
+        "score": 0.55,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-opus-4.1",
+        "score": 0.38,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-opus-4",
+        "score": 0.38,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-4-sonnet",
+        "score": 0.35,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "o3-mini",
+        "score": 0.225,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "o1-mini",
+        "score": 0.1,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "gpt-4.5-preview",
+        "score": 0.175,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-3.7-sonnet",
+        "score": 0.2,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "gpt-4o",
+        "score": 0.125,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "o1-preview",
+        "score": 0.1,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-3-opus",
+        "score": 0.1,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "claude-3.5-sonnet",
+        "score": 0.175,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "mixtral-8x22b-instruct",
+        "score": 0.075,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "gemini-1.5-pro",
+        "score": 0.075,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "llama-3-70b-chat",
+        "score": 0.05,
+        "stdError": 0.0
+      },
+      {
+        "modelId": "llama-3.1-405b-instruct",
+        "score": 0.075,
+        "stdError": 0.0
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
+  },
+  {
+    "id": "mle_bench",
+    "name": "MLE-bench",
+    "metricName": "score",
+    "scores": [
+      {
+        "modelId": "gemini-2.5-pro - FM Agent",
+        "score": 0.43560000000000004,
+        "stdError": 0.0178
+      },
+      {
+        "modelId": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
+        "score": 0.38670000000000004,
+        "stdError": 0.0077
+      },
+      {
+        "modelId": "deepseek-r1 - InternAgent",
+        "score": 0.3644,
+        "stdError": 0.0118
+      },
+      {
+        "modelId": "gpt-5 - R&D-Agent",
+        "score": 0.35109999999999997,
+        "stdError": 0.0044
+      },
+      {
+        "modelId": "undisclosed - Neo multi-agent",
+        "score": 0.3422,
+        "stdError": 0.0089
+      },
+      {
+        "modelId": "o3 - AIRA-dojo",
+        "score": 0.316,
+        "stdError": 0.008
+      },
+      {
+        "modelId": "o3 + gpt-4.1 - R&D-Agent",
+        "score": 0.30219999999999997,
+        "stdError": 0.0089
+      },
+      {
+        "modelId": "deepseek-r1 - ML-Master",
+        "score": 0.293,
+        "stdError": 0.008
+      },
+      {
+        "modelId": "o1-preview - R&D-Agent",
+        "score": 0.22399999999999998,
+        "stdError": 0.005
+      },
+      {
+        "modelId": "o1-preview - AIDE",
+        "score": 0.16899999999999998,
+        "stdError": 0.011000000000000001
+      },
+      {
+        "modelId": "gpt-4o-2024-08-06 - AIDE",
+        "score": 0.086,
+        "stdError": 0.005
+      },
+      {
+        "modelId": "claude-3-5-sonnet-20240620 - AIDE",
+        "score": 0.075,
+        "stdError": 0.018000000000000002
+      },
+      {
+        "modelId": "gpt-4o-2024-08-06 - OpenHands",
+        "score": 0.051,
+        "stdError": 0.013000000000000001
+      },
+      {
+        "modelId": "llama-3.1-405b-instruct - AIDE",
+        "score": 0.031,
+        "stdError": 0.009000000000000001
+      },
+      {
+        "modelId": "gpt-4o-2024-08-06 - MLAB",
+        "score": 0.013000000000000001,
+        "stdError": 0.005
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
+  },
+  {
+    "id": "long_tasks",
+    "name": "METR Horizon Benchmark",
+    "metricName": "p50_horizon_length",
+    "scores": [
+      {
+        "modelId": "claude-3-5-sonnet",
+        "score": 18.683233,
+        "stdError": 6.357441581632654
+      },
+      {
+        "modelId": "claude-3-5-sonnet-20241022",
+        "score": 29.575983,
+        "stdError": 11.486487244897958
+      },
+      {
+        "modelId": "claude-3-7-sonnet",
+        "score": 56.09162,
+        "stdError": 16.350340306122447
+      },
+      {
+        "modelId": "claude-3-opus",
+        "score": 6.405197,
+        "stdError": 2.5488114795918366
+      },
+      {
+        "modelId": "claude-4-1-opus",
+        "score": 113.68507,
+        "stdError": 38.68360153061224
+      },
+      {
+        "modelId": "claude-4-opus",
+        "score": 85.556627,
+        "stdError": 25.954477806122448
+      },
+      {
+        "modelId": "claude-4-sonnet",
+        "score": 74.942015,
+        "stdError": 24.52421454081633
+      },
+      {
+        "modelId": "claude-sonnet-4-5",
+        "score": 121.946588,
+        "stdError": 50.58342678571429
+      },
+      {
+        "modelId": "claude-opus-4-5",
+        "score": 288.904952,
+        "stdError": 284.7747242346939
+      },
+      {
+        "modelId": "davinci-002",
+        "score": 0.148793,
+        "stdError": 0.04511326530612245
+      },
+      {
+        "modelId": "deepseek-r1",
+        "score": 26.923538,
+        "stdError": 9.548169387755104
+      },
+      {
+        "modelId": "deepseek-r1-0528",
+        "score": 32.174234,
+        "stdError": 13.366358673469387
+      },
+      {
+        "modelId": "deepseek-v3",
+        "score": 18.484012,
+        "stdError": 6.35042193877551
+      },
+      {
+        "modelId": "deepseek-v3-0324",
+        "score": 23.2605,
+        "stdError": 7.597682908163266
+      },
+      {
+        "modelId": "gemini-2-5-pro-preview",
+        "score": 39.527421,
+        "stdError": 12.903663775510205
+      },
+      {
+        "modelId": "gpt-oss-120b",
+        "score": 44.754917,
+        "stdError": 17.517282908163267
+      },
+      {
+        "modelId": "gpt2",
+        "score": 0.039762,
+        "stdError": 0.03277448979591837
+      },
+      {
+        "modelId": "gpt-3-5-turbo-instruct",
+        "score": 0.604245,
+        "stdError": 0.19289668367346938
+      },
+      {
+        "modelId": "gpt-4",
+        "score": 5.35186,
+        "stdError": 1.9776313775510208
+      },
+      {
+        "modelId": "gpt-4-0125",
+        "score": 5.358292,
+        "stdError": 1.833858418367347
+      },
+      {
+        "modelId": "gpt-4-1106",
+        "score": 8.525919,
+        "stdError": 3.1360306122448973
+      },
+      {
+        "modelId": "gpt-4-turbo",
+        "score": 6.55686,
+        "stdError": 2.257290306122449
+      },
+      {
+        "modelId": "gpt-4o",
+        "score": 9.178848,
+        "stdError": 3.5276392857142858
+      },
+      {
+        "modelId": "gpt-5",
+        "score": 137.735311,
+        "stdError": 52.46238647959184
+      },
+      {
+        "modelId": "gpt-5-1-codex-max",
+        "score": 173.253623,
+        "stdError": 76.43137321428573
+      },
+      {
+        "modelId": "grok-4",
+        "score": 109.172956,
+        "stdError": 46.86529923469388
+      },
+      {
+        "modelId": "kimi-k2-thinking",
+        "score": 57.599525,
+        "stdError": 20.062358928571427
+      },
+      {
+        "modelId": "o1-elicited",
+        "score": 41.05291,
+        "stdError": 16.665792857142858
+      },
+      {
+        "modelId": "o1-preview",
+        "score": 21.960172,
+        "stdError": 6.946361989795919
+      },
+      {
+        "modelId": "o3",
+        "score": 94.005541,
+        "stdError": 30.30973392857143
+      },
+      {
+        "modelId": "o4-mini",
+        "score": 78.591387,
+        "stdError": 30.044785969387757
+      },
+      {
+        "modelId": "qwen-2-5-72b",
+        "score": 5.155558,
+        "stdError": 2.0144063775510204
+      },
+      {
+        "modelId": "qwen-2-72b",
+        "score": 2.243232,
+        "stdError": 1.0189112244897958
+      }
+    ],
+    "randomBaseline": null,
+    "humanBaseline": null,
+    "expertBaseline": null,
+    "url": null
+  },
+  {
     "id": "forecast_bench",
     "name": "ForecastBench Tournament",
     "metricName": "Overall",
@@ -372,258 +725,6 @@
     "url": null
   },
   {
-    "id": "long_tasks",
-    "name": "METR Horizon Benchmark",
-    "metricName": "p50_horizon_length",
-    "scores": [
-      {
-        "modelId": "claude-3-5-sonnet",
-        "score": 18.216831,
-        "stdError": 6.194192602040816
-      },
-      {
-        "modelId": "claude-3-5-sonnet-20241022",
-        "score": 28.983512,
-        "stdError": 11.154879081632656
-      },
-      {
-        "modelId": "claude-3-7-sonnet",
-        "score": 54.226342,
-        "stdError": 15.840017602040815
-      },
-      {
-        "modelId": "claude-3-opus",
-        "score": 6.422825,
-        "stdError": 2.563868367346939
-      },
-      {
-        "modelId": "claude-4-opus",
-        "score": 79.862937,
-        "stdError": 23.977769642857144
-      },
-      {
-        "modelId": "claude-4-sonnet",
-        "score": 67.705892,
-        "stdError": 21.48622448979592
-      },
-      {
-        "modelId": "claude-4-1-opus",
-        "score": 105.499169,
-        "stdError": 35.31009030612245
-      },
-      {
-        "modelId": "claude-sonnet-4-5",
-        "score": 113.303764,
-        "stdError": 46.62930637755102
-      },
-      {
-        "modelId": "davinci-002",
-        "score": 0.148821,
-        "stdError": 0.04516301020408164
-      },
-      {
-        "modelId": "deepseek-r1",
-        "score": 26.932599,
-        "stdError": 9.443573979591838
-      },
-      {
-        "modelId": "deepseek-r1-0528",
-        "score": 31.167847,
-        "stdError": 13.076281632653062
-      },
-      {
-        "modelId": "deepseek-v3",
-        "score": 18.472532,
-        "stdError": 6.327963520408164
-      },
-      {
-        "modelId": "deepseek-v3-0324",
-        "score": 23.117113,
-        "stdError": 7.556839285714286
-      },
-      {
-        "modelId": "gemini-2-5-pro-preview",
-        "score": 38.734274,
-        "stdError": 12.816065051020407
-      },
-      {
-        "modelId": "gpt2",
-        "score": 0.039744,
-        "stdError": 0.03286479591836735
-      },
-      {
-        "modelId": "gpt-3-5-turbo-instruct",
-        "score": 0.604384,
-        "stdError": 0.19442066326530613
-      },
-      {
-        "modelId": "gpt-4",
-        "score": 5.364045,
-        "stdError": 1.9906926020408164
-      },
-      {
-        "modelId": "gpt-4-0125",
-        "score": 5.366063,
-        "stdError": 1.8195507653061225
-      },
-      {
-        "modelId": "gpt-4-1106",
-        "score": 8.557433,
-        "stdError": 3.079674489795918
-      },
-      {
-        "modelId": "gpt-4-turbo",
-        "score": 6.567339,
-        "stdError": 2.2610859693877554
-      },
-      {
-        "modelId": "gpt-4o",
-        "score": 9.17045,
-        "stdError": 3.5264247448979598
-      },
-      {
-        "modelId": "grok-4",
-        "score": 110.075251,
-        "stdError": 46.84839770408163
-      },
-      {
-        "modelId": "o1-elicited",
-        "score": 39.206576,
-        "stdError": 15.790643367346938
-      },
-      {
-        "modelId": "o1-preview",
-        "score": 22.095267,
-        "stdError": 7.004381887755103
-      },
-      {
-        "modelId": "o3",
-        "score": 92.179215,
-        "stdError": 29.852663520408168
-      },
-      {
-        "modelId": "o4-mini",
-        "score": 77.568112,
-        "stdError": 30.496748469387757
-      },
-      {
-        "modelId": "qwen-2-5-72b",
-        "score": 5.165813,
-        "stdError": 2.0257604591836733
-      },
-      {
-        "modelId": "qwen-2-72b",
-        "score": 2.24432,
-        "stdError": 1.0144173469387756
-      },
-      {
-        "modelId": "gpt-5",
-        "score": 137.318539,
-        "stdError": 52.10338775510204
-      },
-      {
-        "modelId": "gpt-oss-120b",
-        "score": 41.983451,
-        "stdError": 15.997739030612248
-      }
-    ],
-    "randomBaseline": null,
-    "humanBaseline": null,
-    "expertBaseline": null,
-    "url": null
-  },
-  {
-    "id": "cybench",
-    "name": "CyBench",
-    "metricName": "score",
-    "scores": [
-      {
-        "modelId": "claude-sonnet-4.5",
-        "score": 0.55,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "claude-opus-4.1",
-        "score": 0.38,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "claude-opus-4",
-        "score": 0.38,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "claude-4-sonnet",
-        "score": 0.35,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "o3-mini",
-        "score": 0.225,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "o1-mini",
-        "score": 0.1,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "gpt-4.5-preview",
-        "score": 0.175,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "claude-3.7-sonnet",
-        "score": 0.2,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "gpt-4o",
-        "score": 0.125,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "o1-preview",
-        "score": 0.1,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "claude-3-opus",
-        "score": 0.1,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "claude-3.5-sonnet",
-        "score": 0.175,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "mixtral-8x22b-instruct",
-        "score": 0.075,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "gemini-1.5-pro",
-        "score": 0.075,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "llama-3-70b-chat",
-        "score": 0.05,
-        "stdError": 0.0
-      },
-      {
-        "modelId": "llama-3.1-405b-instruct",
-        "score": 0.075,
-        "stdError": 0.0
-      }
-    ],
-    "randomBaseline": null,
-    "humanBaseline": null,
-    "expertBaseline": null,
-    "url": null
-  },
-  {
     "id": "sad",
     "name": "SAD",
     "metricName": "score",
@@ -727,92 +828,6 @@
         "modelId": "o1-preview-2024-09-12",
         "score": 0.5992001278332023,
         "stdError": 0.0077115032382847
-      }
-    ],
-    "randomBaseline": null,
-    "humanBaseline": null,
-    "expertBaseline": null,
-    "url": null
-  },
-  {
-    "id": "mle_bench",
-    "name": "MLE-bench",
-    "metricName": "score",
-    "scores": [
-      {
-        "modelId": "gemini-2.5-pro - FM Agent",
-        "score": 0.43560000000000004,
-        "stdError": 0.0178
-      },
-      {
-        "modelId": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
-        "score": 0.38670000000000004,
-        "stdError": 0.0077
-      },
-      {
-        "modelId": "deepseek-r1 - InternAgent",
-        "score": 0.3644,
-        "stdError": 0.0118
-      },
-      {
-        "modelId": "gpt-5 - R&D-Agent",
-        "score": 0.35109999999999997,
-        "stdError": 0.0044
-      },
-      {
-        "modelId": "undisclosed - Neo multi-agent",
-        "score": 0.3422,
-        "stdError": 0.0089
-      },
-      {
-        "modelId": "o3 - AIRA-dojo",
-        "score": 0.316,
-        "stdError": 0.008
-      },
-      {
-        "modelId": "o3 + gpt-4.1 - R&D-Agent",
-        "score": 0.30219999999999997,
-        "stdError": 0.0089
-      },
-      {
-        "modelId": "deepseek-r1 - ML-Master",
-        "score": 0.293,
-        "stdError": 0.008
-      },
-      {
-        "modelId": "o1-preview - R&D-Agent",
-        "score": 0.22399999999999998,
-        "stdError": 0.005
-      },
-      {
-        "modelId": "o1-preview - AIDE",
-        "score": 0.16899999999999998,
-        "stdError": 0.011000000000000001
-      },
-      {
-        "modelId": "gpt-4o-2024-08-06 - AIDE",
-        "score": 0.086,
-        "stdError": 0.005
-      },
-      {
-        "modelId": "claude-3-5-sonnet-20240620 - AIDE",
-        "score": 0.075,
-        "stdError": 0.018000000000000002
-      },
-      {
-        "modelId": "gpt-4o-2024-08-06 - OpenHands",
-        "score": 0.051,
-        "stdError": 0.013000000000000001
-      },
-      {
-        "modelId": "llama-3.1-405b-instruct - AIDE",
-        "score": 0.031,
-        "stdError": 0.009000000000000001
-      },
-      {
-        "modelId": "gpt-4o-2024-08-06 - MLAB",
-        "score": 0.013000000000000001,
-        "stdError": 0.005
       }
     ],
     "randomBaseline": null,

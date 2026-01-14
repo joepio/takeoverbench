@@ -408,6 +408,12 @@
     "organization": "Anthropic"
   },
   {
+    "id": "claude-opus-4-5",
+    "name": "claude-opus-4-5",
+    "releaseDate": "2025-11-24",
+    "organization": "Anthropic"
+  },
+  {
     "id": "claude-opus-4.1",
     "name": "Claude Opus 4.1",
     "releaseDate": "2025-08-05",
@@ -642,6 +648,12 @@
     "organization": "OpenAI"
   },
   {
+    "id": "gpt-5-1-codex-max",
+    "name": "gpt-5-1-codex-max",
+    "releaseDate": "2025-11-19",
+    "organization": "OpenAI"
+  },
+  {
     "id": "gpt-oss-120b",
     "name": "GPT OSS 120b",
     "releaseDate": "2025-08-05",
@@ -658,6 +670,12 @@
     "name": "grok-4",
     "releaseDate": "2025-07-09",
     "organization": "xAI"
+  },
+  {
+    "id": "kimi-k2-thinking",
+    "name": "kimi-k2-thinking",
+    "releaseDate": "2025-11-06",
+    "organization": "Unknown"
   },
   {
     "id": "llama-2-13b",
