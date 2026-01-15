@@ -678,14 +678,79 @@
           </label>
         {/if}
         {#if showProjections}
-          <label class="flex items-center gap-2 text-sm cursor-pointer">
-            <input
-              type="checkbox"
-              bind:checked={projectionsEnabled}
-              class="rounded bg-gray-700 text-blue-600 focus:ring-blue-500"
-            />
-            <span class="text-gray-700">Show 1-year projections</span>
-          </label>
+          <div class="flex items-center gap-2">
+            <label class="flex items-center gap-2 text-sm cursor-pointer group">
+              <input
+                type="checkbox"
+                bind:checked={projectionsEnabled}
+                class="rounded bg-gray-700 text-blue-600 focus:ring-blue-500"
+              />
+              <span
+                class="text-gray-700 group-hover:text-gray-900 transition-colors"
+                >Show 1-year projections</span
+              >
+            </label>
+            <div class="relative group">
+              <svg
+                class="w-4 h-4 text-gray-500 hover:text-gray-900 cursor-help transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <div
+                class="absolute bottom-full right-0 mb-4 w-80 p-6 bg-gray-900 text-xs text-gray-100 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none border border-gray-100/10 backdrop-blur-sm"
+              >
+                <p
+                  class="font-bold mb-4 text-blue-400 uppercase tracking-widest text-[10px] border-b border-gray-100/10 pb-2"
+                >
+                  Automated Trend Projection
+                </p>
+                <div class="space-y-4 leading-relaxed text-[13px]">
+                  <p class="text-gray-100">
+                    Represents a <strong>12-month extrapolation</strong> based on
+                    the historical SOTA trend.
+                  </p>
+
+                  <div class="space-y-3">
+                    <div class="flex gap-3 items-start">
+                      <span
+                        class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 flex-shrink-0"
+                      ></span>
+                      <p class="text-gray-300">
+                        Uses either <strong>S-curve</strong> or
+                        <strong>Exponential</strong> modeling based on benchmark
+                        type.
+                      </p>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                      <span
+                        class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 flex-shrink-0"
+                      ></span>
+                      <p class="text-gray-300">
+                        Only displayed if the mathematical fit meets a <strong
+                          >&gt;30% confidence threshold</strong
+                        >.
+                      </p>
+                    </div>
+                  </div>
+
+                  <p
+                    class="pt-2 text-[11px] text-gray-500 italic border-t border-gray-100/5 mt-4"
+                  >
+                    These are automated calculations, not qualitative expert
+                    forecasts.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         {/if}
       </div>
     {/if}
