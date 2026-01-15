@@ -1,254 +1,266 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import type { PageData } from "./$types";
-    import { benchmarks, getBenchmarkById } from "$lib/data";
-    import { linkifyCitations } from "$lib/utils";
+  import { onMount } from "svelte";
+  import type { PageData } from "./$types";
+  import { benchmarks, getBenchmarkById } from "$lib/data";
+  import { linkifyCitations } from "$lib/utils";
 
-    export let data: PageData;
+  export let data: PageData;
 
-    // load() returns:
-    // - threatModel: the ThreatModel object (simplified schema)
-    // - benchmarkIds: optional explicit array of benchmark ids for the page to display
-    // - mdPath: optional module key string pointing to a per-threat .md/.svx file
-    const { threatModel, benchmarkIds, mdPath } = data ?? {};
+  const { threatModel, benchmarkIds, mdPath } = data ?? {};
 
-    // Client-only dynamic pieces
-    let MainChart: any = null;
-    let ThreatComponent: any = null;
-    let hydrated = false;
-    let chartLoadError: string | null = null;
-    let mdLoadError: string | null = null;
+  let MainChart: any = null;
+  let ThreatComponent: any = null;
+  let hydrated = false;
+  let chartLoadError: string | null = null;
+  let mdLoadError: string | null = null;
 
-    // Determine which benchmark ids to show (prefer load-provided ids else the threat model's list)
-    const allRequestedBenchmarks: string[] = (
-        Array.isArray(benchmarkIds) && benchmarkIds.length > 0
-            ? benchmarkIds
-            : (threatModel?.benchmarks ?? [])
-    ).filter(Boolean);
+  const allRequestedBenchmarks: string[] = (
+    Array.isArray(benchmarkIds) && benchmarkIds.length > 0
+      ? benchmarkIds
+      : (threatModel?.benchmarks ?? [])
+  ).filter(Boolean);
 
-    // Filter to only include valid benchmark IDs that exist in our data
-    const selectedBenchmarks: string[] = allRequestedBenchmarks.filter(
-        (id) => getBenchmarkById(id) !== undefined,
-    );
+  const selectedBenchmarks: string[] = allRequestedBenchmarks.filter(
+    (id) => getBenchmarkById(id) !== undefined
+  );
 
-    // Track missing benchmarks for display
-    const missingBenchmarks: string[] = allRequestedBenchmarks.filter(
-        (id) => getBenchmarkById(id) === undefined,
-    );
+  const missingBenchmarks: string[] = allRequestedBenchmarks.filter(
+    (id) => getBenchmarkById(id) === undefined
+  );
 
-    function capabilityName(id: string) {
-        const b = getBenchmarkById(id);
-        return b ? b.capabilityName : id;
+  function capabilityName(id: string) {
+    const b = getBenchmarkById(id);
+    return b ? b.capabilityName : id;
+  }
+
+  onMount(async () => {
+    hydrated = true;
+
+    try {
+      const mod = await import("$lib/components/MainChart.svelte");
+      MainChart = mod?.default ?? mod;
+    } catch (e) {
+      chartLoadError = String(e);
+      console.error("[threat] failed to load MainChart:", e);
     }
 
-    onMount(async () => {
-        hydrated = true;
-
-        // Load chart component only on client to avoid SSR/Chart.js issues
-        try {
-            const mod = await import("$lib/components/MainChart.svelte");
-            MainChart = mod?.default ?? mod;
-        } catch (e) {
-            chartLoadError = String(e);
-            console.error("[threat] failed to load MainChart:", e);
+    if (mdPath) {
+      try {
+        const modules = import.meta.glob(
+          "../../../../threat_models/*.{md,svx}"
+        );
+        const loader = modules[mdPath] as (() => Promise<any>) | undefined;
+        if (loader) {
+          const mod = await loader();
+          ThreatComponent = mod?.default ?? mod;
         }
-
-        // If load() returned an mdPath use it; otherwise try to find a module matching the threat id
-        if (mdPath) {
-            try {
-                const modules = import.meta.glob(
-                    "../../../../threat_models/*.{md,svx}",
-                );
-                const loader = modules[mdPath] as
-                    | (() => Promise<any>)
-                    | undefined;
-                if (loader) {
-                    const mod = await loader();
-                    ThreatComponent = mod?.default ?? mod;
-                }
-            } catch (e) {
-                mdLoadError = String(e);
-                console.warn("[threat] failed to import md component:", e);
-                ThreatComponent = null;
-            }
-        } else {
-            // Try to find a matching file by name if the load didn't provide mdPath
-            try {
-                const modules = import.meta.glob(
-                    "../../../../threat_models/*.{md,svx}",
-                );
-                const key = Object.keys(modules).find(
-                    (k) =>
-                        k.endsWith(`${threatModel?.id}.md`) ||
-                        k.endsWith(`${threatModel?.id}.svx`),
-                );
-                if (key) {
-                    const loader = modules[key] as () => Promise<any>;
-                    const mod = await loader();
-                    ThreatComponent = mod?.default ?? mod;
-                }
-            } catch (e) {
-                // ignore; we will fall back to inline description
-                ThreatComponent = null;
-            }
+      } catch (e) {
+        mdLoadError = String(e);
+        console.warn("[threat] failed to import md component:", e);
+        ThreatComponent = null;
+      }
+    } else {
+      try {
+        const modules = import.meta.glob(
+          "../../../../threat_models/*.{md,svx}"
+        );
+        const key = Object.keys(modules).find(
+          (k) =>
+            k.endsWith(`${threatModel?.id}.md`) ||
+            k.endsWith(`${threatModel?.id}.svx`)
+        );
+        if (key) {
+          const loader = modules[key] as () => Promise<any>;
+          const mod = await loader();
+          ThreatComponent = mod?.default ?? mod;
         }
-    });
+      } catch (e) {
+        ThreatComponent = null;
+      }
+    }
+  });
 </script>
 
 <svelte:head>
-    <title>{threatModel?.name ?? "Threat"} — TakeOverBench</title>
-    <meta name="description" content={threatModel?.shortDescription ?? ""} />
+  <title>{threatModel?.name ?? "Takeover Scenario"} — TakeOverBench</title>
+  <meta name="description" content={threatModel?.shortDescription ?? ""} />
 </svelte:head>
 
-<main class="min-h-screen">
-    <section class="border-b border-gray-900">
-        <div class="container mx-auto px-4 md:px-6 lg:px-10 py-8 max-w-5xl">
-            <nav class="flex items-center gap-2 text-sm mb-6">
-                <a href="/" class="hover:text-gray-900">Home</a>
-                <span>/</span>
-                <a href="/threats" class="hover:text-gray-900">Takeover Scenarios</a>
-                <span>/</span>
-                <span class="text-gray-900">{threatModel?.name}</span>
-            </nav>
+<main class="min-h-screen bg-gray-50">
+  <section class="py-12">
+    <div class="container mx-auto px-4 md:px-6 lg:px-10 max-w-7xl">
+      <nav class="text-sm mb-8">
+        <a href="/" class="hover:underline opacity-70">Home</a>
+        <span class="mx-2 opacity-30">/</span>
+        <a href="/threats" class="hover:underline opacity-70"
+          >Takeover Scenarios</a
+        >
+        <span class="mx-2 opacity-30">/</span>
+        <span class="text-gray-900 font-medium">{threatModel?.name}</span>
+      </nav>
 
-            <!-- Content wrapper for text and list alignment -->
-            <div class="mx-auto mb-6" style="max-width: 80ch;">
-                <h1 class="text-3xl font-bold text-gray-900 mb-4 text-center">
-                    {threatModel?.name}
-                </h1>
+      <div
+        class="bg-surface-primary rounded-2xl p-6 md:p-10 shadow-sm border border-gray-100/10"
+      >
+        <!-- Header -->
+        <header class="pb-8 border-b border-gray-100/10 mb-8">
+          <h1
+            class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight text-center"
+          >
+            {threatModel?.name}
+          </h1>
+        </header>
 
-                <div class=" mb-6">
-                    {#if hydrated && ThreatComponent}
-                        <svelte:component this={ThreatComponent} />
-                    {:else}
-                        <p>
-                            {@html linkifyCitations(
-                                threatModel?.longDescription ??
-                                    threatModel?.shortDescription ??
-                                    "No description available."
-                            )}
-                        </p>
-                    {/if}
+        <div class="space-y-10 pt-4">
+          <!-- Description / Narrative -->
+          <div class="mx-auto max-w-4xl">
+            <div class="text-base text-gray-700 leading-relaxed space-y-4">
+              {#if hydrated && ThreatComponent}
+                <svelte:component this={ThreatComponent} />
+              {:else}
+                <p>
+                  {@html linkifyCitations(
+                    threatModel?.longDescription ??
+                      threatModel?.shortDescription ??
+                      "No description available."
+                  )}
+                </p>
+              {/if}
 
-                    <p class="mt-2" style="font-style: italic;">
-                        This narrative presents one of the many possible ways in which an actual takeover may happen. We cannot predict how such a takeover will unfold exactly. We do however claim that once AIs have the dangerous capabilities listed on this page, takeover scenarios like this one become possible.
-                    </p>
+              <p
+                class="pt-6 border-t border-gray-100/10 text-sm font-medium italic opacity-70"
+              >
+                This narrative presents one of the many possible ways in which
+                an actual takeover may happen. We cannot predict how such a
+                takeover will unfold exactly. We do however claim that once AIs
+                have the dangerous capabilities listed on this page, takeover
+                scenarios like this one become possible.
+              </p>
+            </div>
+          </div>
+
+          <!-- Benchmarks Section -->
+          <div class="space-y-10">
+            <div class="mx-auto max-w-4xl">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                Dangerous capabilities required
+              </h2>
+
+              <div class="flex flex-wrap justify-center gap-3">
+                {#each selectedBenchmarks as bid (bid)}
+                  <a
+                    href={"/benchmarks/" + bid}
+                    class="px-4 py-2 bg-gray-50/5 border border-gray-900/10 rounded-full text-sm font-bold text-gray-900 hover:border-blue-400/30 hover:bg-white/5 transition-all no-underline"
+                  >
+                    {capabilityName(bid)}
+                  </a>
+                {/each}
+              </div>
+
+              {#if missingBenchmarks.length > 0}
+                <div class="mt-6 text-center">
+                  <span
+                    class="text-[10px] uppercase tracking-widest font-bold opacity-30"
+                    >Pending data: {missingBenchmarks.join(", ")}</span
+                  >
                 </div>
-
-                <!-- Benchmark list -->
-                <section>
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">
-                        Dangerous capabilities required
-                    </h3>
-                    {#if selectedBenchmarks.length === 0 && missingBenchmarks.length === 0}
-                        <div class="text-sm ">
-                            No benchmarks listed.
-                        </div>
-                    {:else}
-                        <ul
-                            class="list-disc list-inside space-y-1 text-sm "
-                        >
-                            {#each selectedBenchmarks as bid (bid)}
-                                <li>
-                                    <a
-                                        href={"/benchmarks/" + bid}
-                                        class="text-primary/90 hover:underline"
-                                    >
-                                        {capabilityName(bid)}
-                                    </a>
-                                </li>
-                            {/each}
-                        </ul>
-                    {/if}
-                </section>
+              {/if}
             </div>
 
-            <!-- Benchmarks chart (client-only). Hidden/disabled on SSR. -->
-            <section class="mb-8">
+            <!-- Chart -->
+            <div class="space-y-6">
+              <h3 class="text-xl font-bold text-gray-900 text-center">
+                Capabilities over time
+              </h3>
+              <div
+                class="border border-gray-100/10 rounded-2xl p-6 min-h-[480px] flex flex-col justify-center"
+              >
                 {#if !hydrated}
-                    <div
-                        class="h-64 flex items-center justify-center text-gray-700"
-                    >
-                        Chart loading…
-                    </div>
+                  <div
+                    class="flex items-center justify-center text-gray-400 font-mono text-xs uppercase tracking-widest animate-pulse"
+                  >
+                    Initializing Visualization...
+                  </div>
                 {:else if chartLoadError}
-                    <div class="text-sm text-red-600">
-                        Chart failed to load: {chartLoadError}
+                  <div
+                    class="flex items-center justify-center text-red-500 font-bold uppercase tracking-widest text-xs"
+                  >
+                    Error: {chartLoadError}
+                  </div>
+                {:else if MainChart}
+                  {#if selectedBenchmarks.length > 0}
+                    <svelte:component
+                      this={MainChart}
+                      {selectedBenchmarks}
+                      height="440px"
+                      showLegend={true}
+                    />
+                  {:else}
+                    <div class="flex items-center justify-center text-gray-500">
+                      No benchmark data available for this scenario.
                     </div>
-                {:else if !MainChart}
-                    <div
-                        class="h-64 flex items-center justify-center text-gray-700"
-                    >
-                        Chart unavailable
-                    </div>
-                {:else if selectedBenchmarks.length === 0}
-                    <div class="text-sm  mb-4">
-                        No benchmarks available.
-                        {#if missingBenchmarks.length > 0}
-                            <div class="mt-2 text-xs text-gray-700">
-                                Referenced benchmarks not yet in database: {missingBenchmarks.join(
-                                    ", ",
-                                )}
-                            </div>
-                        {/if}
-                    </div>
+                  {/if}
                 {:else}
-                    <div class="bg-surface-primary rounded-lg p-4">
-                        <svelte:component
-                            this={MainChart}
-                            {selectedBenchmarks}
-                            height="420px"
-                        />
-                    </div>
-
-                    {#if missingBenchmarks.length > 0}
-                        <div
-                            class="mt-4 p-3 bg-yellow-900/20 border border-yellow-900/30 rounded text-sm text-yellow-500"
-                        >
-                            <strong>Note:</strong> Some referenced benchmarks
-                            are not yet available:
-                            <span class="font-mono text-xs"
-                                >{missingBenchmarks.join(", ")}</span
-                            >
-                        </div>
-                    {/if}
+                  <div class="flex items-center justify-center text-gray-500">
+                    Visualization engine unavailable
+                  </div>
                 {/if}
-            </section>
+              </div>
+            </div>
+          </div>
 
-            <!-- Sources section -->
-            {#if threatModel?.sources && threatModel.sources.length > 0}
-                <section class="mt-12">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">
-                        Sources
-                    </h3>
-                    <div class="bg-surface-primary border-gray-900 rounded-lg p-6">
-                        <ul class="space-y-3">
-                            {#each threatModel.sources as source (source)}
-                                <li class="flex items-start gap-3">
-                                    <span class="text-primary mt-1 flex-shrink-0">•</span>
-                                    <span class=" break-words">
-                                        {source}
-                                    </span>
-                                </li>
-                            {/each}
-                        </ul>
-                    </div>
-                </section>
-            {/if}
+          <!-- Sources -->
+          {#if threatModel?.sources && threatModel.sources.length > 0}
+            <div class="pt-12 border-t border-gray-100/10">
+              <h2 class="text-xl font-bold text-gray-900 mb-6">
+                Verification Sources
+              </h2>
+              <ul class="space-y-4">
+                {#each threatModel.sources as source (source)}
+                  <li
+                    class="flex items-start gap-3 opacity-60 hover:opacity-100 transition-opacity"
+                  >
+                    <span class="text-blue-500 mt-1 flex-shrink-0">•</span>
+                    <span
+                      class="text-sm break-words leading-relaxed font-medium"
+                    >
+                      {source}
+                    </span>
+                  </li>
+                {/each}
+              </ul>
+            </div>
+          {/if}
         </div>
-    </section>
 
-    <div class="container mx-auto px-4 md:px-6 lg:px-10 py-8 max-w-5xl">
-        <a
+        <div class="mt-16 pt-8 border-t border-gray-100/10 text-center">
+          <a
             href="/threats"
-            class="inline-block mt-6 px-4 py-2 bg-surface-primary border border-gray-900 rounded text-sm  hover:bg-gray-300"
-            >Back to Threats</a
-        >
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gray-50/5 border border-gray-900/10 rounded-xl text-sm font-bold text-gray-900 hover:bg-white/5 hover:border-blue-400/30 transition-all"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            Back to Scenarios
+          </a>
+        </div>
+      </div>
     </div>
+  </section>
 </main>
 
 <style>
-    .container {
-        max-width: 72rem;
-    }
+  .container {
+    max-width: 72rem;
+  }
 </style>
