@@ -101,7 +101,7 @@
 
               {#if benchmark.capabilityDefinition}
                 <div
-                  class="text-base mt-6 text-gray-700 leading-relaxed max-w-4xl"
+                  class="text-lg mt-6 text-gray-800 leading-relaxed max-w-4xl font-medium"
                 >
                   {@html linkifyCitations(benchmark.capabilityDefinition)}
                 </div>
@@ -137,7 +137,7 @@
                 {/if}
 
                 <div
-                  class="text-sm mt-3 text-gray-600 leading-relaxed max-w-3xl"
+                  class="text-lg mt-3 text-gray-800 leading-relaxed max-w-3xl"
                 >
                   {@html linkifyCitations(benchmark.description)}
                 </div>
@@ -183,7 +183,7 @@
                   <h2 class="text-2xl font-bold text-gray-900 mb-6">
                     Why this benchmark?
                   </h2>
-                  <div class="text-base text-gray-700 leading-relaxed">
+                  <div class="text-lg text-gray-800 leading-relaxed">
                     {@html linkifyCitations(benchmark.motivation)}
                   </div>
                 </div>

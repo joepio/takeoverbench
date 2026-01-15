@@ -2,44 +2,44 @@
 
 /* Define custom theme colors for Tailwind v4 */
 @theme {
-    /* Core palette (deep, high-contrast, urgent) */
-    --color-primary: rgba(220, 38, 38, 1);
-    --color-surface-primary: rgba(30, 30, 30, 1);
-    /* red-600 — infrared alert */
-    --color-primary-hover: rgba(185, 28, 28, 1);
-    /* red-700 */
-    --color-accent: rgba(56, 189, 248, 1);
+  /* Core palette (deep, high-contrast, urgent) */
+  --color-primary: rgba(220, 38, 38, 1);
+  --color-surface-primary: rgba(30, 30, 30, 1);
+  /* red-600 — infrared alert */
+  --color-primary-hover: rgba(185, 28, 28, 1);
+  /* red-700 */
+  --color-accent: rgba(56, 189, 248, 1);
 
-    /* Background grays — darker overall aesthetic */
-    /* --color-surface-primary: 46 43 43; */
-    /* --color-surface-primary: 250 127 80; */
-    /* #151414 */
-    --color-gray-50: rgb(12 13 15);
-    --color-gray-100: rgb(23, 24, 28);
-    --color-gray-200: rgb(35, 36, 42);
-    --color-gray-300: rgb(55, 56, 62);
-    --color-gray-400: rgb(87, 89, 98);
-    --color-gray-500: rgb(113, 115, 125);
-    --color-gray-600: rgb(139, 141, 150);
-    --color-gray-700: rgb(161, 162, 170);
-    --color-gray-800: rgb(186, 187, 193);
-    --color-gray-900: rgb(232, 233, 238);
+  /* Background grays — darker overall aesthetic */
+  /* --color-surface-primary: 46 43 43; */
+  /* --color-surface-primary: 250 127 80; */
+  /* #151414 */
+  --color-gray-50: rgb(12 13 15);
+  --color-gray-100: rgb(23, 24, 28);
+  --color-gray-200: rgb(35, 36, 42);
+  --color-gray-300: rgb(55, 56, 62);
+  --color-gray-400: rgb(87, 89, 98);
+  --color-gray-500: rgb(113, 115, 125);
+  --color-gray-600: rgb(139, 141, 150);
+  --color-gray-700: rgb(161, 162, 170);
+  --color-gray-800: rgb(186, 187, 193);
+  --color-gray-900: rgb(232, 233, 238);
 
-    /* Semantic colors (more severe tone) */
-    --color-success: rgb(34, 197, 94);
-    --color-warning: rgb(234, 179, 8);
-    --color-error: rgb(239, 68, 68);
-    --color-info: rgb(56, 189, 248);
+  /* Semantic colors (more severe tone) */
+  --color-success: rgb(34, 197, 94);
+  --color-warning: rgb(234, 179, 8);
+  --color-error: rgb(239, 68, 68);
+  --color-info: rgb(56, 189, 248);
 
-    /* Risk levels (sharper) */
-    --color-risk-low: rgb(34, 197, 94);
-    --color-risk-medium: rgb(250, 204, 21);
-    --color-risk-high: rgb(239, 68, 68);
-    --color-risk-critical: rgb(153, 27, 27);
+  /* Risk levels (sharper) */
+  --color-risk-low: rgb(34, 197, 94);
+  --color-risk-medium: rgb(250, 204, 21);
+  --color-risk-high: rgb(239, 68, 68);
+  --color-risk-critical: rgb(153, 27, 27);
 
-    --container-6xl: 73rem;
-    /* Spacing */
-    /* --spacing-xs: 0.5rem;
+  --container-6xl: 73rem;
+  /* Spacing */
+  /* --spacing-xs: 0.5rem;
     --spacing-sm: 0.75rem;
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
@@ -50,291 +50,290 @@
 
 /* Existential Tech / Urgent Doom Theme */
 @layer base {
-    :root {
+  :root {
+    /* Border radius (slightly sharper for tech feel) */
+    --radius-sm: 0.125rem;
+    --radius-md: 0.25rem;
+    --radius-lg: 0.375rem;
+    --radius-xl: 0.5rem;
 
-        /* Border radius (slightly sharper for tech feel) */
-        --radius-sm: 0.125rem;
-        --radius-md: 0.25rem;
-        --radius-lg: 0.375rem;
-        --radius-xl: 0.5rem;
+    /* Shadows — darker, more dramatic */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.6), 0 5px 15px rgba(0, 0, 0, 0.45);
 
-        /* Shadows — darker, more dramatic */
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-        --shadow-md:
-            0 4px 10px rgba(0, 0, 0, 0.55),
-            0 2px 6px rgba(0, 0, 0, 0.4);
-        --shadow-lg:
-            0 15px 35px rgba(0, 0, 0, 0.6),
-            0 5px 15px rgba(0, 0, 0, 0.45);
+    /* Fonts: keep Inter + JetBrains but lean heavier */
+    --font-sans: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+  }
 
-        /* Fonts: keep Inter + JetBrains but lean heavier */
-        --font-sans: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-        --font-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-gray-900);
+    background-color: var(--color-gray-50);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+
+  /* --- Typography --- */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-gray-900);
+    letter-spacing: -0.015em;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.15);
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.85rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.65rem;
+  }
+
+  p {
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-gray-900);
+  }
+
+  /* Links — more urgent, glowing on hover */
+  a {
+    color: var(--color-gray-800);
+    text-decoration: none;
+    transition: color 150ms ease, text-shadow 200ms;
+  }
+
+  a:hover {
+    color: var(--color-gray-900);
+    /* text-shadow: 0 0 6px rgba(220, 38, 38, 0.6); */
+  }
+
+  /* Buttons */
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 150ms ease, box-shadow 150ms ease;
+  }
+
+  /* Code styling — darker & more serious */
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background-color: var(--color-gray-200);
+    padding: 0.15rem 0.3rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-accent);
+  }
+
+  pre {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    background-color: var(--color-gray-900 / 0.07);
+    color: var(--color-gray-900);
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-300);
+    overflow-x: auto;
+    margin-bottom: 1.2rem;
+  }
+
+  pre code {
+    background: transparent;
+  }
+
+  /* Tables — dark dashboard style */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--color-gray-300);
+  }
+
+  th {
+    background-color: var(--color-gray-100);
+    border-bottom: 1px solid var(--color-gray-300);
+    color: var(--color-gray-800);
+    padding: 0.9rem;
+  }
+
+  td {
+    padding: 0.9rem;
+    border-bottom: 1px solid var(--color-gray-200);
+    color: var(--color-gray-700);
+  }
+
+  /* Containers */
+  .container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .prose {
+    max-width: 68ch;
+    font-size: 1.125rem;
+  }
+
+  .prose > * {
+    margin-bottom: 1.3rem;
+  }
+
+  /* Focus — more alert-like */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.4);
+  }
+
+  /* Selection — red alert tone */
+  ::selection {
+    /* background-color: rgba(var(--color-primary), 0.35); */
+    background: rgb(184, 17, 17);
+    color: rgb(255, 255, 255);
+  }
+
+  /* Scrollbar — sleek dark */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-gray-100);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gray-400);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gray-500);
+  }
+
+  /* Animations — slower, ominous */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
     }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-12px);
     }
 
-    html {
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 450ms ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 450ms ease-out;
+  }
+
+  /* Skeletons — more “system failure scanline” */
+  .skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--color-gray-300 / 0.25) 25%,
+        var(--color-gray-400) / 0.45 50%,
+        var(--color-gray-300) / 0.25
+      )
+      75%;
+    background-size: 200% 100%;
+    animation: loading 1.4s infinite linear;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
     }
 
-    body {
-        font-family: var(--font-sans);
-        color: var(--color-gray-900);
-        background-color: var(--color-gray-50);
-        line-height: 1.55;
-        font-size: 16px;
+    100% {
+      background-position: -200% 0;
     }
+  }
 
-    /* --- Typography --- */
+  /* Card — darker, risk-dashboard vibe */
+  .card {
+    background: var(--color-gray-100);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 160ms ease, border-color 160ms;
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-weight: 700;
-        line-height: 1.2;
-        color: var(--color-gray-900);
-        letter-spacing: -0.015em;
-    }
+  .card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+  }
 
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        text-shadow: 0 0 20px rgba(220, 38, 38, 0.15);
-    }
+  /* Badges — more severe saturation */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 9999px;
+  }
 
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 0.85rem;
-    }
+  .badge-low {
+    background-color: var(--color-risk-low) / 0.15;
+    color: var(--color-risk-low);
+  }
 
-    h3 {
-        font-size: 1.6rem;
-        margin-bottom: 0.65rem;
-    }
+  .badge-medium {
+    background-color: var(--color-risk-medium/0.18);
+    color: var(--color-risk-medium);
+  }
 
-    p {
-        margin-bottom: 1.1rem;
-        line-height: 1.7;
-        color: var(--color-gray-900);
-    }
+  .badge-high {
+    background-color: var(--color-risk-high) / 0.2;
+    color: var(--color-risk-high);
+  }
 
-    /* Links — more urgent, glowing on hover */
-    a {
-        color: var(--color-gray-800);
-        text-decoration: none;
-        transition: color 150ms ease, text-shadow 200ms;
-    }
-
-    a:hover {
-        color: var(--color-gray-900);
-        /* text-shadow: 0 0 6px rgba(220, 38, 38, 0.6); */
-    }
-
-    /* Buttons */
-    button {
-        font-family: inherit;
-        cursor: pointer;
-        transition: background 150ms ease, box-shadow 150ms ease;
-    }
-
-    /* Code styling — darker & more serious */
-    code {
-        font-family: var(--font-mono);
-        font-size: 0.88em;
-        background-color: var(--color-gray-200);
-        padding: 0.15rem 0.3rem;
-        border-radius: var(--radius-sm);
-        color: var(--color-accent);
-    }
-
-    pre {
-        font-family: var(--font-mono);
-        font-size: 0.9rem;
-        background-color: var(--color-gray-900 / 0.07);
-        color: var(--color-gray-900);
-        padding: 1.25rem;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--color-gray-300);
-        overflow-x: auto;
-        margin-bottom: 1.2rem;
-    }
-
-    pre code {
-        background: transparent;
-    }
-
-    /* Tables — dark dashboard style */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        border: 1px solid var(--color-gray-300);
-    }
-
-    th {
-        background-color: var(--color-gray-100);
-        border-bottom: 1px solid var(--color-gray-300);
-        color: var(--color-gray-800);
-        padding: 0.9rem;
-    }
-
-    td {
-        padding: 0.9rem;
-        border-bottom: 1px solid var(--color-gray-200);
-        color: var(--color-gray-700);
-    }
-
-    /* Containers */
-    .container {
-        max-width: 72rem;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    .prose {
-        max-width: 68ch;
-    }
-
-    .prose>* {
-        margin-bottom: 1.3rem;
-    }
-
-    /* Focus — more alert-like */
-    :focus-visible {
-        outline: 2px solid var(--color-primary);
-        outline-offset: 3px;
-        box-shadow: 0 0 8px rgba(220, 38, 38, 0.4);
-    }
-
-    /* Selection — red alert tone */
-    ::selection {
-        /* background-color: rgba(var(--color-primary), 0.35); */
-        background: rgb(184, 17, 17);
-        color: rgb(255, 255, 255);
-    }
-
-    /* Scrollbar — sleek dark */
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: var(--color-gray-100);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: var(--color-gray-400);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--color-gray-500);
-    }
-
-    /* Animations — slower, ominous */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(12px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateX(-12px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    .animate-fade-in {
-        animation: fadeIn 450ms ease-out;
-    }
-
-    .animate-slide-in {
-        animation: slideIn 450ms ease-out;
-    }
-
-    /* Skeletons — more “system failure scanline” */
-    .skeleton {
-        background: linear-gradient(90deg,
-                var(--color-gray-300 / 0.25) 25%,
-                var(--color-gray-400) / 0.45 50%,
-                var(--color-gray-300) / 0.25) 75%;
-        background-size: 200% 100%;
-        animation: loading 1.4s infinite linear;
-    }
-
-    @keyframes loading {
-        0% {
-            background-position: 200% 0;
-        }
-
-        100% {
-            background-position: -200% 0;
-        }
-    }
-
-    /* Card — darker, risk-dashboard vibe */
-    .card {
-        background: var(--color-gray-100);
-        border: 1px solid var(--color-gray-300);
-        border-radius: var(--radius-lg);
-        padding: 1.6rem;
-        box-shadow: var(--shadow-sm);
-        transition: box-shadow 160ms ease, border-color 160ms;
-    }
-
-    .card:hover {
-        box-shadow: var(--shadow-md);
-        border-color: var(--color-primary);
-    }
-
-    /* Badges — more severe saturation */
-    .badge {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.3rem 0.8rem;
-        font-size: 0.85rem;
-        font-weight: 600;
-        border-radius: 9999px;
-    }
-
-    .badge-low {
-        background-color: var(--color-risk-low)/0.15;
-        color: var(--color-risk-low);
-    }
-
-    .badge-medium {
-        background-color: var(--color-risk-medium/0.18);
-        color: var(--color-risk-medium);
-    }
-
-    .badge-high {
-        background-color: var(--color-risk-high)/0.2;
-        color: var(--color-risk-high);
-    }
-
-    .badge-critical {
-        background-color: var(--color-risk-critical)/ 0.25;
-        color: var(--color-risk-critical);
-        text-shadow: 0 0 6px rgba(153, 27, 27, 0.45);
-    }
+  .badge-critical {
+    background-color: var(--color-risk-critical) / 0.25;
+    color: var(--color-risk-critical);
+    text-shadow: 0 0 6px rgba(153, 27, 27, 0.45);
+  }
 }

@@ -3,6 +3,7 @@
   import type { Benchmark } from "$lib/types";
 
   export let benchmark: Benchmark;
+  export let compact: boolean = false;
 
   // Helper to get date of the latest score
   function getLatestScoreDate(bench: Benchmark): Date | null {
@@ -45,10 +46,20 @@
 
 {#if latestDate}
   <div class="text-right">
-    <div class="text-5xl font-extrabold tracking-tighter {colorClass}">
+    <div
+      class="{compact
+        ? 'text-3xl'
+        : 'text-5xl'} font-extrabold tracking-tighter {compact
+        ? 'text-gray-900'
+        : colorClass}"
+    >
       {monthsOld}
     </div>
-    <div class="text-sm mt-2 text-gray-900 font-bold uppercase tracking-wide">
+    <div
+      class="{compact ? 'text-[10px]' : 'text-sm'} {compact
+        ? 'mt-0'
+        : 'mt-2'} text-gray-900 font-bold uppercase tracking-wide"
+    >
       months no update
     </div>
   </div>

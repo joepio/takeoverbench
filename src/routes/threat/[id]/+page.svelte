@@ -114,7 +114,7 @@
         <div class="space-y-10 pt-4">
           <!-- Description / Narrative -->
           <div class="mx-auto max-w-4xl">
-            <div class="text-base text-gray-700 leading-relaxed space-y-4">
+            <div class="text-lg text-gray-800 leading-relaxed space-y-4">
               {#if hydrated && ThreatComponent}
                 <svelte:component this={ThreatComponent} />
               {:else}
