@@ -155,15 +155,10 @@
               may gain the ability to operate autonomously, modify themselves,
               and pursue goals that conflict with human values and control.
               Without proper tracking and understanding of these capabilities,
-              we risk being caught unprepared.
+              we risk being caught unprepared. The transition from helpful tools
+              to autonomous agents may happen gradually, then suddenly. We need
+              to identify warning signs before critical thresholds are crossed.
             </p>
-            <div class="bg-primary/20 border-l-4 border-primary p-4 mt-6">
-              <p class="text-sm">
-                <strong>Key insight:</strong> The transition from helpful tools to
-                autonomous agents may happen gradually, then suddenly. We need to
-                identify warning signs before critical thresholds are crossed.
-              </p>
-            </div>
           </div>
         </section>
 

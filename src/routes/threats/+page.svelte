@@ -101,10 +101,10 @@
         {/each}
       </div>
 
-      <div class="text-center mt-10">
+      <div class="mt-10">
         <a
           href="/"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary font-medium rounded-lg border border-gray-900 hover:bg-gray-300 transition-colors duration-150"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary font-medium rounded-lg border border-gray-400/30 text-gray-900 hover:bg-gray-100 transition-colors duration-150"
         >
           Back to Home
         </a>
@@ -124,10 +124,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  .bg-surface-primary {
-    /* keep existing styling, ensure cards animate */
   }
 
   .grid > :global(div) {

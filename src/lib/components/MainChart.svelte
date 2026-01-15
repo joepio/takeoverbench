@@ -110,7 +110,12 @@
           if (typeof scaled === "number" && scaled > currentMax) {
             currentMax = scaled;
             dateToModelId[ts] = scoreObj.modelId ?? null;
-            return { x: ts, y: scaled };
+            return {
+              x: ts,
+              y: scaled,
+              modelId: scoreObj.modelId,
+              benchmarkId: bench.id,
+            };
           } else {
             dateToModelId[ts] = null;
             return { x: ts, y: null };
@@ -131,7 +136,7 @@
           borderWidth: 2,
           showLine: true,
           spanGaps: true,
-          meta: { dateToModelId },
+          meta: { dateToModelId, benchmarkId: bench.id },
         });
 
         // When SOTA filter is off, also add scatter plot with all points
@@ -156,7 +161,12 @@
 
             if (typeof scaled === "number") {
               scatterDateToModelId[ts] = scoreObj.modelId ?? null;
-              return { x: ts, y: scaled };
+              return {
+                x: ts,
+                y: scaled,
+                modelId: scoreObj.modelId,
+                benchmarkId: bench.id,
+              };
             } else {
               scatterDateToModelId[ts] = null;
               return { x: ts, y: null };
@@ -175,6 +185,7 @@
             meta: {
               isScatter: true,
               dateToModelId: scatterDateToModelId,
+              benchmarkId: bench.id,
             },
           });
         }
@@ -203,6 +214,8 @@
                 ...projection.projectedPoints.map((p) => ({
                   x: p.x,
                   y: p.y,
+                  isProjection: true,
+                  benchmarkId: bench.id,
                 })),
               ];
 
@@ -216,7 +229,7 @@
                 borderWidth: 2,
                 borderDash: [5, 5],
                 spanGaps: true,
-                meta: { isProjection: true },
+                meta: { isProjection: true, benchmarkId: bench.id },
                 hidden: false,
               });
             }
@@ -243,7 +256,7 @@
           const numPoints = 1000; // Add many points for smooth hover detection
           for (let i = 0; i <= numPoints; i++) {
             const x = startTime + (timeRange / numPoints) * i;
-            baselineData.push({ x, y: baselineValue });
+            baselineData.push({ x, y: baselineValue, isBaseline: true });
           }
 
           datasets.push({
@@ -499,61 +512,29 @@
               label: (context: any) => {
                 const dataset = context.dataset;
                 const meta = dataset?.meta ?? {};
-                const isBaseline = meta.isBaseline;
-                const isScatter = meta.isScatter;
+                const raw = context.raw ?? {};
 
-                // Handle baseline dataset
-                if (isBaseline) {
-                  const value = context.parsed?.y ?? "Unknown";
-                  return `Expert Baseline: ${typeof value === "number" ? value.toFixed(1) : value}%`;
+                // Handle specifically tagged points
+                if (meta.isToday) return "We are here";
+                if (meta.isBaseline || raw.isBaseline) {
+                  const val = context.parsed?.y ?? 0;
+                  return `Expert Baseline: ${val.toFixed(1)}%`;
+                }
+                if (meta.isProjection || raw.isProjection)
+                  return "Trend Projection";
+
+                // Direct model name from enriched data point
+                if (raw.modelId) {
+                  const model = models.find((m) => m.id === raw.modelId);
+                  if (model) return model.name;
                 }
 
-                // For scatter plots, map back to the correct benchmark
-                let benchIdx = context.datasetIndex ?? 0;
-                if (isScatter) {
-                  // Scatter datasets are added after SOTA line, so find the previous non-scatter
-                  benchIdx = Math.floor(benchIdx / 2);
-                }
-
-                const benchId = selectedBenchmarks[benchIdx];
-                const bench = getBenchmark(benchId);
-                if (!bench) return "";
-
-                const parsedX = context.parsed?.x;
-                const ts =
-                  typeof parsedX === "number"
-                    ? parsedX
-                    : typeof context.label === "string"
-                      ? Date.parse(context.label)
-                      : null;
-
-                const modelIdFromMeta =
-                  ts != null ? (meta.dateToModelId?.[ts] ?? null) : null;
-                let modelId = modelIdFromMeta;
-
-                if (!modelId && ts != null) {
-                  // Try to find by timestamp and score
-                  const score = context.parsed?.y;
-                  const match = bench.scores?.find((s) => {
-                    const m = models.find((mm) => mm.id === s.modelId);
-                    if (!m?.releaseDate) return false;
-                    const mts = Date.parse(m.releaseDate);
-                    if (Number.isNaN(mts) || Math.abs(mts - ts) > 86400000)
-                      return false; // not within 1 day
-
-                    const raw = s.score;
-                    const scaled =
-                      typeof raw === "number" && raw <= 1 ? raw * 100 : raw;
-                    return (
-                      typeof scaled === "number" &&
-                      Math.abs((scaled as number) - (score as number)) < 0.1
-                    );
-                  });
-                  modelId = match?.modelId ?? null;
-                }
-
-                const model = models.find((m) => m.id === modelId);
-                return model?.name ?? "Unknown";
+                // Fallback for line segments or missing model data
+                const benchId = raw.benchmarkId || meta.benchmarkId;
+                const bench = benchmarks.find((b) => b.id === benchId);
+                return bench
+                  ? bench.capabilityName || bench.name
+                  : context.dataset.label || "Unknown";
               },
             },
           },

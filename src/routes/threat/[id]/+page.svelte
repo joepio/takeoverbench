@@ -105,7 +105,7 @@
         <!-- Header -->
         <header class="pb-8 border-b border-gray-100/10 mb-8">
           <h1
-            class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight text-center"
+            class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight"
           >
             {threatModel?.name}
           </h1>
@@ -113,7 +113,7 @@
 
         <div class="space-y-10 pt-4">
           <!-- Description / Narrative -->
-          <div class="mx-auto max-w-4xl">
+          <div class="max-w-4xl">
             <div class="text-lg text-gray-800 leading-relaxed space-y-4">
               {#if hydrated && ThreatComponent}
                 <svelte:component this={ThreatComponent} />
@@ -141,16 +141,16 @@
 
           <!-- Benchmarks Section -->
           <div class="space-y-10">
-            <div class="mx-auto max-w-4xl">
-              <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <div class="max-w-4xl">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">
                 Dangerous capabilities required
               </h2>
 
-              <div class="flex flex-wrap justify-center gap-3">
+              <div class="flex flex-wrap justify-start gap-4">
                 {#each selectedBenchmarks as bid (bid)}
                   <a
                     href={"/benchmarks/" + bid}
-                    class="px-5 py-2.5 bg-surface-primary border border-gray-100/10 rounded-full text-sm font-bold text-gray-900 hover:border-blue-400/40 hover:bg-gray-100/5 transition-all no-underline"
+                    class="px-5 py-2.5 bg-gray-100/50 border border-gray-400/20 rounded-xl text-sm font-bold text-gray-900 hover:border-red-500/40 hover:bg-gray-100/80 transition-all no-underline shadow-sm"
                   >
                     {capabilityName(bid)}
                   </a>
@@ -158,7 +158,7 @@
               </div>
 
               {#if missingBenchmarks.length > 0}
-                <div class="mt-6 text-center">
+                <div class="mt-6">
                   <span
                     class="text-[10px] uppercase tracking-widest font-bold opacity-30"
                     >Pending data: {missingBenchmarks.join(", ")}</span
@@ -169,7 +169,7 @@
 
             <!-- Chart -->
             <div class="space-y-6">
-              <h3 class="text-xl font-bold text-gray-900 text-center">
+              <h3 class="text-xl font-bold text-gray-900">
                 Capabilities over time
               </h3>
               <div
@@ -217,9 +217,7 @@
               </h2>
               <ul class="space-y-4">
                 {#each threatModel.sources as source (source)}
-                  <li
-                    class="flex items-start gap-3 opacity-60 hover:opacity-100 transition-opacity"
-                  >
+                  <li class="flex items-start gap-3 opacity-70">
                     <span class="text-blue-500 mt-1 flex-shrink-0">•</span>
                     <span
                       class="text-sm break-words leading-relaxed font-medium"
@@ -233,7 +231,7 @@
           {/if}
         </div>
 
-        <div class="mt-16 pt-8 border-t border-gray-100/10 text-center">
+        <div class="mt-16 pt-8 border-t border-gray-100/10">
           <a
             href="/threats"
             class="inline-flex items-center gap-2 px-8 py-4 bg-surface-primary border border-gray-100/10 rounded-xl text-sm font-bold text-gray-900 hover:bg-gray-100/5 hover:border-blue-400/40 transition-all no-underline"
