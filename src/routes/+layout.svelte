@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href="/favicon.png" />
+  <link rel="icon" href="/favicon.svg" />
   <script src="https://swetrix.org/swetrix.js" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -43,7 +43,7 @@
   </div>
 {/if}
 
-<footer class="bg-gray-50 border-t border-gray-900 mt-20">
+<footer class="bg-gray-50 border-t border-gray-400/10 mt-20">
   <div class="container mx-auto px-5 md:px-6 lg:px-8 py-8 max-w-7xl">
     <div class="flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="text-sm">

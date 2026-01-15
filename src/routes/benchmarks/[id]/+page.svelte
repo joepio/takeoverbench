@@ -200,10 +200,11 @@
                     {#each relatedThreatModels as t}
                       <a
                         href={"/threat/" + t.id}
-                        class="group block bg-gray-50/5 border border-gray-900/20 rounded-xl p-5 hover:shadow-2xl hover:border-blue-400/30 hover:bg-gray-900/40 transition-all no-underline text-current"
+                        class="group block bg-surface-primary border border-gray-400/20 rounded-xl p-8 hover:shadow-2xl hover:border-blue-400/30 hover:bg-gray-100/5 transition-all duration-300 no-underline text-current"
+                        aria-labelledby={"threat-" + t.id + "-title"}
                       >
                         <div
-                          class="text-lg font-bold text-gray-900 group-hover:text-blue-500 transition-colors"
+                          class="text-lg font-bold text-gray-900 group-hover:text-blue-400 transition-colors"
                         >
                           {t.name}
                         </div>

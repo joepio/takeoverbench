@@ -150,7 +150,7 @@
                 {#each selectedBenchmarks as bid (bid)}
                   <a
                     href={"/benchmarks/" + bid}
-                    class="px-4 py-2 bg-gray-50/5 border border-gray-900/10 rounded-full text-sm font-bold text-gray-900 hover:border-blue-400/30 hover:bg-white/5 transition-all no-underline"
+                    class="px-5 py-2.5 bg-surface-primary border border-gray-100/10 rounded-full text-sm font-bold text-gray-900 hover:border-blue-400/40 hover:bg-gray-100/5 transition-all no-underline"
                   >
                     {capabilityName(bid)}
                   </a>
@@ -236,7 +236,7 @@
         <div class="mt-16 pt-8 border-t border-gray-100/10 text-center">
           <a
             href="/threats"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-gray-50/5 border border-gray-900/10 rounded-xl text-sm font-bold text-gray-900 hover:bg-white/5 hover:border-blue-400/30 transition-all"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-surface-primary border border-gray-100/10 rounded-xl text-sm font-bold text-gray-900 hover:bg-gray-100/5 hover:border-blue-400/40 transition-all no-underline"
           >
             <svg
               class="w-4 h-4"

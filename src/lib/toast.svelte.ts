@@ -20,6 +20,6 @@ export function shareWebsite() {
   if (!url) return;
 
   navigator.clipboard.writeText(url).then(() => {
-    showToast("It's on your clipboard. Now go tell the world on your socials!");
+    showToast("It's on your clipboard. Now go tell the world!");
   });
 }

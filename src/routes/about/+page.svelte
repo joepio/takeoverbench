@@ -50,8 +50,14 @@
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
       <!-- Navigation Sidebar -->
       <aside class="lg:col-span-1">
-        <nav class="sticky top-8 bg-surface-primary rounded-lg shadow-sm p-6">
-          <h3 class="font-semibold text-gray-900 mb-4">Contents</h3>
+        <nav
+          class="sticky top-32 bg-surface-primary rounded-xl border border-gray-400/20 p-8 shadow-sm"
+        >
+          <h3
+            class="font-bold text-gray-900 mb-6 uppercase tracking-widest text-xs"
+          >
+            Contents
+          </h3>
           <ul class="space-y-3">
             <li>
               <a

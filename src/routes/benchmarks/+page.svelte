@@ -69,18 +69,20 @@
         {#each benchmarks as benchmark}
           <a
             href={"/benchmarks/" + benchmark.id}
-            class="block bg-surface-primary rounded-2xl border border-gray-900 p-6 md:p-8 transition-all duration-200 hover:shadow-md no-underline text-current focus:outline-none focus:ring-2 focus:ring-blue-100"
+            class="group block bg-surface-primary rounded-xl border border-gray-400/20 p-8 transition-all duration-300 hover:shadow-2xl hover:border-blue-400/30 hover:bg-gray-100/5 no-underline text-current focus:outline-none focus:ring-2 focus:ring-blue-100"
             style="border-left: 4px solid {benchmark.color}"
           >
             <div class="flex flex-col md:flex-row justify-between gap-8 h-full">
               <div class="flex-1 flex flex-col">
-                <div class="flex justify-between items-start mb-4">
+                <div class="flex justify-between items-start mb-6">
                   <div>
-                    <h3 class="font-bold text-xl text-gray-900 leading-tight">
+                    <h3
+                      class="font-bold text-xl text-gray-900 leading-tight group-hover:text-blue-400 transition-colors"
+                    >
                       {benchmark.capabilityName ?? benchmark.name}
                     </h3>
                     <p
-                      class="text-xs text-gray-400 mt-1 font-bold uppercase tracking-widest"
+                      class="text-xs text-gray-400 mt-2 font-bold uppercase tracking-widest"
                     >
                       {benchmark.name}
                     </p>
@@ -88,7 +90,7 @@
                 </div>
 
                 <p
-                  class="text-sm text-gray-700 leading-relaxed mb-6 line-clamp-3"
+                  class="text-base text-gray-700 leading-relaxed mb-6 line-clamp-3"
                 >
                   {benchmark.capabilityDefinition}
                 </p>

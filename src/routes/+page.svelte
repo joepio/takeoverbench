@@ -121,25 +121,25 @@
           {#each threatModels as t (t.id)}
             <a
               href={"/threat/" + t.id}
-              class="block bg-surface-primary border border-gray-900 rounded-lg p-6 hover:shadow-lg transition-all duration-200 no-underline text-current hover:bg-surface-primary/50"
+              class="group block bg-surface-primary border border-gray-400/20 rounded-xl p-8 hover:shadow-2xl hover:border-blue-400/30 hover:bg-gray-100/5 transition-all duration-300 no-underline text-current"
               aria-labelledby={"threat-" + t.id + "-title"}
             >
-              <div class="flex items-start justify-between mb-3">
+              <div class="flex items-start justify-between mb-4">
                 <h2
                   id={"threat-" + t.id + "-title"}
-                  class="text-lg font-semibold text-gray-900"
+                  class="text-xl font-bold text-gray-900 group-hover:text-blue-400 transition-colors leading-tight"
                 >
                   {t.name}
                 </h2>
-                <div class="text-xs whitespace-nowrap mt-1.5">
+                <div
+                  class="text-[11px] uppercase tracking-widest font-bold text-gray-400 whitespace-nowrap mt-1.5 bg-gray-100/5 px-2 py-1 rounded"
+                >
                   {t.benchmarks?.length ?? 0} benchmarks
                 </div>
               </div>
 
-              <p class="text-sm mb-4">
-                {t.shortDescription ??
-                  t.longDescription ??
-                  "No description available."}
+              <p class="text-base text-gray-700 mb-6 leading-relaxed">
+                {t.shortDescription ?? t.longDescription?.slice(0, 120) + "..."}
               </p>
 
               {#if t.benchmarks && t.benchmarks.length > 0}
