@@ -1,4 +1,4 @@
-# [TakeOverBench](https://takeoverbench.netlify.app/)
+# [TakeOverBench](https://takeoverbench.com/)
 
 A comprehensive benchmark tracking system for AI capabilities and risk assessment.
 This platform monitors the rapid advancement of AI systems across critical benchmarks and maps their progress to potential threat models, providing data-driven insights for AI safety research and policy.
@@ -80,8 +80,8 @@ Netlify (PauseAI account) follows this repository and runs `pnpm build` on commi
 
 ## 🔗 Links
 
-- [Production Site](https://takeoverbench.com) (when deployed)
-- [GitHub Repository](https://github.com/pauseai/takeoverbench)
+- [TakeOverBench.com](https://takeoverbench.com)
+- [GitHub Repository](https://github.com/joepio/takeoverbench)
 - [PauseAI](https://pauseai.info)
 
 ## Credits
