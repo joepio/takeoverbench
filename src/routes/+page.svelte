@@ -99,7 +99,7 @@
           href="/benchmarks"
           class="inline-flex items-center gap-2 px-6 py-3 bg-surface-primary text-gray-900 font-medium rounded-lg border border-gray-900 hover:bg-black transition-colors duration-150"
         >
-          View benchmarks
+          Explore the Benchmarks
         </a>
       </div>
     </section>
