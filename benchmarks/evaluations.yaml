@@ -1,0 +1,28 @@
+evaluations:
+  ChemBench_mirza_2024:
+    name: chem_bench
+    csv_path: results/chembench.csv
+  MakeMeSay_openai_2024:
+    name: make_me_say
+    csv_path: results/makemesay.csv
+  ForecastBench_karger_2024:
+    name: forecast_bench
+    csv_path: results/forecastbench.csv
+  LongTasks_kwa_2025:
+    name: longtasks
+    csv_path: results/longtasks.csv
+  CyBench_zhang_2024:
+    name: cybench
+    csv_path: results/cybench.csv
+  SAD_laine_2025:
+    name: sad
+    csv_path: results/sad.csv
+  MLE-Bench_chan_2024:
+    name: mlebench
+    csv_path: results/mlebench.csv
+  RepliBench_black_2025:
+    name: replibench
+    csv_path: results/replibench.csv
+  VCT_goetting_2025:
+    name: vct
+    csv_path: results/vct.csv

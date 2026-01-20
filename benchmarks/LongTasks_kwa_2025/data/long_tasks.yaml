@@ -1,0 +1,663 @@
+benchmark_name: METR-Horizon-v1
+long_tasks_version: 2ce7f1e0c4f8b7f2653e7014941a1a9f3ca908e2
+results:
+  claude_3_5_sonnet:
+    metrics:
+      average_score:
+        estimate: 0.481203
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 34.387194
+        ci_low: 9.466023
+        estimate: 18.683233
+      p80_horizon_length:
+        ci_high: 7.063943
+        ci_low: 1.306563
+        estimate: 3.145649
+      usage:
+        usd: 196.56511410714285
+        working_time: 1030.3082023809525
+    release_date: 2024-06-20
+    scaffolds:
+    - modular-public
+    - null
+  claude_3_5_sonnet_20241022:
+    metrics:
+      average_score:
+        estimate: 0.530535
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 59.058879
+        ci_low: 14.031849
+        estimate: 29.575983
+      p80_horizon_length:
+        ci_high: 11.075156
+        ci_low: 1.718093
+        estimate: 4.595975
+      usage:
+        usd: 161.71823225000003
+        working_time: 1336.4173385416666
+    release_date: 2024-10-22
+    scaffolds:
+    - modular-public
+    - null
+  claude_3_7_sonnet:
+    metrics:
+      average_score:
+        estimate: 0.605035
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 93.424004
+        ci_low: 29.33067
+        estimate: 56.09162
+      p80_horizon_length:
+        ci_high: 31.035012
+        ci_low: 6.032292
+        estimate: 15.226294
+      usage:
+        usd: 207.87939662355143
+        working_time: 2179.8258234023388
+    release_date: 2025-02-24
+    scaffolds:
+    - flock-public
+    - null
+  claude_3_opus:
+    metrics:
+      average_score:
+        estimate: 0.377459
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 12.897461
+        ci_low: 2.90612
+        estimate: 6.405197
+      p80_horizon_length:
+        ci_high: 2.824986
+        ci_low: 0.427
+        estimate: 1.125839
+      usage:
+        usd: 567.2268110089286
+        working_time: 1280.6513436507935
+    release_date: 2024-03-04
+    scaffolds:
+    - modular-public
+    - null
+  claude_4_1_opus:
+    metrics:
+      average_score:
+        estimate: 0.677469
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 209.192356
+        ci_low: 57.552638
+        estimate: 113.68507
+      p80_horizon_length:
+        ci_high: 49.261019
+        ci_low: 7.519347
+        estimate: 21.891731
+      usage:
+        usd: 1800.8850575000001
+        working_time: 3009.6559888888887
+    release_date: 2025-08-05
+    scaffolds:
+    - flock-public
+    - null
+  claude_4_opus:
+    metrics:
+      average_score:
+        estimate: 0.648693
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 146.803709
+        ci_low: 45.062156
+        estimate: 85.556627
+      p80_horizon_length:
+        ci_high: 44.099938
+        ci_low: 7.853497
+        estimate: 20.879157
+      usage:
+        usd: 813.0177021666666
+        working_time: 1928.2307696296298
+    release_date: 2025-05-22
+    scaffolds:
+    - flock-public
+    - null
+  claude_4_sonnet:
+    metrics:
+      average_score:
+        estimate: 0.632651
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 133.985642
+        ci_low: 37.850721
+        estimate: 74.942015
+      p80_horizon_length:
+        ci_high: 36.743467
+        ci_low: 6.26905
+        estimate: 17.088888
+      usage:
+        usd: 155.26644238214283
+        working_time: 1887.6647392724867
+    release_date: 2025-05-22
+    scaffolds:
+    - flock-public
+    - null
+  claude_sonnet_4_5:
+    metrics:
+      average_score:
+        estimate: 0.683012
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 254.328258
+        ci_low: 56.041225
+        estimate: 121.946588
+      p80_horizon_length:
+        ci_high: 53.079511
+        ci_low: 6.68528
+        estimate: 21.179254
+      usage:
+        usd: 438.996314
+        working_time: 4142.081962222222
+    release_date: 2025-09-29
+    scaffolds:
+    - flock-public
+    - null
+  claude_opus_4_5:
+    metrics:
+      p50_horizon_length:
+        estimate: 288.904952
+        ci_low: 108.873592
+        ci_high: 1225.190511
+      p80_horizon_length:
+        estimate: 27.159829
+        ci_low: 6.887202
+        ci_high: 85.811317
+      average_score:
+        estimate: 0.74969
+      usage:
+        working_time: 6916.647208333334
+        usd: 859.1299301666668
+      is_sota: true
+    release_date: 2025-11-24
+    scaffolds:
+    - flock-public
+    - metr_tasks_swaa/init_solver,metr_tasks_swaa/swaa_solver
+  davinci_002:
+    metrics:
+      average_score:
+        estimate: 0.161869
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 0.244214
+        ci_low: 0.06737
+        estimate: 0.148793
+      p80_horizon_length:
+        ci_high: 0.063065
+        ci_low: 0.01249
+        estimate: 0.034139
+      usage:
+        usd: 66.11363827325752
+        working_time: 8847.569692901172
+    release_date: 2020-05-28
+    scaffolds:
+    - modular-public
+    - null
+  deepseek_r1:
+    metrics:
+      average_score:
+        estimate: 0.520133
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 50.923844
+        ci_low: 13.49502
+        estimate: 26.923538
+      p80_horizon_length:
+        ci_high: 9.756762
+        ci_low: 1.786525
+        estimate: 4.337051
+      usage:
+        usd: 291.3790981643849
+        working_time: 11242.381880119046
+    release_date: 2025-01-20
+    scaffolds:
+    - flock-public
+    - null
+  deepseek_r1_0528:
+    metrics:
+      average_score:
+        estimate: 0.542232
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 65.788856
+        ci_low: 13.39273
+        estimate: 32.174234
+      p80_horizon_length:
+        ci_high: 11.896534
+        ci_low: 1.120036
+        estimate: 3.773744
+      usage:
+        usd: 190.18930876478174
+        working_time: 5487.827241435185
+    release_date: 2025-05-28
+    scaffolds:
+    - flock-public
+    - null
+  deepseek_v3:
+    metrics:
+      average_score:
+        estimate: 0.474508
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 33.901815
+        ci_low: 9.008161
+        estimate: 18.484012
+      p80_horizon_length:
+        ci_high: 8.571598
+        ci_low: 1.527662
+        estimate: 3.843563
+      usage:
+        usd: 70.3799213217857
+        working_time: 1361.6004480753968
+    release_date: 2024-12-26
+    scaffolds:
+    - flock-public
+    - null
+  deepseek_v3_0324:
+    metrics:
+      average_score:
+        estimate: 0.497576
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 41.602775
+        ci_low: 11.819858
+        estimate: 23.2605
+      p80_horizon_length:
+        ci_high: 10.950042
+        ci_low: 2.346439
+        estimate: 5.264575
+      usage:
+        usd: 4.137916762500001
+        working_time: 1047.072376984127
+    release_date: 2025-03-24
+    scaffolds:
+    - flock-public
+    - null
+  gemini_2_5_pro_preview:
+    metrics:
+      average_score:
+        estimate: 0.557925
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 70.560939
+        ci_low: 19.978577
+        estimate: 39.527421
+      p80_horizon_length:
+        ci_high: 19.93351
+        ci_low: 3.842313
+        estimate: 9.308417
+      usage:
+        usd: 276.57266435267854
+        working_time: 1914.3639064484123
+    release_date: 2025-06-05
+    scaffolds:
+    - flock-public
+    - null
+  gpt-oss-120b:
+    metrics:
+      average_score:
+        estimate: 0.574566
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 88.228555
+        ci_low: 19.560806
+        estimate: 44.754917
+      p80_horizon_length:
+        ci_high: 17.612315
+        ci_low: 2.140896
+        estimate: 6.651343
+      usage:
+        usd: 12.916714238666668
+        working_time: 1245.1711444444443
+    release_date: 2025-08-05
+    scaffolds:
+    - flock-public
+    - null
+  gpt2:
+    metrics:
+      average_score:
+        estimate: 0.101046
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 0.130415
+        ci_low: 0.001939
+        estimate: 0.039762
+      p80_horizon_length:
+        ci_high: 0.027466
+        ci_low: 0.000134
+        estimate: 0.005652
+      usage:
+        usd: 0.0001664748
+        working_time: 0.0
+    release_date: 2019-02-14
+    scaffolds:
+    - null
+  gpt_3_5_turbo_instruct:
+    metrics:
+      average_score:
+        estimate: 0.214611
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 1.014481
+        ci_low: 0.258326
+        estimate: 0.604245
+      p80_horizon_length:
+        ci_high: 0.296838
+        ci_low: 0.05824
+        estimate: 0.1731
+      usage:
+        usd: 24.984426026785716
+        working_time: 1381.0521758730158
+    release_date: 2022-03-15
+    scaffolds:
+    - modular-public
+    - null
+  gpt_4:
+    metrics:
+      average_score:
+        estimate: 0.361067
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 10.267319
+        ci_low: 2.515004
+        estimate: 5.35186
+      p80_horizon_length:
+        ci_high: 2.233331
+        ci_low: 0.365612
+        estimate: 0.965652
+      usage:
+        usd: 6677.047423285714
+        working_time: 2308.11115265873
+    release_date: 2023-03-14
+    scaffolds:
+    - modular-public
+    - null
+  gpt_4_0125:
+    metrics:
+      average_score:
+        estimate: 0.351726
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 9.916649
+        ci_low: 2.727924
+        estimate: 5.358292
+      p80_horizon_length:
+        ci_high: 2.511169
+        ci_low: 0.525985
+        estimate: 1.198598
+      usage:
+        usd: 484.9183230654762
+        working_time: 815.6331945271164
+    release_date: 2024-01-25
+    scaffolds:
+    - modular-public
+    - null
+  gpt_4_1106:
+    metrics:
+      average_score:
+        estimate: 0.404329
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 16.377055
+        ci_low: 4.083815
+        estimate: 8.525919
+      p80_horizon_length:
+        ci_high: 3.487353
+        ci_low: 0.582505
+        estimate: 1.452328
+      usage:
+        usd: 876.2933317857143
+        working_time: 1042.7945379464286
+    release_date: 2023-11-06
+    scaffolds:
+    - modular-public
+    - null
+  gpt_4_turbo:
+    metrics:
+      average_score:
+        estimate: 0.367357
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 12.172031
+        ci_low: 3.323453
+        estimate: 6.55686
+      p80_horizon_length:
+        ci_high: 3.227611
+        ci_low: 0.697755
+        estimate: 1.524697
+      usage:
+        usd: 490.97356972222224
+        working_time: 823.3529637070105
+    release_date: 2024-04-09
+    scaffolds:
+    - modular-public
+    - null
+  gpt_4o:
+    metrics:
+      average_score:
+        estimate: 0.408517
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 18.25284
+        ci_low: 4.424494
+        estimate: 9.178848
+      p80_horizon_length:
+        ci_high: 3.860568
+        ci_low: 0.715974
+        estimate: 1.676437
+      usage:
+        usd: 188.9252092261905
+        working_time: 935.4595136904761
+    release_date: 2024-05-13
+    scaffolds:
+    - modular-public
+    - null
+  gpt_5:
+    metrics:
+      average_score:
+        estimate: 0.698403
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 272.794289
+        ci_low: 67.141734
+        estimate: 137.735311
+      p80_horizon_length:
+        ci_high: 63.553851
+        ci_low: 8.821782
+        estimate: 26.566128
+      usage:
+        usd: 58.95094499999999
+        working_time: 9658.390037162699
+    release_date: 2025-08-07
+    scaffolds:
+    - flock-secret
+    - null
+  gpt_5_1_codex_max:
+    metrics:
+      average_score:
+        estimate: 0.721134
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 378.398454
+        ci_low: 78.787471
+        estimate: 173.253623
+      p80_horizon_length:
+        ci_high: 84.563312
+        ci_low: 9.497828
+        estimate: 32.349982
+      usage:
+        usd: 112.1041775
+        working_time: 17980.2230625
+    release_date: 2025-11-19
+    scaffolds:
+    - flock-camel
+    - metr_tasks_swaa/init_solver,generate
+  grok_4:
+    metrics:
+      average_score:
+        estimate: 0.667187
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 231.789541
+        ci_low: 48.077568
+        estimate: 109.172956
+      p80_horizon_length:
+        ci_high: 42.591772
+        ci_low: 4.372209
+        estimate: 15.296487
+      usage:
+        usd: 229.33893247470172
+        working_time: 14409.447116216865
+    release_date: 2025-07-09
+    scaffolds:
+    - flock-public
+    - null
+  kimi_k2_thinking:
+    metrics:
+      average_score:
+        estimate: 0.60027
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 105.549733
+        ci_low: 26.905286
+        estimate: 57.599525
+      p80_horizon_length:
+        ci_high: 28.953145
+        ci_low: 3.654387
+        estimate: 11.643752
+      usage:
+        usd: 264.2665219908333
+        working_time: 10518.308561666667
+    release_date: 2025-11-06
+    scaffolds:
+    - flock-public
+    - metr_tasks_swaa/init_solver,generate
+  o1_elicited:
+    metrics:
+      average_score:
+        estimate: 0.56549
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 82.905448
+        ci_low: 17.57554
+        estimate: 41.05291
+      p80_horizon_length:
+        ci_high: 16.665466
+        ci_low: 1.902054
+        estimate: 6.071816
+      usage:
+        usd: 1919.4135625892857
+        working_time: 6413.8712869709
+    release_date: 2024-12-05
+    scaffolds:
+    - flock
+    - null
+  o1_preview:
+    metrics:
+      average_score:
+        estimate: 0.492955
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 38.631113
+        ci_low: 11.401374
+        estimate: 21.960172
+      p80_horizon_length:
+        ci_high: 9.432596
+        ci_low: 2.039112
+        estimate: 4.609009
+      usage:
+        usd: 3255.6205825982142
+        working_time: 4276.102677638889
+    release_date: 2024-09-12
+    scaffolds:
+    - duet
+    - null
+  o3:
+    metrics:
+      average_score:
+        estimate: 0.658782
+      is_sota: true
+      p50_horizon_length:
+        ci_high: 166.825336
+        ci_low: 48.011179
+        estimate: 94.005541
+      p80_horizon_length:
+        ci_high: 48.234031
+        ci_low: 7.922786
+        estimate: 21.431305
+      usage:
+        usd: 28.148351428571434
+        working_time: 8425.892823829365
+    release_date: 2025-04-16
+    scaffolds:
+    - flock-secret
+    - null
+  o4-mini:
+    metrics:
+      average_score:
+        estimate: 0.642837
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 154.6773
+        ci_low: 36.901739
+        estimate: 78.591387
+      p80_horizon_length:
+        ci_high: 38.680785
+        ci_low: 5.56953
+        estimate: 15.941371
+      usage:
+        usd: 7.620452842857144
+        working_time: 8780.788992301586
+    release_date: 2025-04-16
+    scaffolds:
+    - flock-secret
+    - null
+  qwen_2_5_72b:
+    metrics:
+      average_score:
+        estimate: 0.357771
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 10.30597
+        ci_low: 2.409497
+        estimate: 5.155558
+      p80_horizon_length:
+        ci_high: 2.218681
+        ci_low: 0.373154
+        estimate: 0.933954
+      usage:
+        usd: 15.041738861366884
+        working_time: 18678.042836669672
+    release_date: 2024-09-19
+    scaffolds:
+    - flock-public
+    - null
+  qwen_2_72b:
+    metrics:
+      average_score:
+        estimate: 0.298999
+      is_sota: false
+      p50_horizon_length:
+        ci_high: 4.847204
+        ci_low: 0.853072
+        estimate: 2.243232
+      p80_horizon_length:
+        ci_high: 1.080862
+        ci_low: 0.12378
+        estimate: 0.424743
+      usage:
+        usd: 81.01079996863636
+        working_time: 5001.478643935787
+    release_date: 2024-06-07
+    scaffolds:
+    - flock-public
+    - null
+swaa_version: 3d2ab4f0662a752409858a73e006af35e3fb7d64

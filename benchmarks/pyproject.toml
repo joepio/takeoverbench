@@ -1,0 +1,11 @@
+[project]
+name = "takeoverbench_benchmarks"
+version = "0.1.0"
+description = "Benchmark data for TakeOverBench"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "inspect-evals[makemesay]",
+    "openai>=2.6.0",
+    "requests>=2.32.5",
+]

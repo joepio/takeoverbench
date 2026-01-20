@@ -1,0 +1,12 @@
+Model,Accuracy (%)
+claude-opus-4.5,47.7
+claude-opus-4.1,42.9
+claude-sonnet-4.5,39.7
+o3,43.8
+gemini-2.5-pro,37.6
+o4-mini,37.0
+o1,35.4
+claude-3.7-sonnet,30.8
+gpt-4.5-preview,28.3
+gpt-4o,18.8
+Expert Virologists,22.1

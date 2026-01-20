@@ -31,6 +31,7 @@ This platform monitors the rapid advancement of AI systems across critical bench
 
 ```
 site/
+├── benchmarks/              # code to compile benchmark data
 ├── src/
 │   ├── lib/
 │   │   ├── components/      # Reusable UI components
@@ -50,7 +51,7 @@ site/
 └── package.json
 ```
 
-## 🚀 Getting Started
+## 🚀 Getting Started - Web App
 
 ### Prerequisites
 
@@ -77,6 +78,11 @@ pnpm lint
 ### Publishing
 
 Netlify (PauseAI account) follows this repository and runs `pnpm build` on commit, publishes to https://takeoverbench.netlify.app/
+
+## 🚀 Getting Started - Benchmark Data
+
+In development but read [benchmarks/README.md](benchmarks/README.md).
+
 
 ## 🔗 Links
 

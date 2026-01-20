@@ -1,0 +1,642 @@
+{
+    "Claude-3.7-Sonnet-20250219-": {
+        "name": "Claude-3.7-Sonnet-20250219",
+        "overall_score": 0.6582914572864321,
+        "topic_score": {
+            "Analytical Chemistry": 0.6513157894736842,
+            "Chemical Preference": 0.602,
+            "General Chemistry": 0.9060402684563759,
+            "Inorganic Chemistry": 0.8804347826086957,
+            "Materials Science": 0.7619047619047619,
+            "Organic Chemistry": 0.8368298368298368,
+            "Physical Chemistry": 0.8242424242424242,
+            "Technical Chemistry": 0.8,
+            "Toxicity and Safety": 0.482962962962963
+        },
+        "is_open": false
+    },
+    "o1-preview": {
+        "name": "o1-preview",
+        "overall_score": 0.64,
+        "topic_score": {
+            "Analytical Chemistry": 0.62,
+            "Chemical Preference": 0.56,
+            "General Chemistry": 0.93,
+            "Inorganic Chemistry": 0.9,
+            "Materials Science": 0.73,
+            "Organic Chemistry": 0.83,
+            "Physical Chemistry": 0.85,
+            "Technical Chemistry": 0.85,
+            "Toxicity and Safety": 0.48
+        },
+        "is_open": false
+    },
+    "claude3.5": {
+        "name": "Claude-3.5 (Sonnet)",
+        "overall_score": 0.63,
+        "topic_score": {
+            "Analytical Chemistry": 0.57,
+            "Chemical Preference": 0.58,
+            "General Chemistry": 0.83,
+            "Inorganic Chemistry": 0.84,
+            "Materials Science": 0.71,
+            "Organic Chemistry": 0.83,
+            "Physical Chemistry": 0.77,
+            "Technical Chemistry": 0.85,
+            "Toxicity and Safety": 0.44
+        },
+        "is_open": false
+    },
+    "claude3.5-react": {
+        "name": "Claude-3.5 (Sonnet) React",
+        "overall_score": 0.62,
+        "topic_score": {
+            "Analytical Chemistry": 0.58,
+            "Chemical Preference": 0.6,
+            "General Chemistry": 0.87,
+            "Inorganic Chemistry": 0.8,
+            "Materials Science": 0.68,
+            "Organic Chemistry": 0.84,
+            "Physical Chemistry": 0.76,
+            "Technical Chemistry": 0.8,
+            "Toxicity and Safety": 0.41
+        },
+        "is_open": false
+    },
+    "gpt-4o": {
+        "name": "GPT-4o",
+        "overall_score": 0.61,
+        "topic_score": {
+            "Analytical Chemistry": 0.56,
+            "Chemical Preference": 0.59,
+            "General Chemistry": 0.81,
+            "Inorganic Chemistry": 0.8,
+            "Materials Science": 0.75,
+            "Organic Chemistry": 0.76,
+            "Physical Chemistry": 0.72,
+            "Technical Chemistry": 0.75,
+            "Toxicity and Safety": 0.44
+        },
+        "is_open": false
+    },
+    "llama3.1-405b-instruct": {
+        "name": "Llama-3.1-405B-Instruct",
+        "overall_score": 0.58,
+        "topic_score": {
+            "Analytical Chemistry": 0.51,
+            "Chemical Preference": 0.54,
+            "General Chemistry": 0.79,
+            "Inorganic Chemistry": 0.77,
+            "Materials Science": 0.65,
+            "Organic Chemistry": 0.76,
+            "Physical Chemistry": 0.71,
+            "Technical Chemistry": 0.7,
+            "Toxicity and Safety": 0.42
+        },
+        "is_open": true
+    },
+    "mistral-large-2-123b": {
+        "name": "Mistral-Large-2",
+        "overall_score": 0.57,
+        "topic_score": {
+            "Analytical Chemistry": 0.48,
+            "Chemical Preference": 0.55,
+            "General Chemistry": 0.79,
+            "Inorganic Chemistry": 0.79,
+            "Materials Science": 0.67,
+            "Organic Chemistry": 0.73,
+            "Physical Chemistry": 0.69,
+            "Technical Chemistry": 0.68,
+            "Toxicity and Safety": 0.4
+        },
+        "is_open": true
+    },
+    "paper-qa": {
+        "name": "PaperQA2",
+        "overall_score": 0.57,
+        "topic_score": {
+            "Analytical Chemistry": 0.46,
+            "Chemical Preference": 0.56,
+            "General Chemistry": 0.72,
+            "Inorganic Chemistry": 0.74,
+            "Materials Science": 0.69,
+            "Organic Chemistry": 0.68,
+            "Physical Chemistry": 0.68,
+            "Technical Chemistry": 0.7,
+            "Toxicity and Safety": 0.42
+        },
+        "is_open": null
+    },
+    "claude3": {
+        "name": "Claude-3 (Opus)",
+        "overall_score": 0.57,
+        "topic_score": {
+            "Analytical Chemistry": 0.47,
+            "Chemical Preference": 0.57,
+            "General Chemistry": 0.77,
+            "Inorganic Chemistry": 0.79,
+            "Materials Science": 0.63,
+            "Organic Chemistry": 0.7,
+            "Physical Chemistry": 0.65,
+            "Technical Chemistry": 0.7,
+            "Toxicity and Safety": 0.41
+        },
+        "is_open": false
+    },
+    "llama3.1-70b-instruct": {
+        "name": "Llama-3.1-70B-Instruct",
+        "overall_score": 0.53,
+        "topic_score": {
+            "Analytical Chemistry": 0.41,
+            "Chemical Preference": 0.52,
+            "General Chemistry": 0.69,
+            "Inorganic Chemistry": 0.77,
+            "Materials Science": 0.67,
+            "Organic Chemistry": 0.66,
+            "Physical Chemistry": 0.64,
+            "Technical Chemistry": 0.65,
+            "Toxicity and Safety": 0.38
+        },
+        "is_open": true
+    },
+    "Qwen-test-24-feb-1": {
+        "name": "Qwen-test-24-feb",
+        "overall_score": 0.5287150035893754,
+        "topic_score": {
+            "Analytical Chemistry": 0.4276315789473684,
+            "Chemical Preference": 0.529,
+            "General Chemistry": 0.6711409395973155,
+            "Inorganic Chemistry": 0.6847826086956522,
+            "Materials Science": 0.6190476190476191,
+            "Organic Chemistry": 0.6386946386946387,
+            "Physical Chemistry": 0.6545454545454545,
+            "Technical Chemistry": 0.575,
+            "Toxicity and Safety": 0.3837037037037037
+        },
+        "is_open": true
+    },
+    "groq/qwen-2.5-32b-1.0": {
+        "name": "groq/qwen-2.5-32b",
+        "overall_score": 0.5287150035893754,
+        "topic_score": {
+            "Analytical Chemistry": 0.4276315789473684,
+            "Chemical Preference": 0.529,
+            "General Chemistry": 0.6711409395973155,
+            "Inorganic Chemistry": 0.6847826086956522,
+            "Materials Science": 0.6190476190476191,
+            "Organic Chemistry": 0.6386946386946387,
+            "Physical Chemistry": 0.6545454545454545,
+            "Technical Chemistry": 0.575,
+            "Toxicity and Safety": 0.3837037037037037
+        },
+        "is_open": true
+    },
+    "llama3-70b-instruct-T-one": {
+        "name": "Llama-3-70B-Instruct (Temperature 1.0)",
+        "overall_score": 0.52,
+        "topic_score": {
+            "Analytical Chemistry": 0.38,
+            "Chemical Preference": 0.53,
+            "General Chemistry": 0.6,
+            "Inorganic Chemistry": 0.68,
+            "Materials Science": 0.62,
+            "Organic Chemistry": 0.63,
+            "Physical Chemistry": 0.6,
+            "Technical Chemistry": 0.6,
+            "Toxicity and Safety": 0.37
+        },
+        "is_open": true
+    },
+    "llama3-70b-instruct": {
+        "name": "Llama-3-70B-Instruct",
+        "overall_score": 0.52,
+        "topic_score": {
+            "Analytical Chemistry": 0.41,
+            "Chemical Preference": 0.53,
+            "General Chemistry": 0.6,
+            "Inorganic Chemistry": 0.66,
+            "Materials Science": 0.63,
+            "Organic Chemistry": 0.63,
+            "Physical Chemistry": 0.59,
+            "Technical Chemistry": 0.62,
+            "Toxicity and Safety": 0.37
+        },
+        "is_open": true
+    },
+    "gpt-4o-react": {
+        "name": "GPT-4o React",
+        "overall_score": 0.51,
+        "topic_score": {
+            "Analytical Chemistry": 0.47,
+            "Chemical Preference": 0.42,
+            "General Chemistry": 0.76,
+            "Inorganic Chemistry": 0.73,
+            "Materials Science": 0.56,
+            "Organic Chemistry": 0.72,
+            "Physical Chemistry": 0.6,
+            "Technical Chemistry": 0.72,
+            "Toxicity and Safety": 0.37
+        },
+        "is_open": false
+    },
+    "llama3.1-70b-instruct-T-one": {
+        "name": "Llama-3.1-70B-Instruct (Temperature 1.0)",
+        "overall_score": 0.51,
+        "topic_score": {
+            "Analytical Chemistry": 0.37,
+            "Chemical Preference": 0.54,
+            "General Chemistry": 0.66,
+            "Inorganic Chemistry": 0.7,
+            "Materials Science": 0.65,
+            "Organic Chemistry": 0.55,
+            "Physical Chemistry": 0.56,
+            "Technical Chemistry": 0.55,
+            "Toxicity and Safety": 0.39
+        },
+        "is_open": true
+    },
+    "gemma-2-9b-it-T-one": {
+        "name": "Gemma-2-9B-it (Temperature 1.0)",
+        "overall_score": 0.48,
+        "topic_score": {
+            "Analytical Chemistry": 0.29,
+            "Chemical Preference": 0.56,
+            "General Chemistry": 0.56,
+            "Inorganic Chemistry": 0.54,
+            "Materials Science": 0.5,
+            "Organic Chemistry": 0.55,
+            "Physical Chemistry": 0.47,
+            "Technical Chemistry": 0.47,
+            "Toxicity and Safety": 0.34
+        },
+        "is_open": true
+    },
+    "gemma-2-9b-it": {
+        "name": "Gemma-2-9B-it",
+        "overall_score": 0.48,
+        "topic_score": {
+            "Analytical Chemistry": 0.32,
+            "Chemical Preference": 0.55,
+            "General Chemistry": 0.54,
+            "Inorganic Chemistry": 0.55,
+            "Materials Science": 0.52,
+            "Organic Chemistry": 0.56,
+            "Physical Chemistry": 0.48,
+            "Technical Chemistry": 0.53,
+            "Toxicity and Safety": 0.34
+        },
+        "is_open": true
+    },
+    "llama3.1-8b-instruct": {
+        "name": "Llama-3.1-8B-Instruct",
+        "overall_score": 0.47,
+        "topic_score": {
+            "Analytical Chemistry": 0.39,
+            "Chemical Preference": 0.53,
+            "General Chemistry": 0.5,
+            "Inorganic Chemistry": 0.5,
+            "Materials Science": 0.4,
+            "Organic Chemistry": 0.58,
+            "Physical Chemistry": 0.51,
+            "Technical Chemistry": 0.45,
+            "Toxicity and Safety": 0.33
+        },
+        "is_open": true
+    },
+    "phi-3-medium-4k-instruct": {
+        "name": "Phi-3-Medium-4k-Instruct",
+        "overall_score": 0.47,
+        "topic_score": {
+            "Analytical Chemistry": 0.34,
+            "Chemical Preference": 0.53,
+            "General Chemistry": 0.48,
+            "Inorganic Chemistry": 0.63,
+            "Materials Science": 0.55,
+            "Organic Chemistry": 0.56,
+            "Physical Chemistry": 0.46,
+            "Technical Chemistry": 0.55,
+            "Toxicity and Safety": 0.33
+        },
+        "is_open": true
+    },
+    "gpt-3.5-turbo": {
+        "name": "GPT-3.5 Turbo",
+        "overall_score": 0.47,
+        "topic_score": {
+            "Analytical Chemistry": 0.38,
+            "Chemical Preference": 0.53,
+            "General Chemistry": 0.49,
+            "Inorganic Chemistry": 0.54,
+            "Materials Science": 0.48,
+            "Organic Chemistry": 0.59,
+            "Physical Chemistry": 0.4,
+            "Technical Chemistry": 0.4,
+            "Toxicity and Safety": 0.31
+        },
+        "is_open": false
+    },
+    "claude2": {
+        "name": "Claude-2",
+        "overall_score": 0.47,
+        "topic_score": {
+            "Analytical Chemistry": 0.38,
+            "Chemical Preference": 0.51,
+            "General Chemistry": 0.5,
+            "Inorganic Chemistry": 0.61,
+            "Materials Science": 0.46,
+            "Organic Chemistry": 0.59,
+            "Physical Chemistry": 0.5,
+            "Technical Chemistry": 0.47,
+            "Toxicity and Safety": 0.33
+        },
+        "is_open": false
+    },
+    "llama3.1-8b-instruct-T-one": {
+        "name": "Llama-3.1-8B-Instruct (Temperature 1.0)",
+        "overall_score": 0.46,
+        "topic_score": {
+            "Analytical Chemistry": 0.36,
+            "Chemical Preference": 0.52,
+            "General Chemistry": 0.53,
+            "Inorganic Chemistry": 0.48,
+            "Materials Science": 0.42,
+            "Organic Chemistry": 0.58,
+            "Physical Chemistry": 0.42,
+            "Technical Chemistry": 0.4,
+            "Toxicity and Safety": 0.32
+        },
+        "is_open": true
+    },
+    "llama3-8b-instruct": {
+        "name": "Llama-3-8B-Instruct",
+        "overall_score": 0.46,
+        "topic_score": {
+            "Analytical Chemistry": 0.41,
+            "Chemical Preference": 0.52,
+            "General Chemistry": 0.44,
+            "Inorganic Chemistry": 0.49,
+            "Materials Science": 0.42,
+            "Organic Chemistry": 0.56,
+            "Physical Chemistry": 0.37,
+            "Technical Chemistry": 0.6,
+            "Toxicity and Safety": 0.32
+        },
+        "is_open": true
+    },
+    "llama3-8b-instruct-T-one": {
+        "name": "Llama-3-8B-Instruct (Temperature 1.0)",
+        "overall_score": 0.46,
+        "topic_score": {
+            "Analytical Chemistry": 0.4,
+            "Chemical Preference": 0.52,
+            "General Chemistry": 0.44,
+            "Inorganic Chemistry": 0.54,
+            "Materials Science": 0.45,
+            "Organic Chemistry": 0.55,
+            "Physical Chemistry": 0.35,
+            "Technical Chemistry": 0.62,
+            "Toxicity and Safety": 0.32
+        },
+        "is_open": true
+    },
+    "command-r+": {
+        "name": "Command-R+",
+        "overall_score": 0.45,
+        "topic_score": {
+            "Analytical Chemistry": 0.34,
+            "Chemical Preference": 0.51,
+            "General Chemistry": 0.5,
+            "Inorganic Chemistry": 0.52,
+            "Materials Science": 0.46,
+            "Organic Chemistry": 0.55,
+            "Physical Chemistry": 0.33,
+            "Technical Chemistry": 0.5,
+            "Toxicity and Safety": 0.31
+        },
+        "is_open": false
+    },
+    "gemini-pro": {
+        "name": "Gemini-Pro",
+        "overall_score": 0.45,
+        "topic_score": {
+            "Analytical Chemistry": 0.39,
+            "Chemical Preference": 0.5,
+            "General Chemistry": 0.48,
+            "Inorganic Chemistry": 0.47,
+            "Materials Science": 0.5,
+            "Organic Chemistry": 0.57,
+            "Physical Chemistry": 0.45,
+            "Technical Chemistry": 0.47,
+            "Toxicity and Safety": 0.31
+        },
+        "is_open": false
+    },
+    "mixtral-8x7b-instruct-T-one": {
+        "name": "Mixtral-8x7b-Instruct (Temperature 1.0)",
+        "overall_score": 0.42,
+        "topic_score": {
+            "Analytical Chemistry": 0.28,
+            "Chemical Preference": 0.52,
+            "General Chemistry": 0.45,
+            "Inorganic Chemistry": 0.51,
+            "Materials Science": 0.4,
+            "Organic Chemistry": 0.47,
+            "Physical Chemistry": 0.35,
+            "Technical Chemistry": 0.33,
+            "Toxicity and Safety": 0.27
+        },
+        "is_open": true
+    },
+    "mixtral-8x7b-instruct": {
+        "name": "Mixtral-8x7b-Instruct",
+        "overall_score": 0.42,
+        "topic_score": {
+            "Analytical Chemistry": 0.27,
+            "Chemical Preference": 0.54,
+            "General Chemistry": 0.42,
+            "Inorganic Chemistry": 0.55,
+            "Materials Science": 0.42,
+            "Organic Chemistry": 0.48,
+            "Physical Chemistry": 0.33,
+            "Technical Chemistry": 0.33,
+            "Toxicity and Safety": 0.27
+        },
+        "is_open": true
+    },
+    "gpt-4": {
+        "name": "GPT-4",
+        "overall_score": 0.41,
+        "topic_score": {
+            "Analytical Chemistry": 0.43,
+            "Chemical Preference": 0.16,
+            "General Chemistry": 0.7,
+            "Inorganic Chemistry": 0.7,
+            "Materials Science": 0.61,
+            "Organic Chemistry": 0.68,
+            "Physical Chemistry": 0.64,
+            "Technical Chemistry": 0.7,
+            "Toxicity and Safety": 0.41
+        },
+        "is_open": false
+    },
+    "llama2-70b-chat": {
+        "name": "Llama-2-70B Chat",
+        "overall_score": 0.27,
+        "topic_score": {
+            "Analytical Chemistry": 0.07,
+            "Chemical Preference": 0.49,
+            "General Chemistry": 0.13,
+            "Inorganic Chemistry": 0.22,
+            "Materials Science": 0.18,
+            "Organic Chemistry": 0.15,
+            "Physical Chemistry": 0.17,
+            "Technical Chemistry": 0.12,
+            "Toxicity and Safety": 0.14
+        },
+        "is_open": true
+    },
+    "llama2-13b-chat": {
+        "name": "Llama-2-13B Chat",
+        "overall_score": 0.26,
+        "topic_score": {
+            "Analytical Chemistry": 0.09,
+            "Chemical Preference": 0.48,
+            "General Chemistry": 0.11,
+            "Inorganic Chemistry": 0.27,
+            "Materials Science": 0.1,
+            "Organic Chemistry": 0.15,
+            "Physical Chemistry": 0.15,
+            "Technical Chemistry": 0.1,
+            "Toxicity and Safety": 0.1
+        },
+        "is_open": true
+    },
+    "gemma-1-1-7b-it": {
+        "name": "Gemma-1.1-7B-it",
+        "overall_score": 0.19,
+        "topic_score": {
+            "Analytical Chemistry": 0.21,
+            "Chemical Preference": 0.0,
+            "General Chemistry": 0.34,
+            "Inorganic Chemistry": 0.41,
+            "Materials Science": 0.36,
+            "Organic Chemistry": 0.38,
+            "Physical Chemistry": 0.29,
+            "Technical Chemistry": 0.38,
+            "Toxicity and Safety": 0.23
+        },
+        "is_open": true
+    },
+    "gemma-1-1-7b-it-T-one": {
+        "name": "Gemma-1.1-7B-it (Temperature 1.0)",
+        "overall_score": 0.19,
+        "topic_score": {
+            "Analytical Chemistry": 0.21,
+            "Chemical Preference": 0.01,
+            "General Chemistry": 0.35,
+            "Inorganic Chemistry": 0.41,
+            "Materials Science": 0.36,
+            "Organic Chemistry": 0.37,
+            "Physical Chemistry": 0.3,
+            "Technical Chemistry": 0.38,
+            "Toxicity and Safety": 0.22
+        },
+        "is_open": true
+    },
+    "qwen-2.5-1.5b": {
+        "name": "Qwen-2.5-1.5B",
+        "overall_score": 0.0990667623833453,
+        "topic_score": {
+            "Analytical Chemistry": 0.1118421052631579,
+            "Chemical Preference": 0.015,
+            "General Chemistry": 0.10738255033557047,
+            "Inorganic Chemistry": 0.10869565217391304,
+            "Materials Science": 0.17857142857142858,
+            "Organic Chemistry": 0.1888111888111888,
+            "Physical Chemistry": 0.10909090909090909,
+            "Technical Chemistry": 0.2,
+            "Toxicity and Safety": 0.14222222222222222
+        },
+        "is_open": true
+    },
+    "test-versioning-1": {
+        "name": "test-versioning",
+        "overall_score": 0.0990667623833453,
+        "topic_score": {
+            "Analytical Chemistry": 0.1118421052631579,
+            "Chemical Preference": 0.015,
+            "General Chemistry": 0.10738255033557047,
+            "Inorganic Chemistry": 0.10869565217391304,
+            "Materials Science": 0.17857142857142858,
+            "Organic Chemistry": 0.1888111888111888,
+            "Physical Chemistry": 0.10909090909090909,
+            "Technical Chemistry": 0.2,
+            "Toxicity and Safety": 0.14222222222222222
+        },
+        "is_open": true
+    },
+    "test-submission-versioning-1": {
+        "name": "test-submission-versioning",
+        "overall_score": 0.0990667623833453,
+        "topic_score": {
+            "Analytical Chemistry": 0.1118421052631579,
+            "Chemical Preference": 0.015,
+            "General Chemistry": 0.10738255033557047,
+            "Inorganic Chemistry": 0.10869565217391304,
+            "Materials Science": 0.17857142857142858,
+            "Organic Chemistry": 0.1888111888111888,
+            "Physical Chemistry": 0.10909090909090909,
+            "Technical Chemistry": 0.2,
+            "Toxicity and Safety": 0.14222222222222222
+        },
+        "is_open": true
+    },
+    "leaderboard-version-update-test-1": {
+        "name": "leaderboard-version-update-test",
+        "overall_score": 0.0990667623833453,
+        "topic_score": {
+            "Analytical Chemistry": 0.1118421052631579,
+            "Chemical Preference": 0.015,
+            "General Chemistry": 0.10738255033557047,
+            "Inorganic Chemistry": 0.10869565217391304,
+            "Materials Science": 0.17857142857142858,
+            "Organic Chemistry": 0.1888111888111888,
+            "Physical Chemistry": 0.10909090909090909,
+            "Technical Chemistry": 0.2,
+            "Toxicity and Safety": 0.14222222222222222
+        },
+        "is_open": true
+    },
+    "galactica_120b": {
+        "name": "Galactica-120b",
+        "overall_score": 0.02,
+        "topic_score": {
+            "Analytical Chemistry": 0.0,
+            "Chemical Preference": 0.0,
+            "General Chemistry": 0.05,
+            "Inorganic Chemistry": 0.05,
+            "Materials Science": 0.0,
+            "Organic Chemistry": 0.01,
+            "Physical Chemistry": 0.06,
+            "Technical Chemistry": 0.0,
+            "Toxicity and Safety": 0.02
+        },
+        "is_open": true
+    },
+    "DeepSeek-R1-1.5B": {
+        "name": "DeepSeek-R1",
+        "overall_score": 0.006101938262742283,
+        "topic_score": {
+            "Analytical Chemistry": 0.0,
+            "Chemical Preference": 0.0,
+            "General Chemistry": 0.0,
+            "Inorganic Chemistry": 0.010869565217391304,
+            "Materials Science": 0.011904761904761904,
+            "Organic Chemistry": 0.018648018648018648,
+            "Physical Chemistry": 0.0,
+            "Technical Chemistry": 0.0,
+            "Toxicity and Safety": 0.01037037037037037
+        },
+        "is_open": true
+    }
+}
