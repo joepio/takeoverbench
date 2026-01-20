@@ -202,12 +202,42 @@
     "metricName": "score",
     "scores": [
       {
-        "modelId": "gemini-2.5-pro - FM Agent",
-        "score": 0.43560000000000004,
-        "stdError": 0.0178
+        "modelId": "gemini-3-pro-preview - PiEvolve (Fractal AI Research)",
+        "score": 0.6133,
+        "stdError": 0.0077
       },
       {
-        "modelId": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
+        "modelId": "gemini-2.5-pro - Famou-Agent 2.0",
+        "score": 0.5956,
+        "stdError": 0.0089
+      },
+      {
+        "modelId": "deepseek-v3.2-speciale - ML-Master 2.0",
+        "score": 0.5644,
+        "stdError": 0.024700000000000003
+      },
+      {
+        "modelId": "gemini-3-pro-preview - Leeroo",
+        "score": 0.5067,
+        "stdError": 0.013300000000000001
+      },
+      {
+        "modelId": "gpt-5-codex - Thesis",
+        "score": 0.4844,
+        "stdError": 0.0364
+      },
+      {
+        "modelId": "gemini-2.5-pro - CAIR MLE-STAR-Pro-1.5",
+        "score": 0.44,
+        "stdError": 0.013300000000000001
+      },
+      {
+        "modelId": "gemini-2.5-pro - Famou-Agent",
+        "score": 0.43560000000000004,
+        "stdError": 0.0089
+      },
+      {
+        "modelId": "gemini-2.5-pro - CAIR MLE-STAR-Pro-1.0",
         "score": 0.38670000000000004,
         "stdError": 0.0077
       },
@@ -229,7 +259,7 @@
       {
         "modelId": "o3 - AIRA-dojo",
         "score": 0.316,
-        "stdError": 0.008
+        "stdError": 0.008199999999999999
       },
       {
         "modelId": "o3 + gpt-4.1 - R&D-Agent",
@@ -238,8 +268,8 @@
       },
       {
         "modelId": "deepseek-r1 - ML-Master",
-        "score": 0.293,
-        "stdError": 0.008
+        "score": 0.2933,
+        "stdError": 0.0077
       },
       {
         "modelId": "o1-preview - R&D-Agent",
@@ -248,33 +278,33 @@
       },
       {
         "modelId": "o1-preview - AIDE",
-        "score": 0.16899999999999998,
-        "stdError": 0.011000000000000001
+        "score": 0.17120000000000002,
+        "stdError": 0.0060999999999999995
       },
       {
         "modelId": "gpt-4o-2024-08-06 - AIDE",
-        "score": 0.086,
-        "stdError": 0.005
+        "score": 0.0863,
+        "stdError": 0.0054
       },
       {
         "modelId": "claude-3-5-sonnet-20240620 - AIDE",
-        "score": 0.075,
-        "stdError": 0.018000000000000002
+        "score": 0.0756,
+        "stdError": 0.016
       },
       {
         "modelId": "gpt-4o-2024-08-06 - OpenHands",
-        "score": 0.051,
-        "stdError": 0.013000000000000001
+        "score": 0.0489,
+        "stdError": 0.0044
       },
       {
         "modelId": "llama-3.1-405b-instruct - AIDE",
-        "score": 0.031,
-        "stdError": 0.009000000000000001
+        "score": 0.0333,
+        "stdError": 0.0038
       },
       {
         "modelId": "gpt-4o-2024-08-06 - MLAB",
-        "score": 0.013000000000000001,
-        "stdError": 0.005
+        "score": 0.016,
+        "stdError": 0.0027
       }
     ],
     "randomBaseline": null,

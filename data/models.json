@@ -498,6 +498,12 @@
     "organization": "DeepSeek"
   },
   {
+    "id": "deepseek-v3.2-speciale - ML-Master 2.0",
+    "name": "deepseek-v3.2-speciale - ML-Master 2.0",
+    "releaseDate": "2025-11-28",
+    "organization": "DeepSeek"
+  },
+  {
     "id": "gemini-1.0-pro",
     "name": "Gemini 1.0 Pro",
     "releaseDate": "2023-12-06",
@@ -528,15 +534,39 @@
     "organization": "Google"
   },
   {
-    "id": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
-    "name": "gemini-2.5-pro - CAIR MLE-STAR-Pro",
+    "id": "gemini-2.5-pro - CAIR MLE-STAR-Pro-1.0",
+    "name": "gemini-2.5-pro - CAIR MLE-STAR-Pro-1.0",
     "releaseDate": "2025-07-17",
     "organization": "Google"
   },
   {
-    "id": "gemini-2.5-pro - FM Agent",
-    "name": "gemini-2.5-pro - FM Agent",
+    "id": "gemini-2.5-pro - CAIR MLE-STAR-Pro-1.5",
+    "name": "gemini-2.5-pro - CAIR MLE-STAR-Pro-1.5",
     "releaseDate": "2025-07-17",
+    "organization": "Google"
+  },
+  {
+    "id": "gemini-2.5-pro - Famou-Agent",
+    "name": "gemini-2.5-pro - Famou-Agent",
+    "releaseDate": "2025-07-17",
+    "organization": "Google"
+  },
+  {
+    "id": "gemini-2.5-pro - Famou-Agent 2.0",
+    "name": "gemini-2.5-pro - Famou-Agent 2.0",
+    "releaseDate": "2025-07-17",
+    "organization": "Google"
+  },
+  {
+    "id": "gemini-3-pro-preview - Leeroo",
+    "name": "gemini-3-pro-preview - Leeroo",
+    "releaseDate": "2025-11-18",
+    "organization": "Google"
+  },
+  {
+    "id": "gemini-3-pro-preview - PiEvolve (Fractal AI Research)",
+    "name": "gemini-3-pro-preview - PiEvolve (Fractal AI Research)",
+    "releaseDate": "2025-11-18",
     "organization": "Google"
   },
   {
@@ -651,6 +681,12 @@
     "id": "gpt-5-1-codex-max",
     "name": "gpt-5-1-codex-max",
     "releaseDate": "2025-11-19",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-5-codex - Thesis",
+    "name": "gpt-5-codex - Thesis",
+    "releaseDate": "2025-09-15",
     "organization": "OpenAI"
   },
   {
