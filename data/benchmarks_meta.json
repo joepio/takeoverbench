@@ -97,8 +97,8 @@
     "motivation": "Several benchmarks measure situational awareness, including [SA-Bench](https://aclanthology.org/2024.findings-emnlp.464/), [AwareBench](https://arxiv.org/abs/2401.17882), and [GDM's Situational Awareness Evaluation](https://arxiv.org/abs/2505.01420). Among these, only SAD and the GDM evaluation directly address safety concerns. The GDM evaluation contains just 11 tasks, making it difficult to capture progressive capability development numerically. Neither SAD nor the GDM evaluation maintains a publicly updated leaderboard, which would be valuable for tracking progress in this area.",
     "url": "https://situational-awareness-dataset.org/",
     "humanBaseline": null,
-    "expertBaseline": 0.907,
-    "randomBaseline": 0.274,
+    "expertBaseline": 0.848,
+    "randomBaseline": 0.45,
     "color": "#f97316",
     "category": "reasoning",
     "projectionType": "s-curve"
