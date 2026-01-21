@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "inspect-evals[makemesay]",
     "openai>=2.6.0",
+    "pyyaml>=6.0.3",
     "requests>=2.32.5",
 ]

@@ -1,0 +1,14 @@
+# Models to evaluate - add new ones here
+models:
+  - openrouter/anthropic/claude-opus-4.5
+  - openrouter/google/gemini-2.5-pro
+  - openrouter/deepseek/deepseek-r1
+
+# Models that have been successfully evaluated (updated automatically or you can fill if it in directly if you ran evaluations manually)
+completed:
+  - openrouter/anthropic/claude-opus-4.5
+  - openrouter/google/gemini-2.5-pro
+  - openrouter/deepseek/deepseek-r1
+
+settings:
+  max_connections: 30
