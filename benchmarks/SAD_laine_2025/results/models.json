@@ -1,0 +1,140 @@
+[
+  {
+    "id": "davinci-002",
+    "name": "Davinci 002",
+    "releaseDate": "2022-11-01",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-3.5-turbo-0613",
+    "name": "GPT-3.5 Turbo 0613",
+    "releaseDate": "2023-06-13",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "gpt-4-0613",
+    "name": "GPT-4 0613",
+    "releaseDate": "2023-06-13",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "claude-instant-1.2",
+    "name": "Claude Instant 1.2",
+    "releaseDate": "2023-08-09",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-2.1",
+    "name": "Claude 2.1",
+    "releaseDate": "2023-11-21",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "gpt-4-0125-preview",
+    "name": "GPT-4 0125 Preview",
+    "releaseDate": "2024-01-25",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "llama-2-7b",
+    "name": "Llama 2 7B",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-7b-chat",
+    "name": "Llama 2 7B Chat",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-13b",
+    "name": "Llama 2 13B",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-13b-chat",
+    "name": "Llama 2 13B Chat",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-70b",
+    "name": "Llama 2 70B",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "llama-2-70b-chat",
+    "name": "Llama 2 70B Chat",
+    "releaseDate": "2024-02-24",
+    "organization": "Meta"
+  },
+  {
+    "id": "claude-3-haiku",
+    "name": "Claude 3 Haiku",
+    "releaseDate": "2024-03-04",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3-sonnet",
+    "name": "Claude 3 Sonnet",
+    "releaseDate": "2024-03-04",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "claude-3-opus",
+    "name": "Claude 3 Opus",
+    "releaseDate": "2024-03-04",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "llama-3-70b-chat",
+    "name": "Llama 3 70B Chat",
+    "releaseDate": "2024-04-18",
+    "organization": "Meta"
+  },
+  {
+    "id": "gpt-4o",
+    "name": "GPT-4o",
+    "releaseDate": "2024-05-13",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "claude-3.5-sonnet",
+    "name": "Claude 3.5 Sonnet",
+    "releaseDate": "2024-06-20",
+    "organization": "Anthropic"
+  },
+  {
+    "id": "o1-mini",
+    "name": "o1 Mini",
+    "releaseDate": "2024-09-12",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "o1-preview",
+    "name": "O1 Preview",
+    "releaseDate": "2024-09-12",
+    "organization": "OpenAI"
+  },
+  {
+    "id": "deepseek-r1",
+    "name": "DeepSeek R1",
+    "releaseDate": "2025-01-20",
+    "organization": "DeepSeek"
+  },
+  {
+    "id": "gemini-2.5-pro",
+    "name": "Gemini 2.5 Pro",
+    "releaseDate": "2025-07-17",
+    "organization": "Google"
+  },
+  {
+    "id": "claude-opus-4.5",
+    "name": "Claude Opus 4.5",
+    "releaseDate": "2025-11-24",
+    "organization": "Anthropic"
+  }
+]

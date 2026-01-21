@@ -1,0 +1,126 @@
+{
+  "id": "sad",
+  "name": "SAD",
+  "metricName": "score",
+  "scores": [
+    {
+      "modelId": "claude-opus-4.5",
+      "score": 0.8473649598393574,
+      "stdError": null
+    },
+    {
+      "modelId": "gemini-2.5-pro",
+      "score": 0.788031980864635,
+      "stdError": null
+    },
+    {
+      "modelId": "o1-preview",
+      "score": 0.7494174196787149,
+      "stdError": 0.01103237301595655
+    },
+    {
+      "modelId": "o1-mini",
+      "score": 0.7097241465863453,
+      "stdError": 0.011867184321302956
+    },
+    {
+      "modelId": "claude-3-opus",
+      "score": 0.6673584337349397,
+      "stdError": 0.011825156088465346
+    },
+    {
+      "modelId": "claude-3.5-sonnet",
+      "score": 0.6649051204819277,
+      "stdError": 0.01156141031676446
+    },
+    {
+      "modelId": "claude-3-sonnet",
+      "score": 0.610015562248996,
+      "stdError": 0.012541794907808176
+    },
+    {
+      "modelId": "llama-3-70b-chat",
+      "score": 0.6063900602409639,
+      "stdError": 0.01256075345155204
+    },
+    {
+      "modelId": "gpt-4-0613",
+      "score": 0.6061714357429719,
+      "stdError": 0.01269008728089964
+    },
+    {
+      "modelId": "gpt-4o",
+      "score": 0.594406626506024,
+      "stdError": 0.012271098946256423
+    },
+    {
+      "modelId": "gpt-4-0125-preview",
+      "score": 0.576620983935743,
+      "stdError": 0.012741237408900517
+    },
+    {
+      "modelId": "claude-2.1",
+      "score": 0.5734267068273093,
+      "stdError": 0.012680034337060733
+    },
+    {
+      "modelId": "claude-instant-1.2",
+      "score": 0.5599984939759037,
+      "stdError": 0.01257594068592779
+    },
+    {
+      "modelId": "deepseek-r1",
+      "score": 0.5558660229151902,
+      "stdError": null
+    },
+    {
+      "modelId": "claude-3-haiku",
+      "score": 0.5417171184738956,
+      "stdError": 0.012755207537820784
+    },
+    {
+      "modelId": "llama-2-70b-chat",
+      "score": 0.5090065261044178,
+      "stdError": 0.012923368877145772
+    },
+    {
+      "modelId": "llama-2-70b",
+      "score": 0.4959026104417671,
+      "stdError": 0.012983724501081984
+    },
+    {
+      "modelId": "llama-2-13b-chat",
+      "score": 0.48922314257028116,
+      "stdError": 0.012994170185981358
+    },
+    {
+      "modelId": "llama-2-7b",
+      "score": 0.471816265060241,
+      "stdError": 0.013052497447082256
+    },
+    {
+      "modelId": "gpt-3.5-turbo-0613",
+      "score": 0.4687028112449799,
+      "stdError": 0.013039603946600272
+    },
+    {
+      "modelId": "llama-2-13b",
+      "score": 0.42174999999999996,
+      "stdError": 0.012997923439629471
+    },
+    {
+      "modelId": "davinci-002",
+      "score": 0.4135,
+      "stdError": 0.012932133979483156
+    },
+    {
+      "modelId": "llama-2-7b-chat",
+      "score": 0.38786470883534135,
+      "stdError": 0.012782367587299306
+    }
+  ],
+  "randomBaseline": 0.45,
+  "humanBaseline": null,
+  "expertBaseline": null,
+  "url": "https://situational-awareness-dataset.org/#results"
+}

@@ -1,0 +1,4 @@
+model,score,n_tasks
+openrouter/anthropic/claude-opus-4.5,0.8473649598393574,5
+openrouter/google/gemini-2.5-pro,0.788031980864635,5
+openrouter/deepseek/deepseek-r1,0.5558660229151902,5

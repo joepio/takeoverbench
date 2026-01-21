@@ -1,0 +1,85 @@
+{
+  "eval_set_id": "a3XzY2sDWLV8WdHujsvdCi",
+  "tasks": [
+    {
+      "name": "inspect_evals/sad_facts_human_defaults",
+      "task_id": "2FnjiB5o7LCKjm6KxLEn2i",
+      "task_args": {},
+      "model": "openrouter/google/gemini-2.5-pro",
+      "model_args": {},
+      "sequence": 0
+    },
+    {
+      "name": "inspect_evals/sad_facts_llms",
+      "task_id": "LGrrxV5t6nVPcFjUtAt8rK",
+      "task_args": {},
+      "model": "openrouter/google/gemini-2.5-pro",
+      "model_args": {},
+      "sequence": 1
+    },
+    {
+      "name": "inspect_evals/sad_influence",
+      "task_id": "8Kz4gXxiGaQYghYhuuDa9F",
+      "task_args": {},
+      "model": "openrouter/google/gemini-2.5-pro",
+      "model_args": {},
+      "sequence": 2
+    },
+    {
+      "name": "inspect_evals/sad_stages_full",
+      "task_id": "CHJz7H3RyP2t7av37UdYcF",
+      "task_args": {},
+      "model": "openrouter/google/gemini-2.5-pro",
+      "model_args": {},
+      "sequence": 3
+    },
+    {
+      "name": "inspect_evals/sad_stages_oversight",
+      "task_id": "VyBnnRXAbSJZUbsEEawsxF",
+      "task_args": {},
+      "model": "openrouter/google/gemini-2.5-pro",
+      "model_args": {},
+      "sequence": 4
+    },
+    {
+      "name": "inspect_evals/sad_facts_human_defaults",
+      "task_id": "MnHJynb3KPhpYmrAzHZYDm",
+      "task_args": {},
+      "model": "openrouter/deepseek/deepseek-r1",
+      "model_args": {},
+      "sequence": 0
+    },
+    {
+      "name": "inspect_evals/sad_facts_llms",
+      "task_id": "Tz3qw6MdEBdDzMwG9hEsPr",
+      "task_args": {},
+      "model": "openrouter/deepseek/deepseek-r1",
+      "model_args": {},
+      "sequence": 1
+    },
+    {
+      "name": "inspect_evals/sad_influence",
+      "task_id": "houhyC2XKVMnnkcdyEqzTY",
+      "task_args": {},
+      "model": "openrouter/deepseek/deepseek-r1",
+      "model_args": {},
+      "sequence": 2
+    },
+    {
+      "name": "inspect_evals/sad_stages_full",
+      "task_id": "Mogxn8GEswXCfaY7a7NwDn",
+      "task_args": {},
+      "model": "openrouter/deepseek/deepseek-r1",
+      "model_args": {},
+      "sequence": 3
+    },
+    {
+      "name": "inspect_evals/sad_stages_oversight",
+      "task_id": "bSJZUS9n6mhK928h69UKs3",
+      "task_args": {},
+      "model": "openrouter/deepseek/deepseek-r1",
+      "model_args": {},
+      "sequence": 4
+    }
+  ]
+}
