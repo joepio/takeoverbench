@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Optional
 
 import yaml
-from pydantic import BaseModel
+from pydantic import BaseModel, TypeAdapter
 
 
 # Default path to models.yaml relative to this file
@@ -45,7 +45,7 @@ class ModelMetaYaml(BaseModel):
         return alias_map
 
 
-class ModelExport(BaseModel):
+class ModelExportEntry(BaseModel):
     """Model metadata for export."""
 
     id: str
@@ -53,19 +53,22 @@ class ModelExport(BaseModel):
     releaseDate: str
     organization: str
 
+# makes easy way to export and load lists of the model
+ModelsExport = TypeAdapter(list[ModelExportEntry])
+
 
 class ModelMetaData:
     def __init__(self) -> None:
         self.models_config = ModelMetaYaml.from_yaml()
         self.alias_map = self.models_config.build_alias_map()
     
-    def get(self, model: str) -> ModelExport:
+    def get(self, model: str) -> ModelExportEntry:
         model = model.split("/")[-1]
         model_canonical = self.alias_map.get(model, model)
         if model_canonical not in self.models_config.models:
             raise KeyError(f"No meta data found for model name: {model}")
         model_config = self.models_config.models[model_canonical]
-        return ModelExport(id=model_canonical, name=model_config.display_name, releaseDate=str(model_config.release_date), organization=model_config.organization)
+        return ModelExportEntry(id=model_canonical, name=model_config.display_name, releaseDate=str(model_config.release_date), organization=model_config.organization)
 
 class ModelScore(BaseModel):
     """A single model's score on the benchmark."""
@@ -85,3 +88,5 @@ class BenchmarkData(BaseModel):
     humanBaseline: float | None = None
     expertBaseline: float | None = None
     url: str | None = None
+
+BenchmarksExport = TypeAdapter(list[BenchmarkData])

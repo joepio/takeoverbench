@@ -37,7 +37,7 @@ def main():
                     random_baseline = float(row["random_chance"])
 
     # Load inspect results (overrides existing scores)
-    inspect_path = script_dir / "data" / "inspect_sads_mini.csv"
+    inspect_path = script_dir / "data" / "inspect_sad_mini.csv"
     if inspect_path.exists():
         with open(inspect_path) as f:
             for row in csv.DictReader(f):
