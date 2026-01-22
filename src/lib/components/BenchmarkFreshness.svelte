@@ -45,7 +45,7 @@
 </script>
 
 {#if latestDate}
-  <div class="text-right">
+  <div class="text-center md:text-right">
     <div
       class="{compact
         ? 'text-3xl'

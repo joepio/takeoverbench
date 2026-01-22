@@ -121,16 +121,27 @@
           {#each threatModels as t (t.id)}
             <a
               href={"/threat/" + t.id}
-              class="group block bg-surface-primary border border-gray-400/20 rounded-xl p-8 hover:shadow-2xl hover:border-blue-400/30 hover:bg-gray-100/5 transition-all duration-300 no-underline text-current"
+              class="group block bg-surface-primary border rounded-xl transition-all duration-300 no-underline text-current {t.id ===
+              'selfImprovement'
+                ? 'p-10 border-red-500/30 bg-red-500/[0.03] hover:shadow-red-500/10'
+                : 'p-8 border-gray-400/20 hover:shadow-2xl hover:border-blue-400/30 hover:bg-gray-100/5'}"
               aria-labelledby={"threat-" + t.id + "-title"}
             >
               <div class="flex items-start justify-between mb-4">
-                <h2
-                  id={"threat-" + t.id + "-title"}
-                  class="text-xl font-bold text-gray-900 group-hover:text-blue-400 transition-colors leading-tight"
-                >
-                  {t.name}
-                </h2>
+                <div class="flex flex-col gap-1">
+                  {#if t.id === "selfImprovement"}
+                    <span
+                      class="text-[10px] uppercase tracking-[0.2em] font-black text-red-500 mb-1"
+                      >Critical Driver</span
+                    >
+                  {/if}
+                  <h2
+                    id={"threat-" + t.id + "-title"}
+                    class="text-xl font-bold text-gray-900 group-hover:text-blue-400 transition-colors leading-tight"
+                  >
+                    {t.name}
+                  </h2>
+                </div>
                 <div
                   class="text-[11px] uppercase tracking-widest font-bold text-gray-400 whitespace-nowrap mt-1.5 bg-gray-100/5 px-2 py-1 rounded"
                 >
@@ -160,20 +171,6 @@
                     {/if}
                   </ul>
                 </div>
-                {#if t.sources_short && t.sources_short.length > 0}
-                  <div class="text-xs mt-3">
-                    <div class="mb-1">
-                      <strong>Sources:</strong>
-                    </div>
-                    <ul class="list-disc list-inside space-y-1">
-                      {#each t.sources_short as source (source)}
-                        <li class="text-sm">
-                          {source}
-                        </li>
-                      {/each}
-                    </ul>
-                  </div>
-                {/if}
               {:else}
                 <div class="text-xs text-gray-700">
                   No benchmarks listed for this threat.

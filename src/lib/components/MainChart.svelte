@@ -123,6 +123,7 @@
         });
 
         // Add SOTA line dataset
+        const isCritical = bid === "mle_bench";
         datasets.push({
           label: bench.capabilityName ?? bench.name,
           data,
@@ -131,12 +132,15 @@
           pointBackgroundColor: bench.color,
           pointBorderColor: bench.color,
           tension: 0.3,
-          pointRadius: 3,
-          pointHoverRadius: 5,
+          pointRadius: isCritical ? 4 : 3,
+          pointHoverRadius: isCritical ? 6 : 5,
           borderWidth: 2,
           showLine: true,
           spanGaps: true,
-          meta: { dateToModelId, benchmarkId: bench.id },
+          // Add glow effect for critical benchmark
+          shadowBlur: isCritical ? 12 : 0,
+          shadowColor: isCritical ? bench.color : "transparent",
+          meta: { dateToModelId, benchmarkId: bench.id, isCritical },
         });
 
         // When SOTA filter is off, also add scatter plot with all points
@@ -229,7 +233,7 @@
                 borderWidth: 2,
                 borderDash: [5, 5],
                 spanGaps: true,
-                meta: { isProjection: true, benchmarkId: bench.id },
+                meta: { isProjection: true, benchmarkId: bench.id, isCritical },
                 hidden: false,
               });
             }
@@ -424,13 +428,34 @@
       },
     };
 
+    // Plugin to apply shadow/glow effect to critical lines
+    const glowPlugin = {
+      id: "glowPlugin",
+      beforeDatasetDraw(chart: any, args: any) {
+        const { ctx } = chart;
+        const dataset = chart.data.datasets[args.index];
+        if (dataset.shadowBlur) {
+          ctx.save();
+          ctx.shadowBlur = dataset.shadowBlur;
+          ctx.shadowColor = dataset.shadowColor;
+        }
+      },
+      afterDatasetDraw(chart: any, args: any) {
+        const { ctx } = chart;
+        const dataset = chart.data.datasets[args.index];
+        if (dataset.shadowBlur) {
+          ctx.restore();
+        }
+      },
+    };
+
     chart = new Chart(ctx, {
       type: "line",
       data: {
         datasets,
         labels: useCategory ? categoryLabels : undefined,
       },
-      plugins: [textPlugin],
+      plugins: [glowPlugin, textPlugin],
       options: {
         responsive: true,
         maintainAspectRatio: false,
