@@ -27,7 +27,7 @@
     TimeScale,
     CategoryScale,
     Tooltip,
-    Legend
+    Legend,
   );
 
   export let selectedBenchmarks: string[] = benchmarks
@@ -77,7 +77,7 @@
   function buildDatasets(
     releaseTs: number[],
     useCategory: boolean,
-    categoryLabels?: string[]
+    categoryLabels?: string[],
   ) {
     const datasets: any[] = [];
 
@@ -204,7 +204,7 @@
               validData.map((d) => ({ x: d.x, y: d.y as number })),
               bench.projectionType ?? "s-curve",
               12,
-              ceiling
+              ceiling,
             );
 
             if (
@@ -386,7 +386,7 @@
       afterDatasetsDraw(chart: any) {
         const ctx = chart.ctx;
         const todayDatasetIndex = chart.data.datasets.findIndex(
-          (d: any) => d.meta?.isToday
+          (d: any) => d.meta?.isToday,
         );
         if (todayDatasetIndex === -1) return;
 
@@ -449,13 +449,35 @@
       },
     };
 
+    // Plugin to draw watermark
+    const watermarkPlugin = {
+      id: "watermark",
+      afterDraw: (chart: any) => {
+        const ctx = chart.ctx;
+        const chartArea = chart.chartArea;
+        if (!chartArea) return;
+
+        ctx.save();
+        ctx.font = "bold 12px Inter, sans-serif";
+        ctx.fillStyle = "rgba(156, 163, 175, 0.25)"; // Subtle grey watermark
+        ctx.textAlign = "right";
+        ctx.textBaseline = "bottom";
+        ctx.fillText(
+          "TakeOverBench.com",
+          chartArea.right - 8,
+          chartArea.bottom - 8,
+        );
+        ctx.restore();
+      },
+    };
+
     chart = new Chart(ctx, {
       type: "line",
       data: {
         datasets,
         labels: useCategory ? categoryLabels : undefined,
       },
-      plugins: [glowPlugin, textPlugin],
+      plugins: [glowPlugin, textPlugin, watermarkPlugin],
       options: {
         responsive: true,
         maintainAspectRatio: false,
@@ -472,7 +494,7 @@
               borderRadius: 3,
               font: { size: 12, family: "Inter, sans-serif" },
               color: getComputedStyle(
-                document.documentElement
+                document.documentElement,
               ).getPropertyValue("--color-gray-600"),
 
               filter: function (legendItem: any, chartData: any) {
@@ -503,7 +525,7 @@
 
                 // Find matching benchmark by capability name or name
                 const bench = benchmarks.find(
-                  (b) => b.capabilityName === label || b.name === label
+                  (b) => b.capabilityName === label || b.name === label,
                 );
 
                 if (bench?.id) {
@@ -724,10 +746,7 @@
         {/if}
       </div>
     {/if}
-    <div
-      class="w-full bg-surface-primary rounded-lg p-4"
-      style="height: {height};"
-    >
+    <div class="w-full bg-surface-primary rounded-lg" style="height: {height};">
       <canvas bind:this={canvasEl} width="800" height="400"></canvas>
     </div>
   </div>
