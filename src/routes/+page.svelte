@@ -68,10 +68,10 @@
         </h2>
         <p class="text-lg text-gray-800 leading-relaxed">
           According to "Model evaluation for extreme risks" (Shevlane, 2023),
-          the most dangerous AI capabilities include Cyber-offense, Persuasion &
-          manipulation, Political strategy, Weapons acquisition, Long-horizon
-          planning, AI development, Situational awareness, and
-          Self-proliferation. Progress on these capabilities is shown below.
+          the most dangerous AI capabilities include <a href="/benchmarks/cybench">Cyber-offense</a>, <a href="/benchmarks/make_me_say">Persuasion &
+          manipulation</a>, <a href="/benchmarks/forecast_bench">Political strategy</a>, Weapons acquisition (such as <a href="/benchmarks/vct">biological</a> and <a href="/benchmarks/chem_bench">chemical weapons</a>), <a href="/benchmarks/long_tasks">Long-horizon
+          planning</a>, <a href="/benchmarks/mle_bench">AI development</a>, <a href="/benchmarks/sad">Situational awareness</a>, and
+          <a href="/benchmarks/repli_bench">Self-proliferation</a>. Progress on these capabilities is shown below.
         </p>
       </div>
 

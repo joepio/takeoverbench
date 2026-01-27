@@ -100,11 +100,11 @@
               </h1>
 
               {#if benchmark.capabilityDefinition}
-                <div
+                <p
                   class="text-lg mt-6 text-gray-800 leading-relaxed max-w-4xl font-medium"
                 >
                   {@html linkifyCitations(benchmark.capabilityDefinition)}
-                </div>
+                </p>
               {/if}
 
               <div class="mt-8">
@@ -136,11 +136,11 @@
                   </h2>
                 {/if}
 
-                <div
+                <p
                   class="text-lg mt-3 text-gray-800 leading-relaxed max-w-3xl"
                 >
                   {@html linkifyCitations(benchmark.description)}
-                </div>
+                </p>
               </div>
             </div>
 
@@ -183,9 +183,9 @@
                   <h2 class="text-2xl font-bold text-gray-900 mb-6">
                     Why this benchmark?
                   </h2>
-                  <div class="text-lg text-gray-800 leading-relaxed">
+                  <p class="text-lg text-gray-800 leading-relaxed">
                     {@html linkifyCitations(benchmark.motivation)}
-                  </div>
+                  </p>
                 </div>
               {/if}
 
