@@ -194,49 +194,37 @@
           });
         }
 
-        // Generate projection if enabled (always use SOTA data for projections)
+        // Generate projection if enabled (uses pre-fitted params from Python)
         if (projectionsEnabled && bench.projectionType !== "none") {
           const validData = data.filter((d) => d.y !== null && !isNaN(d.y));
-          if (validData.length >= 2) {
-            // Use appropriate ceiling: no ceiling for exponential, 100 for s-curve
-            const ceiling = bench.projectionType === "exponential" ? 1000 : 100;
-            const projection = generateProjection(
-              validData.map((d) => ({ x: d.x, y: d.y as number })),
-              bench.projectionType ?? "s-curve",
-              12,
-              ceiling,
-            );
+          const projection = generateProjection(bench.id, 12);
 
-            if (
-              projection.projectedPoints.length > 0 &&
-              projection.confidence > 0.3
-            ) {
-              // Add last actual data point to connect projection
-              const lastActual = validData[validData.length - 1];
-              const projectionData = [
-                lastActual,
-                ...projection.projectedPoints.map((p) => ({
-                  x: p.x,
-                  y: p.y,
-                  isProjection: true,
-                  benchmarkId: bench.id,
-                })),
-              ];
+          if (projection.projectedPoints.length > 0) {
+            // Add last actual data point to connect projection
+            const lastActual = validData[validData.length - 1];
+            const projectionData = [
+              lastActual,
+              ...projection.projectedPoints.map((p) => ({
+                x: p.x,
+                y: p.y * 100,
+                isProjection: true,
+                benchmarkId: bench.id,
+              })),
+            ];
 
-              datasets.push({
-                label: bench.capabilityName ?? bench.name,
-                data: projectionData,
-                borderColor: bench.color,
-                backgroundColor: "transparent",
-                tension: 0.3,
-                pointRadius: 0,
-                borderWidth: 2,
-                borderDash: [5, 5],
-                spanGaps: true,
-                meta: { isProjection: true, benchmarkId: bench.id, isCritical },
-                hidden: false,
-              });
-            }
+            datasets.push({
+              label: bench.capabilityName ?? bench.name,
+              data: projectionData,
+              borderColor: bench.color,
+              backgroundColor: "transparent",
+              tension: 0.3,
+              pointRadius: 0,
+              borderWidth: 2,
+              borderDash: [5, 5],
+              spanGaps: true,
+              meta: { isProjection: true, benchmarkId: bench.id, isCritical },
+              hidden: false,
+            });
           }
         }
 
@@ -545,6 +533,13 @@
             padding: 10,
             titleFont: { size: 13, weight: 600 },
             bodyFont: { size: 12 },
+            filter: (tooltipItem: any) => {
+              const meta = tooltipItem.dataset?.meta ?? {};
+              const raw = tooltipItem.raw ?? {};
+              // Hide tooltip entirely for projection points
+              if (meta.isProjection || raw.isProjection) return false;
+              return true;
+            },
             callbacks: {
               title: (context: any) => {
                 // Hide title for baseline tooltips
@@ -567,8 +562,6 @@
                   const val = context.parsed?.y ?? 0;
                   return `Expert Baseline: ${val.toFixed(1)}%`;
                 }
-                if (meta.isProjection || raw.isProjection)
-                  return "Trend Projection";
 
                 // Direct model name from enriched data point
                 if (raw.modelId) {
