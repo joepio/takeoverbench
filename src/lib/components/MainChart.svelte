@@ -383,7 +383,7 @@
 
         // Get x position from the first point of the line
         const x = meta.data[0].x;
-        const y = chart.chartArea.bottom - 35; // Position further above bottom edge
+        const y = chart.chartArea.bottom - 25; // Position further above bottom edge
 
         const text = "We are here";
         ctx.save();
@@ -538,6 +538,7 @@
               const raw = tooltipItem.raw ?? {};
               // Hide tooltip entirely for projection points
               if (meta.isProjection || raw.isProjection) return false;
+              if (meta.isToday) return false;
               return true;
             },
             callbacks: {
@@ -557,7 +558,6 @@
                 const raw = context.raw ?? {};
 
                 // Handle specifically tagged points
-                if (meta.isToday) return "We are here";
                 if (meta.isBaseline || raw.isBaseline) {
                   const val = context.parsed?.y ?? 0;
                   return `Expert Baseline: ${val.toFixed(1)}%`;

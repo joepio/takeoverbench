@@ -49,7 +49,7 @@ def transform_forecast_bench(scores: np.ndarray) -> np.ndarray:
 
 def transform_long_tasks(scores: np.ndarray) -> np.ndarray:
     """Normalize against 40-hour workday (2400 minutes)."""
-    nr_hours = 8
+    nr_hours = 40
     top_minutes = nr_hours * 60 
     return scores / top_minutes
 
