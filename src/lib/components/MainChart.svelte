@@ -730,8 +730,7 @@
               >
                 <p class="leading-relaxed">
                   <strong>12-month extrapolation</strong> based on historical SOTA
-                  trends using automated mathematical modeling. These calculations
-                  are not qualitative expert forecasts.
+                  trends using expoential or logistic fit. See the Benchmarks page for more information.
                 </p>
               </div>
             </div>

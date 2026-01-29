@@ -42,6 +42,11 @@
         <p class="mt-2">
           Overview of representative benchmarks. Use the chart to compare
           progress across selected benchmarks and inspect recent scores.
+          Projections are fitted to historical SOTA (state-of-the-art) points using S-curves
+          (logistic) for bounded benchmarks or exponential growth for unbounded
+          metrics. The projections are also anchored to start at the most recent SOTA model. Click on a legend
+          entry or browse the list below to learn more about each benchmark and
+          its associated dangerous capability.
         </p>
       </div>
 
