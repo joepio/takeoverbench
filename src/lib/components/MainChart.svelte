@@ -566,7 +566,12 @@
                 // Direct model name from enriched data point
                 if (raw.modelId) {
                   const model = models.find((m) => m.id === raw.modelId);
-                  if (model) return model.name;
+                  if (model) {
+                    if (selectedBenchmarks.length > 1) {
+                      return [dataset.label, model.name];
+                    }
+                    return model.name;
+                  }
                 }
 
                 // Fallback for line segments or missing model data
@@ -676,6 +681,235 @@
     }
   }
 
+  function downloadChart() {
+    const DOWNLOAD_WIDTH = 800;
+    const DOWNLOAD_HEIGHT = 720;
+
+    // Create an off-screen canvas at fixed dimensions
+    const offscreenCanvas = document.createElement("canvas");
+    offscreenCanvas.width = DOWNLOAD_WIDTH;
+    offscreenCanvas.height = DOWNLOAD_HEIGHT;
+    const ctx = offscreenCanvas.getContext("2d");
+    if (!ctx) return;
+
+    const releaseTs = buildReleaseTimestamps();
+    const useCategory = releaseTs.length === 0;
+    const categoryLabels = useCategory ? models.map((m) => m.name) : undefined;
+    const datasets = buildDatasets(releaseTs, useCategory, categoryLabels);
+
+    let xMin: number | undefined = undefined;
+    let xMax: number | undefined = undefined;
+    if (!useCategory) {
+      xMin = releaseTs[0];
+      const oneYearInMs = 365.25 * 24 * 60 * 60 * 1000;
+      const lastTs = releaseTs[releaseTs.length - 1];
+      const today = Date.now();
+      xMax = Math.max(lastTs + oneYearInMs, today + 30 * 24 * 60 * 60 * 1000);
+    }
+
+    // Background plugin — runs before Chart.js clears the canvas
+    const backgroundPlugin = {
+      id: "background",
+      beforeDraw: (c: any) => {
+        c.ctx.save();
+        c.ctx.fillStyle = "#1e1e1e";
+        c.ctx.fillRect(0, 0, c.width, c.height);
+        c.ctx.restore();
+      },
+    };
+
+    const glowPlugin = {
+      id: "glowPlugin",
+      beforeDatasetDraw(c: any, args: any) {
+        const dataset = c.data.datasets[args.index];
+        if (dataset.shadowBlur) {
+          c.ctx.save();
+          c.ctx.shadowBlur = dataset.shadowBlur;
+          c.ctx.shadowColor = dataset.shadowColor;
+        }
+      },
+      afterDatasetDraw(c: any, args: any) {
+        const dataset = c.data.datasets[args.index];
+        if (dataset.shadowBlur) c.ctx.restore();
+      },
+    };
+
+    const textPlugin = {
+      id: "weAreHereText",
+      afterDatasetsDraw(c: any) {
+        const todayIdx = c.data.datasets.findIndex((d: any) => d.meta?.isToday);
+        if (todayIdx === -1) return;
+        const meta = c.getDatasetMeta(todayIdx);
+        if (!meta?.data?.length) return;
+        const x = meta.data[0].x;
+        const y = c.chartArea.bottom - 35;
+        const text = "We are here";
+        c.ctx.save();
+        c.ctx.font = "bold 11px Inter, sans-serif";
+        const metrics = c.ctx.measureText(text);
+        const pH = 6, pV = 3;
+        const rW = metrics.width + pH * 2;
+        const rH = 16 + pV * 2;
+        c.ctx.fillStyle = "rgba(30, 30, 30, 1)";
+        const rX = x - rW / 2, rY = y - rH / 2;
+        if (c.ctx.roundRect) {
+          c.ctx.beginPath();
+          c.ctx.roundRect(rX, rY, rW, rH, 4);
+          c.ctx.fill();
+        } else {
+          c.ctx.fillRect(rX, rY, rW, rH);
+        }
+        c.ctx.fillStyle = "#ef4444";
+        c.ctx.textAlign = "center";
+        c.ctx.textBaseline = "middle";
+        c.ctx.fillText(text, x, y);
+        c.ctx.restore();
+      },
+    };
+
+    const TITLE_HEIGHT = 52;
+
+    const titlePlugin = {
+      id: "titleRow",
+      afterDraw: (c: any) => {
+        const x = 24;
+        const cy = TITLE_HEIGHT / 2;
+        const size = 28;
+        const r = 7;
+        c.ctx.save();
+
+        // Red rounded-rect background
+        c.ctx.fillStyle = "#DC2626";
+        c.ctx.beginPath();
+        c.ctx.roundRect(x, cy - size / 2, size, size, r);
+        c.ctx.fill();
+
+        // White bar-chart strokes (matching favicon SVG, scaled to size)
+        // SVG viewBox 0 0 100 100, scaled to `size`
+        const s = size / 100;
+        c.ctx.strokeStyle = "white";
+        c.ctx.lineWidth = 8 * s;
+        c.ctx.lineCap = "round";
+        c.ctx.lineJoin = "round";
+        const ox = x; // offset x
+        const oy = cy - size / 2; // offset y
+        // path: M25 75 h50
+        c.ctx.beginPath();
+        c.ctx.moveTo(ox + 25 * s, oy + 75 * s);
+        c.ctx.lineTo(ox + 75 * s, oy + 75 * s);
+        c.ctx.stroke();
+        // M35 75 V55
+        c.ctx.beginPath();
+        c.ctx.moveTo(ox + 35 * s, oy + 75 * s);
+        c.ctx.lineTo(ox + 35 * s, oy + 55 * s);
+        c.ctx.stroke();
+        // M50 75 V35
+        c.ctx.beginPath();
+        c.ctx.moveTo(ox + 50 * s, oy + 75 * s);
+        c.ctx.lineTo(ox + 50 * s, oy + 35 * s);
+        c.ctx.stroke();
+        // M65 75 V20
+        c.ctx.beginPath();
+        c.ctx.moveTo(ox + 65 * s, oy + 75 * s);
+        c.ctx.lineTo(ox + 65 * s, oy + 20 * s);
+        c.ctx.stroke();
+
+        // "TakeOverBench" text
+        c.ctx.font = "bold 18px Inter, sans-serif";
+        c.ctx.fillStyle = "#f9fafb";
+        c.ctx.textAlign = "left";
+        c.ctx.textBaseline = "middle";
+        c.ctx.fillText("TakeOverBench", x + size + 10, cy);
+
+        c.ctx.restore();
+      },
+    };
+
+    const watermarkPlugin = {
+      id: "watermark",
+      afterDraw: (c: any) => {
+        const chartArea = c.chartArea;
+        if (!chartArea) return;
+        c.ctx.save();
+        c.ctx.font = "bold 12px Inter, sans-serif";
+        c.ctx.fillStyle = "rgba(156, 163, 175, 0.25)";
+        c.ctx.textAlign = "right";
+        c.ctx.textBaseline = "bottom";
+        c.ctx.fillText("TakeOverBench.com", chartArea.right - 8, chartArea.bottom - 8);
+        c.ctx.restore();
+      },
+    };
+
+    const tempChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        datasets,
+        labels: useCategory ? categoryLabels : undefined,
+      },
+      plugins: [backgroundPlugin, glowPlugin, textPlugin, titlePlugin, watermarkPlugin],
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: false,
+        layout: {
+          padding: { top: TITLE_HEIGHT, left: 8, right: 8, bottom: 8 },
+        },
+        plugins: {
+          legend: {
+            display: showLegend,
+            position: "bottom",
+            labels: {
+              padding: 16,
+              usePointStyle: false,
+              boxWidth: 6,
+              boxHeight: 6,
+              useBorderRadius: true,
+              borderRadius: 3,
+              font: { size: 12, family: "Inter, sans-serif" },
+              color: "#9ca3af",
+              filter: (legendItem: any, chartData: any) => {
+                const dataset = chartData.datasets[legendItem.datasetIndex];
+                return !dataset.meta?.isProjection && !dataset.meta?.isScatter && !dataset.meta?.isToday;
+              },
+            },
+          },
+          tooltip: { enabled: false },
+        },
+        scales: {
+          x: useCategory
+            ? { type: "category", title: { display: true, text: "Model" } }
+            : {
+                type: "time",
+                min: xMin,
+                max: xMax,
+                time: {
+                  unit: "year",
+                  displayFormats: { year: "yyyy" },
+                },
+                title: { display: true, text: "Model release date", color: "#9ca3af", font: { size: 12 } },
+                ticks: { maxRotation: 0, autoSkip: true, color: "#9ca3af" },
+                grid: { color: "rgba(255,255,255,0.1)" },
+              },
+          y: {
+            min: 0,
+            max: 100,
+            title: { display: true, text: "Score (%)", color: "#9ca3af", font: { size: 12 } },
+            grid: { color: "rgba(255, 255, 255, 0.1)" },
+            ticks: { stepSize: 10, callback: (val: any) => `${val}%`, color: "#9ca3af" },
+          },
+        },
+      },
+    });
+
+    const dataUrl = offscreenCanvas.toDataURL("image/png");
+    tempChart.destroy();
+
+    const a = document.createElement("a");
+    a.href = dataUrl;
+    a.download = "takeoverbench-chart.png";
+    a.click();
+  }
+
   onDestroy(() => {
     if (chart) {
       chart.destroy();
@@ -686,8 +920,8 @@
 
 {#if selectedBenchmarks.length > 0}
   <div class="w-full">
-    {#if showProjections || showSotaFilter}
-      <div class="mb-3 flex items-center justify-end gap-6">
+    <div class="mb-3 flex items-center justify-between gap-6">
+      <div class="flex items-center gap-6">
         {#if showSotaFilter}
           <label class="flex items-center gap-2 text-sm cursor-pointer">
             <input
@@ -737,7 +971,27 @@
           </div>
         {/if}
       </div>
-    {/if}
+      <button
+        on:click={downloadChart}
+        title="Download chart as PNG"
+        class="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors cursor-pointer"
+      >
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+          />
+        </svg>
+        Download
+      </button>
+    </div>
     <div class="w-full bg-surface-primary rounded-lg" style="height: {height};">
       <canvas bind:this={canvasEl} width="800" height="400"></canvas>
     </div>
